@@ -7,7 +7,7 @@ library(purrr)
 library(here)
 library(stringr)
 
-here::i_am('~/data')
+setwd(here::here('data')) # 2021-01-28 doing this for now because I can't figure out a work around
 
 # store the URL for the project data
 
@@ -17,10 +17,12 @@ folder_url <- "https://drive.google.com/drive/folders/1_DjiVtWL3VLHoOms8rEUhiUfb
 ## Let `googledrive` know this is a file ID or URL, as opposed to file name
 folder <- googledrive::drive_get(as_id(folder_url))
 
-#find files in folder
+# find files in folder
 files = googledrive::drive_ls(folder)
 
-#loop dirs and download files inside them
+# loop dirs and download files inside them
+# this will also skip files already downloaded
+
 for (i in seq_along(files$name)) {
   
   #list files
@@ -37,8 +39,9 @@ for (i in seq_along(files$name)) {
       drive_download(
         as_id(i_dir$id[file_i]),
         path = stringr::str_c(files$name[i], "/", i_dir$name[file_i])
-      )
+        )
     })
   }
 }
+
 
