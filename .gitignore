@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 data/
+analysis/
+team-notes/
+*.png
