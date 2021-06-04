@@ -44,4 +44,5 @@ for (i in seq_along(files$name)) {
   }
 }
 
+rm(list = ls())
 
