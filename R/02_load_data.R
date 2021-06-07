@@ -45,7 +45,10 @@ for (i in 1:length(files)){
   
   tempdf <- readxl::read_excel(path = here::here('analysis', files[i]), 
                                sheet = 'tank') %>% 
-    janitor::clean_names() 
+    janitor::clean_names() %>% 
+    dplyr::mutate(reserve_code = toupper(reserve_code),
+                  sample_code = paste0(sample_no, '_', reserve_code), 
+                  method = "tank") 
   
   tank_files[[i]] <- tempdf # add file to opened list()
   
