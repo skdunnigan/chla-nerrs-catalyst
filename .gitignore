@@ -2,8 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-data/
-analysis/
 team-notes/
+*.xlsx
+*.csv
+*.docx
 *.png
 *.zip
+*.jpeg
