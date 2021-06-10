@@ -7,7 +7,7 @@
 # 02 wrangle for site-specific differences in data ----
 
 ## 02.1 Mission Aransas (MAR)----
-# takes subsamples of replicates. Need to create two columns for replicates to separate out the subsamples
+# takes subsamples of replicates for 'method' replicates. Need to create two columns for replicates to separate out the subsamples
 
 MAR_tank %>% 
   dplyr::filter(rep == 1.1) %>% 
