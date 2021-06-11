@@ -66,3 +66,5 @@ names(tank_files) <- paste0(substr(c(files),10,12), "_tank") # rename all the li
 tank_files # view the complete list of files read in for isco
 
 rm('_tank')
+
+rm(files, i, name)
