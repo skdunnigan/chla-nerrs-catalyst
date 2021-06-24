@@ -1,0 +1,31 @@
+---
+title: "NERRS Chlorophyll Catalyst Project"
+subtitle: "Data Update Version 1"
+date: 
+output: 
+  html_notebook:
+    toc: true
+    toc_float: true
+    df_print: paged
+---
+
+```{r setup, include = FALSE}
+kn
+```
+
+<right><blockquote class="blockquote text-right">
+  <p class="mb-0">The greatest value of a picture is when it forces us to notice what we never expected to see.</p>
+  <footer class="blockquote-footer">John W. Tukey</footer>
+</blockquote></right>
+
+
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.

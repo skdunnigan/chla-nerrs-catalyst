@@ -60,7 +60,7 @@ isco_reserve_figure <- function(x, r2_label, regline_label) {
 # isco_reserve_figure("ELK", r2_label = 12, regline_label = 11)
 # isco_reserve_figure("GTM", r2_label = 11, regline_label = 10)
 # isco_reserve_figure("PDB", r2_label = 15, regline_label = 13)
-# isco_reserve_figure("WEL", r2_label = 2, regline_label = 1.8)
+# isco_reserve_figure("WEL", r2_label = 4, regline_label = 3.8)
 # isco_reserve_figure("OWC", r2_label = 43, regline_label = 40)
 
 
@@ -72,12 +72,12 @@ facet_all_isco_figure <- isco %>%
                           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                             geom_point(aes(color = reserve_code), size = 3, position = "jitter") +
                             stat_smooth(method = "lm", color = "black", se = FALSE) +
-                            ggpubr::stat_regline_equation(label.y = 38) +
-                            ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                             label.y = 43) + # add R2 and p value
+                            # ggpubr::stat_regline_equation(label.y = 38) +
+                            # ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
+                            #                  label.y = 43) + # add R2 and p value
                             scale_colour_manual(name = "Reserve", values = reservecolours) +
                             scale_y_continuous(expand = c(0,0)) +
-                            facet_wrap(.~ reserve_code, scales = "free_x") +
+                            facet_wrap(.~ reserve_code, scales = "free") +
                             theme_classic() +
                             theme(legend.position = "blank",
                                   text = element_text(size = 12),
@@ -87,7 +87,7 @@ facet_all_isco_figure <- isco %>%
                                  y = chla_extr_title,
                                  caption = "Only ISCO experiments")
 
-# all tank, fDOM, turb, temp ----------------------------------------------------------
+# all isco, fDOM, turb, temp ----------------------------------------------------------
 
 all_isco_fDOM <- isco %>% 
                   dplyr::filter(qaqc == 0 & !is.na(fdom_qsu)) %>%
@@ -102,7 +102,7 @@ all_isco_fDOM <- isco %>%
                          caption = "Only ISCO experiments with fDOM (QSU)")
 
 all_isco_turb <- isco %>% 
-                  dplyr::filter(qaqc == 0) %>%
+                  dplyr::filter(qaqc == 0 & turb < 240) %>%
                   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = turb), size = 3, position = "jitter") +
                     scale_colour_continuous(name = "Turbidity (NTU)") +
