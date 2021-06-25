@@ -10,3 +10,5 @@ library(here)
 library(cowplot)
 library(plotly)
 library(scales)
+library(knitr)
+library(kableExtra) # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html 
