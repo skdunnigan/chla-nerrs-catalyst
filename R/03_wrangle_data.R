@@ -2,7 +2,7 @@
 # source('R/00_load-packages.R')
 
 # 01 read in data ----
-source('R/02_load_data.R')
+# source('R/02_load_data.R')
 
 # 02 wrangle for site-specific differences in data ----
 
@@ -175,3 +175,31 @@ janitor::compare_df_cols_same(isco, tank,
 all <- dplyr::bind_rows(isco, tank) %>% 
        dplyr::filter(rep == 1 | is.na(rep)) # only keep rep 1 from tank, and NAs, which would be the isco data
 
+
+# calculate all lm equations, all/tank/isco -------------------------------
+
+
+# # all
+# 
+# lm_out <- all %>%
+#   dplyr::group_by(reserve_code) %>%
+#   do(broom::tidy(lm(chla_ugl ~ chlorophyll_rfu, data = .)))
+# 
+# diag <- dat2 %>%
+#   group_by(dilution_percent) %>%
+#   do(broom::glance(lm(chla_rfu ~ delta_T, data = .)))
+# 
+# ##check out model outputs
+# lm_out
+# diag
+# 
+# ## pull out slope and intercept
+# m <- lm_out %>%
+#   dplyr::filter(term == 'delta_T') %>%
+#   dplyr::rename(m = estimate) %>%
+#   dplyr::select(-term)
+# 
+# b <- lm_out %>%
+#   dplyr::filter(term == '(Intercept)') %>%
+#   dplyr::select(dilution_percent, estimate) %>%
+#   dplyr::rename(b = estimate)

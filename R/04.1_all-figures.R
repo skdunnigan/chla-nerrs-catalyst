@@ -76,12 +76,12 @@ all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
 # check all participating reserves
 # unique(all$reserve_code)
 # 
-all_reserve_figure_fxn("GTM", label.x = 0, 
-                   r2_label.y = 20,
-                   regline_label.y = 18)
-all_reserve_figure_fxn("PDB", label.x = 0, 
-                   r2_label.y = 20,
-                   regline_label.y = 18)
+# all_reserve_figure_fxn("GTM", label.x = 0, 
+#                    r2_label.y = 20,
+#                    regline_label.y = 18)
+# all_reserve_figure_fxn("PDB", label.x = 0, 
+#                    r2_label.y = 20,
+#                    regline_label.y = 18)
 
 
 
@@ -96,18 +96,20 @@ fdom <- all %>%
   ggpubr::theme_classic2() +
   labs(x = chla_RFU_title,
        y = chla_extr_title,
-       title = "Both Tank and ISCO Experiments")
+       title = "fDOM",
+       caption = "Both Tank and ISCO Experiments")
 
-ggplotly(all %>% 
-           filter(chlorophyll_rfu > 0) %>% 
-           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-           geom_point(aes(color = fdom_qsu), size = 3) +
-           scale_color_continuous(name = "fDOM QSU") +
-           ggpubr::theme_classic2() +
-           labs(x = 'Chlorophyll a RFU EXO',
-                y = 'Chlorophyll a ug/L Extracted',
-                title = "Both Tank and ISCO Experiments"),
-         tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+# ggplotly(all %>%
+#            filter(chlorophyll_rfu > 0) %>%
+#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
+#            geom_point(aes(color = fdom_qsu), size = 3) +
+#            scale_color_continuous(name = "fDOM QSU") +
+#            ggpubr::theme_classic2() +
+#            labs(x = 'Chlorophyll a RFU EXO',
+#                 y = 'Chlorophyll a ug/L Extracted',
+#                 title = "fDOM",
+#                 caption = "Both Tank and ISCO Experiments"),
+#          tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
 
 turb <- all %>% 
           filter(chlorophyll_rfu > 0 & turb < 240) %>% 
@@ -117,15 +119,42 @@ turb <- all %>%
           ggpubr::theme_classic2() +
           labs(x = chla_RFU_title,
                y = chla_extr_title,
-               title = "Both Tank and ISCO Experiments")
+               title = "Turbidity",
+               caption = "Both Tank and ISCO Experiments")
 
-ggplotly(all %>% 
-           filter(chlorophyll_rfu > 0 & turb < 240) %>% 
-           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-           geom_point(aes(color = turb), size = 3) +
-           scale_color_continuous(name = "Turbidity NTU")  +
-           ggpubr::theme_classic2() +
-           labs(x = 'Chlorophyll a RFU EXO',
-                y = 'Chlorophyll a ug/L Extracted',
-                title = "Both Tank and ISCO Experiments"),
-         tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+# ggplotly(all %>% 
+#            filter(chlorophyll_rfu > 0 & turb < 240) %>% 
+#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
+#            geom_point(aes(color = turb), size = 3) +
+#            scale_color_continuous(name = "Turbidity NTU")  +
+#            ggpubr::theme_classic2() +
+#            labs(x = 'Chlorophyll a RFU EXO',
+#                 y = 'Chlorophyll a ug/L Extracted',
+#                 title = "Turbidity", caption = "Both Tank and ISCO Experiments"),
+#          tooltip = c("turb", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+
+temp <- all %>% 
+  filter(chlorophyll_rfu > 0) %>% 
+  ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+  geom_point(aes(color = temp), size = 3) +
+  scale_color_gradient(name = expression(paste('Temperature ', "(", degree, "C)")),
+                       low="blue", high="red") +
+  # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
+  ggpubr::theme_classic2() +
+  labs(x = chla_RFU_title,
+       y = chla_extr_title,
+       title = "Temperature",
+       caption = "Both Tank and ISCO Experiments")
+
+# ggplotly(all %>% 
+#            filter(chlorophyll_rfu > 0) %>% 
+#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+#            geom_point(aes(color = temp), size = 3) +
+#            scale_color_gradient(name = 'Temperature C',
+#                                 low="blue", high="red") +
+#            # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
+#            ggpubr::theme_classic2() +
+#            labs(x = 'Chlorophyll a RFU EXO',
+#                 y = 'Chlorophyll a ug/L Extracted',
+#                 title = "Temperature", caption = "Both Tank and ISCO Experiments"),
+#          tooltip = c("temp", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
