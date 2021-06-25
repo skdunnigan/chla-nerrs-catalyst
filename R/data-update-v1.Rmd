@@ -126,7 +126,7 @@ temp
 
 ### Interactive
 
-```{r all-interf-interact}
+```{r all-interf-interact, dpi = 120}
 
 ggplotly(all %>%
            filter(chlorophyll_rfu > 0) %>%
