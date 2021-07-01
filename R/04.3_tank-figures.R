@@ -3,7 +3,7 @@
 all_tank_figure <- tank %>% 
                     dplyr::filter(qaqc == 0 & rep == 1) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                      geom_point(size = 3, position = "jitter") +
+                      geom_point(position = "jitter") +
                       stat_smooth(method = "lm", color = "black", se = FALSE) +
                       ggpubr::stat_regline_equation(label.y = 23) +
                       ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
@@ -21,7 +21,7 @@ all_tank_figure <- tank %>%
 all_tank_reserve_figure <- tank %>% 
                             dplyr::filter(qaqc == 0 & rep == 1) %>% 
                             ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                              geom_point(aes(color = reserve_code), size = 3, position = "jitter") +
+                              geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
                               ggpubr::stat_regline_equation(label.y = 23) +
                               ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
@@ -41,7 +41,7 @@ tank_reserve_figure <- function(x, r2_label, regline_label) {
   tank %>% 
     dplyr::filter(qaqc == 0 & reserve_code == x & rep == 1) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-    geom_point(aes(color = reserve_code), size = 3, position = "jitter") +
+    geom_point(aes(color = reserve_code), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
     ggpubr::stat_regline_equation(label.y = regline_label) +
     ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 

@@ -3,7 +3,7 @@
 all_isco_figure <- isco %>% 
                     dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                    geom_point(size = 3, position = "jitter") +
+                    geom_point(position = "jitter") +
                     stat_smooth(method = "lm", color = "black", se = FALSE) +
                     ggpubr::stat_regline_equation(label.y = 37) +
                     ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
@@ -20,7 +20,7 @@ all_isco_figure <- isco %>%
 all_isco_reserve_figure <- isco %>% 
                             dplyr::filter(qaqc == 0) %>% 
                             ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                            geom_point(aes(color = reserve_code), size = 3, position = "jitter") +
+                            geom_point(aes(color = reserve_code), position = "jitter") +
                             stat_smooth(method = "lm", color = "black", se = FALSE) +
                             ggpubr::stat_regline_equation(label.y = 40) +
                             ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
@@ -40,7 +40,7 @@ isco_reserve_figure <- function(x, r2_label, regline_label) {
   isco %>% 
     dplyr::filter(qaqc == 0 & reserve_code == x) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-    geom_point(aes(color = reserve_code), size = 3, position = "jitter") +
+    geom_point(aes(color = reserve_code), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
     ggpubr::stat_regline_equation(label.y = regline_label) +
     ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
