@@ -76,7 +76,7 @@ all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
 # check all participating reserves
 # unique(all$reserve_code)
 # 
-# all_reserve_figure_fxn("GTM", label.x = 0, 
+# all_reserve_figure_fxn("GTM", label.x = 0,
 #                    r2_label.y = 20,
 #                    regline_label.y = 18)
 # all_reserve_figure_fxn("PDB", label.x = 0, 

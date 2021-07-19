@@ -58,7 +58,7 @@ tank_reserve_figure <- function(x, r2_label, regline_label) {
 # check all participating reserves
 # unique(tank$reserve_code)
 # 
-# tank_reserve_figure("GTM", regline_label = 18, r2_label = 19)
+# tank_reserve_figure("GTM", regline_label = 18, r2_label = 20)
 # tank_reserve_figure("HEE", regline_label = 0.88, r2_label = 0.9)
 # tank_reserve_figure("MAR", regline_label = 9, r2_label = 10)
 # tank_reserve_figure("PDB", regline_label = 8, r2_label = 9)
