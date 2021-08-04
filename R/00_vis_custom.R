@@ -12,7 +12,7 @@ chla_RFU_title <- expression(paste("Chlorophyll ", italic("a "), "RFU EXO"))
 # create color palette for sites
 reservecolours <- c(`ELK` = "#F8766D",
                     `GND` = "#E18A00",
-                    `GRB` = "$BE9C00",
+                    `GRB` = "#BE9C00",
                     `GTM` = "#8CAB00",
                     `HEE` = "#24B700",
                     `LKS` = "#00BE70",
