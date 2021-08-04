@@ -26,7 +26,15 @@ OWC_isco <- OWC_isco %>%
               dplyr::filter(rep_isco == 1 | is.na(rep_isco)) %>% # keep only the NA and 1 values
               dplyr::select(-rep_isco)
 
+## 02.3 Lake Superior (LKS) ----
+# takes replicate samples for tank
 
+LKS_tank <- LKS_tank %>% 
+              tidyr::separate(sample_no,
+                              into = c("sample_no", "rep_tank"),
+                              sep = "[.]") %>%
+              dplyr::filter(rep_tank == 0 | is.na(rep_tank)) %>% # keep only the NA and 0 values because there is 28.0 in addition to 28.1
+              dplyr::select(-rep_tank)
 # 03 combine files --------------------------------------------------------
 
 # first, compare the files, make adjustments, then combine
@@ -35,102 +43,107 @@ OWC_isco <- OWC_isco %>%
 
 # compare all isco dfs
 # only can compare two at a time, so just interchange which two dfs to use
-janitor::compare_df_cols_same(PDB_isco, WEL_isco, 
+janitor::compare_df_cols_same(ELK_isco, WEL_isco, 
                               bind_method = "bind_rows") 
                               
 ELK_isco <- ELK_isco %>% 
             dplyr::mutate(depth = as.numeric(depth),
                           f_depth = as.character(f_depth),
-                          f_level = as.character(f_level),
-                          fdom_rfu = as.numeric(fdom_rfu),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu)
+                          remarks = as.character(remarks)
                           )
-GTM_isco <- GTM_isco %>% 
-            dplyr::mutate(f_level = as.character(f_level),
-                          level = as.numeric(level),
+GND_isco <- GND_isco %>% 
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
+                          depth = as.numeric(depth),
                           f_depth = as.character(f_depth),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu)
+                          level = as.numeric(level),
+                          remarks = as.character(remarks)
+                          )
+HEE_isco <- HEE_isco %>% 
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
+                          chlorophyll_rfu = as.numeric(chlorophyll_rfu),
+                          fdom_qsu = as.numeric(fdom_qsu),
+                          fdom_rfu = as.numeric(fdom_rfu),
+                          level = as.numeric(level),
+                          remarks = as.character(remarks)
+                          )
+LKS_isco <- LKS_isco %>% 
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
+                          f_depth = as.character(f_depth),
+                          level = as.numeric(level),
+                          f_level = as.character(f_level)
+                          )
+NIW_isco <- NIW_isco %>% 
+            dplyr::mutate(level = as.numeric(level),
+                          remarks = as.character(remarks)
+            )
+OWC_isco <- OWC_isco %>% 
+            dplyr::mutate(level = as.numeric(level),
+                          sample_no = as.numeric(sample_no)
                           )
 PDB_isco <- PDB_isco %>% 
             dplyr::mutate(f_level = as.character(f_level),
                           level = as.numeric(level),
-                          f_depth = as.character(f_depth),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu)
-                          )
-OWC_isco <- OWC_isco %>% 
-            dplyr::mutate(f_level = as.character(f_level),
-                          level = as.numeric(level),
-                          f_depth = as.character(f_depth),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu),
-                          sample_no = as.numeric(sample_no)
-                          )
+            )
 WEL_isco <- WEL_isco %>% 
-            dplyr::mutate(f_level = as.character(f_level),
-                          remarks = as.character(remarks)
+            dplyr::mutate(remarks = as.character(remarks)
                           )
 
 # bind all into one
-isco <- dplyr::bind_rows(ELK_isco, 
-                         GTM_isco, 
+isco <- dplyr::bind_rows(ELK_isco,
+                         GND_isco,
+                         GTM_isco,
+                         HEE_isco,
+                         LKS_isco,
+                         NIW_isco, 
+                         OWC_isco,
                          PDB_isco, 
-                         WEL_isco, 
-                         OWC_isco) %>% 
-        dplyr::mutate(f_do_pct = as.character(f_do_pct),
-                      f_chl_fluor = as.character(f_chl_fluor),
-                      f_do_mgl = as.character(f_do_mgl),
-                      f_p_h = as.character(f_p_h),
-                      f_sal = as.character(f_sal),
-                      f_sp_cond = as.character(f_sp_cond),
-                      f_temp = as.character(f_temp),
-                      f_turb = as.character(f_turb)
+                         WEL_isco) %>% 
+        dplyr::rename(f_fdom_qsu = f_f_domqsu,
+                      f_fdom_rfu = f_f_domrfu
                       ) 
 
-rm(ELK_isco, GTM_isco, PDB_isco, WEL_isco, OWC_isco, HEE_isco)
+rm(ELK_isco,
+   GND_isco,
+   GTM_isco,
+   HEE_isco,
+   LKS_isco,
+   NIW_isco, 
+   OWC_isco,
+   PDB_isco, 
+   WEL_isco)
 
 ## 03.2 tank files ----
 
 # compare all tank dfs
 # only can compare two at a time, so just interchange which two dfs to use
-janitor::compare_df_cols_same(MAR_tank, HEE_tank, 
+janitor::compare_df_cols_same(GTM_tank, PDB_tank, 
                               bind_method = "bind_rows") 
 
-
-GTM_tank <- GTM_tank %>% 
-            dplyr::mutate(remarks = as.character(remarks),
-                          f_chl_fluor = as.character(f_chl_fluor),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu),
-                          f_depth = as.character(f_depth),
-                          f_do_mgl = as.character(f_do_mgl),
-                          f_do_pct = as.character(f_do_pct),
-                          f_p_h = as.character(f_p_h),
-                          f_sal = as.character(f_sal),
-                          f_sp_cond = as.character(f_sp_cond),
-                          f_temp = as.character(f_temp),
-                          f_turb = as.character(f_turb)
+GND_tank <- GND_tank %>% 
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
+                          field_notes = as.character(field_notes)
                           )
-PDB_tank <- PDB_tank %>% 
-            dplyr::mutate(f_chl_fluor = as.character(f_chl_fluor),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu),
-                          f_depth = as.character(f_depth),
-                          f_do_mgl = as.character(f_do_mgl),
-                          f_do_pct = as.character(f_do_pct),
-                          f_sal = as.character(f_sal),
-                          f_sp_cond = as.character(f_sp_cond),
-                          f_temp = as.character(f_temp)
+GTM_tank <- GTM_tank %>% 
+            dplyr::mutate(remarks = as.character(remarks)
+                          )
+HEE_tank <- HEE_tank %>% 
+            dplyr::mutate(remarks = as.character(remarks),
+                          chla_rfu = as.numeric(chla_rfu)
+                          )
+LKS_tank <- LKS_tank %>% 
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
+                          sample_no = as.numeric(sample_no)
                           )
 MAR_tank <- MAR_tank %>% 
-            dplyr::mutate(rep = as.numeric(rep),
-                          f_chl_fluor = as.character(f_chl_fluor),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu),
-                          f_depth = as.character(f_depth),
-                          f_do_mgl = as.character(f_do_mgl),
-                          f_do_pct = as.character(f_do_pct),
-                          f_p_h = as.character(f_p_h),
-                          f_sal = as.character(f_sal),
-                          f_sp_cond = as.character(f_sp_cond),
-                          f_temp = as.character(f_temp),
-                          f_turb = as.character(f_turb)
-                          ) 
+            dplyr::mutate(rep = as.numeric(rep)
+                          )
+NIW_tank <- NIW_tank %>% 
+            dplyr::mutate(do_mgl = as.numeric(do_mgl), 
+                          do_pct = as.numeric(do_pct),
+                          p_h = as.numeric(p_h), 
+                          remarks = as.character(remarks)
+                          )
+
 SAP_tank <- SAP_tank %>% 
             dplyr::mutate(chl_fluor = as.numeric(chl_fluor),
                           depth = as.numeric(depth),
@@ -138,34 +151,32 @@ SAP_tank <- SAP_tank %>%
                           remarks = as.character(remarks),
                           station_code = as.character(station_code)
                           )
-HEE_tank <- HEE_tank %>% 
-            dplyr::mutate(remarks = as.character(remarks),
-                          chla_rfu = as.numeric(chla_rfu),
-                          f_chl_fluor = as.character(f_chl_fluor),
-                          f_chlorophyll_rfu = as.character(f_chlorophyll_rfu),
-                          f_depth = as.character(f_depth),
-                          f_do_mgl = as.character(f_do_mgl),
-                          f_do_pct = as.character(f_do_pct),
-                          f_p_h = as.character(f_p_h),
-                          f_sal = as.character(f_sal),
-                          f_sp_cond = as.character(f_sp_cond),
-                          f_temp = as.character(f_temp),
-                          f_turb = as.character(f_turb)
-                          )
 
 # bind all into one
-tank <- dplyr::bind_rows(GTM_tank, 
-                         HEE_tank, 
-                         MAR_tank, 
+tank <- dplyr::bind_rows(GND_tank,
+                         GTM_tank, 
+                         HEE_tank,
+                         LKS_tank,
+                         MAR_tank,
+                         NIW_tank,
                          PDB_tank, 
                          SAP_tank) %>% 
-        dplyr::mutate(f_level = as.character(f_level),
-                      level = as.numeric(level)) %>% 
-        dplyr::rename(chla_ugl = chla_ug_l,
-                      fdom_qsu = f_domqsu,
-                      fdom_rfu = f_domrfu) 
+        dplyr::mutate(level = as.numeric(level)) %>% 
+        dplyr::rename(fdom_qsu = f_domqsu,
+                      fdom_rfu = f_domrfu,
+                      f_fdom_qsu = f_f_domqsu,
+                      f_fdom_rfu = f_f_domrfu,
+                      chla_ugl = chla_ug_l)
+        
 
-rm(GTM_tank, HEE_tank, MAR_tank, PDB_tank, SAP_tank)
+rm(GND_tank,
+   GTM_tank, 
+   HEE_tank,
+   LKS_tank,
+   MAR_tank,
+   NIW_tank,
+   PDB_tank, 
+   SAP_tank)
 
 ## 03.3 all files ----
 
