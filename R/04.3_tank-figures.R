@@ -5,9 +5,9 @@ all_tank_figure <- tank %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                       geom_point(position = "jitter") +
                       stat_smooth(method = "lm", color = "black", se = FALSE) +
-                      ggpubr::stat_regline_equation(label.y = 23) +
+                      ggpubr::stat_regline_equation(label.y = 10, label.x = 14) +
                       ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                       label.y = 25) + # add R2 and p value
+                                       label.y = 7, label.x = 14) + # add R2 and p value
                       scale_y_continuous(expand = c(0,0)) +
                       theme_classic() +
                       theme(legend.title = element_text(size = 14, face = "bold"),
@@ -23,9 +23,9 @@ all_tank_reserve_figure <- tank %>%
                             ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
-                              ggpubr::stat_regline_equation(label.y = 23) +
+                              ggpubr::stat_regline_equation(label.y = 10, label.x = 14) +
                               ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                       label.y = 25) + # add R2 and p value
+                                               label.y = 7, label.x = 14) + # add R2 and p value
                               scale_colour_manual(name = "Reserve", values = reservecolours) +
                               scale_y_continuous(expand = c(0,0)) +
                               theme_classic() +
