@@ -52,6 +52,41 @@ all_reserve_method_figure <- all %>%
                                 labs(x = chla_RFU_title,
                                      y = chla_extr_title,
                                      caption = "ISCO and tank experiments")
+
+# ggplotly(
+#   all %>% 
+#     dplyr::filter(qaqc == 0) %>% 
+#     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+#     geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
+#     stat_smooth(method = "lm", color = "black", se = FALSE) +
+#     scale_colour_manual(name = "Reserve", values = reservecolours) +
+#     scale_shape_discrete(name = "Method") +
+#     scale_y_continuous(expand = c(0,0)) +
+#     theme_classic() +
+#     labs(x = "Chlorophyll a (RFU) EXO",
+#          y = "Chlorophyll a (ug/L) Extracted",
+#          caption = "ISCO and tank experiments"),
+#   tooltip = c("method", "chlorophyll_rfu", "chla_ugl", "reserve_code")
+#   )
+
+
+# tank and isco facet ----------------------------------------------
+tank_isco <- all %>% 
+              dplyr::filter(qaqc == 0) %>%
+              ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+              geom_point(position = "jitter", alpha = 0.8) +
+              stat_smooth(method = "lm", color = "black", se = FALSE) +
+              ggpubr::stat_regline_equation(label.y = 12, label.x = 7.5) +
+              ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
+                               label.y = 9, label.x = 7.5) + # add R2 and p value
+              facet_grid(~method) +
+              scale_y_continuous(expand = c(0,0)) +
+              theme_classic() +
+              theme(legend.title = element_text(size = 14, face = "bold"),
+                    text = element_text(size = 12)) +
+              labs(x = chla_RFU_title,
+                   y = chla_extr_title)
+
 # tank-reserve-only figure ----------------------------------------------
 
 all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
@@ -79,7 +114,7 @@ all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
 # all_reserve_figure_fxn("GTM", label.x = 0,
 #                    r2_label.y = 20,
 #                    regline_label.y = 18)
-# all_reserve_figure_fxn("PDB", label.x = 0, 
+# all_reserve_figure_fxn("PDB", label.x = 0,
 #                    r2_label.y = 20,
 #                    regline_label.y = 18)
 
