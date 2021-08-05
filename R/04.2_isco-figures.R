@@ -72,9 +72,9 @@ facet_all_isco_figure_stat <- isco %>%
                           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                             geom_point(aes(color = reserve_code), position = "jitter") +
                             stat_smooth(method = "lm", color = "black", se = FALSE) +
-                            ggpubr::stat_regline_equation(label.y = 38) +
+                            ggpubr::stat_regline_equation(label.y = 35, size = 3) +
                             ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
-                                             label.y = 43) + # add R2 and p value
+                                             label.y = 43, size = 3) + # add R2 and p value
                             scale_colour_manual(name = "Reserve", values = reservecolours) +
                             scale_y_continuous(expand = c(0,0)) +
                             facet_wrap(.~ reserve_code, scales = "free_x") +
