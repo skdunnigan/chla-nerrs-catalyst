@@ -1,0 +1,84 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+
+```
+
+<!-- <div class="jumbotron"> -->
+<!--   <h1 class="display-3">Refining techniques for high-frequency monitoring of chlorophyll in the NERRS</h1> -->
+<!--   </div> -->
+
+![](images/title-image.jpg)
+
+***
+
+<div class="jumbotron">
+  <center><h2><b> Updates (2021-08-06)</h2></b> <br>
+  <p>This is the new and improved Data Viewer for the Chlorophyll NERRS Catalyst Project. This content is to be used by the project team for the duration of the project. This site contains all the original content from data updates versions 1.1 and 2.0 plus additional functionality for reserve-specific data visualizations and summaries. </p> <br>
+  <p> This site was last updated on `r Sys.Date()` with data downloaded on 2021-08-03 from the  <a href = "https://drive.google.com/drive/u/2/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH"> <i class="fab fa-google-drive" aria-hidden="true"></i> Google Drive </a> data folders.</p></center>
+</div>
+
+***
+
+# Reserves with submissions this round:
+
+```{r reserves-1}
+reserves <- tribble(
+  ~no, ~reserve,
+  1, "ELK",
+  2, "GND",
+  3, "GRB",
+  4, "GTM",
+  5, "HEE", 
+  6, "LKS", 
+  7, "MAR",
+  8, "NIW",
+  9, "OWC", 
+  10, "PDB", 
+  11, "SAP", 
+  12, "WEL", 
+  13, "WKB" 
+)
+
+a <- as_tibble(unique(all$reserve_code)) %>% rename(reserve = value) %>% mutate(Submission = "X")
+b <- as_tibble(unique(isco$reserve_code)) %>% rename(reserve = value) %>% mutate(ISCO = 'X')
+c <- as_tibble(unique(tank$reserve_code)) %>% rename(reserve = value) %>% mutate(Tank = 'X')
+
+d <- left_join(reserves, a, by = "reserve") %>% 
+        left_join(b, by = "reserve") %>% 
+        left_join(c, by = "reserve") %>% 
+        select(-no) %>% 
+        rename(Reserve = reserve)
+
+d <- sapply(d, as.character)
+d[is.na(d)] <- " "
+d <- as.data.frame(d)
+
+d %>% 
+  kbl(align = "c") %>% 
+  kable_styling(fixed_thead = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(1, border_right = T) %>% 
+  kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
+
+rm(reserves, a, b, c, d)
+```
+

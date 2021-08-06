@@ -1,0 +1,38 @@
+---
+title: "fDOM Interference Testing"
+output:
+  html_document:
+    toc: no
+    highlight: tango
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+Currently, only data from North Inlet-Winyah Bay:
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', 'interference', '03_fdom-load-wrangle-run.R'))
+```
+
+```{r, fig.cap ="Average fluorescent dissolved organic matter (QSU) and chlorophyll fluorescence (RFU) from one trial"}
+fdom_interf
+```
+
+General comments:
+
++   Didn’t get up to max QSU seen in system (~120)
++   Compared to natural data, when QSU is high, RFU are not as high as they got in experiment

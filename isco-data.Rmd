@@ -1,0 +1,86 @@
+---
+title: "ISCO Data <div><i> in vivo </i></div>"
+output:
+  html_document:
+    toc: no
+    highlight: tango
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+
+```
+
+Contains all data from the ISCO (*in vivo*) collection method from all reserves that submitted data.
+
+# TAL Sensor CHLA (RFU) vs. Extracted CHLA ($\mu$g/L) {.tabset .tabset-pills}
+
+## All 
+
+```{r}
+source(here::here('R', '04.2_isco-figures.R'))
+
+all_isco_figure
+```
+
+## Reserve Single
+
+```{r}
+all_isco_reserve_figure
+```
+
+## All Reserves (w/stats)
+
+```{r}
+facet_all_isco_figure_stat
+```
+
+## All Reserves (no stats)
+
+```{r}
+facet_all_isco_figure
+```
+
+{-}
+
+# Interference Parameters {.tabset .tabset-pills}
+
+These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted $\mu$g/L with the three parameters of interest overlayed as color.
+
+
+## fDOM 
+
+```{r isco-fdom-interf}
+all_isco_fDOM
+```
+
+## Turbidity 
+
+Had to filter to remove turbidity values > 240 NTU due to an outlier.
+
+```{r isco-turb-interf}
+all_isco_turb
+```
+
+## Temperature 
+
+```{r temp-interf}
+all_isco_temp
+```
+
+{-}

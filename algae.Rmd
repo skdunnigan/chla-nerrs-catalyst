@@ -1,0 +1,45 @@
+---
+title: "Algae Species"
+output:
+  html_document:
+    toc: no
+    highlight: tango
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+From Mission-Aransas:
+
+**How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '10_algae-species.R'))
+```
+
+```{r, fig.cap = "Different species of algae used in tank experiments in Mission-Aransas NERR.", dpi = 120}
+
+ggplotly(dat2 %>%  
+          ggplot(aes(x = mean_rfu, y = mean_ugl)) +
+          geom_point(aes(color = algae), size = 3) +
+           scale_color_discrete(name = "Algae") +
+           theme_classic() +
+           labs(x = "Chlorophyll a (RFU) EXO",
+                y = "Chlorophyll a (ug/L) Extracted"),
+         tooltip = c("algae", "mean_rfu", "mean_ugl")
+         )
+
+```

@@ -1,0 +1,69 @@
+---
+title: "Temperature Interference Testing"
+output:
+  html_document:
+    toc: no
+    highlight: tango
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+Currently, only data from GTM and NIW have been submitted.
+
+<div class="jumbotron">
+Equation 1 (Watras et al. 2017): 
+$F_{r} = \frac{F_{m}}{1 + \rho(T_{m} - T_{r})}$
+</div>
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', 'interference', '01.1_temp-load-wrangle-run-gtm.R'))
+source(here::here('R', 'interference', '01.2_temp-load-wrangle-run-niw.R'))
+```
+
+```{r both-data, fig.cap = "Temperature quenching of chlorophyll fluorescence (A) in water from Pellicer Creek, Florida by the GTMNERR and (B) Winyah Bay, South Carolina by the NIWNERR. In panels (C,D) the temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+
+((gtm.plot.a + labs(x ='', title = 'A')) + (gtm.plot.c + theme(legend.position = 'none') + labs(x = '', y = '', title = 'C'))) / ((niw.plot.a + labs(title = 'B')) + (niw.plot.c + labs(title = 'D')))
+```
+
+# {.tabset .tabset-pills}
+
+## GTMNERR
+
+```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Pellicer Creek, Florida. The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+
+(gtm.plot.a + labs(x = '', title = 'A')) / (gtm.plot.c + labs(title = 'B')) 
+
+```
+
+General comments:
+
++   Slight jump in non-diluted water
++   Non-linear at higher temps
++   Slopes at different concentrations don’t follow Watras pattern
++   Slope in blank - could indicate sensor problem rather than, or in addition to, quenching
++   Applying Watras equation correction didn’t seem to work
++   Re-run experiment?
++   May need to use mixed effects model (Watras equation 4) to account for the effects of temperature on both the sensor and the energy decay pathways 
+
+## NIWNERR
+
+```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Winyah Bay, South Carolina The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+
+(niw.plot.a + labs(x = '', title = 'A')) / (niw.plot.c + labs(title = 'B'))
+
+```
+# {-}
