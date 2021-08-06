@@ -184,8 +184,10 @@ janitor::compare_df_cols_same(isco, tank,
                               bind_method = "bind_rows")
 
 all <- dplyr::bind_rows(isco, tank) %>% 
-       dplyr::filter(rep == 1 | is.na(rep)) # only keep rep 1 from tank, and NAs, which would be the isco data
-
+       dplyr::filter(rep == 1 | is.na(rep)) %>%  # only keep rep 1 from tank, and NAs, which would be the isco data
+       dplyr::mutate(sample_no = as.character(sample_no),
+                     isco_deployment_no = as.character(isco_deployment_no),
+                     date_collected = as.Date(datetime_collected))
 
 # calculate all lm equations, all/tank/isco -------------------------------
 
