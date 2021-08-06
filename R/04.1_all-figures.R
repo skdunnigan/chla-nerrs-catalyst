@@ -128,7 +128,7 @@ fdom <- all %>%
   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
   geom_point(aes(color = fdom_qsu), size = 3) +
   scale_color_continuous(name = "fDOM QSU") +
-  ggpubr::theme_classic2() +
+  theme_classic() +
   labs(x = chla_RFU_title,
        y = chla_extr_title,
        title = "fDOM",
@@ -139,7 +139,7 @@ fdom <- all %>%
 #            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
 #            geom_point(aes(color = fdom_qsu), size = 3) +
 #            scale_color_continuous(name = "fDOM QSU") +
-#            ggpubr::theme_classic2() +
+#            theme_classic() +
 #            labs(x = 'Chlorophyll a RFU EXO',
 #                 y = 'Chlorophyll a ug/L Extracted',
 #                 title = "fDOM",
@@ -151,7 +151,7 @@ turb <- all %>%
           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
           geom_point(aes(color = turb), size = 3) +
           scale_color_continuous(name = "Turbidity NTU") +
-          ggpubr::theme_classic2() +
+          theme_classic() +
           labs(x = chla_RFU_title,
                y = chla_extr_title,
                title = "Turbidity",
@@ -162,7 +162,7 @@ turb <- all %>%
 #            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
 #            geom_point(aes(color = turb), size = 3) +
 #            scale_color_continuous(name = "Turbidity NTU")  +
-#            ggpubr::theme_classic2() +
+#            theme_classic() +
 #            labs(x = 'Chlorophyll a RFU EXO',
 #                 y = 'Chlorophyll a ug/L Extracted',
 #                 title = "Turbidity", caption = "Both Tank and ISCO Experiments"),
@@ -175,7 +175,7 @@ temp <- all %>%
   scale_color_gradient(name = expression(paste('Temperature ', "(", degree, "C)")),
                        low="blue", high="red") +
   # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
-  ggpubr::theme_classic2() +
+  theme_classic() +
   labs(x = chla_RFU_title,
        y = chla_extr_title,
        title = "Temperature",
@@ -188,7 +188,7 @@ temp <- all %>%
 #            scale_color_gradient(name = 'Temperature C',
 #                                 low="blue", high="red") +
 #            # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
-#            ggpubr::theme_classic2() +
+#            theme_classic() +
 #            labs(x = 'Chlorophyll a RFU EXO',
 #                 y = 'Chlorophyll a ug/L Extracted',
 #                 title = "Temperature", caption = "Both Tank and ISCO Experiments"),
