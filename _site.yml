@@ -1,0 +1,65 @@
+navbar:
+  title: CHLA NERRS Catalyst Project
+  left: 
+  - text: Project Data
+    menu:
+    - text: All Data
+      href: all-data.html
+    - text: ISCO Data
+      href: isco-data.html
+    - text: Tank Data
+      href: tank-data.html
+  - text: Reserves
+    menu: 
+    - text: Elkhorn Slough
+      href: elk.html
+    - text: Grand Bay 
+      href: gnd.html
+    - text: Great Bay
+      href: 
+    - text: Guana Tolomato Matanzas
+      href: gtm.html
+    - text: He'eia 
+      href: hee.html
+    - text: Lake Superior
+      href: lks.html
+    - text: Mission-Aransas
+      href: mar.html
+    - text: North Inlet-Winyah Bay
+      href: niw.html
+    - text: Old Woman Creek
+      href: owc.html
+    - text: Padilla Bay
+      href: pdb.html
+    - text: Sapelo Island
+      href: sap.html
+    - text: Wells
+      href: wel.html
+    - text: Weeks Bay
+      href:
+  - text: Interference Testing
+    menu:
+    - text: fDOM
+      href: fdom-interference.html
+    - text: Turbidity
+      href: turb-interference.html
+    - text: Temperature
+      href: temp-interference.html
+  - text: Algae
+    href: algae.html
+  right:
+  - text: About
+    icon: fa-info-circle
+    href: http://nerrssciencecollaborative.org/project/Dix20
+  - text: GitHub
+    icon: fa-github
+    href: https://www.github.com/skdunnigan/chla-nerrs-catalyst
+  - text: Google Drive
+    icon: fab fa-google-drive
+    href: https://drive.google.com/drive/u/2/folders/1BkZF0EPy3qaqfGqPPL2iPC_up-0RsDOw
+output: 
+  html_document:
+    theme: yeti
+    highlight: tango
+    include:
+      after_body: footer.html
