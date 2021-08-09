@@ -66,8 +66,6 @@ interact_reserve_isco_fxn("ELK")
 interact_reserve_tank_fxn("ELK")
 ```
 
-{-}
-
 # Summary Tables {.tabset .tabset-pills}
 
 ## All Data

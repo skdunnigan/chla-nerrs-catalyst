@@ -23,7 +23,7 @@ source(here::here('R', '00_load-packages.R'))
 
 source(here::here('R', '02_load_data.R'))
 source(here::here('R', '03_wrangle_data.R'))
-
+source(here::here('R', '06_tables.R'))
 ```
 
 Contains all data from both ISCO and tank collection methods from all reserves that submitted data.
@@ -76,7 +76,27 @@ tank_isco
 
 {-}
 
+***
 
+# Summary Information
+
+```{r tables-load, results = FALSE, include = FALSE}
+source(here::here('R', '06_tables.R'))
+```
+
+
+```{r summary-table, caption = ""}
+
+sum_table_final  %>% 
+  kbl(align = "c", caption = 'Summary information for all parameters (Min-Max (Mean \U00B1 Standard Dev)) from each participating reserve for both tank and ISCO experiments.') %>% 
+  kable_styling(fixed_thead = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(1, border_right = T) %>% 
+  column_spec(3, border_right = T) %>% 
+  kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
+```
+
+***
 
 # Interference Parameters 
 
