@@ -1,0 +1,110 @@
+---
+title: "Wells"
+output:
+  html_document:
+    toc: no
+    highlight: tango
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(dpi = 300)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+
+source(here::here('R', '00_vis_custom.R'))
+source(here::here('R', '00_load-packages.R'))
+```
+
+```{r load-data, include = FALSE, results = FALSE}
+
+source(here::here('R', '02_load_data.R'))
+source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '05_reserve-specific.R'))
+source(here::here('R', '06_tables.R'))
+```
+
+# All Data {.tabset .tabset-pills}
+
+## All
+
+```{r all-data}
+reserve_all_fxn("WEL") + 
+  ggpubr::stat_regline_equation(label.y = 8) +
+  ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
+                   label.y = 7.6)
+```
+
+## Facet by Methods
+
+```{r all-facet}
+reserve_all_facet_fxn("WEL") + 
+  ggpubr::stat_regline_equation(label.y = 8) +
+  ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
+                   label.y = 7.6)
+```
+
+
+{-}
+
+# Interactive Plots for QAQC {.tabset .tabset-pills}
+
+**How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!
+
+## ISCO Deployments
+
+```{r isco, dpi = 120}
+interact_reserve_isco_fxn("WEL")
+```
+
+## Tank Samples
+
+```{r tank, dpi = 120}
+interact_reserve_tank_fxn("WEL")
+```
+
+
+
+# Summary Tables {.tabset .tabset-pills}
+
+## All Data
+
+```{r table_all}
+a <- reserve_sum_table_all('WEL')
+  
+a  %>% 
+  kbl(align = "c", caption = 'All Data from ISCO and Tank Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
+  kable_styling(fixed_thead = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(1, border_right = T) %>% 
+  kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
+```
+
+## ISCO Data Only
+
+```{r table_isco}
+b <- reserve_sum_table_isco('WEL')
+  
+b  %>% 
+  kbl(align = "c", caption = 'Only data from ISCO Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
+  kable_styling(fixed_thead = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(1, border_right = T) %>% 
+  kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
+```
+
+## Tank Data Only
+
+```{r table_tank}
+c <- reserve_sum_table_tank('WEL')
+  
+c  %>% 
+  kbl(align = "c", caption = 'Only data from Tank Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
+  kable_styling(fixed_thead = T) %>% 
+  row_spec(0, bold = T) %>% 
+  column_spec(1, border_right = T) %>% 
+  kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
+```
