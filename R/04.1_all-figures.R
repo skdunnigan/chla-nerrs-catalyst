@@ -30,6 +30,7 @@ all_reserve_figure <- all %>%
                           scale_y_continuous(expand = c(0,0)) +
                           theme_classic() +
                           theme(legend.title = element_text(size = 14, face = "bold"),
+                                plot.margin = margin(t = 10, r = 10, b = 10, l = 10, unit = "pt"),
                                 text = element_text(size = 12)) +
                           labs(x = chla_RFU_title,
                                y = chla_extr_title,
@@ -48,6 +49,7 @@ all_reserve_method_figure <- all %>%
                                 scale_y_continuous(expand = c(0,0)) +
                                 theme_classic() +
                                 theme(legend.title = element_text(size = 14, face = "bold"),
+                                      plot.margin = margin(t = 50, r = 10, b = 10, l = 10, unit = "pt"),
                                       text = element_text(size = 12)) +
                                 labs(x = chla_RFU_title,
                                      y = chla_extr_title,
@@ -123,73 +125,147 @@ all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
 # interference ------------------------------------------------------------
 
 
-fdom <- all %>% 
-  filter(chlorophyll_rfu > 0 & !is.na(fdom_qsu)) %>% 
-  ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-  geom_point(aes(color = fdom_qsu), size = 3) +
-  scale_color_continuous(name = "fDOM QSU") +
-  theme_classic() +
-  labs(x = chla_RFU_title,
-       y = chla_extr_title,
-       title = "fDOM",
-       caption = "Both Tank and ISCO Experiments")
+interference_interactive_all_fxn <- function(param){
+  m = list(
+    l = 80,
+    r = 150,
+    b = 80,
+    t = 50,
+    pad = 0
+  )
+  
+  if (param > 1){
+    # fDOM
+    fDOM <- ggplotly(all %>%
+               filter(chlorophyll_rfu > 0) %>%
+               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+               geom_point(aes(color = fdom_qsu), position = "jitter") +
+                 stat_smooth(method = "lm", color = "black", se = FALSE) +
+               scale_color_continuous(name = "fDOM QSU") +
+               theme_classic() +
+               labs(x = 'Chlorophyll a RFU EXO',
+                    y = 'Chlorophyll a ug/L Extracted',
+                    title = "fDOM",
+                    caption = "Both Tank and ISCO Experiments"),
+             tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+    fDOM %>% layout(margin = m)
+  }
+  else if (param == 1) {
+    # temperature
+    temp <- ggplotly(all %>%
+                       filter(chlorophyll_rfu > 0) %>%
+                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                       geom_point(aes(color = temp), position = "jitter") +
+                       scale_color_gradient(name = 'Temperature C',
+                                            low="blue", high="red") +
+                       stat_smooth(method = "lm", color = "black", se = FALSE) +
+                       theme_classic() +
+                       labs(x = 'Chlorophyll a RFU EXO',
+                            y = 'Chlorophyll a ug/L Extracted',
+                            title = "Temperature"),
+                     tooltip = c("temp", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+    temp %>% layout(margin = m)
+  } else {
+    turb <- ggplotly(all %>%
+                       filter(chlorophyll_rfu > 0 & turb < 240) %>%
+                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                       geom_point(aes(color = turb), position = "jitter") +
+                       scale_color_continuous(name = "Turbidity NTU")  +
+                       stat_smooth(method = "lm", color = "black", se = FALSE) +
+                       theme_classic() +
+                       labs(x = 'Chlorophyll a RFU EXO',
+                            y = 'Chlorophyll a ug/L Extracted',
+                            title = "Turbidity", caption = "Both Tank and ISCO Experiments"),
+                     tooltip = c("turb", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+    turb %>% layout(margin = m)
+  }
+    
+}
 
-# ggplotly(all %>%
-#            filter(chlorophyll_rfu > 0) %>%
-#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-#            geom_point(aes(color = fdom_qsu), size = 3) +
-#            scale_color_continuous(name = "fDOM QSU") +
-#            theme_classic() +
-#            labs(x = 'Chlorophyll a RFU EXO',
-#                 y = 'Chlorophyll a ug/L Extracted',
-#                 title = "fDOM",
-#                 caption = "Both Tank and ISCO Experiments"),
-#          tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+interference_all_fxn <- function(param){
 
-turb <- all %>% 
-          filter(chlorophyll_rfu > 0 & turb < 240) %>% 
-          ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-          geom_point(aes(color = turb), size = 3) +
-          scale_color_continuous(name = "Turbidity NTU") +
-          theme_classic() +
-          labs(x = chla_RFU_title,
-               y = chla_extr_title,
-               title = "Turbidity",
-               caption = "Both Tank and ISCO Experiments")
-
-# ggplotly(all %>% 
-#            filter(chlorophyll_rfu > 0 & turb < 240) %>% 
-#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-#            geom_point(aes(color = turb), size = 3) +
-#            scale_color_continuous(name = "Turbidity NTU")  +
-#            theme_classic() +
-#            labs(x = 'Chlorophyll a RFU EXO',
-#                 y = 'Chlorophyll a ug/L Extracted',
-#                 title = "Turbidity", caption = "Both Tank and ISCO Experiments"),
-#          tooltip = c("turb", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
-
-temp <- all %>% 
-  filter(chlorophyll_rfu > 0) %>% 
-  ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-  geom_point(aes(color = temp), size = 3) +
-  scale_color_gradient(name = expression(paste('Temperature ', "(", degree, "C)")),
-                       low="blue", high="red") +
-  # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
-  theme_classic() +
-  labs(x = chla_RFU_title,
-       y = chla_extr_title,
-       title = "Temperature",
-       caption = "Both Tank and ISCO Experiments")
-
-# ggplotly(all %>% 
-#            filter(chlorophyll_rfu > 0) %>% 
-#            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-#            geom_point(aes(color = temp), size = 3) +
-#            scale_color_gradient(name = 'Temperature C',
-#                                 low="blue", high="red") +
-#            # scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
-#            theme_classic() +
-#            labs(x = 'Chlorophyll a RFU EXO',
-#                 y = 'Chlorophyll a ug/L Extracted',
-#                 title = "Temperature", caption = "Both Tank and ISCO Experiments"),
-#          tooltip = c("temp", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+  if (param > 1){
+    # fDOM
+    fDOM <- all %>% 
+              filter(chlorophyll_rfu > 0 & !is.na(fdom_qsu)) %>% 
+              ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+              geom_point(aes(color = fdom_qsu), position = "jitter") +
+      stat_smooth(method = "lm", color = "black", se = FALSE) +
+              scale_color_continuous(name = "fDOM QSU") +
+              theme_classic() +
+              labs(x = chla_RFU_title,
+                   y = chla_extr_title,
+                   title = "fDOM",
+                   caption = "Both Tank and ISCO Experiments")
+    fDOM 
+  }
+  else if (param == 1) {
+    # temperature
+    temp <- all %>% 
+              filter(chlorophyll_rfu > 0) %>% 
+              ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+              geom_point(aes(color = temp), position = "jitter") +
+      stat_smooth(method = "lm", color = "black", se = FALSE) +
+              scale_color_gradient(name = expression(paste('Temperature ', "(", degree, "C)")),
+                                   low="blue", high="red") +
+              theme_classic() +
+              labs(x = chla_RFU_title,
+                   y = chla_extr_title,
+                   title = "Temperature",
+                   caption = "Both Tank and ISCO Experiments")
+    temp
+  } else {
+    turb <- all %>% 
+              filter(chlorophyll_rfu > 0 & turb < 240) %>% 
+              ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+              geom_point(aes(color = turb), position = "jitter") +
+      stat_smooth(method = "lm", color = "black", se = FALSE) +
+              scale_color_continuous(name = "Turbidity NTU") +
+              theme_classic() +
+              labs(x = chla_RFU_title,
+                   y = chla_extr_title,
+                   title = "Turbidity",
+                   caption = "Both Tank and ISCO Experiments")
+    turb
+  }
+  
+}
+# 
+# fdom <- all %>% 
+#   filter(chlorophyll_rfu > 0 & !is.na(fdom_qsu)) %>% 
+#   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+#   geom_point(aes(color = fdom_qsu), position = "jitter") +
+#   scale_color_continuous(name = "fDOM QSU") +
+#   theme_classic() +
+#   labs(x = chla_RFU_title,
+#        y = chla_extr_title,
+#        title = "fDOM",
+#        caption = "Both Tank and ISCO Experiments")
+# 
+# 
+# 
+# turb <- all %>% 
+#           filter(chlorophyll_rfu > 0 & turb < 240) %>% 
+#           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+#           geom_point(aes(color = turb), position = "jitter") +
+#           scale_color_continuous(name = "Turbidity NTU") +
+#           theme_classic() +
+#           labs(x = chla_RFU_title,
+#                y = chla_extr_title,
+#                title = "Turbidity",
+#                caption = "Both Tank and ISCO Experiments")
+# 
+# 
+# 
+# temp <- all %>% 
+#   filter(chlorophyll_rfu > 0) %>% 
+#   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+#   geom_point(aes(color = temp), position = "jitter") +
+#   scale_color_gradient(name = expression(paste('Temperature ', "(", degree, "C)")),
+#                        low="blue", high="red") +
+#   theme_classic() +
+#   labs(x = chla_RFU_title,
+#        y = chla_extr_title,
+#        title = "Temperature",
+#        caption = "Both Tank and ISCO Experiments")
+# 
