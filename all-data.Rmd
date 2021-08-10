@@ -51,21 +51,32 @@ all_reserve_method_figure
 **How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!
 
 ```{r, dpi = 120}
-ggplotly(
-  all %>% 
-    dplyr::filter(qaqc == 0) %>% 
-    ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-    geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
-    stat_smooth(method = "lm", color = "black", se = FALSE) +
-    scale_colour_manual(name = "Reserve", values = reservecolours) +
-    scale_shape_discrete(name = "Method") +
-    scale_y_continuous(expand = c(0,0)) +
-    theme_classic() +
-    labs(x = "Chlorophyll a (RFU) EXO",
-         y = "Chlorophyll a (ug/L) Extracted",
-         caption = "ISCO and tank experiments"),
-  tooltip = c("method", "chlorophyll_rfu", "chla_ugl", "reserve_code")
+m = list(
+    l = 80,
+    r = 150,
+    b = 80,
+    t = 50,
+    pad = 0
   )
+
+all_interactive <- ggplotly(
+                      all %>% 
+                        dplyr::filter(qaqc == 0) %>% 
+                        ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                        geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
+                        stat_smooth(method = "lm", color = "black", se = FALSE) +
+                        scale_colour_manual(name = "Reserve", values = reservecolours) +
+                        scale_shape_discrete(name = "Method") +
+                        scale_y_continuous(expand = c(0,0)) +
+                        theme_classic() +
+                        labs(x = "Chlorophyll a (RFU) EXO",
+                             y = "Chlorophyll a (ug/L) Extracted",
+                             caption = "ISCO and tank experiments"),
+                      tooltip = c("method", "chlorophyll_rfu", "chla_ugl", "reserve_code")
+                      )
+all_interactive %>% layout(margin = m)
+
+rm(all_interactive, m)
 ```
 
 ## Tank vs ISCO
@@ -98,101 +109,36 @@ sum_table_final  %>%
 
 ***
 
-# Interference Parameters 
+# Interference Parameters {.tabset .tabset-pills}
 
 These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted $\mu$g/L with the three parameters of interest overlayed as color.
 
-## fDOM {.tabset .tabset-pills}
-
-### Still
-
-```{r fdom-interf}
-
-fdom
-
-```
-
-### Interactive
-
 **How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information.
+
+## fDOM 
 
 ```{r fdom-interf-interact, dpi = 120}
 
-ggplotly(all %>%
-           filter(chlorophyll_rfu > 0) %>%
-           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-           geom_point(aes(color = fdom_qsu), size = 3) +
-           scale_color_continuous(name = "fDOM QSU") +
-           theme_classic() +
-           labs(x = 'Chlorophyll a RFU EXO',
-                y = 'Chlorophyll a ug/L Extracted',
-                title = "fDOM",
-                caption = "Both Tank and ISCO Experiments"),
-         tooltip = c("fdom_qsu", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
+interference_interactive_all_fxn(param = fdom)
 
 ```
 
-{-}
 
-## Turbidity {.tabset .tabset-pills}
+## Turbidity
 
 Had to filter to remove turbidity values > 240 NTU due to an outlier.
 
-### Still
-
-```{r turb-interf}
-
-turb
-```
-
-### Interactive
-
-**How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information.
-
 ```{r turb-interf-interact, dpi = 120}
-ggplotly(all %>%
-           filter(chlorophyll_rfu > 0 & turb < 240) %>%
-           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl, group = reserve_code)) +
-           geom_point(aes(color = turb), size = 3) +
-           scale_color_continuous(name = "Turbidity NTU")  +
-           theme_classic() +
-           labs(x = 'Chlorophyll a RFU EXO',
-                y = 'Chlorophyll a ug/L Extracted',
-                title = "Turbidity", caption = "Both Tank and ISCO Experiments"),
-         tooltip = c("turb", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
 
+interference_interactive_all_fxn(param = turbidity)
 ```
 
-{-}
 
-## Temperature {.tabset .tabset-pills}
 
-### Still
-
-```{r temp-interf}
-temp
-
-```
-
-### Interactive
-
-**How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information.
+## Temperature 
 
 ```{r temp-interf-interact, dpi = 120}
 
-ggplotly(all %>%
-           filter(chlorophyll_rfu > 0) %>%
-           ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-           geom_point(aes(color = temp), size = 3) +
-           scale_color_gradient(name = 'Temperature C',
-                                low="blue", high="red") +
-           scale_color_continuous(name = expression(paste('Temperature ', "(", degree, "C)"))) +
-           theme_classic() +
-           labs(x = 'Chlorophyll a RFU EXO',
-                y = 'Chlorophyll a ug/L Extracted',
-                title = "Temperature"),
-         tooltip = c("temp", "chlorophyll_rfu", "chla_ugl", "reserve_code"))
-
+interference_interactive_all_fxn(param = temperature)
 ```
 
-{-}
