@@ -108,3 +108,27 @@ c  %>%
   column_spec(1, border_right = T) %>% 
   kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
 ```
+
+# Interactive Interference Parameters {.tabset .tabset-pills}
+
+These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted $\mu$g/L with the three parameters of interest overlayed as color for the specific reserve of interest.
+
+**How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!
+
+## fDOM
+
+```{r fdom-interf, dpi = 120}
+interact_reserve_interf_fxn("PDB", param = fdom)
+```
+
+## Turbidity
+
+```{r turb-interf, dpi = 120}
+interact_reserve_interf_fxn("PDB", param = turbidity)
+```
+
+## Temperature
+
+```{r temp-interf, dpi = 120}
+interact_reserve_interf_fxn("PDB", param = temperature)
+```
