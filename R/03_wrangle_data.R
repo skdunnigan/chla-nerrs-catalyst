@@ -42,9 +42,9 @@ LKS_tank <- LKS_tank %>%
 ## 03.1 isco files ----
 
 # compare all isco dfs
-# only can compare two at a time, so just interchange which two dfs to use
-janitor::compare_df_cols_same(ELK_isco, WEL_isco, 
-                              bind_method = "bind_rows") 
+# # only can compare two at a time, so just interchange which two dfs to use
+# janitor::compare_df_cols_same(ELK_isco, WEL_isco,
+#                               bind_method = "bind_rows")
                               
 ELK_isco <- ELK_isco %>% 
             dplyr::mutate(depth = as.numeric(depth),
@@ -116,8 +116,8 @@ rm(ELK_isco,
 
 # compare all tank dfs
 # only can compare two at a time, so just interchange which two dfs to use
-janitor::compare_df_cols_same(GTM_tank, PDB_tank, 
-                              bind_method = "bind_rows") 
+# janitor::compare_df_cols_same(GTM_tank, PDB_tank, 
+#                               bind_method = "bind_rows") 
 
 GND_tank <- GND_tank %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
@@ -189,30 +189,6 @@ all <- dplyr::bind_rows(isco, tank) %>%
                      isco_deployment_no = as.character(isco_deployment_no),
                      date_collected = as.Date(datetime_collected))
 
-# calculate all lm equations, all/tank/isco -------------------------------
+## 04 remove flags ----
 
 
-# # all
-# 
-# lm_out <- all %>%
-#   dplyr::group_by(reserve_code) %>%
-#   do(broom::tidy(lm(chla_ugl ~ chlorophyll_rfu, data = .)))
-# 
-# diag <- dat2 %>%
-#   group_by(dilution_percent) %>%
-#   do(broom::glance(lm(chla_rfu ~ delta_T, data = .)))
-# 
-# ##check out model outputs
-# lm_out
-# diag
-# 
-# ## pull out slope and intercept
-# m <- lm_out %>%
-#   dplyr::filter(term == 'delta_T') %>%
-#   dplyr::rename(m = estimate) %>%
-#   dplyr::select(-term)
-# 
-# b <- lm_out %>%
-#   dplyr::filter(term == '(Intercept)') %>%
-#   dplyr::select(dilution_percent, estimate) %>%
-#   dplyr::rename(b = estimate)
