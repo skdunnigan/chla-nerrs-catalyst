@@ -34,7 +34,7 @@ source(here::here('R', 'interference', '01.1_temp-load-wrangle-run-gtm.R'))
 source(here::here('R', 'interference', '01.2_temp-load-wrangle-run-niw.R'))
 ```
 
-```{r both-data, fig.cap = "Temperature quenching of chlorophyll fluorescence (A) in water from Pellicer Creek, Florida by the GTMNERR and (B) Winyah Bay, South Carolina by the NIWNERR. In panels (C,D) the temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+```{r both-data, fig.cap = "Temperature quenching of chlorophyll fluorescence (A) in water from Pellicer Creek, Florida by the GTMNERR and (B) Winyah Bay, South Carolina by the NIWNERR. In panels (C,D) the temperature quench was removed by adjusting the raw data to a reference temperature of 20 (C) using Eq. 1."}
 
 ((gtm.plot.a + labs(x ='', title = 'A')) + (gtm.plot.c + theme(legend.position = 'none') + labs(x = '', y = '', title = 'C'))) / ((niw.plot.a + labs(title = 'B')) + (niw.plot.c + labs(title = 'D')))
 ```
@@ -43,7 +43,7 @@ source(here::here('R', 'interference', '01.2_temp-load-wrangle-run-niw.R'))
 
 ## GTMNERR
 
-```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Pellicer Creek, Florida. The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Pellicer Creek, Florida. The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 (C) using Eq. 1."}
 
 (gtm.plot.a + labs(x = '', title = 'A')) / (gtm.plot.c + labs(title = 'B')) 
 
@@ -61,7 +61,7 @@ General comments:
 
 ## NIWNERR
 
-```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Winyah Bay, South Carolina The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 ('~*degree*C') using Eq. 1."}
+```{r, fig.cap = "Temperature quenching of chlorophyll (A) fluorescence in unfiltered water from Winyah Bay, South Carolina The temperature quench was removed (B) by adjusting the raw data to a reference temperature of 20 (C) using Eq. 1."}
 
 (niw.plot.a + labs(x = '', title = 'A')) / (niw.plot.c + labs(title = 'B'))
 
