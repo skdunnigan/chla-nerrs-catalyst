@@ -92,3 +92,66 @@ interact_reserve_tank_fxn <- function(site) {
 # interact_reserve_tank_fxn("GTM")
 
 
+# interactive interference figures ----------------------------------------
+
+# param 0 = turb, 1 = temp, 2 = fdom
+interact_reserve_interf_fxn <- function(site, param) {
+  m = list(
+    l = 80,
+    r = 150,
+    b = 80,
+    t = 50,
+    pad = 0
+  )
+  
+  
+  if (param > 1) {
+  
+  fDOM <-  ggplotly(all %>%
+                   dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                   geom_point(aes(color = fdom_qsu), position = "jitter") +
+                   stat_smooth(method = "lm", color = "black", se = FALSE) +
+                   scale_colour_continuous(name = "fDOM QSU") +
+                   theme_classic() +
+                   labs(x = "Chlorophyll (RFU) EXO",
+                        y = "Chlorophyll (ug/L) Extracted",
+                        title = "fDOM"),
+                 tooltip = c('fdom_qsu', 'chlorophyll_rfu', 'chla_ugl')
+  )
+  fDOM %>% layout(margin = m)
+  }
+  else if (param == 1) {
+    temp <-  ggplotly(all %>%
+                        dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                        ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                        geom_point(aes(color = temp), position = "jitter") +
+                        stat_smooth(method = "lm", color = "black", se = FALSE) +
+                        scale_color_gradient(name = "Temperature (C)",
+                                             low="blue", high="red") +
+                        theme_classic() +
+                        labs(x = "Chlorophyll (RFU) EXO",
+                             y = "Chlorophyll (ug/L) Extracted",
+                             title = "Temperature"),
+                      tooltip = c('temp', 'chlorophyll_rfu', 'chla_ugl')
+    )
+    temp %>% layout(margin = m)
+  } else {
+    turb <-  ggplotly(all %>%
+                        dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                        ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
+                        geom_point(aes(color = turb), position = "jitter") +
+                        stat_smooth(method = "lm", color = "black", se = FALSE) +
+                        scale_colour_continuous(name = "Turbidity FNU") +
+                        theme_classic() +
+                        labs(x = "Chlorophyll (RFU) EXO",
+                             y = "Chlorophyll (ug/L) Extracted",
+                             title = "Turbidity"),
+                      tooltip = c('turb', 'chlorophyll_rfu', 'chla_ugl')
+    )
+    turb %>% layout(margin = m)
+  }
+}
+
+# interact_reserve_interf_fxn("GTM", param = 1)
+
