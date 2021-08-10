@@ -23,3 +23,8 @@ reservecolours <- c(`ELK` = "#F8766D",
                     `SAP` = "#D575FE",
                     `WEL` = "#F962DD",
                     `WKB` = "#FF65AC")
+
+# for interactive plot functions
+fdom <- 2
+temperature <- 1
+turbidity <- 0
