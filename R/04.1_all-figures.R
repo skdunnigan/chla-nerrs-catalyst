@@ -5,10 +5,11 @@ all_figure <-  all %>%
                 ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                   geom_point(position = "jitter") +
                   stat_smooth(method = "lm", color = "black", se = FALSE) +
-                  ggpubr::stat_regline_equation(label.y = 37, label.x = 7.5) +
+                  ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
                   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                   label.y = 40, label.x = 7.5) + # add R2 and p value
-                  scale_y_continuous(expand = c(0,0)) +
+                                   label.y = 60, label.x = 1) + # add R2 and p value
+                  scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
+                  scale_x_continuous(expand = c(0,0)) +
                   theme_classic() +
                   theme(legend.title = element_text(size = 14, face = "bold"),
                         text = element_text(size = 12)) +
@@ -23,11 +24,12 @@ all_reserve_figure <- all %>%
                         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                           geom_point(aes(color = reserve_code), position = "jitter") +
                           stat_smooth(method = "lm", color = "black", se = FALSE) +
-                          ggpubr::stat_regline_equation(label.y = 37, label.x = 7.5) +
+                          ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
                           ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                           label.y = 40, label.x = 7.5) + # add R2 and p value
+                                           label.y = 60, label.x = 1) + # add R2 and p value
                           scale_colour_manual(name = "Reserve", values = reservecolours) +
-                          scale_y_continuous(expand = c(0,0)) +
+                          scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
+                          scale_x_continuous(expand = c(0,0)) +
                           theme_classic() +
                           theme(legend.title = element_text(size = 14, face = "bold"),
                                 plot.margin = margin(t = 10, r = 10, b = 10, l = 10, unit = "pt"),
@@ -41,12 +43,13 @@ all_reserve_method_figure <- all %>%
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                 geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
                                 stat_smooth(method = "lm", color = "black", se = FALSE) +
-                                ggpubr::stat_regline_equation(label.y = 37, label.x = 7.5) +
+                                ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
                                 ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                                 label.y = 40, label.x = 7.5) + # add R2 and p value
+                                                 label.y = 60, label.x = 1) + # add R2 and p value
                                 scale_colour_manual(name = "Reserve", values = reservecolours) +
                                 scale_shape_discrete(name = "Method") +
-                                scale_y_continuous(expand = c(0,0)) +
+                                scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
+                                scale_x_continuous(expand = c(0,0)) +
                                 theme_classic() +
                                 theme(legend.title = element_text(size = 14, face = "bold"),
                                       plot.margin = margin(t = 50, r = 10, b = 10, l = 10, unit = "pt"),
@@ -82,7 +85,7 @@ tank_isco <- all %>%
               ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
                                label.y = 9, label.x = 7.5) + # add R2 and p value
               facet_grid(~method) +
-              scale_y_continuous(expand = c(0,0)) +
+              scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
               theme_classic() +
               theme(legend.title = element_text(size = 14, face = "bold"),
                     text = element_text(size = 12)) +
@@ -139,7 +142,7 @@ interference_interactive_all_fxn <- function(param){
     fDOM <- ggplotly(all %>%
                filter(chlorophyll_rfu > 0) %>%
                ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-               geom_point(aes(color = fdom_qsu), position = "jitter") +
+               geom_point(aes(color = fdom_qsu, group = reserve_code), position = "jitter") +
                  stat_smooth(method = "lm", color = "black", se = FALSE) +
                scale_color_continuous(name = "fDOM QSU") +
                theme_classic() +
@@ -155,7 +158,7 @@ interference_interactive_all_fxn <- function(param){
     temp <- ggplotly(all %>%
                        filter(chlorophyll_rfu > 0) %>%
                        ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                       geom_point(aes(color = temp), position = "jitter") +
+                       geom_point(aes(color = temp, group = reserve_code), position = "jitter") +
                        scale_color_gradient(name = 'Temperature C',
                                             low="blue", high="red") +
                        stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -169,7 +172,7 @@ interference_interactive_all_fxn <- function(param){
     turb <- ggplotly(all %>%
                        filter(chlorophyll_rfu > 0 & turb < 240) %>%
                        ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
-                       geom_point(aes(color = turb), position = "jitter") +
+                       geom_point(aes(color = turb, group = reserve_code), position = "jitter") +
                        scale_color_continuous(name = "Turbidity NTU")  +
                        stat_smooth(method = "lm", color = "black", se = FALSE) +
                        theme_classic() +

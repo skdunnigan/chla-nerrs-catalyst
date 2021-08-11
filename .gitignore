@@ -3,11 +3,8 @@
 .RData
 .Ruserdata
 team-notes/
-*.xlsx
-*.csv
-*.docx
-*.png
-*.zip
-*.jpg
 _site/
 data/
+team-notes/
+resources/
+*.indd
