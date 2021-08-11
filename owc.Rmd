@@ -33,18 +33,18 @@ source(here::here('R', '06_tables.R'))
 
 ```{r all-data}
 reserve_all_fxn("OWC") + 
-  ggpubr::stat_regline_equation(label.y = 40) +
+  ggpubr::stat_regline_equation(label.y = 60) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
-                   label.y = 38)
+                   label.y = 57)
 ```
 
 ## Facet by Methods
 
 ```{r all-facet}
 reserve_all_facet_fxn("OWC") + 
-  ggpubr::stat_regline_equation(label.y = 40) +
+  ggpubr::stat_regline_equation(label.y = 60) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
-                   label.y = 38)
+                   label.y = 57)
 ```
 
 
