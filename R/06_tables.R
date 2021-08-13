@@ -38,7 +38,7 @@ reserve_sum_table_isco <- function(site) {
 reserve_sum_table_tank <- function(site) {
   tank %>%
     dplyr::filter(reserve_code == site & rep == 1) %>% 
-    select(chla_ugl, chla_rfu, fdom_qsu, do_mgl, sal, turb, temp, p_h, chlorophyll_rfu) %>%
+    select(chla_ugl, chla_rfu, fdom_qsu, sal, turb, p_h, chlorophyll_rfu) %>%
     psych::describe() %>%
     as_tibble(rownames="parameter")  %>%
     select(-vars) 
@@ -59,20 +59,31 @@ for (i in 1:length(reserves)){
 
 # reserve_sum_table_all <- function(site) {
   
- tempdf <- all %>%
+ tempdf_1 <- all %>%
              dplyr::filter(reserve_code == reserves[i]) %>% 
-             select(chla_ugl, chla_rfu, fdom_qsu, do_mgl, sal, turb, temp, p_h, chlorophyll_rfu) %>%
+             select(chla_ugl, chla_rfu, fdom_qsu, sal, turb, p_h, chlorophyll_rfu) %>%
              psych::describe() %>%
              as_tibble(rownames="parameter")  %>%
              select(-vars) 
-  
+ tempdf_2 <- all %>%
+             dplyr::filter(reserve_code == reserves[i] & method == "isco") %>% 
+             select(temp, do_mgl) %>%
+             psych::describe() %>%
+             as_tibble(rownames="parameter")  %>%
+             select(-vars)
+ 
+ tempdf <- dplyr::bind_rows(tempdf_1, tempdf_2)
+ 
+ 
   sum_tables[[i]] <- tempdf # add file to opened list()
   
   name <- reserves[i] # pull out the name you want of the file
   
   # names[[i]] <- paste(name)
   
-  rm(tempdf)
+  rm(tempdf_1,
+     tempdf_2,
+     tempdf)
 }
 
 names(sum_tables) <- paste0(c(reserves))
