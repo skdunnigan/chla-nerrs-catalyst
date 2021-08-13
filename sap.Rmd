@@ -25,6 +25,8 @@ source(here::here('R', '02_load_data.R'))
 source(here::here('R', '03_wrangle_data.R'))
 source(here::here('R', '05_reserve-specific.R'))
 source(here::here('R', '06_tables.R'))
+
+R <- 'SAP'
 ```
 
 # All Data {.tabset .tabset-pills}
@@ -32,7 +34,7 @@ source(here::here('R', '06_tables.R'))
 ## All
 
 ```{r all-data}
-reserve_all_fxn("SAP") + 
+reserve_all_fxn(R) + 
   ggpubr::stat_regline_equation(label.y = 30) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
                    label.y = 28)
@@ -41,7 +43,7 @@ reserve_all_fxn("SAP") +
 ## Facet by Methods
 
 ```{r all-facet}
-reserve_all_facet_fxn("SAP") + 
+reserve_all_facet_fxn(R) + 
   ggpubr::stat_regline_equation(label.y = 30) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
                    label.y = 28)
@@ -57,23 +59,21 @@ reserve_all_facet_fxn("SAP") +
 ## ISCO Deployments
 
 ```{r isco, dpi = 120}
-interact_reserve_isco_fxn("SAP")
+interact_reserve_fxn(site = R, isco = TRUE)
 ```
 
 ## Tank Samples
 
 ```{r tank, dpi = 120}
-interact_reserve_tank_fxn("SAP")
+interact_reserve_fxn(site = R, isco = FALSE)
 ```
-
-
 
 # Summary Tables {.tabset .tabset-pills}
 
 ## All Data
 
 ```{r table_all}
-a <- reserve_sum_table_all('SAP')
+a <- reserve_sum_table_all(R)
   
 a  %>% 
   kbl(align = "c", caption = 'All Data from ISCO and Tank Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
@@ -86,7 +86,7 @@ a  %>%
 ## ISCO Data Only
 
 ```{r table_isco}
-b <- reserve_sum_table_isco('SAP')
+b <- reserve_sum_table_isco(R)
   
 b  %>% 
   kbl(align = "c", caption = 'Only data from ISCO Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
@@ -99,7 +99,7 @@ b  %>%
 ## Tank Data Only
 
 ```{r table_tank}
-c <- reserve_sum_table_tank('SAP')
+c <- reserve_sum_table_tank(R)
   
 c  %>% 
   kbl(align = "c", caption = 'Only data from Tank Experiments. `chla_ugl` and `chla_rfu` are from extracted chlorophyll a samples') %>% 
@@ -118,17 +118,17 @@ These are the three parameters of interest in the interference testing studies. 
 ## fDOM
 
 ```{r fdom-interf, dpi = 120}
-interact_reserve_interf_fxn("SAP", param = fdom)
+interact_reserve_interf_fxn(R, param = fdom)
 ```
 
 ## Turbidity
 
 ```{r turb-interf, dpi = 120}
-interact_reserve_interf_fxn("SAP", param = turbidity)
+interact_reserve_interf_fxn(R, param = turbidity)
 ```
 
 ## Temperature
 
 ```{r temp-interf, dpi = 120}
-interact_reserve_interf_fxn("SAP", param = temperature)
+interact_reserve_interf_fxn(R, param = temperature)
 ```

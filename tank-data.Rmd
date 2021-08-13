@@ -47,13 +47,13 @@ all_tank_reserve_figure
 ## All Reserves (w/stats)
 
 ```{r}
-facet_all_tank_figure_stat
+facet_tank(stat = TRUE)
 ```
 
 ## All Reserves (no stats)
 
 ```{r}
-facet_all_tank_figure
+facet_tank(stat = FALSE)
 ```
 
 {-}
@@ -66,21 +66,13 @@ These are the three parameters of interest in the interference testing studies. 
 ## fDOM 
 
 ```{r isco-fdom-interf}
-all_tank_fDOM
+tank_interf(param = 2, interact = TRUE)
+# tank_interf(param = 2, interact = FALSE) # to make still
 ```
 
 ## Turbidity 
 
-Had to filter to remove turbidity values > 240 NTU due to an outlier.
-
 ```{r isco-turb-interf}
-all_tank_turb
+tank_interf(param = 0, interact = TRUE)
+# tank_interf(param = 0, interact = TRUE) # to make still
 ```
-
-## Temperature 
-
-```{r temp-interf}
-all_tank_temp
-```
-
-{-}

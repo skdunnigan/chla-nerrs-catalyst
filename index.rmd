@@ -32,7 +32,7 @@ source(here::here('R', '03_wrangle_data.R'))
 
 <div class="jumbotron">
   <center><h2><b> Updates (2021-08-06)</h2></b> <br>
-  <p>This is the new and improved Data Viewer for the Chlorophyll NERRS Catalyst Project. This content was designed to be used by the project team. This site contains updated content from data updates versions 1.1 and 2.0 plus additional functionality for reserve-specific data visualizations and summaries. </p> <br>
+  <p>This is the new and improved Data Viewer for the Chlorophyll NERRS Catalyst Project designed to be used by the project team. This site contains updated content from data updates versions 1.1 and 2.0 plus additional functionality for reserve-specific data visualizations and summary tables. </p> <br>
   <p> This site was last updated on `r Sys.Date()` with data downloaded on 2021-08-11 from the  <a href = "https://drive.google.com/drive/u/2/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH"> <i class="fab fa-google-drive" aria-hidden="true"></i> Google Drive </a> data folders.</p></center>
 </div>
 

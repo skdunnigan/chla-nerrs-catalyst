@@ -23,7 +23,8 @@ source(here::here('R', '00_load-packages.R'))
 
 source(here::here('R', '02_load_data.R'))
 source(here::here('R', '03_wrangle_data.R'))
-source(here::here('R', '06_tables.R'))
+source(here::here('R', '04.1_all-figures.R'))
+
 ```
 
 Contains all data from both ISCO and tank collection methods from all reserves that submitted data.
@@ -33,8 +34,6 @@ Contains all data from both ISCO and tank collection methods from all reserves t
 ## All 
 
 ```{r}
-source(here::here('R', '04.1_all-figures.R'))
-
 all_figure
 ```
 
@@ -91,15 +90,15 @@ tank_isco
 
 # Summary Information
 
-```{r tables-load, results = FALSE, include = FALSE}
-source(here::here('R', '06_tables.R'))
+```{r tables-load, include = FALSE}
+source(here::here('R', '06.1_tables-all.R'))
 ```
-
 
 ```{r summary-table, caption = ""}
 
 sum_table_final  %>% 
-  kbl(align = "c", caption = 'Summary information for all parameters (Min-Max (Mean \U00B1 Standard Dev)) from each participating reserve for both tank and ISCO experiments. This table contains data that has not had QAQC flagged data removed.') %>% 
+  dplyr::select(-`temp*`, -`do_mgl*`) %>% # don't know where these columns come from (2021-08-13)
+  kbl(align = "c", caption = 'Summary information for all parameters (Min-Max (Mean \U00B1 Standard Dev)) from each participating reserve for both tank and ISCO experiments. This table contains data that has not had QAQC flagged data removed. The temperature and dissolved oxygen data only contains data collected from the <i>in vivo</i> experiments with the ISCO.') %>% 
   kable_styling(fixed_thead = T) %>% 
   row_spec(0, bold = T) %>% 
   column_spec(1, border_right = T) %>% 
@@ -119,7 +118,8 @@ These are the three parameters of interest in the interference testing studies. 
 
 ```{r fdom-interf-interact, dpi = 120}
 
-interference_interactive_all_fxn(param = fdom)
+interference_interact_all_fxn(param = fdom, interact = TRUE)
+# interference_interact_all_fxn(param = fdom, interact = FALSE) # to make it a still
 
 ```
 
@@ -130,7 +130,8 @@ Had to filter to remove turbidity values > 240 NTU due to an outlier.
 
 ```{r turb-interf-interact, dpi = 120}
 
-interference_interactive_all_fxn(param = turbidity)
+interference_interact_all_fxn(param = turbidity, interact = TRUE)
+# interference_interact_all_fxn(param = turbidity, interact = FALSE) # to make it a still
 ```
 
 
@@ -139,6 +140,7 @@ interference_interactive_all_fxn(param = turbidity)
 
 ```{r temp-interf-interact, dpi = 120}
 
-interference_interactive_all_fxn(param = temperature)
+interference_interact_all_fxn(param = temperature, interact = TRUE)
+# interference_interact_all_fxn(param = temperature, interact = FALSE) # to make it a still
 ```
 
