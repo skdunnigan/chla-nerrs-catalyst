@@ -19,16 +19,27 @@ source(here::here('R', '00_vis_custom.R'))
 source(here::here('R', '00_load-packages.R'))
 ```
 
-Currently, only data from North Inlet-Winyah Bay:
+Currently, only data from GTM and NIW have been submitted.
 
 ```{r load-data, include = FALSE, results = FALSE}
 
 source(here::here('R', '02_load_data.R'))
 source(here::here('R', '03_wrangle_data.R'))
-source(here::here('R', 'interference', '02_turb-load-wrangle-run.R'))
+source(here::here('R', 'interference', '02.1_turb-load-wrangle-run-gtm.R'))
+source(here::here('R', 'interference', '02.2_turb-load-wrangle-run-niw.R'))
 ```
 
-```{r, fig.cap = "Average turbidity (FNU) and chlorophyll fluorescence (RFU) from three separate trials"}
-turb_interf
+# {.tabset .tabset-pills}
+
+## GTMNERR
+```{r, fig.cap = "Average turbidity (FNU) and chlorophyll fluorescence (RFU) from three separate trials conducted by the Guana Tolomato Matanzas NERR."}
+turb_interf_gtm
+```
+
+
+## NIWNERR
+
+```{r, fig.cap = "Average turbidity (FNU) and chlorophyll fluorescence (RFU) from three separate trials conducted by the North Inlet-Winyah Bay NERR."}
+turb_interf_niw
 ```
 
