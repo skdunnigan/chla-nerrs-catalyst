@@ -95,5 +95,4 @@ turb_interf_gtm <- turb %>%
   
 rm(equations, turb, m, b, lm_out, diag, 
    run_1_eq, run_1_stat,
-   run_2_eq, run_2_stat,
-   run_3_eq, run_3_stat)
+   run_2_eq, run_2_stat)
