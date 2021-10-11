@@ -11,7 +11,7 @@ setwd(here::here('data')) # 2021-01-28 doing this for now because I can't figure
 
 # store the URL for the project data
 
-folder_url <- "https://drive.google.com/drive/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH?usp=sharing" 
+folder_url <- "https://drive.google.com/drive/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH" 
 
 ## identify this folder on Drive
 ## Let `googledrive` know this is a file ID or URL, as opposed to file name
