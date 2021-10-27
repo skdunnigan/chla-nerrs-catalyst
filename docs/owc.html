@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Old Woman Creek</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CHLA NERRS Catalyst Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="all-data.html">All Data</a>
+    </li>
+    <li>
+      <a href="isco-data.html">ISCO Data</a>
+    </li>
+    <li>
+      <a href="tank-data.html">Tank Data</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Reserves
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="elk.html">Elkhorn Slough</a>
+    </li>
+    <li>
+      <a href="gnd.html">Grand Bay</a>
+    </li>
+    <li>
+      <a href="grb.html">Great Bay</a>
+    </li>
+    <li>
+      <a href="gtm.html">Guana Tolomato Matanzas</a>
+    </li>
+    <li>
+      <a href="hee.html">He'eia</a>
+    </li>
+    <li>
+      <a href="lks.html">Lake Superior</a>
+    </li>
+    <li>
+      <a href="mar.html">Mission-Aransas</a>
+    </li>
+    <li>
+      <a href="niw.html">North Inlet-Winyah Bay</a>
+    </li>
+    <li>
+      <a href="owc.html">Old Woman Creek</a>
+    </li>
+    <li>
+      <a href="pdb.html">Padilla Bay</a>
+    </li>
+    <li>
+      <a href="sap.html">Sapelo Island</a>
+    </li>
+    <li>
+      <a href="wel.html">Wells</a>
+    </li>
+    <li class="dropdown-header">Weeks Bay</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Interference Testing
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="fdom-interference.html">fDOM</a>
+    </li>
+    <li>
+      <a href="turb-interference.html">Turbidity</a>
+    </li>
+    <li>
+      <a href="temp-interference.html">Temperature</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="algae.html">Algae</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="http://nerrssciencecollaborative.org/project/Dix20">
+    <span class="fa fa-info-circle"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="https://www.github.com/skdunnigan/chla-nerrs-catalyst">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+<li>
+  <a href="https://drive.google.com/drive/u/2/folders/1BkZF0EPy3qaqfGqPPL2iPC_up-0RsDOw">
+    <span class="fab fa-google-drive"></span>
+     
+    Google Drive
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Old Woman Creek</h1>
+
+</div>
+
+
+<div id="all-data" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">All Data</h1>
+<div id="all" class="section level2">
+<h2>All</h2>
+<p><img src="owc_files/figure-html/all-data-1.png" width="2100" /></p>
+</div>
+<div id="facet-by-methods" class="section level2">
+<h2>Facet by Methods</h2>
+<p><img src="owc_files/figure-html/all-facet-1.png" width="2100" /></p>
+<p>{-}</p>
+</div>
+</div>
+<div id="interactive-plots-for-qaqc" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Interactive Plots for QAQC</h1>
+<p><strong>How to use the interactive plot:</strong> Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!</p>
+<div id="isco-deployments" class="section level2">
+<h2>ISCO Deployments</h2>
+<div id="htmlwidget-233b7414e25511bd7d22" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-233b7414e25511bd7d22">{"x":{"data":[{"x":[0.78637118190527,1.15934440646134,1.14350338258781,1.03003355110437,1.03894512674399,1.12292109166831,1.07173421010561,1.09908115917631,1.16247509756125,1.21943861587159,1.12851593362354,1.01680229518563,1.80719373980165,0.997385725645348,1.07971914046258],"y":[9.94808935865574,9.48937768513523,6.28337330814451,6.84911616131104,4.65119580535404,3.67030126424693,6.05836078232713,7.04734841400012,7.41619055603817,5.44102400291339,4.4487355856169,3.12997884586267,4.44729074029252,5.1310889799837,7.45752943850867],"text":["chlorophyll_rfu:  0.79<br />chla_ugl:  9.95<br />isco_deployment_no: 1","chlorophyll_rfu:  1.16<br />chla_ugl:  9.49<br />isco_deployment_no: 1","chlorophyll_rfu:  1.14<br />chla_ugl:  6.28<br />isco_deployment_no: 1","chlorophyll_rfu:  1.03<br />chla_ugl:  6.85<br />isco_deployment_no: 1","chlorophyll_rfu:  1.04<br />chla_ugl:  4.65<br />isco_deployment_no: 1","chlorophyll_rfu:  1.12<br />chla_ugl:  3.67<br />isco_deployment_no: 1","chlorophyll_rfu:  1.07<br />chla_ugl:  6.06<br />isco_deployment_no: 1","chlorophyll_rfu:  1.10<br />chla_ugl:  7.05<br />isco_deployment_no: 1","chlorophyll_rfu:  1.16<br />chla_ugl:  7.42<br />isco_deployment_no: 1","chlorophyll_rfu:  1.22<br />chla_ugl:  5.44<br />isco_deployment_no: 1","chlorophyll_rfu:  1.13<br />chla_ugl:  4.45<br />isco_deployment_no: 1","chlorophyll_rfu:  1.02<br />chla_ugl:  3.13<br />isco_deployment_no: 1","chlorophyll_rfu:  1.81<br />chla_ugl:  4.45<br />isco_deployment_no: 1","chlorophyll_rfu:  1.00<br />chla_ugl:  5.13<br />isco_deployment_no: 1","chlorophyll_rfu:  1.08<br />chla_ugl:  7.46<br />isco_deployment_no: 1"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"1","legendgroup":"1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.713337469525635,0.727557732837275,0.737156412919983,0.701119822578505,0.66354179286398,0.498302171930671,0.592836924741045,0.736945567334071,0.770927732475102,0.748157196354121,0.828298545669764,0.842694045115262,0.869682112416252,0.86174613882415],"y":[1.72159115927853,1.66142486379668,2.04061372001469,2.1472936381679,2.00809747801349,1.87253274166398,2.20912176747434,2.20972199068405,1.96877650850825,1.96830764158443,1.79007718840055,1.91395993250795,2.18307589415647,2.26075478183664],"text":["chlorophyll_rfu:  0.71<br />chla_ugl:  1.72<br />isco_deployment_no: 2","chlorophyll_rfu:  0.73<br />chla_ugl:  1.66<br />isco_deployment_no: 2","chlorophyll_rfu:  0.74<br />chla_ugl:  2.04<br />isco_deployment_no: 2","chlorophyll_rfu:  0.70<br />chla_ugl:  2.15<br />isco_deployment_no: 2","chlorophyll_rfu:  0.66<br />chla_ugl:  2.01<br />isco_deployment_no: 2","chlorophyll_rfu:  0.50<br />chla_ugl:  1.87<br />isco_deployment_no: 2","chlorophyll_rfu:  0.59<br />chla_ugl:  2.21<br />isco_deployment_no: 2","chlorophyll_rfu:  0.74<br />chla_ugl:  2.21<br />isco_deployment_no: 2","chlorophyll_rfu:  0.77<br />chla_ugl:  1.97<br />isco_deployment_no: 2","chlorophyll_rfu:  0.75<br />chla_ugl:  1.97<br />isco_deployment_no: 2","chlorophyll_rfu:  0.83<br />chla_ugl:  1.79<br />isco_deployment_no: 2","chlorophyll_rfu:  0.84<br />chla_ugl:  1.91<br />isco_deployment_no: 2","chlorophyll_rfu:  0.87<br />chla_ugl:  2.18<br />isco_deployment_no: 2","chlorophyll_rfu:  0.86<br />chla_ugl:  2.26<br />isco_deployment_no: 2"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(211,146,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(211,146,0,1)"}},"hoveron":"points","name":"2","legendgroup":"2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.33288137624785,1.19885355993547,1.20373310135864,1.03955704262294,0.949270482918248,0.793532185932621,0.827542956111953,1.31082674783468,1.13613507005386,1.68725349951163,1.49701211794838,1.59681338043511,1.43311146005988,1.61249051895551,1.30268207123689],"y":[4.46707210993767,1.85999385718256,2.77257876810059,3.2817737427,2.56365992012806,3.24292457266152,4.17360944340751,4.75152619984001,4.02704287900403,6.07305615819246,5.22850721764006,6.07625230521522,6.59078336489201,7.1320615646448,4.19711929877102],"text":["chlorophyll_rfu:  1.33<br />chla_ugl:  4.47<br />isco_deployment_no: 3","chlorophyll_rfu:  1.20<br />chla_ugl:  1.86<br />isco_deployment_no: 3","chlorophyll_rfu:  1.20<br />chla_ugl:  2.77<br />isco_deployment_no: 3","chlorophyll_rfu:  1.04<br />chla_ugl:  3.28<br />isco_deployment_no: 3","chlorophyll_rfu:  0.95<br />chla_ugl:  2.56<br />isco_deployment_no: 3","chlorophyll_rfu:  0.79<br />chla_ugl:  3.24<br />isco_deployment_no: 3","chlorophyll_rfu:  0.83<br />chla_ugl:  4.17<br />isco_deployment_no: 3","chlorophyll_rfu:  1.31<br />chla_ugl:  4.75<br />isco_deployment_no: 3","chlorophyll_rfu:  1.14<br />chla_ugl:  4.03<br />isco_deployment_no: 3","chlorophyll_rfu:  1.69<br />chla_ugl:  6.07<br />isco_deployment_no: 3","chlorophyll_rfu:  1.50<br />chla_ugl:  5.23<br />isco_deployment_no: 3","chlorophyll_rfu:  1.60<br />chla_ugl:  6.08<br />isco_deployment_no: 3","chlorophyll_rfu:  1.43<br />chla_ugl:  6.59<br />isco_deployment_no: 3","chlorophyll_rfu:  1.61<br />chla_ugl:  7.13<br />isco_deployment_no: 3","chlorophyll_rfu:  1.30<br />chla_ugl:  4.20<br />isco_deployment_no: 3"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(147,170,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(147,170,0,1)"}},"hoveron":"points","name":"3","legendgroup":"3","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.58899462234601,1.05848853616975,1.20390370187722,0.822096614850685,0.797065630795434,1.27999758387543,1.04119008225575,0.74080865554139,0.679330972889438,0.667622131958604,0.720369179103523,0.857546357905492,0.926453887531534,1.04235549178533,1.2539924542401],"y":[33.8509260121975,25.3732727465592,29.3279597932864,21.463338862706,21.1536275409572,40.7700806251299,35.0816076859552,23.8911624997947,20.8709340544119,17.0678517601453,23.7792580851018,24.8000476071145,25.7226164825037,28.6384005721677,32.267244489301],"text":["chlorophyll_rfu:  1.59<br />chla_ugl: 33.85<br />isco_deployment_no: 4","chlorophyll_rfu:  1.06<br />chla_ugl: 25.37<br />isco_deployment_no: 4","chlorophyll_rfu:  1.20<br />chla_ugl: 29.33<br />isco_deployment_no: 4","chlorophyll_rfu:  0.82<br />chla_ugl: 21.46<br />isco_deployment_no: 4","chlorophyll_rfu:  0.80<br />chla_ugl: 21.15<br />isco_deployment_no: 4","chlorophyll_rfu:  1.28<br />chla_ugl: 40.77<br />isco_deployment_no: 4","chlorophyll_rfu:  1.04<br />chla_ugl: 35.08<br />isco_deployment_no: 4","chlorophyll_rfu:  0.74<br />chla_ugl: 23.89<br />isco_deployment_no: 4","chlorophyll_rfu:  0.68<br />chla_ugl: 20.87<br />isco_deployment_no: 4","chlorophyll_rfu:  0.67<br />chla_ugl: 17.07<br />isco_deployment_no: 4","chlorophyll_rfu:  0.72<br />chla_ugl: 23.78<br />isco_deployment_no: 4","chlorophyll_rfu:  0.86<br />chla_ugl: 24.80<br />isco_deployment_no: 4","chlorophyll_rfu:  0.93<br />chla_ugl: 25.72<br />isco_deployment_no: 4","chlorophyll_rfu:  1.04<br />chla_ugl: 28.64<br />isco_deployment_no: 4","chlorophyll_rfu:  1.25<br />chla_ugl: 32.27<br />isco_deployment_no: 4"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[9.1369992093537,8.32871442341432,11.1929079139959,15.8636624737885,16.7339024954792,4.02795236990042,2.66183760055713,3.0707042980548,8.80727370127477,11.2495088312924,14.8580861154739,13.0089344761763,3.58715067524649,3.25052191372588,2.01673042832874],"y":[28.3392736998294,28.1167580194045,38.9588639932461,47.7689039097615,49.1362198888771,22.7102812668514,15.7862206188571,18.9119753290284,42.9319070628937,46.5490249923766,36.0006373148262,38.7715321909413,15.6362204729728,13.6726241269335,9.90651842963509],"text":["chlorophyll_rfu:  9.14<br />chla_ugl: 28.34<br />isco_deployment_no: 5","chlorophyll_rfu:  8.33<br />chla_ugl: 28.12<br />isco_deployment_no: 5","chlorophyll_rfu: 11.19<br />chla_ugl: 38.96<br />isco_deployment_no: 5","chlorophyll_rfu: 15.86<br />chla_ugl: 47.77<br />isco_deployment_no: 5","chlorophyll_rfu: 16.73<br />chla_ugl: 49.14<br />isco_deployment_no: 5","chlorophyll_rfu:  4.03<br />chla_ugl: 22.71<br />isco_deployment_no: 5","chlorophyll_rfu:  2.66<br />chla_ugl: 15.79<br />isco_deployment_no: 5","chlorophyll_rfu:  3.07<br />chla_ugl: 18.91<br />isco_deployment_no: 5","chlorophyll_rfu:  8.81<br />chla_ugl: 42.93<br />isco_deployment_no: 5","chlorophyll_rfu: 11.25<br />chla_ugl: 46.55<br />isco_deployment_no: 5","chlorophyll_rfu: 14.86<br />chla_ugl: 36.00<br />isco_deployment_no: 5","chlorophyll_rfu: 13.01<br />chla_ugl: 38.77<br />isco_deployment_no: 5","chlorophyll_rfu:  3.59<br />chla_ugl: 15.64<br />isco_deployment_no: 5","chlorophyll_rfu:  3.25<br />chla_ugl: 13.67<br />isco_deployment_no: 5","chlorophyll_rfu:  2.02<br />chla_ugl:  9.91<br />isco_deployment_no: 5"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,193,159,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,193,159,1)"}},"hoveron":"points","name":"5","legendgroup":"5","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.53083124164306,3.81679985943623,9.2983133469671,14.7404665409811,12.4316749293394,7.88153028444201,4.08964131110534,3.2366656488087,2.10703951696306,5.40332476450503,7.03179627848603,7.5271599039156,7.74229362832941,5.16714327655733],"y":[14.3638354637288,13.5433312961459,38.39163945527,52.0226441680174,53.4073957930375,31.438516616419,18.8764392686039,15.3474684455022,8.46788989128731,21.7017495996729,20.8605056888852,27.1466127388719,28.2235169003606,23.0194027199484],"text":["chlorophyll_rfu:  3.53<br />chla_ugl: 14.36<br />isco_deployment_no: 6","chlorophyll_rfu:  3.82<br />chla_ugl: 13.54<br />isco_deployment_no: 6","chlorophyll_rfu:  9.30<br />chla_ugl: 38.39<br />isco_deployment_no: 6","chlorophyll_rfu: 14.74<br />chla_ugl: 52.02<br />isco_deployment_no: 6","chlorophyll_rfu: 12.43<br />chla_ugl: 53.41<br />isco_deployment_no: 6","chlorophyll_rfu:  7.88<br />chla_ugl: 31.44<br />isco_deployment_no: 6","chlorophyll_rfu:  4.09<br />chla_ugl: 18.88<br />isco_deployment_no: 6","chlorophyll_rfu:  3.24<br />chla_ugl: 15.35<br />isco_deployment_no: 6","chlorophyll_rfu:  2.11<br />chla_ugl:  8.47<br />isco_deployment_no: 6","chlorophyll_rfu:  5.40<br />chla_ugl: 21.70<br />isco_deployment_no: 6","chlorophyll_rfu:  7.03<br />chla_ugl: 20.86<br />isco_deployment_no: 6","chlorophyll_rfu:  7.53<br />chla_ugl: 27.15<br />isco_deployment_no: 6","chlorophyll_rfu:  7.74<br />chla_ugl: 28.22<br />isco_deployment_no: 6","chlorophyll_rfu:  5.17<br />chla_ugl: 23.02<br />isco_deployment_no: 6"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,185,227,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,185,227,1)"}},"hoveron":"points","name":"6","legendgroup":"6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.5408034202978,6.8360758664608,8.51867585695349,9.34130859896168,9.80316849438474,7.7935639866367,9.87757859166339,11.8862669432387,8.91255938080139,6.07175103587098,6.66038259637728,7.09665964461677,7.18205783089437,6.93604228167795],"y":[33.2130505948011,28.4176784449704,24.6095634250697,22.4930797654726,0.629600258838385,27.2810212897677,27.9629756373633,30.2113289387897,32.7128142882194,60.5003530148994,62.3331664684545,23.9938797512259,23.3110374863893,26.3110264043547],"text":["chlorophyll_rfu:  5.54<br />chla_ugl: 33.21<br />isco_deployment_no: 7","chlorophyll_rfu:  6.84<br />chla_ugl: 28.42<br />isco_deployment_no: 7","chlorophyll_rfu:  8.52<br />chla_ugl: 24.61<br />isco_deployment_no: 7","chlorophyll_rfu:  9.34<br />chla_ugl: 22.49<br />isco_deployment_no: 7","chlorophyll_rfu:  9.80<br />chla_ugl:  0.63<br />isco_deployment_no: 7","chlorophyll_rfu:  7.79<br />chla_ugl: 27.28<br />isco_deployment_no: 7","chlorophyll_rfu:  9.88<br />chla_ugl: 27.96<br />isco_deployment_no: 7","chlorophyll_rfu: 11.89<br />chla_ugl: 30.21<br />isco_deployment_no: 7","chlorophyll_rfu:  8.91<br />chla_ugl: 32.71<br />isco_deployment_no: 7","chlorophyll_rfu:  6.07<br />chla_ugl: 60.50<br />isco_deployment_no: 7","chlorophyll_rfu:  6.66<br />chla_ugl: 62.33<br />isco_deployment_no: 7","chlorophyll_rfu:  7.10<br />chla_ugl: 23.99<br />isco_deployment_no: 7","chlorophyll_rfu:  7.18<br />chla_ugl: 23.31<br />isco_deployment_no: 7","chlorophyll_rfu:  6.94<br />chla_ugl: 26.31<br />isco_deployment_no: 7"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"7","legendgroup":"7","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6.93707730430923,7.87350868660212,9.80614692079276,12.3305557937883,9.48264913393185,11.5416691674795,14.0937612846456,12.5286899512,12.0194140127785,8.96708702422492,10.2986688247696,8.73077123327926,7.71019047910161,8.76812704090588],"y":[23.8628925354518,23.9698788964786,28.9766355704274,35.5566596725192,15.2768482964784,37.5523674949575,33.6670518742073,31.4231492163371,34.5987137471978,29.7239549615737,25.4292407561522,24.7725485620629,21.5963918200005,24.1335073959995],"text":["chlorophyll_rfu:  6.94<br />chla_ugl: 23.86<br />isco_deployment_no: 8","chlorophyll_rfu:  7.87<br />chla_ugl: 23.97<br />isco_deployment_no: 8","chlorophyll_rfu:  9.81<br />chla_ugl: 28.98<br />isco_deployment_no: 8","chlorophyll_rfu: 12.33<br />chla_ugl: 35.56<br />isco_deployment_no: 8","chlorophyll_rfu:  9.48<br />chla_ugl: 15.28<br />isco_deployment_no: 8","chlorophyll_rfu: 11.54<br />chla_ugl: 37.55<br />isco_deployment_no: 8","chlorophyll_rfu: 14.09<br />chla_ugl: 33.67<br />isco_deployment_no: 8","chlorophyll_rfu: 12.53<br />chla_ugl: 31.42<br />isco_deployment_no: 8","chlorophyll_rfu: 12.02<br />chla_ugl: 34.60<br />isco_deployment_no: 8","chlorophyll_rfu:  8.97<br />chla_ugl: 29.72<br />isco_deployment_no: 8","chlorophyll_rfu: 10.30<br />chla_ugl: 25.43<br />isco_deployment_no: 8","chlorophyll_rfu:  8.73<br />chla_ugl: 24.77<br />isco_deployment_no: 8","chlorophyll_rfu:  7.71<br />chla_ugl: 21.60<br />isco_deployment_no: 8","chlorophyll_rfu:  8.77<br />chla_ugl: 24.13<br />isco_deployment_no: 8"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(219,114,251,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(219,114,251,1)"}},"hoveron":"points","name":"8","legendgroup":"8","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4.84156348747201,5.20303825578466,5.8593251290787,6.64018161398359,6.03881916271709,5.67975528960302,7.35225265942328,5.20396061591618,7.01728948967531,4.86164212539233,4.27638259828836,4.34200209273584,4.31284409459308,4.41699600482173],"y":[28.2519607388303,26.0413916188385,31.9334751649164,39.2906276722494,38.6785511286631,33.9469838357344,30.7531286077704,26.4478895668685,30.5205239071157,20.7126753384061,22.4317864129636,22.9694762042947,23.1874903324842,25.1995431640018],"text":["chlorophyll_rfu:  4.84<br />chla_ugl: 28.25<br />isco_deployment_no: 9","chlorophyll_rfu:  5.20<br />chla_ugl: 26.04<br />isco_deployment_no: 9","chlorophyll_rfu:  5.86<br />chla_ugl: 31.93<br />isco_deployment_no: 9","chlorophyll_rfu:  6.64<br />chla_ugl: 39.29<br />isco_deployment_no: 9","chlorophyll_rfu:  6.04<br />chla_ugl: 38.68<br />isco_deployment_no: 9","chlorophyll_rfu:  5.68<br />chla_ugl: 33.95<br />isco_deployment_no: 9","chlorophyll_rfu:  7.35<br />chla_ugl: 30.75<br />isco_deployment_no: 9","chlorophyll_rfu:  5.20<br />chla_ugl: 26.45<br />isco_deployment_no: 9","chlorophyll_rfu:  7.02<br />chla_ugl: 30.52<br />isco_deployment_no: 9","chlorophyll_rfu:  4.86<br />chla_ugl: 20.71<br />isco_deployment_no: 9","chlorophyll_rfu:  4.28<br />chla_ugl: 22.43<br />isco_deployment_no: 9","chlorophyll_rfu:  4.34<br />chla_ugl: 22.97<br />isco_deployment_no: 9","chlorophyll_rfu:  4.31<br />chla_ugl: 23.19<br />isco_deployment_no: 9","chlorophyll_rfu:  4.42<br />chla_ugl: 25.20<br />isco_deployment_no: 9"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,97,195,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,97,195,1)"}},"hoveron":"points","name":"9","legendgroup":"9","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.5,0.705443037974684,0.910886075949367,1.11632911392405,1.32177215189873,1.52721518987342,1.7326582278481,1.93810126582278,2.14354430379747,2.34898734177215,2.55443037974684,2.75987341772152,2.9653164556962,3.17075949367089,3.37620253164557,3.58164556962025,3.78708860759494,3.99253164556962,4.1979746835443,4.40341772151899,4.60886075949367,4.81430379746835,5.01974683544304,5.22518987341772,5.43063291139241,5.63607594936709,5.84151898734177,6.04696202531646,6.25240506329114,6.45784810126582,6.66329113924051,6.86873417721519,7.07417721518987,7.27962025316456,7.48506329113924,7.69050632911392,7.89594936708861,8.10139240506329,8.30683544303798,8.51227848101266,8.71772151898734,8.92316455696202,9.12860759493671,9.33405063291139,9.53949367088608,9.74493670886076,9.95037974683544,10.1558227848101,10.3612658227848,10.5667088607595,10.7721518987342,10.9775949367089,11.1830379746835,11.3884810126582,11.5939240506329,11.7993670886076,12.0048101265823,12.210253164557,12.4156962025316,12.6211392405063,12.826582278481,13.0320253164557,13.2374683544304,13.4429113924051,13.6483544303797,13.8537974683544,14.0592405063291,14.2646835443038,14.4701265822785,14.6755696202532,14.8810126582278,15.0864556962025,15.2918987341772,15.4973417721519,15.7027848101266,15.9082278481013,16.113670886076,16.3191139240506,16.5245569620253,16.73],"y":[9.84580901374289,10.3507562918376,10.8557035699324,11.3606508480272,11.8655981261219,12.3705454042167,12.8754926823114,13.3804399604062,13.885387238501,14.3903345165957,14.8952817946905,15.4002290727852,15.90517635088,16.4101236289747,16.9150709070695,17.4200181851643,17.924965463259,18.4299127413538,18.9348600194485,19.4398072975433,19.944754575638,20.4497018537328,20.9546491318276,21.4595964099223,21.9645436880171,22.4694909661118,22.9744382442066,23.4793855223013,23.9843328003961,24.4892800784909,24.9942273565856,25.4991746346804,26.0041219127751,26.5090691908699,27.0140164689646,27.5189637470594,28.0239110251542,28.5288583032489,29.0338055813437,29.5387528594384,30.0437001375332,30.5486474156279,31.0535946937227,31.5585419718175,32.0634892499122,32.568436528007,33.0733838061017,33.5783310841965,34.0832783622912,34.588225640386,35.0931729184808,35.5981201965755,36.1030674746703,36.608014752765,37.1129620308598,37.6179093089545,38.1228565870493,38.6278038651441,39.1327511432388,39.6376984213336,40.1426456994283,40.6475929775231,41.1525402556178,41.6574875337126,42.1624348118074,42.6673820899021,43.1723293679969,43.6772766460916,44.1822239241864,44.6871712022811,45.1921184803759,45.6970657584707,46.2020130365654,46.7069603146602,47.2119075927549,47.7168548708497,48.2218021489444,48.7267494270392,49.231696705134,49.7366439832287],"text":["chlorophyll_rfu:  0.5000000<br />chla_ugl:  9.845809","chlorophyll_rfu:  0.7054430<br />chla_ugl: 10.350756","chlorophyll_rfu:  0.9108861<br />chla_ugl: 10.855704","chlorophyll_rfu:  1.1163291<br />chla_ugl: 11.360651","chlorophyll_rfu:  1.3217722<br />chla_ugl: 11.865598","chlorophyll_rfu:  1.5272152<br />chla_ugl: 12.370545","chlorophyll_rfu:  1.7326582<br />chla_ugl: 12.875493","chlorophyll_rfu:  1.9381013<br />chla_ugl: 13.380440","chlorophyll_rfu:  2.1435443<br />chla_ugl: 13.885387","chlorophyll_rfu:  2.3489873<br />chla_ugl: 14.390335","chlorophyll_rfu:  2.5544304<br />chla_ugl: 14.895282","chlorophyll_rfu:  2.7598734<br />chla_ugl: 15.400229","chlorophyll_rfu:  2.9653165<br />chla_ugl: 15.905176","chlorophyll_rfu:  3.1707595<br />chla_ugl: 16.410124","chlorophyll_rfu:  3.3762025<br />chla_ugl: 16.915071","chlorophyll_rfu:  3.5816456<br />chla_ugl: 17.420018","chlorophyll_rfu:  3.7870886<br />chla_ugl: 17.924965","chlorophyll_rfu:  3.9925316<br />chla_ugl: 18.429913","chlorophyll_rfu:  4.1979747<br />chla_ugl: 18.934860","chlorophyll_rfu:  4.4034177<br />chla_ugl: 19.439807","chlorophyll_rfu:  4.6088608<br />chla_ugl: 19.944755","chlorophyll_rfu:  4.8143038<br />chla_ugl: 20.449702","chlorophyll_rfu:  5.0197468<br />chla_ugl: 20.954649","chlorophyll_rfu:  5.2251899<br />chla_ugl: 21.459596","chlorophyll_rfu:  5.4306329<br />chla_ugl: 21.964544","chlorophyll_rfu:  5.6360759<br />chla_ugl: 22.469491","chlorophyll_rfu:  5.8415190<br />chla_ugl: 22.974438","chlorophyll_rfu:  6.0469620<br />chla_ugl: 23.479386","chlorophyll_rfu:  6.2524051<br />chla_ugl: 23.984333","chlorophyll_rfu:  6.4578481<br />chla_ugl: 24.489280","chlorophyll_rfu:  6.6632911<br />chla_ugl: 24.994227","chlorophyll_rfu:  6.8687342<br />chla_ugl: 25.499175","chlorophyll_rfu:  7.0741772<br />chla_ugl: 26.004122","chlorophyll_rfu:  7.2796203<br />chla_ugl: 26.509069","chlorophyll_rfu:  7.4850633<br />chla_ugl: 27.014016","chlorophyll_rfu:  7.6905063<br />chla_ugl: 27.518964","chlorophyll_rfu:  7.8959494<br />chla_ugl: 28.023911","chlorophyll_rfu:  8.1013924<br />chla_ugl: 28.528858","chlorophyll_rfu:  8.3068354<br />chla_ugl: 29.033806","chlorophyll_rfu:  8.5122785<br />chla_ugl: 29.538753","chlorophyll_rfu:  8.7177215<br />chla_ugl: 30.043700","chlorophyll_rfu:  8.9231646<br />chla_ugl: 30.548647","chlorophyll_rfu:  9.1286076<br />chla_ugl: 31.053595","chlorophyll_rfu:  9.3340506<br />chla_ugl: 31.558542","chlorophyll_rfu:  9.5394937<br />chla_ugl: 32.063489","chlorophyll_rfu:  9.7449367<br />chla_ugl: 32.568437","chlorophyll_rfu:  9.9503797<br />chla_ugl: 33.073384","chlorophyll_rfu: 10.1558228<br />chla_ugl: 33.578331","chlorophyll_rfu: 10.3612658<br />chla_ugl: 34.083278","chlorophyll_rfu: 10.5667089<br />chla_ugl: 34.588226","chlorophyll_rfu: 10.7721519<br />chla_ugl: 35.093173","chlorophyll_rfu: 10.9775949<br />chla_ugl: 35.598120","chlorophyll_rfu: 11.1830380<br />chla_ugl: 36.103067","chlorophyll_rfu: 11.3884810<br />chla_ugl: 36.608015","chlorophyll_rfu: 11.5939241<br />chla_ugl: 37.112962","chlorophyll_rfu: 11.7993671<br />chla_ugl: 37.617909","chlorophyll_rfu: 12.0048101<br />chla_ugl: 38.122857","chlorophyll_rfu: 12.2102532<br />chla_ugl: 38.627804","chlorophyll_rfu: 12.4156962<br />chla_ugl: 39.132751","chlorophyll_rfu: 12.6211392<br />chla_ugl: 39.637698","chlorophyll_rfu: 12.8265823<br />chla_ugl: 40.142646","chlorophyll_rfu: 13.0320253<br />chla_ugl: 40.647593","chlorophyll_rfu: 13.2374684<br />chla_ugl: 41.152540","chlorophyll_rfu: 13.4429114<br />chla_ugl: 41.657488","chlorophyll_rfu: 13.6483544<br />chla_ugl: 42.162435","chlorophyll_rfu: 13.8537975<br />chla_ugl: 42.667382","chlorophyll_rfu: 14.0592405<br />chla_ugl: 43.172329","chlorophyll_rfu: 14.2646835<br />chla_ugl: 43.677277","chlorophyll_rfu: 14.4701266<br />chla_ugl: 44.182224","chlorophyll_rfu: 14.6755696<br />chla_ugl: 44.687171","chlorophyll_rfu: 14.8810127<br />chla_ugl: 45.192118","chlorophyll_rfu: 15.0864557<br />chla_ugl: 45.697066","chlorophyll_rfu: 15.2918987<br />chla_ugl: 46.202013","chlorophyll_rfu: 15.4973418<br />chla_ugl: 46.706960","chlorophyll_rfu: 15.7027848<br />chla_ugl: 47.211908","chlorophyll_rfu: 15.9082278<br />chla_ugl: 47.716855","chlorophyll_rfu: 16.1136709<br />chla_ugl: 48.221802","chlorophyll_rfu: 16.3191139<br />chla_ugl: 48.726749","chlorophyll_rfu: 16.5245570<br />chla_ugl: 49.231697","chlorophyll_rfu: 16.7300000<br />chla_ugl: 49.736644"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.313477844246756,17.5456825116566],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.45557805164242,65.4183447789353],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"ISCO <br /> Deployment","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b28747e88a":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b286b4a64cd":{"x":{},"y":{}}},"cur_data":"5b28747e88a","visdat":{"5b28747e88a":["function (y) ","x"],"5b286b4a64cd":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="tank-samples" class="section level2">
+<h2>Tank Samples</h2>
+<div id="htmlwidget-50fd56ce74388cf6a649" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-50fd56ce74388cf6a649">{"x":{"data":[{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b28673a44ef":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b284cd5493":{"x":{},"y":{}}},"cur_data":"5b28673a44ef","visdat":{"5b28673a44ef":["function (y) ","x"],"5b284cd5493":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="summary-tables" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Summary Tables</h1>
+<div id="all-data-1" class="section level2">
+<h2>All Data</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+All Data from ISCO and Tank Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+20.1906923
+</td>
+<td style="text-align:center;">
+14.4546938
+</td>
+<td style="text-align:center;">
+22.460
+</td>
+<td style="text-align:center;">
+19.133750
+</td>
+<td style="text-align:center;">
+18.273045
+</td>
+<td style="text-align:center;">
+0.63
+</td>
+<td style="text-align:center;">
+62.33
+</td>
+<td style="text-align:center;">
+61.70
+</td>
+<td style="text-align:center;">
+0.4440758
+</td>
+<td style="text-align:center;">
+-0.3867246
+</td>
+<td style="text-align:center;">
+1.2677605
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+102.3360000
+</td>
+<td style="text-align:center;">
+74.0578170
+</td>
+<td style="text-align:center;">
+113.265
+</td>
+<td style="text-align:center;">
+96.677692
+</td>
+<td style="text-align:center;">
+95.212572
+</td>
+<td style="text-align:center;">
+3.14
+</td>
+<td style="text-align:center;">
+319.21
+</td>
+<td style="text-align:center;">
+316.07
+</td>
+<td style="text-align:center;">
+0.4665623
+</td>
+<td style="text-align:center;">
+-0.3617075
+</td>
+<td style="text-align:center;">
+6.4953002
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+62.0202308
+</td>
+<td style="text-align:center;">
+33.9227109
+</td>
+<td style="text-align:center;">
+57.555
+</td>
+<td style="text-align:center;">
+61.551538
+</td>
+<td style="text-align:center;">
+16.879401
+</td>
+<td style="text-align:center;">
+4.46
+</td>
+<td style="text-align:center;">
+132.47
+</td>
+<td style="text-align:center;">
+128.01
+</td>
+<td style="text-align:center;">
+0.3298313
+</td>
+<td style="text-align:center;">
+-0.6177380
+</td>
+<td style="text-align:center;">
+2.9752186
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+0.1966923
+</td>
+<td style="text-align:center;">
+0.0475181
+</td>
+<td style="text-align:center;">
+0.190
+</td>
+<td style="text-align:center;">
+0.191250
+</td>
+<td style="text-align:center;">
+0.044478
+</td>
+<td style="text-align:center;">
+0.13
+</td>
+<td style="text-align:center;">
+0.31
+</td>
+<td style="text-align:center;">
+0.18
+</td>
+<td style="text-align:center;">
+0.8234781
+</td>
+<td style="text-align:center;">
+-0.1680131
+</td>
+<td style="text-align:center;">
+0.0041676
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+28.4530769
+</td>
+<td style="text-align:center;">
+18.8525931
+</td>
+<td style="text-align:center;">
+27.765
+</td>
+<td style="text-align:center;">
+26.146442
+</td>
+<td style="text-align:center;">
+18.354588
+</td>
+<td style="text-align:center;">
+9.21
+</td>
+<td style="text-align:center;">
+166.75
+</td>
+<td style="text-align:center;">
+157.54
+</td>
+<td style="text-align:center;">
+3.3272099
+</td>
+<td style="text-align:center;">
+20.5356752
+</td>
+<td style="text-align:center;">
+1.6534818
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+7.5398462
+</td>
+<td style="text-align:center;">
+0.2724138
+</td>
+<td style="text-align:center;">
+7.570
+</td>
+<td style="text-align:center;">
+7.541346
+</td>
+<td style="text-align:center;">
+0.296520
+</td>
+<td style="text-align:center;">
+6.94
+</td>
+<td style="text-align:center;">
+8.04
+</td>
+<td style="text-align:center;">
+1.10
+</td>
+<td style="text-align:center;">
+-0.1248226
+</td>
+<td style="text-align:center;">
+-0.9319760
+</td>
+<td style="text-align:center;">
+0.0238923
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu
+</td>
+<td style="text-align:center;">
+130
+</td>
+<td style="text-align:center;">
+4.7089231
+</td>
+<td style="text-align:center;">
+4.2236467
+</td>
+<td style="text-align:center;">
+3.390
+</td>
+<td style="text-align:center;">
+4.134135
+</td>
+<td style="text-align:center;">
+3.802869
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+<td style="text-align:center;">
+16.73
+</td>
+<td style="text-align:center;">
+16.23
+</td>
+<td style="text-align:center;">
+0.8430946
+</td>
+<td style="text-align:center;">
+-0.3320210
+</td>
+<td style="text-align:center;">
+0.3704383
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="isco-data-only" class="section level2">
+<h2>ISCO Data Only</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Only data from ISCO Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+20.0529008
+</td>
+<td style="text-align:center;">
+14.4851023
+</td>
+<td style="text-align:center;">
+22.430
+</td>
+<td style="text-align:center;">
+18.9722857
+</td>
+<td style="text-align:center;">
+18.502848
+</td>
+<td style="text-align:center;">
+0.630
+</td>
+<td style="text-align:center;">
+62.330
+</td>
+<td style="text-align:center;">
+61.700
+</td>
+<td style="text-align:center;">
+0.4514651
+</td>
+<td style="text-align:center;">
+-0.3933333
+</td>
+<td style="text-align:center;">
+1.2655693
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+101.6392366
+</td>
+<td style="text-align:center;">
+74.2022176
+</td>
+<td style="text-align:center;">
+111.560
+</td>
+<td style="text-align:center;">
+95.8642857
+</td>
+<td style="text-align:center;">
+92.914542
+</td>
+<td style="text-align:center;">
+3.140
+</td>
+<td style="text-align:center;">
+319.210
+</td>
+<td style="text-align:center;">
+316.070
+</td>
+<td style="text-align:center;">
+0.4740505
+</td>
+<td style="text-align:center;">
+-0.3674096
+</td>
+<td style="text-align:center;">
+6.4830779
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+61.6072519
+</td>
+<td style="text-align:center;">
+34.1209707
+</td>
+<td style="text-align:center;">
+57.430
+</td>
+<td style="text-align:center;">
+61.0812381
+</td>
+<td style="text-align:center;">
+16.871988
+</td>
+<td style="text-align:center;">
+4.460
+</td>
+<td style="text-align:center;">
+132.470
+</td>
+<td style="text-align:center;">
+128.010
+</td>
+<td style="text-align:center;">
+0.3272485
+</td>
+<td style="text-align:center;">
+-0.6271774
+</td>
+<td style="text-align:center;">
+2.9811630
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+do_mgl
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+8.9303817
+</td>
+<td style="text-align:center;">
+3.6702411
+</td>
+<td style="text-align:center;">
+9.000
+</td>
+<td style="text-align:center;">
+8.9924762
+</td>
+<td style="text-align:center;">
+4.625712
+</td>
+<td style="text-align:center;">
+2.070
+</td>
+<td style="text-align:center;">
+14.690
+</td>
+<td style="text-align:center;">
+12.620
+</td>
+<td style="text-align:center;">
+-0.1024449
+</td>
+<td style="text-align:center;">
+-1.1571850
+</td>
+<td style="text-align:center;">
+0.3206705
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+0.1965649
+</td>
+<td style="text-align:center;">
+0.0473574
+</td>
+<td style="text-align:center;">
+0.190
+</td>
+<td style="text-align:center;">
+0.1911429
+</td>
+<td style="text-align:center;">
+0.044478
+</td>
+<td style="text-align:center;">
+0.130
+</td>
+<td style="text-align:center;">
+0.310
+</td>
+<td style="text-align:center;">
+0.180
+</td>
+<td style="text-align:center;">
+0.8332129
+</td>
+<td style="text-align:center;">
+-0.1422596
+</td>
+<td style="text-align:center;">
+0.0041376
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+28.3577863
+</td>
+<td style="text-align:center;">
+18.8115865
+</td>
+<td style="text-align:center;">
+27.100
+</td>
+<td style="text-align:center;">
+26.0495238
+</td>
+<td style="text-align:center;">
+17.702244
+</td>
+<td style="text-align:center;">
+9.210
+</td>
+<td style="text-align:center;">
+166.750
+</td>
+<td style="text-align:center;">
+157.540
+</td>
+<td style="text-align:center;">
+3.3363010
+</td>
+<td style="text-align:center;">
+20.6292598
+</td>
+<td style="text-align:center;">
+1.6435759
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+temp
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+13.6315802
+</td>
+<td style="text-align:center;">
+9.8114387
+</td>
+<td style="text-align:center;">
+14.753
+</td>
+<td style="text-align:center;">
+13.8143143
+</td>
+<td style="text-align:center;">
+14.682188
+</td>
+<td style="text-align:center;">
+0.019
+</td>
+<td style="text-align:center;">
+26.295
+</td>
+<td style="text-align:center;">
+26.276
+</td>
+<td style="text-align:center;">
+-0.1633026
+</td>
+<td style="text-align:center;">
+-1.6358137
+</td>
+<td style="text-align:center;">
+0.8572294
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+7.5409924
+</td>
+<td style="text-align:center;">
+0.2716810
+</td>
+<td style="text-align:center;">
+7.570
+</td>
+<td style="text-align:center;">
+7.5427619
+</td>
+<td style="text-align:center;">
+0.296520
+</td>
+<td style="text-align:center;">
+6.940
+</td>
+<td style="text-align:center;">
+8.040
+</td>
+<td style="text-align:center;">
+1.100
+</td>
+<td style="text-align:center;">
+-0.1361464
+</td>
+<td style="text-align:center;">
+-0.9226259
+</td>
+<td style="text-align:center;">
+0.0237369
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+4.6787786
+</td>
+<td style="text-align:center;">
+4.2214932
+</td>
+<td style="text-align:center;">
+3.250
+</td>
+<td style="text-align:center;">
+4.1020000
+</td>
+<td style="text-align:center;">
+3.632370
+</td>
+<td style="text-align:center;">
+0.500
+</td>
+<td style="text-align:center;">
+16.730
+</td>
+<td style="text-align:center;">
+16.230
+</td>
+<td style="text-align:center;">
+0.8529504
+</td>
+<td style="text-align:center;">
+-0.3170767
+</td>
+<td style="text-align:center;">
+0.3688336
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tank-data-only" class="section level2">
+<h2>Tank Data Only</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Only data from Tank Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="interactive-interference-parameters" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Interactive Interference Parameters</h1>
+<p>These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted <span class="math inline">\(\mu\)</span>g/L with the three parameters of interest overlayed as color for the specific reserve of interest.</p>
+<p><strong>How to use the interactive plot:</strong> Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!</p>
+<div id="fdom" class="section level2">
+<h2>fDOM</h2>
+<div id="htmlwidget-c46310848139c26a3594" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c46310848139c26a3594">{"x":{"data":[{"x":[0.790872032113373,1.15675197984837,1.14055758738145,1.03200511614606,1.04272122637928,1.12386294862069,1.07386695022509,1.09821029195189,1.16228387429193,1.21633430286311,1.12887544366717,1.01860588486679,1.80949308917671,0.99816748274304,1.07622918221355,0.712210343446583,0.726637511098757,0.742443185396492,0.703615529267117,0.659197336681187,0.501669349549338,0.589152437666431,0.73861259203963,0.768095038883388,0.748512117508799,0.833773602997884,0.839155956357717,0.873593169059604,0.856862983012572,1.32666380627453,1.20071138530411,1.20157623594999,1.04049669510685,0.953147952923551,0.791620452079922,0.827686141442508,1.30978390285745,1.14388589401729,1.69310079203546,1.49750002555363,1.59795392012224,1.4260408824943,1.60819417029805,1.30326065111905,1.59121802700125,1.05635297673382,1.19659968949109,0.818987547943368,0.797110321914777,1.27730217581801,1.04182301439717,0.737662076536566,0.677950005656108,0.672113439800218,0.720759894542396,0.85807461469993,0.926071593947709,1.04126041912287,1.24831791662611,9.13613616136275,8.33222995196842,11.1874844143745,15.8570808377564,16.7273655919563,4.02959191667475,2.65740377818421,3.06621280945465,8.80747328034043,11.2521333866995,14.8583974350858,13.0101510535199,3.59292506347038,3.25080294521153,2.02040227877162,3.5335764767155,3.82374508883059,9.30012244072743,14.7425644827224,12.4265425240416,7.87752094045095,4.09037629265338,3.24154606274515,2.10885457504541,5.39775231668539,7.03112927867286,7.52724794746935,7.73992960770056,5.17104755954258,5.54106771316379,6.83683287490718,8.51769010821171,9.34175195848383,9.79974414872192,7.78863273746893,9.88213399170525,11.8868882106002,8.90831051499024,6.0679236160852,6.66038252228126,7.09920952599868,7.18049517104402,6.93833712463453,6.94177360134013,7.86665206552483,9.8137454386428,12.3273262997046,9.47763224537484,11.5376411612295,14.0910934039019,12.5260104727987,12.0222010668665,8.97249397456087,10.302187208198,8.7263785451632,7.71255040748976,8.77223410319351,4.83892668555118,5.201882129943,5.86304460538179,6.63845814841427,6.03852834175155,5.68069766991585,7.35251016497984,5.19944969826564,7.01852045709454,4.85745664658025,4.27964476368763,4.33809652752802,4.31126280072704,4.41941894729435],"y":[9.94621016717702,9.48910978330672,6.2767146659065,6.84736401166581,4.65383948068507,3.67374818005785,6.05787862147577,7.05063518574648,7.42037222456187,5.44132945596986,4.44686987523548,3.12632812170684,4.45396761024371,5.12862345542572,7.45828912366554,1.72220416620374,1.66360864831135,2.04075230989233,2.15025389513746,2.01180933212489,1.87341949726641,2.20783325185068,2.20803704114445,1.96845962283015,1.96673612454906,1.78855346236192,1.90800048008747,2.18335188257694,2.26341749167815,4.47177706252783,1.8595399678871,2.76929457214475,3.27878396862559,2.55759187676571,3.23697572439909,4.17056236040406,4.74959600091912,4.02747644024715,6.07307024075463,5.23078141461872,6.08148821016587,6.58879347022064,7.12645199938864,4.20092011517845,33.8490709164795,25.3719500749707,29.3339949731268,21.4606627994385,21.1523601147626,40.7712469226532,35.078796980178,23.8895004941467,20.869634235343,17.070576364778,23.7769826136101,24.7994863498956,25.7174016025588,28.6397713637855,32.2668781750612,28.3375063216425,28.1204150628485,38.9609373554289,47.7708030258622,49.1423148468379,22.7072885123119,15.7914939193148,18.9069291668162,42.926225553209,46.5465960839707,36.0029786294345,38.7682833703663,15.6394930930715,13.6723763880506,9.90967288012058,14.3591322767772,13.5437173889801,38.392352548046,52.0163140345942,53.4128573119473,31.4429469135944,18.8805968149994,15.3512563277818,8.46994981845282,21.7033006390054,20.8600233080536,27.1484009943027,28.2204871937539,23.0209027991854,33.2111788515337,28.4239345929939,24.6101009282209,22.4916687629484,0.63080951195769,27.2805282937214,27.9584288289491,30.2081073348951,32.7131189937945,60.5006375218406,62.3308338471204,23.9869273081999,23.3069664515387,26.3108462762069,23.8612246885337,23.9678633548524,28.9824306363855,35.5634900471363,15.276008736629,37.5483280669134,33.668472266769,31.4217076976057,34.5973208400346,29.7219932547174,25.4269566779062,24.7701668452285,21.5984534521811,24.1277982099373,28.2476530884858,26.0381445642859,31.9290938078295,39.2883484716546,38.6822178517841,33.9495390618704,30.7519303317871,26.4525470487457,30.5182947997302,20.7121867490448,22.4269734978825,22.968153898593,23.1902601424176,25.2034061174337],"text":["chlorophyll_rfu:  0.79<br />chla_ugl:  9.95<br />fdom_qsu:  21.95","chlorophyll_rfu:  1.16<br />chla_ugl:  9.49<br />fdom_qsu:  43.07","chlorophyll_rfu:  1.14<br />chla_ugl:  6.28<br />fdom_qsu:  39.81","chlorophyll_rfu:  1.03<br />chla_ugl:  6.85<br />fdom_qsu:  58.95","chlorophyll_rfu:  1.04<br />chla_ugl:  4.65<br />fdom_qsu:  26.56","chlorophyll_rfu:  1.12<br />chla_ugl:  3.67<br />fdom_qsu:  63.00","chlorophyll_rfu:  1.07<br />chla_ugl:  6.06<br />fdom_qsu:  67.33","chlorophyll_rfu:  1.10<br />chla_ugl:  7.05<br />fdom_qsu:  63.31","chlorophyll_rfu:  1.16<br />chla_ugl:  7.42<br />fdom_qsu:  62.93","chlorophyll_rfu:  1.22<br />chla_ugl:  5.44<br />fdom_qsu:  61.46","chlorophyll_rfu:  1.13<br />chla_ugl:  4.45<br />fdom_qsu:  57.43","chlorophyll_rfu:  1.02<br />chla_ugl:  3.13<br />fdom_qsu:  48.32","chlorophyll_rfu:  1.81<br />chla_ugl:  4.45<br />fdom_qsu:  36.25","chlorophyll_rfu:  1.00<br />chla_ugl:  5.13<br />fdom_qsu:  64.79","chlorophyll_rfu:  1.08<br />chla_ugl:  7.46<br />fdom_qsu:  60.90","chlorophyll_rfu:  0.71<br />chla_ugl:  1.72<br />fdom_qsu:   7.41","chlorophyll_rfu:  0.73<br />chla_ugl:  1.66<br />fdom_qsu:   7.73","chlorophyll_rfu:  0.74<br />chla_ugl:  2.04<br />fdom_qsu:  10.86","chlorophyll_rfu:  0.70<br />chla_ugl:  2.15<br />fdom_qsu:   7.01","chlorophyll_rfu:  0.66<br />chla_ugl:  2.01<br />fdom_qsu:   5.86","chlorophyll_rfu:  0.50<br />chla_ugl:  1.87<br />fdom_qsu:   6.22","chlorophyll_rfu:  0.59<br />chla_ugl:  2.21<br />fdom_qsu:   6.35","chlorophyll_rfu:  0.74<br />chla_ugl:  2.21<br />fdom_qsu:   9.40","chlorophyll_rfu:  0.77<br />chla_ugl:  1.97<br />fdom_qsu:  14.89","chlorophyll_rfu:  0.75<br />chla_ugl:  1.97<br />fdom_qsu:  19.31","chlorophyll_rfu:  0.83<br />chla_ugl:  1.79<br />fdom_qsu:   4.98","chlorophyll_rfu:  0.84<br />chla_ugl:  1.91<br />fdom_qsu:   4.46","chlorophyll_rfu:  0.87<br />chla_ugl:  2.18<br />fdom_qsu:   4.62","chlorophyll_rfu:  0.86<br />chla_ugl:  2.26<br />fdom_qsu:   4.96","chlorophyll_rfu:  1.33<br />chla_ugl:  4.47<br />fdom_qsu: 132.47","chlorophyll_rfu:  1.20<br />chla_ugl:  1.86<br />fdom_qsu: 118.87","chlorophyll_rfu:  1.20<br />chla_ugl:  2.77<br />fdom_qsu: 121.95","chlorophyll_rfu:  1.04<br />chla_ugl:  3.28<br />fdom_qsu: 130.13","chlorophyll_rfu:  0.95<br />chla_ugl:  2.56<br />fdom_qsu: 121.68","chlorophyll_rfu:  0.79<br />chla_ugl:  3.24<br />fdom_qsu: 109.31","chlorophyll_rfu:  0.83<br />chla_ugl:  4.17<br />fdom_qsu: 106.29","chlorophyll_rfu:  1.31<br />chla_ugl:  4.75<br />fdom_qsu: 114.19","chlorophyll_rfu:  1.14<br />chla_ugl:  4.03<br />fdom_qsu: 111.53","chlorophyll_rfu:  1.69<br />chla_ugl:  6.07<br />fdom_qsu: 118.10","chlorophyll_rfu:  1.50<br />chla_ugl:  5.23<br />fdom_qsu: 117.47","chlorophyll_rfu:  1.60<br />chla_ugl:  6.08<br />fdom_qsu: 121.62","chlorophyll_rfu:  1.43<br />chla_ugl:  6.59<br />fdom_qsu: 119.73","chlorophyll_rfu:  1.61<br />chla_ugl:  7.13<br />fdom_qsu: 104.57","chlorophyll_rfu:  1.30<br />chla_ugl:  4.20<br />fdom_qsu: 121.41","chlorophyll_rfu:  1.59<br />chla_ugl: 33.85<br />fdom_qsu:  46.54","chlorophyll_rfu:  1.06<br />chla_ugl: 25.37<br />fdom_qsu:  37.22","chlorophyll_rfu:  1.20<br />chla_ugl: 29.33<br />fdom_qsu:  49.99","chlorophyll_rfu:  0.82<br />chla_ugl: 21.46<br />fdom_qsu:  36.40","chlorophyll_rfu:  0.80<br />chla_ugl: 21.15<br />fdom_qsu:  59.29","chlorophyll_rfu:  1.28<br />chla_ugl: 40.77<br />fdom_qsu:  62.45","chlorophyll_rfu:  1.04<br />chla_ugl: 35.08<br />fdom_qsu:  63.58","chlorophyll_rfu:  0.74<br />chla_ugl: 23.89<br />fdom_qsu:  68.61","chlorophyll_rfu:  0.68<br />chla_ugl: 20.87<br />fdom_qsu:  65.67","chlorophyll_rfu:  0.67<br />chla_ugl: 17.07<br />fdom_qsu:  49.42","chlorophyll_rfu:  0.72<br />chla_ugl: 23.78<br />fdom_qsu:  58.24","chlorophyll_rfu:  0.86<br />chla_ugl: 24.80<br />fdom_qsu:  46.05","chlorophyll_rfu:  0.93<br />chla_ugl: 25.72<br />fdom_qsu:  55.59","chlorophyll_rfu:  1.04<br />chla_ugl: 28.64<br />fdom_qsu:  57.39","chlorophyll_rfu:  1.25<br />chla_ugl: 32.27<br />fdom_qsu:  55.68","chlorophyll_rfu:  9.14<br />chla_ugl: 28.34<br />fdom_qsu:  47.23","chlorophyll_rfu:  8.33<br />chla_ugl: 28.12<br />fdom_qsu:  44.39","chlorophyll_rfu: 11.19<br />chla_ugl: 38.96<br />fdom_qsu:  51.28","chlorophyll_rfu: 15.86<br />chla_ugl: 47.77<br />fdom_qsu:  54.02","chlorophyll_rfu: 16.73<br />chla_ugl: 49.14<br />fdom_qsu:  54.35","chlorophyll_rfu:  4.03<br />chla_ugl: 22.71<br />fdom_qsu:  17.96","chlorophyll_rfu:  2.66<br />chla_ugl: 15.79<br />fdom_qsu:  12.17","chlorophyll_rfu:  3.07<br />chla_ugl: 18.91<br />fdom_qsu:  15.48","chlorophyll_rfu:  8.81<br />chla_ugl: 42.93<br />fdom_qsu:  31.69","chlorophyll_rfu: 11.25<br />chla_ugl: 46.55<br />fdom_qsu:  43.79","chlorophyll_rfu: 14.86<br />chla_ugl: 36.00<br />fdom_qsu:  59.69","chlorophyll_rfu: 13.01<br />chla_ugl: 38.77<br />fdom_qsu:  61.77","chlorophyll_rfu:  3.59<br />chla_ugl: 15.64<br />fdom_qsu:  73.35","chlorophyll_rfu:  3.25<br />chla_ugl: 13.67<br />fdom_qsu:  59.64","chlorophyll_rfu:  2.02<br />chla_ugl:  9.91<br />fdom_qsu:  47.96","chlorophyll_rfu:  3.53<br />chla_ugl: 14.36<br />fdom_qsu:  38.15","chlorophyll_rfu:  3.82<br />chla_ugl: 13.54<br />fdom_qsu:  44.48","chlorophyll_rfu:  9.30<br />chla_ugl: 38.39<br />fdom_qsu:  52.82","chlorophyll_rfu: 14.74<br />chla_ugl: 52.02<br />fdom_qsu:  56.45","chlorophyll_rfu: 12.43<br />chla_ugl: 53.41<br />fdom_qsu:  60.87","chlorophyll_rfu:  7.88<br />chla_ugl: 31.44<br />fdom_qsu:  46.14","chlorophyll_rfu:  4.09<br />chla_ugl: 18.88<br />fdom_qsu:  28.99","chlorophyll_rfu:  3.24<br />chla_ugl: 15.35<br />fdom_qsu:  26.19","chlorophyll_rfu:  2.11<br />chla_ugl:  8.47<br />fdom_qsu:  19.71","chlorophyll_rfu:  5.40<br />chla_ugl: 21.70<br />fdom_qsu:  47.48","chlorophyll_rfu:  7.03<br />chla_ugl: 20.86<br />fdom_qsu:  63.55","chlorophyll_rfu:  7.53<br />chla_ugl: 27.15<br />fdom_qsu:  56.52","chlorophyll_rfu:  7.74<br />chla_ugl: 28.22<br />fdom_qsu:  58.80","chlorophyll_rfu:  5.17<br />chla_ugl: 23.02<br />fdom_qsu:  39.15","chlorophyll_rfu:  5.54<br />chla_ugl: 33.21<br />fdom_qsu: 112.71","chlorophyll_rfu:  6.84<br />chla_ugl: 28.42<br />fdom_qsu: 108.16","chlorophyll_rfu:  8.52<br />chla_ugl: 24.61<br />fdom_qsu: 111.79","chlorophyll_rfu:  9.34<br />chla_ugl: 22.49<br />fdom_qsu: 114.06","chlorophyll_rfu:  9.80<br />chla_ugl:  0.63<br />fdom_qsu: 114.18","chlorophyll_rfu:  7.79<br />chla_ugl: 27.28<br />fdom_qsu: 112.73","chlorophyll_rfu:  9.88<br />chla_ugl: 27.96<br />fdom_qsu: 112.02","chlorophyll_rfu: 11.89<br />chla_ugl: 30.21<br />fdom_qsu: 111.98","chlorophyll_rfu:  8.91<br />chla_ugl: 32.71<br />fdom_qsu: 112.76","chlorophyll_rfu:  6.07<br />chla_ugl: 60.50<br />fdom_qsu: 114.67","chlorophyll_rfu:  6.66<br />chla_ugl: 62.33<br />fdom_qsu: 114.75","chlorophyll_rfu:  7.10<br />chla_ugl: 23.99<br />fdom_qsu: 113.21","chlorophyll_rfu:  7.18<br />chla_ugl: 23.31<br />fdom_qsu: 115.59","chlorophyll_rfu:  6.94<br />chla_ugl: 26.31<br />fdom_qsu: 115.47","chlorophyll_rfu:  6.94<br />chla_ugl: 23.86<br />fdom_qsu:  55.25","chlorophyll_rfu:  7.87<br />chla_ugl: 23.97<br />fdom_qsu:  55.30","chlorophyll_rfu:  9.81<br />chla_ugl: 28.98<br />fdom_qsu:  55.24","chlorophyll_rfu: 12.33<br />chla_ugl: 35.56<br />fdom_qsu:  53.87","chlorophyll_rfu:  9.48<br />chla_ugl: 15.28<br />fdom_qsu:  54.80","chlorophyll_rfu: 11.54<br />chla_ugl: 37.55<br />fdom_qsu:  54.35","chlorophyll_rfu: 14.09<br />chla_ugl: 33.67<br />fdom_qsu:  52.09","chlorophyll_rfu: 12.53<br />chla_ugl: 31.42<br />fdom_qsu:  52.69","chlorophyll_rfu: 12.02<br />chla_ugl: 34.60<br />fdom_qsu:  53.87","chlorophyll_rfu:  8.97<br />chla_ugl: 29.72<br />fdom_qsu:  53.80","chlorophyll_rfu: 10.30<br />chla_ugl: 25.43<br />fdom_qsu:  54.09","chlorophyll_rfu:  8.73<br />chla_ugl: 24.77<br />fdom_qsu:  55.07","chlorophyll_rfu:  7.71<br />chla_ugl: 21.60<br />fdom_qsu:  55.31","chlorophyll_rfu:  8.77<br />chla_ugl: 24.13<br />fdom_qsu:  57.68","chlorophyll_rfu:  4.84<br />chla_ugl: 28.25<br />fdom_qsu:  67.48","chlorophyll_rfu:  5.20<br />chla_ugl: 26.04<br />fdom_qsu:  67.44","chlorophyll_rfu:  5.86<br />chla_ugl: 31.93<br />fdom_qsu:  67.19","chlorophyll_rfu:  6.64<br />chla_ugl: 39.29<br />fdom_qsu:  64.75","chlorophyll_rfu:  6.04<br />chla_ugl: 38.68<br />fdom_qsu:  64.68","chlorophyll_rfu:  5.68<br />chla_ugl: 33.95<br />fdom_qsu:  64.73","chlorophyll_rfu:  7.35<br />chla_ugl: 30.75<br />fdom_qsu:  65.06","chlorophyll_rfu:  5.20<br />chla_ugl: 26.45<br />fdom_qsu:  64.67","chlorophyll_rfu:  7.02<br />chla_ugl: 30.52<br />fdom_qsu:  66.41","chlorophyll_rfu:  4.86<br />chla_ugl: 20.71<br />fdom_qsu:  65.38","chlorophyll_rfu:  4.28<br />chla_ugl: 22.43<br />fdom_qsu:  67.36","chlorophyll_rfu:  4.34<br />chla_ugl: 22.97<br />fdom_qsu:  67.48","chlorophyll_rfu:  4.31<br />chla_ugl: 23.19<br />fdom_qsu:  67.97","chlorophyll_rfu:  4.42<br />chla_ugl: 25.20<br />fdom_qsu:  68.91"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(27,59,89,1)","rgba(38,80,117,1)","rgba(36,77,112,1)","rgba(46,96,139,1)","rgba(30,64,95,1)","rgba(48,100,144,1)","rgba(50,105,150,1)","rgba(48,101,145,1)","rgba(48,100,144,1)","rgba(47,99,142,1)","rgba(45,95,136,1)","rgba(40,85,124,1)","rgba(34,73,108,1)","rgba(49,102,147,1)","rgba(47,98,141,1)","rgba(20,46,71,1)","rgba(21,46,71,1)","rgba(22,49,75,1)","rgba(20,45,70,1)","rgba(20,44,69,1)","rgba(20,45,69,1)","rgba(20,45,69,1)","rgba(21,48,73,1)","rgba(24,53,80,1)","rgba(26,57,86,1)","rgba(19,43,68,1)","rgba(19,43,67,1)","rgba(19,43,67,1)","rgba(19,43,68,1)","rgba(86,177,247,1)","rgba(78,161,226,1)","rgba(80,165,231,1)","rgba(85,174,243,1)","rgba(80,165,230,1)","rgba(73,151,212,1)","rgba(71,147,207,1)","rgba(76,156,219,1)","rgba(74,153,215,1)","rgba(78,161,225,1)","rgba(77,160,224,1)","rgba(80,165,230,1)","rgba(79,162,227,1)","rgba(70,145,205,1)","rgba(80,164,230,1)","rgba(39,83,122,1)","rgba(35,74,109,1)","rgba(41,87,126,1)","rgba(34,73,108,1)","rgba(46,97,139,1)","rgba(48,100,143,1)","rgba(48,101,145,1)","rgba(51,106,152,1)","rgba(49,103,148,1)","rgba(41,86,125,1)","rgba(45,95,138,1)","rgba(39,83,121,1)","rgba(44,93,134,1)","rgba(45,95,136,1)","rgba(44,93,134,1)","rgba(40,84,122,1)","rgba(38,81,119,1)","rgba(42,88,128,1)","rgba(43,91,132,1)","rgba(43,91,132,1)","rgba(25,56,84,1)","rgba(23,50,77,1)","rgba(24,53,81,1)","rgba(32,69,102,1)","rgba(38,81,118,1)","rgba(46,97,140,1)","rgba(47,99,143,1)","rgba(53,111,159,1)","rgba(46,97,140,1)","rgba(40,85,123,1)","rgba(35,75,110,1)","rgba(38,81,119,1)","rgba(43,90,130,1)","rgba(45,94,135,1)","rgba(47,98,141,1)","rgba(39,83,121,1)","rgba(31,66,98,1)","rgba(29,63,94,1)","rgba(26,57,86,1)","rgba(40,84,123,1)","rgba(48,101,145,1)","rgba(45,94,135,1)","rgba(46,96,138,1)","rgba(36,76,112,1)","rgba(75,154,217,1)","rgba(72,149,210,1)","rgba(74,153,215,1)","rgba(76,156,219,1)","rgba(76,156,219,1)","rgba(75,154,217,1)","rgba(74,154,216,1)","rgba(74,154,216,1)","rgba(75,154,217,1)","rgba(76,157,220,1)","rgba(76,157,220,1)","rgba(75,155,218,1)","rgba(76,158,221,1)","rgba(76,158,221,1)","rgba(44,92,133,1)","rgba(44,92,134,1)","rgba(44,92,133,1)","rgba(43,91,132,1)","rgba(44,92,133,1)","rgba(43,91,132,1)","rgba(42,89,129,1)","rgba(43,90,130,1)","rgba(43,91,132,1)","rgba(43,91,131,1)","rgba(43,91,132,1)","rgba(44,92,133,1)","rgba(44,92,134,1)","rgba(45,95,137,1)","rgba(50,105,151,1)","rgba(50,105,151,1)","rgba(50,105,150,1)","rgba(49,102,147,1)","rgba(49,102,147,1)","rgba(49,102,147,1)","rgba(49,103,147,1)","rgba(49,102,147,1)","rgba(50,104,149,1)","rgba(49,103,148,1)","rgba(50,105,150,1)","rgba(50,105,151,1)","rgba(51,106,151,1)","rgba(51,107,153,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(27,59,89,1)","rgba(38,80,117,1)","rgba(36,77,112,1)","rgba(46,96,139,1)","rgba(30,64,95,1)","rgba(48,100,144,1)","rgba(50,105,150,1)","rgba(48,101,145,1)","rgba(48,100,144,1)","rgba(47,99,142,1)","rgba(45,95,136,1)","rgba(40,85,124,1)","rgba(34,73,108,1)","rgba(49,102,147,1)","rgba(47,98,141,1)","rgba(20,46,71,1)","rgba(21,46,71,1)","rgba(22,49,75,1)","rgba(20,45,70,1)","rgba(20,44,69,1)","rgba(20,45,69,1)","rgba(20,45,69,1)","rgba(21,48,73,1)","rgba(24,53,80,1)","rgba(26,57,86,1)","rgba(19,43,68,1)","rgba(19,43,67,1)","rgba(19,43,67,1)","rgba(19,43,68,1)","rgba(86,177,247,1)","rgba(78,161,226,1)","rgba(80,165,231,1)","rgba(85,174,243,1)","rgba(80,165,230,1)","rgba(73,151,212,1)","rgba(71,147,207,1)","rgba(76,156,219,1)","rgba(74,153,215,1)","rgba(78,161,225,1)","rgba(77,160,224,1)","rgba(80,165,230,1)","rgba(79,162,227,1)","rgba(70,145,205,1)","rgba(80,164,230,1)","rgba(39,83,122,1)","rgba(35,74,109,1)","rgba(41,87,126,1)","rgba(34,73,108,1)","rgba(46,97,139,1)","rgba(48,100,143,1)","rgba(48,101,145,1)","rgba(51,106,152,1)","rgba(49,103,148,1)","rgba(41,86,125,1)","rgba(45,95,138,1)","rgba(39,83,121,1)","rgba(44,93,134,1)","rgba(45,95,136,1)","rgba(44,93,134,1)","rgba(40,84,122,1)","rgba(38,81,119,1)","rgba(42,88,128,1)","rgba(43,91,132,1)","rgba(43,91,132,1)","rgba(25,56,84,1)","rgba(23,50,77,1)","rgba(24,53,81,1)","rgba(32,69,102,1)","rgba(38,81,118,1)","rgba(46,97,140,1)","rgba(47,99,143,1)","rgba(53,111,159,1)","rgba(46,97,140,1)","rgba(40,85,123,1)","rgba(35,75,110,1)","rgba(38,81,119,1)","rgba(43,90,130,1)","rgba(45,94,135,1)","rgba(47,98,141,1)","rgba(39,83,121,1)","rgba(31,66,98,1)","rgba(29,63,94,1)","rgba(26,57,86,1)","rgba(40,84,123,1)","rgba(48,101,145,1)","rgba(45,94,135,1)","rgba(46,96,138,1)","rgba(36,76,112,1)","rgba(75,154,217,1)","rgba(72,149,210,1)","rgba(74,153,215,1)","rgba(76,156,219,1)","rgba(76,156,219,1)","rgba(75,154,217,1)","rgba(74,154,216,1)","rgba(74,154,216,1)","rgba(75,154,217,1)","rgba(76,157,220,1)","rgba(76,157,220,1)","rgba(75,155,218,1)","rgba(76,158,221,1)","rgba(76,158,221,1)","rgba(44,92,133,1)","rgba(44,92,134,1)","rgba(44,92,133,1)","rgba(43,91,132,1)","rgba(44,92,133,1)","rgba(43,91,132,1)","rgba(42,89,129,1)","rgba(43,90,130,1)","rgba(43,91,132,1)","rgba(43,91,131,1)","rgba(43,91,132,1)","rgba(44,92,133,1)","rgba(44,92,134,1)","rgba(45,95,137,1)","rgba(50,105,151,1)","rgba(50,105,151,1)","rgba(50,105,150,1)","rgba(49,102,147,1)","rgba(49,102,147,1)","rgba(49,102,147,1)","rgba(49,103,147,1)","rgba(49,102,147,1)","rgba(50,104,149,1)","rgba(49,103,148,1)","rgba(50,105,150,1)","rgba(50,105,151,1)","rgba(51,106,151,1)","rgba(51,107,153,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.5,0.705443037974684,0.910886075949367,1.11632911392405,1.32177215189873,1.52721518987342,1.7326582278481,1.93810126582278,2.14354430379747,2.34898734177215,2.55443037974684,2.75987341772152,2.9653164556962,3.17075949367089,3.37620253164557,3.58164556962025,3.78708860759494,3.99253164556962,4.1979746835443,4.40341772151899,4.60886075949367,4.81430379746835,5.01974683544304,5.22518987341772,5.43063291139241,5.63607594936709,5.84151898734177,6.04696202531646,6.25240506329114,6.45784810126582,6.66329113924051,6.86873417721519,7.07417721518987,7.27962025316456,7.48506329113924,7.69050632911392,7.89594936708861,8.10139240506329,8.30683544303798,8.51227848101266,8.71772151898734,8.92316455696202,9.12860759493671,9.33405063291139,9.53949367088608,9.74493670886076,9.95037974683544,10.1558227848101,10.3612658227848,10.5667088607595,10.7721518987342,10.9775949367089,11.1830379746835,11.3884810126582,11.5939240506329,11.7993670886076,12.0048101265823,12.210253164557,12.4156962025316,12.6211392405063,12.826582278481,13.0320253164557,13.2374683544304,13.4429113924051,13.6483544303797,13.8537974683544,14.0592405063291,14.2646835443038,14.4701265822785,14.6755696202532,14.8810126582278,15.0864556962025,15.2918987341772,15.4973417721519,15.7027848101266,15.9082278481013,16.113670886076,16.3191139240506,16.5245569620253,16.73],"y":[9.84580901374289,10.3507562918376,10.8557035699324,11.3606508480272,11.8655981261219,12.3705454042167,12.8754926823114,13.3804399604062,13.885387238501,14.3903345165957,14.8952817946905,15.4002290727852,15.90517635088,16.4101236289747,16.9150709070695,17.4200181851643,17.924965463259,18.4299127413538,18.9348600194485,19.4398072975433,19.944754575638,20.4497018537328,20.9546491318276,21.4595964099223,21.9645436880171,22.4694909661118,22.9744382442066,23.4793855223013,23.9843328003961,24.4892800784909,24.9942273565856,25.4991746346804,26.0041219127751,26.5090691908699,27.0140164689646,27.5189637470594,28.0239110251542,28.5288583032489,29.0338055813437,29.5387528594384,30.0437001375332,30.5486474156279,31.0535946937227,31.5585419718175,32.0634892499122,32.568436528007,33.0733838061017,33.5783310841965,34.0832783622912,34.588225640386,35.0931729184808,35.5981201965755,36.1030674746703,36.608014752765,37.1129620308598,37.6179093089545,38.1228565870493,38.6278038651441,39.1327511432388,39.6376984213336,40.1426456994283,40.6475929775231,41.1525402556178,41.6574875337126,42.1624348118074,42.6673820899021,43.1723293679969,43.6772766460916,44.1822239241864,44.6871712022811,45.1921184803759,45.6970657584707,46.2020130365654,46.7069603146602,47.2119075927549,47.7168548708497,48.2218021489444,48.7267494270392,49.231696705134,49.7366439832287],"text":["chlorophyll_rfu:  0.5000000<br />chla_ugl:  9.845809","chlorophyll_rfu:  0.7054430<br />chla_ugl: 10.350756","chlorophyll_rfu:  0.9108861<br />chla_ugl: 10.855704","chlorophyll_rfu:  1.1163291<br />chla_ugl: 11.360651","chlorophyll_rfu:  1.3217722<br />chla_ugl: 11.865598","chlorophyll_rfu:  1.5272152<br />chla_ugl: 12.370545","chlorophyll_rfu:  1.7326582<br />chla_ugl: 12.875493","chlorophyll_rfu:  1.9381013<br />chla_ugl: 13.380440","chlorophyll_rfu:  2.1435443<br />chla_ugl: 13.885387","chlorophyll_rfu:  2.3489873<br />chla_ugl: 14.390335","chlorophyll_rfu:  2.5544304<br />chla_ugl: 14.895282","chlorophyll_rfu:  2.7598734<br />chla_ugl: 15.400229","chlorophyll_rfu:  2.9653165<br />chla_ugl: 15.905176","chlorophyll_rfu:  3.1707595<br />chla_ugl: 16.410124","chlorophyll_rfu:  3.3762025<br />chla_ugl: 16.915071","chlorophyll_rfu:  3.5816456<br />chla_ugl: 17.420018","chlorophyll_rfu:  3.7870886<br />chla_ugl: 17.924965","chlorophyll_rfu:  3.9925316<br />chla_ugl: 18.429913","chlorophyll_rfu:  4.1979747<br />chla_ugl: 18.934860","chlorophyll_rfu:  4.4034177<br />chla_ugl: 19.439807","chlorophyll_rfu:  4.6088608<br />chla_ugl: 19.944755","chlorophyll_rfu:  4.8143038<br />chla_ugl: 20.449702","chlorophyll_rfu:  5.0197468<br />chla_ugl: 20.954649","chlorophyll_rfu:  5.2251899<br />chla_ugl: 21.459596","chlorophyll_rfu:  5.4306329<br />chla_ugl: 21.964544","chlorophyll_rfu:  5.6360759<br />chla_ugl: 22.469491","chlorophyll_rfu:  5.8415190<br />chla_ugl: 22.974438","chlorophyll_rfu:  6.0469620<br />chla_ugl: 23.479386","chlorophyll_rfu:  6.2524051<br />chla_ugl: 23.984333","chlorophyll_rfu:  6.4578481<br />chla_ugl: 24.489280","chlorophyll_rfu:  6.6632911<br />chla_ugl: 24.994227","chlorophyll_rfu:  6.8687342<br />chla_ugl: 25.499175","chlorophyll_rfu:  7.0741772<br />chla_ugl: 26.004122","chlorophyll_rfu:  7.2796203<br />chla_ugl: 26.509069","chlorophyll_rfu:  7.4850633<br />chla_ugl: 27.014016","chlorophyll_rfu:  7.6905063<br />chla_ugl: 27.518964","chlorophyll_rfu:  7.8959494<br />chla_ugl: 28.023911","chlorophyll_rfu:  8.1013924<br />chla_ugl: 28.528858","chlorophyll_rfu:  8.3068354<br />chla_ugl: 29.033806","chlorophyll_rfu:  8.5122785<br />chla_ugl: 29.538753","chlorophyll_rfu:  8.7177215<br />chla_ugl: 30.043700","chlorophyll_rfu:  8.9231646<br />chla_ugl: 30.548647","chlorophyll_rfu:  9.1286076<br />chla_ugl: 31.053595","chlorophyll_rfu:  9.3340506<br />chla_ugl: 31.558542","chlorophyll_rfu:  9.5394937<br />chla_ugl: 32.063489","chlorophyll_rfu:  9.7449367<br />chla_ugl: 32.568437","chlorophyll_rfu:  9.9503797<br />chla_ugl: 33.073384","chlorophyll_rfu: 10.1558228<br />chla_ugl: 33.578331","chlorophyll_rfu: 10.3612658<br />chla_ugl: 34.083278","chlorophyll_rfu: 10.5667089<br />chla_ugl: 34.588226","chlorophyll_rfu: 10.7721519<br />chla_ugl: 35.093173","chlorophyll_rfu: 10.9775949<br />chla_ugl: 35.598120","chlorophyll_rfu: 11.1830380<br />chla_ugl: 36.103067","chlorophyll_rfu: 11.3884810<br />chla_ugl: 36.608015","chlorophyll_rfu: 11.5939241<br />chla_ugl: 37.112962","chlorophyll_rfu: 11.7993671<br />chla_ugl: 37.617909","chlorophyll_rfu: 12.0048101<br />chla_ugl: 38.122857","chlorophyll_rfu: 12.2102532<br />chla_ugl: 38.627804","chlorophyll_rfu: 12.4156962<br />chla_ugl: 39.132751","chlorophyll_rfu: 12.6211392<br />chla_ugl: 39.637698","chlorophyll_rfu: 12.8265823<br />chla_ugl: 40.142646","chlorophyll_rfu: 13.0320253<br />chla_ugl: 40.647593","chlorophyll_rfu: 13.2374684<br />chla_ugl: 41.152540","chlorophyll_rfu: 13.4429114<br />chla_ugl: 41.657488","chlorophyll_rfu: 13.6483544<br />chla_ugl: 42.162435","chlorophyll_rfu: 13.8537975<br />chla_ugl: 42.667382","chlorophyll_rfu: 14.0592405<br />chla_ugl: 43.172329","chlorophyll_rfu: 14.2646835<br />chla_ugl: 43.677277","chlorophyll_rfu: 14.4701266<br />chla_ugl: 44.182224","chlorophyll_rfu: 14.6755696<br />chla_ugl: 44.687171","chlorophyll_rfu: 14.8810127<br />chla_ugl: 45.192118","chlorophyll_rfu: 15.0864557<br />chla_ugl: 45.697066","chlorophyll_rfu: 15.2918987<br />chla_ugl: 46.202013","chlorophyll_rfu: 15.4973418<br />chla_ugl: 46.706960","chlorophyll_rfu: 15.7027848<br />chla_ugl: 47.211908","chlorophyll_rfu: 15.9082278<br />chla_ugl: 47.716855","chlorophyll_rfu: 16.1136709<br />chla_ugl: 48.221802","chlorophyll_rfu: 16.3191139<br />chla_ugl: 48.726749","chlorophyll_rfu: 16.5245570<br />chla_ugl: 49.231697","chlorophyll_rfu: 16.7300000<br />chla_ugl: 49.736644"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_da228971b5fb6ddb0c8ec5c76d2eb24c","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#132B43"],[0.00334448160535117,"#132B44"],[0.00668896321070234,"#132C44"],[0.0100334448160535,"#142C45"],[0.0133779264214047,"#142D45"],[0.0167224080267559,"#142D46"],[0.020066889632107,"#142D46"],[0.0234113712374582,"#142E47"],[0.0267558528428094,"#152E47"],[0.0301003344481605,"#152F48"],[0.0334448160535117,"#152F48"],[0.0367892976588629,"#152F49"],[0.0401337792642141,"#153049"],[0.0434782608695652,"#16304A"],[0.0468227424749164,"#16304A"],[0.0501672240802676,"#16314B"],[0.0535117056856187,"#16314B"],[0.0568561872909699,"#16324C"],[0.0602006688963211,"#17324D"],[0.0635451505016722,"#17324D"],[0.0668896321070234,"#17334E"],[0.0702341137123746,"#17334E"],[0.0735785953177257,"#17344F"],[0.0769230769230769,"#18344F"],[0.0802675585284281,"#183450"],[0.0836120401337793,"#183550"],[0.0869565217391304,"#183551"],[0.0903010033444816,"#183651"],[0.0936454849498328,"#193652"],[0.096989966555184,"#193652"],[0.100334448160535,"#193753"],[0.103678929765886,"#193754"],[0.107023411371237,"#193854"],[0.110367892976589,"#1A3855"],[0.11371237458194,"#1A3955"],[0.117056856187291,"#1A3956"],[0.120401337792642,"#1A3956"],[0.123745819397993,"#1A3A57"],[0.127090301003344,"#1B3A57"],[0.130434782608696,"#1B3B58"],[0.133779264214047,"#1B3B59"],[0.137123745819398,"#1B3B59"],[0.140468227424749,"#1C3C5A"],[0.1438127090301,"#1C3C5A"],[0.147157190635451,"#1C3D5B"],[0.150501672240803,"#1C3D5B"],[0.153846153846154,"#1C3D5C"],[0.157190635451505,"#1D3E5C"],[0.160535117056856,"#1D3E5D"],[0.163879598662207,"#1D3F5D"],[0.167224080267559,"#1D3F5E"],[0.17056856187291,"#1D3F5F"],[0.173913043478261,"#1E405F"],[0.177257525083612,"#1E4060"],[0.180602006688963,"#1E4160"],[0.183946488294314,"#1E4161"],[0.187290969899666,"#1E4261"],[0.190635451505017,"#1F4262"],[0.193979933110368,"#1F4263"],[0.197324414715719,"#1F4363"],[0.20066889632107,"#1F4364"],[0.204013377926421,"#1F4464"],[0.207357859531773,"#204465"],[0.210702341137124,"#204465"],[0.214046822742475,"#204566"],[0.217391304347826,"#204566"],[0.220735785953177,"#214667"],[0.224080267558528,"#214668"],[0.22742474916388,"#214768"],[0.230769230769231,"#214769"],[0.234113712374582,"#214769"],[0.237458193979933,"#22486A"],[0.240802675585284,"#22486A"],[0.244147157190635,"#22496B"],[0.247491638795987,"#22496C"],[0.250836120401338,"#224A6C"],[0.254180602006689,"#234A6D"],[0.25752508361204,"#234A6D"],[0.260869565217391,"#234B6E"],[0.264214046822742,"#234B6E"],[0.267558528428094,"#244C6F"],[0.270903010033445,"#244C70"],[0.274247491638796,"#244C70"],[0.277591973244147,"#244D71"],[0.280936454849498,"#244D71"],[0.28428093645485,"#254E72"],[0.287625418060201,"#254E72"],[0.290969899665552,"#254F73"],[0.294314381270903,"#254F74"],[0.297658862876254,"#254F74"],[0.301003344481605,"#265075"],[0.304347826086957,"#265075"],[0.307692307692308,"#265176"],[0.311036789297659,"#265176"],[0.31438127090301,"#275277"],[0.317725752508361,"#275278"],[0.321070234113712,"#275278"],[0.324414715719064,"#275379"],[0.327759197324415,"#275379"],[0.331103678929766,"#28547A"],[0.334448160535117,"#28547B"],[0.337792642140468,"#28557B"],[0.341137123745819,"#28557C"],[0.344481605351171,"#28567C"],[0.347826086956522,"#29567D"],[0.351170568561873,"#29567D"],[0.354515050167224,"#29577E"],[0.357859531772575,"#29577F"],[0.361204013377926,"#2A587F"],[0.364548494983278,"#2A5880"],[0.367892976588629,"#2A5980"],[0.37123745819398,"#2A5981"],[0.374581939799331,"#2A5982"],[0.377926421404682,"#2B5A82"],[0.381270903010033,"#2B5A83"],[0.384615384615385,"#2B5B83"],[0.387959866220736,"#2B5B84"],[0.391304347826087,"#2C5C85"],[0.394648829431438,"#2C5C85"],[0.397993311036789,"#2C5D86"],[0.40133779264214,"#2C5D86"],[0.404682274247492,"#2C5D87"],[0.408026755852843,"#2D5E87"],[0.411371237458194,"#2D5E88"],[0.414715719063545,"#2D5F89"],[0.418060200668896,"#2D5F89"],[0.421404682274247,"#2E608A"],[0.424749163879599,"#2E608A"],[0.42809364548495,"#2E618B"],[0.431438127090301,"#2E618C"],[0.434782608695652,"#2E618C"],[0.438127090301003,"#2F628D"],[0.441471571906355,"#2F628D"],[0.444816053511706,"#2F638E"],[0.448160535117057,"#2F638F"],[0.451505016722408,"#30648F"],[0.454849498327759,"#306490"],[0.45819397993311,"#306590"],[0.461538461538462,"#306591"],[0.464882943143813,"#306592"],[0.468227424749164,"#316692"],[0.471571906354515,"#316693"],[0.474916387959866,"#316793"],[0.478260869565217,"#316794"],[0.481605351170569,"#326895"],[0.48494983277592,"#326895"],[0.488294314381271,"#326996"],[0.491638795986622,"#326996"],[0.494983277591973,"#326997"],[0.498327759197324,"#336A98"],[0.501672240802676,"#336A98"],[0.505016722408027,"#336B99"],[0.508361204013378,"#336B99"],[0.511705685618729,"#346C9A"],[0.51505016722408,"#346C9B"],[0.518394648829431,"#346D9B"],[0.521739130434783,"#346D9C"],[0.525083612040134,"#346E9D"],[0.528428093645485,"#356E9D"],[0.531772575250836,"#356E9E"],[0.535117056856187,"#356F9E"],[0.538461538461538,"#356F9F"],[0.54180602006689,"#3670A0"],[0.545150501672241,"#3670A0"],[0.548494983277592,"#3671A1"],[0.551839464882943,"#3671A1"],[0.555183946488294,"#3772A2"],[0.558528428093646,"#3772A3"],[0.561872909698997,"#3773A3"],[0.565217391304348,"#3773A4"],[0.568561872909699,"#3773A4"],[0.57190635451505,"#3874A5"],[0.575250836120401,"#3874A6"],[0.578595317725753,"#3875A6"],[0.581939799331104,"#3875A7"],[0.585284280936455,"#3976A8"],[0.588628762541806,"#3976A8"],[0.591973244147157,"#3977A9"],[0.595317725752508,"#3977A9"],[0.598662207357859,"#3978AA"],[0.602006688963211,"#3A78AB"],[0.605351170568562,"#3A79AB"],[0.608695652173913,"#3A79AC"],[0.612040133779264,"#3A79AC"],[0.615384615384615,"#3B7AAD"],[0.618729096989967,"#3B7AAE"],[0.622073578595318,"#3B7BAE"],[0.625418060200669,"#3B7BAF"],[0.62876254180602,"#3C7CB0"],[0.632107023411371,"#3C7CB0"],[0.635451505016722,"#3C7DB1"],[0.638795986622074,"#3C7DB1"],[0.642140468227425,"#3C7EB2"],[0.645484949832776,"#3D7EB3"],[0.648829431438127,"#3D7FB3"],[0.652173913043478,"#3D7FB4"],[0.655518394648829,"#3D7FB5"],[0.658862876254181,"#3E80B5"],[0.662207357859532,"#3E80B6"],[0.665551839464883,"#3E81B6"],[0.668896321070234,"#3E81B7"],[0.672240802675585,"#3F82B8"],[0.675585284280936,"#3F82B8"],[0.678929765886288,"#3F83B9"],[0.682274247491639,"#3F83BA"],[0.68561872909699,"#4084BA"],[0.688963210702341,"#4084BB"],[0.692307692307692,"#4085BB"],[0.695652173913043,"#4085BC"],[0.698996655518395,"#4086BD"],[0.702341137123746,"#4186BD"],[0.705685618729097,"#4186BE"],[0.709030100334448,"#4187BF"],[0.712374581939799,"#4187BF"],[0.715719063545151,"#4288C0"],[0.719063545150502,"#4288C1"],[0.722408026755853,"#4289C1"],[0.725752508361204,"#4289C2"],[0.729096989966555,"#438AC2"],[0.732441471571906,"#438AC3"],[0.735785953177258,"#438BC4"],[0.739130434782609,"#438BC4"],[0.74247491638796,"#438CC5"],[0.745819397993311,"#448CC6"],[0.749163879598662,"#448DC6"],[0.752508361204013,"#448DC7"],[0.755852842809364,"#448EC8"],[0.759197324414716,"#458EC8"],[0.762541806020067,"#458FC9"],[0.765886287625418,"#458FC9"],[0.769230769230769,"#458FCA"],[0.77257525083612,"#4690CB"],[0.775919732441472,"#4690CB"],[0.779264214046823,"#4691CC"],[0.782608695652174,"#4691CD"],[0.785953177257525,"#4792CD"],[0.789297658862876,"#4792CE"],[0.792642140468227,"#4793CF"],[0.795986622073579,"#4793CF"],[0.79933110367893,"#4894D0"],[0.802675585284281,"#4894D0"],[0.806020066889632,"#4895D1"],[0.809364548494983,"#4895D2"],[0.812709030100334,"#4896D2"],[0.816053511705686,"#4996D3"],[0.819397993311037,"#4997D4"],[0.822742474916388,"#4997D4"],[0.826086956521739,"#4998D5"],[0.82943143812709,"#4A98D6"],[0.832775919732441,"#4A99D6"],[0.836120401337793,"#4A99D7"],[0.839464882943144,"#4A9AD8"],[0.842809364548495,"#4B9AD8"],[0.846153846153846,"#4B9BD9"],[0.849498327759197,"#4B9BDA"],[0.852842809364548,"#4B9BDA"],[0.8561872909699,"#4C9CDB"],[0.859531772575251,"#4C9CDB"],[0.862876254180602,"#4C9DDC"],[0.866220735785953,"#4C9DDD"],[0.869565217391304,"#4D9EDD"],[0.872909698996656,"#4D9EDE"],[0.876254180602007,"#4D9FDF"],[0.879598662207358,"#4D9FDF"],[0.882943143812709,"#4DA0E0"],[0.88628762541806,"#4EA0E1"],[0.889632107023411,"#4EA1E1"],[0.892976588628763,"#4EA1E2"],[0.896321070234114,"#4EA2E3"],[0.899665551839465,"#4FA2E3"],[0.903010033444816,"#4FA3E4"],[0.906354515050167,"#4FA3E5"],[0.909698996655518,"#4FA4E5"],[0.91304347826087,"#50A4E6"],[0.916387959866221,"#50A5E7"],[0.919732441471572,"#50A5E7"],[0.923076923076923,"#50A6E8"],[0.926421404682274,"#51A6E8"],[0.929765886287625,"#51A7E9"],[0.933110367892977,"#51A7EA"],[0.936454849498328,"#51A8EA"],[0.939799331103679,"#52A8EB"],[0.94314381270903,"#52A9EC"],[0.946488294314381,"#52A9EC"],[0.949832775919732,"#52AAED"],[0.953177257525084,"#53AAEE"],[0.956521739130435,"#53ABEE"],[0.959866220735786,"#53ABEF"],[0.963210702341137,"#53ACF0"],[0.966555183946488,"#54ACF0"],[0.96989966555184,"#54ADF1"],[0.973244147157191,"#54ADF2"],[0.976588628762542,"#54AEF2"],[0.979933110367893,"#55AEF3"],[0.983277591973244,"#55AFF4"],[0.986622073578595,"#55AFF4"],[0.989966555183946,"#55B0F5"],[0.993311036789298,"#56B0F6"],[0.996655518394649,"#56B1F6"],[1,"#56B1F7"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"fDOM QSU","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["25","50","75","100","125"],"tickvals":[0.160456214358253,0.355753456761191,0.551050699164128,0.746347941567065,0.941645183970002],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"fDOM","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.3115,17.5415],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.45419170480045,65.4158350638785],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b2813cc2bb8":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b288291306":{"x":{},"y":{}}},"cur_data":"5b2813cc2bb8","visdat":{"5b2813cc2bb8":["function (y) ","x"],"5b288291306":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="turbidity" class="section level2">
+<h2>Turbidity</h2>
+<div id="htmlwidget-7c12bd8ed9365663dcba" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7c12bd8ed9365663dcba">{"x":{"data":[{"x":[0.788064393021166,1.1611053856425,1.14279035943933,1.02958659042232,1.04363330763765,1.1233004890345,1.07289900953323,1.09869628505036,1.15703040938452,1.21897441718541,1.13044263433293,1.01865013079159,1.80849870268814,1.00065135659464,1.08043309996463,0.711246814085171,0.730504224315286,0.738423432350159,0.700840191360563,0.663769393783063,0.502936914404854,0.592349994324148,0.738003108106554,0.769538498260081,0.750182247132063,0.82953260903433,0.842256598798558,0.872289346609265,0.861776413461193,1.33159896803275,1.196890892772,1.2039427111987,1.03731701000035,0.951395164670423,0.791742428004742,0.827289026912302,1.30713501121663,1.1415455978252,1.69314573443308,1.49845780153386,1.60181256378815,1.43205883782357,1.61220858591609,1.30013158769347,1.59241691183485,1.05750409040973,1.20383248702809,0.819682484850287,0.802240085853264,1.28274001030624,1.04048229872622,0.743565757546574,0.681658444592729,0.672124768836424,0.723949436945841,0.858001740122214,0.933618634251878,1.03693650858104,1.25104970187135,9.13773405751214,8.33118198021129,11.1921327767968,15.8577881395277,16.7262500159983,4.03334177491441,2.66328681429662,3.06897352712229,8.81038008856215,11.2535778343193,14.8609739259239,13.0137702827808,3.58987495078892,3.25066821665131,2.01827280262671,3.52880763536878,3.81685632129572,9.30135786825232,14.7388152353317,12.4285106223878,7.8803666241318,4.09344218097627,3.24087502909452,2.10918163534254,5.40126737551019,7.03334885191545,7.53231884422898,7.73712212423049,5.17390015991032,5.54234923996031,6.8398021150995,8.52162271905504,9.34043577721156,9.79977155768499,7.7875333723072,9.88136090530455,11.8923658786304,8.9116792123206,6.06979009849392,6.66388120898604,7.09982723843493,7.18347136153839,6.93680831927992,6.94005012231506,7.87255131320842,9.80924157767184,12.3271067190301,9.47896218433045,11.5407791222688,14.086758009078,12.5264743097741,12.0191974397749,8.96703869340941,10.2988592910953,8.72706767960265,7.71208056470007,8.76724466841854,4.84155419563688,5.20149035958573,5.86033765727654,6.63706367691234,6.04202130061015,5.68331078921258,7.35253184808977,5.20205079443008,7.01992399316467,4.85888328482583,4.27760332909226,4.33834255599603,4.30908307229169,4.42128739934042],"y":[9.95159835675731,9.49064255231433,6.27764784333669,6.85356715945154,4.64804554656334,3.67380852187425,6.06199521818198,7.05327157674916,7.42186864253134,5.44196185246855,4.44650202976912,3.13376310428791,4.45089671922848,5.12837921412103,7.46003586115688,1.71658966493234,1.6626918046996,2.04327774385363,2.1522987444941,2.00693098424189,1.87026426400244,2.21252749420144,2.21072148947231,1.97302982314676,1.9669108899571,1.7920364482142,1.91132404330932,2.17910047941469,2.26350456387177,4.46845104344189,1.85945876538567,2.77167355678231,3.27722097270936,2.56074886391498,3.24219162495434,4.17183856205828,4.75344834733941,4.03219480118342,6.06876376717724,5.22662137109414,6.07735638767853,6.59217249297537,7.13100820427761,4.2038639877364,33.8517193874996,25.3702194938194,29.3271135452408,21.4578821566235,21.1498280458469,40.7717986797653,35.0789571032934,23.8870297222808,20.8701746570617,17.0718436091766,23.7829682099205,24.8020209536105,25.7170742308944,28.6374780379236,32.2716272207387,28.3376615260243,28.1185052872449,38.9584258257989,47.7702752402164,49.1392806688175,22.7111438348182,15.7887749383859,18.9112309442945,42.9289937088508,46.5465257149599,36.0017959148139,38.771830570342,15.6404624628909,13.6705599380452,9.90994902697951,14.3637291387003,13.538530335879,38.3875314616989,52.0196187510956,53.4066522335317,31.440503025515,18.8799833069593,15.3538086694442,8.46631230174564,21.7034667520262,20.8602859434448,27.1482092370391,28.2211718153786,23.0231356316563,33.2097026570551,28.4234605355877,24.6072661677282,22.4889102713745,0.629464175822213,27.2839906818103,27.9624027832188,30.2109210452419,32.7061955877468,60.4990789101627,62.331345206758,23.9867404828779,23.3081732591297,26.3088458349388,23.8597495659124,23.9720547365546,28.9760746934339,35.5566509323418,15.2787916035224,37.5460674807355,33.6701726563387,31.4212447340097,34.6027572906129,29.7169143747706,25.4280205526855,24.7713071327992,21.5966360849012,24.1316295072753,28.2463114667069,26.037762280779,31.933754324615,39.2874313718379,38.6835303998906,33.9513244068138,30.7486570027005,26.4485414023548,30.5164479790367,20.7092469704598,22.4285021116342,22.9700867108107,23.1902049921155,25.2018752190247],"text":["chlorophyll_rfu:  0.79<br />chla_ugl:  9.95<br />turb:  14.61","chlorophyll_rfu:  1.16<br />chla_ugl:  9.49<br />turb:  29.68","chlorophyll_rfu:  1.14<br />chla_ugl:  6.28<br />turb:  28.43","chlorophyll_rfu:  1.03<br />chla_ugl:  6.85<br />turb:  40.23","chlorophyll_rfu:  1.04<br />chla_ugl:  4.65<br />turb:  23.03","chlorophyll_rfu:  1.12<br />chla_ugl:  3.67<br />turb:  45.91","chlorophyll_rfu:  1.07<br />chla_ugl:  6.06<br />turb:  41.12","chlorophyll_rfu:  1.10<br />chla_ugl:  7.05<br />turb:  41.10","chlorophyll_rfu:  1.16<br />chla_ugl:  7.42<br />turb:  39.11","chlorophyll_rfu:  1.22<br />chla_ugl:  5.44<br />turb:  42.74","chlorophyll_rfu:  1.13<br />chla_ugl:  4.45<br />turb:  44.46","chlorophyll_rfu:  1.02<br />chla_ugl:  3.13<br />turb:  35.36","chlorophyll_rfu:  1.81<br />chla_ugl:  4.45<br />turb:  30.68","chlorophyll_rfu:  1.00<br />chla_ugl:  5.13<br />turb:  46.52","chlorophyll_rfu:  1.08<br />chla_ugl:  7.46<br />turb:  36.09","chlorophyll_rfu:  0.71<br />chla_ugl:  1.72<br />turb:  14.81","chlorophyll_rfu:  0.73<br />chla_ugl:  1.66<br />turb:  14.55","chlorophyll_rfu:  0.74<br />chla_ugl:  2.04<br />turb:  13.06","chlorophyll_rfu:  0.70<br />chla_ugl:  2.15<br />turb:  15.41","chlorophyll_rfu:  0.66<br />chla_ugl:  2.01<br />turb:  16.59","chlorophyll_rfu:  0.50<br />chla_ugl:  1.87<br />turb:  15.43","chlorophyll_rfu:  0.59<br />chla_ugl:  2.21<br />turb:  15.65","chlorophyll_rfu:  0.74<br />chla_ugl:  2.21<br />turb:  12.98","chlorophyll_rfu:  0.77<br />chla_ugl:  1.97<br />turb:  11.98","chlorophyll_rfu:  0.75<br />chla_ugl:  1.97<br />turb:  11.87","chlorophyll_rfu:  0.83<br />chla_ugl:  1.79<br />turb:  17.95","chlorophyll_rfu:  0.84<br />chla_ugl:  1.91<br />turb:  18.13","chlorophyll_rfu:  0.87<br />chla_ugl:  2.18<br />turb:  17.18","chlorophyll_rfu:  0.86<br />chla_ugl:  2.26<br />turb:  15.92","chlorophyll_rfu:  1.33<br />chla_ugl:  4.47<br />turb:  55.17","chlorophyll_rfu:  1.20<br />chla_ugl:  1.86<br />turb:  32.84","chlorophyll_rfu:  1.20<br />chla_ugl:  2.77<br />turb:  34.57","chlorophyll_rfu:  1.04<br />chla_ugl:  3.28<br />turb:  41.04","chlorophyll_rfu:  0.95<br />chla_ugl:  2.56<br />turb:  36.21","chlorophyll_rfu:  0.79<br />chla_ugl:  3.24<br />turb:  32.78","chlorophyll_rfu:  0.83<br />chla_ugl:  4.17<br />turb:  29.99","chlorophyll_rfu:  1.31<br />chla_ugl:  4.75<br />turb:  34.01","chlorophyll_rfu:  1.14<br />chla_ugl:  4.03<br />turb:  30.10","chlorophyll_rfu:  1.69<br />chla_ugl:  6.07<br />turb:  40.26","chlorophyll_rfu:  1.50<br />chla_ugl:  5.23<br />turb:  35.62","chlorophyll_rfu:  1.60<br />chla_ugl:  6.08<br />turb:  45.25","chlorophyll_rfu:  1.43<br />chla_ugl:  6.59<br />turb:  37.10","chlorophyll_rfu:  1.61<br />chla_ugl:  7.13<br />turb:  37.26","chlorophyll_rfu:  1.30<br />chla_ugl:  4.20<br />turb:  39.93","chlorophyll_rfu:  1.59<br />chla_ugl: 33.85<br />turb:  59.91","chlorophyll_rfu:  1.06<br />chla_ugl: 25.37<br />turb:  33.94","chlorophyll_rfu:  1.20<br />chla_ugl: 29.33<br />turb:  49.48","chlorophyll_rfu:  0.82<br />chla_ugl: 21.46<br />turb:  31.52","chlorophyll_rfu:  0.80<br />chla_ugl: 21.15<br />turb:  38.82","chlorophyll_rfu:  1.28<br />chla_ugl: 40.77<br />turb:  39.89","chlorophyll_rfu:  1.04<br />chla_ugl: 35.08<br />turb:  40.43","chlorophyll_rfu:  0.74<br />chla_ugl: 23.89<br />turb:  32.46","chlorophyll_rfu:  0.68<br />chla_ugl: 20.87<br />turb:  31.50","chlorophyll_rfu:  0.67<br />chla_ugl: 17.07<br />turb:  23.83","chlorophyll_rfu:  0.72<br />chla_ugl: 23.78<br />turb:  36.47","chlorophyll_rfu:  0.86<br />chla_ugl: 24.80<br />turb:  33.82","chlorophyll_rfu:  0.93<br />chla_ugl: 25.72<br />turb:  40.44","chlorophyll_rfu:  1.04<br />chla_ugl: 28.64<br />turb:  57.36","chlorophyll_rfu:  1.25<br />chla_ugl: 32.27<br />turb:  64.42","chlorophyll_rfu:  9.14<br />chla_ugl: 28.34<br />turb:  28.76","chlorophyll_rfu:  8.33<br />chla_ugl: 28.12<br />turb:  28.46","chlorophyll_rfu: 11.19<br />chla_ugl: 38.96<br />turb:  39.81","chlorophyll_rfu: 15.86<br />chla_ugl: 47.77<br />turb:  41.39","chlorophyll_rfu: 16.73<br />chla_ugl: 49.14<br />turb:  36.41","chlorophyll_rfu:  4.03<br />chla_ugl: 22.71<br />turb:  35.78","chlorophyll_rfu:  2.66<br />chla_ugl: 15.79<br />turb:  36.01","chlorophyll_rfu:  3.07<br />chla_ugl: 18.91<br />turb:  39.81","chlorophyll_rfu:  8.81<br />chla_ugl: 42.93<br />turb:  34.35","chlorophyll_rfu: 11.25<br />chla_ugl: 46.55<br />turb:  35.33","chlorophyll_rfu: 14.86<br />chla_ugl: 36.00<br />turb:  42.92","chlorophyll_rfu: 13.01<br />chla_ugl: 38.77<br />turb:  37.22","chlorophyll_rfu:  3.59<br />chla_ugl: 15.64<br />turb:  41.63","chlorophyll_rfu:  3.25<br />chla_ugl: 13.67<br />turb: 166.75","chlorophyll_rfu:  2.02<br />chla_ugl:  9.91<br />turb:  87.42","chlorophyll_rfu:  3.53<br />chla_ugl: 14.36<br />turb:  26.63","chlorophyll_rfu:  3.82<br />chla_ugl: 13.54<br />turb:  32.92","chlorophyll_rfu:  9.30<br />chla_ugl: 38.39<br />turb:  55.00","chlorophyll_rfu: 14.74<br />chla_ugl: 52.02<br />turb:  53.57","chlorophyll_rfu: 12.43<br />chla_ugl: 53.41<br />turb:  44.30","chlorophyll_rfu:  7.88<br />chla_ugl: 31.44<br />turb:  35.07","chlorophyll_rfu:  4.09<br />chla_ugl: 18.88<br />turb:  20.93","chlorophyll_rfu:  3.24<br />chla_ugl: 15.35<br />turb:  15.75","chlorophyll_rfu:  2.11<br />chla_ugl:  8.47<br />turb:  12.22","chlorophyll_rfu:  5.40<br />chla_ugl: 21.70<br />turb:  20.83","chlorophyll_rfu:  7.03<br />chla_ugl: 20.86<br />turb:  27.10","chlorophyll_rfu:  7.53<br />chla_ugl: 27.15<br />turb:  31.05","chlorophyll_rfu:  7.74<br />chla_ugl: 28.22<br />turb:  35.82","chlorophyll_rfu:  5.17<br />chla_ugl: 23.02<br />turb:  42.52","chlorophyll_rfu:  5.54<br />chla_ugl: 33.21<br />turb:  10.36","chlorophyll_rfu:  6.84<br />chla_ugl: 28.42<br />turb:  15.17","chlorophyll_rfu:  8.52<br />chla_ugl: 24.61<br />turb:  12.50","chlorophyll_rfu:  9.34<br />chla_ugl: 22.49<br />turb:  13.12","chlorophyll_rfu:  9.80<br />chla_ugl:  0.63<br />turb:  12.48","chlorophyll_rfu:  7.79<br />chla_ugl: 27.28<br />turb:  13.07","chlorophyll_rfu:  9.88<br />chla_ugl: 27.96<br />turb:  13.35","chlorophyll_rfu: 11.89<br />chla_ugl: 30.21<br />turb:  12.99","chlorophyll_rfu:  8.91<br />chla_ugl: 32.71<br />turb:  16.68","chlorophyll_rfu:  6.07<br />chla_ugl: 60.50<br />turb:  11.25","chlorophyll_rfu:  6.66<br />chla_ugl: 62.33<br />turb:  12.39","chlorophyll_rfu:  7.10<br />chla_ugl: 23.99<br />turb:  14.71","chlorophyll_rfu:  7.18<br />chla_ugl: 23.31<br />turb:  14.24","chlorophyll_rfu:  6.94<br />chla_ugl: 26.31<br />turb:  15.72","chlorophyll_rfu:  6.94<br />chla_ugl: 23.86<br />turb:  10.91","chlorophyll_rfu:  7.87<br />chla_ugl: 23.97<br />turb:  11.47","chlorophyll_rfu:  9.81<br />chla_ugl: 28.98<br />turb:  14.57","chlorophyll_rfu: 12.33<br />chla_ugl: 35.56<br />turb:  15.16","chlorophyll_rfu:  9.48<br />chla_ugl: 15.28<br />turb:  12.52","chlorophyll_rfu: 11.54<br />chla_ugl: 37.55<br />turb:  12.23","chlorophyll_rfu: 14.09<br />chla_ugl: 33.67<br />turb:  15.64","chlorophyll_rfu: 12.53<br />chla_ugl: 31.42<br />turb:  18.02","chlorophyll_rfu: 12.02<br />chla_ugl: 34.60<br />turb:  17.19","chlorophyll_rfu:  8.97<br />chla_ugl: 29.72<br />turb:  15.72","chlorophyll_rfu: 10.30<br />chla_ugl: 25.43<br />turb:  16.11","chlorophyll_rfu:  8.73<br />chla_ugl: 24.77<br />turb:  19.04","chlorophyll_rfu:  7.71<br />chla_ugl: 21.60<br />turb:  15.36","chlorophyll_rfu:  8.77<br />chla_ugl: 24.13<br />turb:  12.80","chlorophyll_rfu:  4.84<br />chla_ugl: 28.25<br />turb:  15.26","chlorophyll_rfu:  5.20<br />chla_ugl: 26.04<br />turb:  15.32","chlorophyll_rfu:  5.86<br />chla_ugl: 31.93<br />turb:  16.42","chlorophyll_rfu:  6.64<br />chla_ugl: 39.29<br />turb:  18.65","chlorophyll_rfu:  6.04<br />chla_ugl: 38.68<br />turb:  14.56","chlorophyll_rfu:  5.68<br />chla_ugl: 33.95<br />turb:  12.70","chlorophyll_rfu:  7.35<br />chla_ugl: 30.75<br />turb:  12.29","chlorophyll_rfu:  5.20<br />chla_ugl: 26.45<br />turb:  11.78","chlorophyll_rfu:  7.02<br />chla_ugl: 30.52<br />turb:  14.10","chlorophyll_rfu:  4.86<br />chla_ugl: 20.71<br />turb:   9.21","chlorophyll_rfu:  4.28<br />chla_ugl: 22.43<br />turb:  11.60","chlorophyll_rfu:  4.34<br />chla_ugl: 22.97<br />turb:  11.28","chlorophyll_rfu:  4.31<br />chla_ugl: 23.19<br />turb:  12.71","chlorophyll_rfu:  4.42<br />chla_ugl: 25.20<br />turb:  15.49"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(21,47,72,1)","rgba(27,58,88,1)","rgba(26,58,87,1)","rgba(31,67,99,1)","rgba(24,53,81,1)","rgba(33,71,105,1)","rgba(31,67,100,1)","rgba(31,67,100,1)","rgba(31,66,98,1)","rgba(32,69,102,1)","rgba(33,70,104,1)","rgba(29,63,94,1)","rgba(27,59,89,1)","rgba(34,72,106,1)","rgba(29,63,95,1)","rgba(21,47,73,1)","rgba(21,47,72,1)","rgba(20,46,71,1)","rgba(21,48,73,1)","rgba(22,48,74,1)","rgba(21,48,73,1)","rgba(21,48,73,1)","rgba(20,46,71,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(22,50,76,1)","rgba(22,50,76,1)","rgba(22,49,75,1)","rgba(22,48,74,1)","rgba(37,79,115,1)","rgba(28,61,91,1)","rgba(29,62,93,1)","rgba(31,67,100,1)","rgba(29,64,95,1)","rgba(28,61,91,1)","rgba(27,59,88,1)","rgba(29,62,92,1)","rgba(27,59,88,1)","rgba(31,67,99,1)","rgba(29,63,94,1)","rgba(33,71,104,1)","rgba(30,64,96,1)","rgba(30,64,96,1)","rgba(31,67,99,1)","rgba(39,83,120,1)","rgba(29,62,92,1)","rgba(35,74,109,1)","rgba(28,60,90,1)","rgba(30,66,98,1)","rgba(31,66,99,1)","rgba(31,67,99,1)","rgba(28,61,91,1)","rgba(28,60,90,1)","rgba(25,54,82,1)","rgba(30,64,95,1)","rgba(28,62,92,1)","rgba(31,67,99,1)","rgba(38,81,118,1)","rgba(41,86,125,1)","rgba(27,58,87,1)","rgba(26,58,87,1)","rgba(31,66,99,1)","rgba(32,68,100,1)","rgba(30,64,95,1)","rgba(29,63,94,1)","rgba(29,63,95,1)","rgba(31,66,99,1)","rgba(29,62,93,1)","rgba(29,63,94,1)","rgba(32,69,102,1)","rgba(30,64,96,1)","rgba(32,68,100,1)","rgba(86,177,247,1)","rgba(51,106,151,1)","rgba(26,56,85,1)","rgba(28,61,91,1)","rgba(37,79,115,1)","rgba(36,77,113,1)","rgba(33,70,103,1)","rgba(29,63,94,1)","rgba(23,52,79,1)","rgba(21,48,74,1)","rgba(20,45,70,1)","rgba(23,52,79,1)","rgba(26,56,85,1)","rgba(27,60,89,1)","rgba(29,63,94,1)","rgba(32,69,101,1)","rgba(19,44,68,1)","rgba(21,47,73,1)","rgba(20,45,70,1)","rgba(20,46,71,1)","rgba(20,45,70,1)","rgba(20,46,71,1)","rgba(21,46,71,1)","rgba(20,46,71,1)","rgba(22,49,75,1)","rgba(20,45,69,1)","rgba(20,45,70,1)","rgba(21,47,73,1)","rgba(21,47,72,1)","rgba(21,48,74,1)","rgba(20,44,69,1)","rgba(20,45,69,1)","rgba(21,47,72,1)","rgba(21,47,73,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(21,48,73,1)","rgba(22,50,76,1)","rgba(22,49,75,1)","rgba(21,48,74,1)","rgba(22,48,74,1)","rgba(23,50,77,1)","rgba(21,48,73,1)","rgba(20,46,71,1)","rgba(21,47,73,1)","rgba(21,48,73,1)","rgba(22,48,74,1)","rgba(23,50,77,1)","rgba(21,47,72,1)","rgba(20,46,70,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(21,47,72,1)","rgba(19,43,67,1)","rgba(20,45,69,1)","rgba(20,45,69,1)","rgba(20,46,71,1)","rgba(21,48,73,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(21,47,72,1)","rgba(27,58,88,1)","rgba(26,58,87,1)","rgba(31,67,99,1)","rgba(24,53,81,1)","rgba(33,71,105,1)","rgba(31,67,100,1)","rgba(31,67,100,1)","rgba(31,66,98,1)","rgba(32,69,102,1)","rgba(33,70,104,1)","rgba(29,63,94,1)","rgba(27,59,89,1)","rgba(34,72,106,1)","rgba(29,63,95,1)","rgba(21,47,73,1)","rgba(21,47,72,1)","rgba(20,46,71,1)","rgba(21,48,73,1)","rgba(22,48,74,1)","rgba(21,48,73,1)","rgba(21,48,73,1)","rgba(20,46,71,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(22,50,76,1)","rgba(22,50,76,1)","rgba(22,49,75,1)","rgba(22,48,74,1)","rgba(37,79,115,1)","rgba(28,61,91,1)","rgba(29,62,93,1)","rgba(31,67,100,1)","rgba(29,64,95,1)","rgba(28,61,91,1)","rgba(27,59,88,1)","rgba(29,62,92,1)","rgba(27,59,88,1)","rgba(31,67,99,1)","rgba(29,63,94,1)","rgba(33,71,104,1)","rgba(30,64,96,1)","rgba(30,64,96,1)","rgba(31,67,99,1)","rgba(39,83,120,1)","rgba(29,62,92,1)","rgba(35,74,109,1)","rgba(28,60,90,1)","rgba(30,66,98,1)","rgba(31,66,99,1)","rgba(31,67,99,1)","rgba(28,61,91,1)","rgba(28,60,90,1)","rgba(25,54,82,1)","rgba(30,64,95,1)","rgba(28,62,92,1)","rgba(31,67,99,1)","rgba(38,81,118,1)","rgba(41,86,125,1)","rgba(27,58,87,1)","rgba(26,58,87,1)","rgba(31,66,99,1)","rgba(32,68,100,1)","rgba(30,64,95,1)","rgba(29,63,94,1)","rgba(29,63,95,1)","rgba(31,66,99,1)","rgba(29,62,93,1)","rgba(29,63,94,1)","rgba(32,69,102,1)","rgba(30,64,96,1)","rgba(32,68,100,1)","rgba(86,177,247,1)","rgba(51,106,151,1)","rgba(26,56,85,1)","rgba(28,61,91,1)","rgba(37,79,115,1)","rgba(36,77,113,1)","rgba(33,70,103,1)","rgba(29,63,94,1)","rgba(23,52,79,1)","rgba(21,48,74,1)","rgba(20,45,70,1)","rgba(23,52,79,1)","rgba(26,56,85,1)","rgba(27,60,89,1)","rgba(29,63,94,1)","rgba(32,69,101,1)","rgba(19,44,68,1)","rgba(21,47,73,1)","rgba(20,45,70,1)","rgba(20,46,71,1)","rgba(20,45,70,1)","rgba(20,46,71,1)","rgba(21,46,71,1)","rgba(20,46,71,1)","rgba(22,49,75,1)","rgba(20,45,69,1)","rgba(20,45,70,1)","rgba(21,47,73,1)","rgba(21,47,72,1)","rgba(21,48,74,1)","rgba(20,44,69,1)","rgba(20,45,69,1)","rgba(21,47,72,1)","rgba(21,47,73,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(21,48,73,1)","rgba(22,50,76,1)","rgba(22,49,75,1)","rgba(21,48,74,1)","rgba(22,48,74,1)","rgba(23,50,77,1)","rgba(21,48,73,1)","rgba(20,46,71,1)","rgba(21,47,73,1)","rgba(21,48,73,1)","rgba(22,48,74,1)","rgba(23,50,77,1)","rgba(21,47,72,1)","rgba(20,46,70,1)","rgba(20,45,70,1)","rgba(20,45,70,1)","rgba(21,47,72,1)","rgba(19,43,67,1)","rgba(20,45,69,1)","rgba(20,45,69,1)","rgba(20,46,71,1)","rgba(21,48,73,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.5,0.705443037974684,0.910886075949367,1.11632911392405,1.32177215189873,1.52721518987342,1.7326582278481,1.93810126582278,2.14354430379747,2.34898734177215,2.55443037974684,2.75987341772152,2.9653164556962,3.17075949367089,3.37620253164557,3.58164556962025,3.78708860759494,3.99253164556962,4.1979746835443,4.40341772151899,4.60886075949367,4.81430379746835,5.01974683544304,5.22518987341772,5.43063291139241,5.63607594936709,5.84151898734177,6.04696202531646,6.25240506329114,6.45784810126582,6.66329113924051,6.86873417721519,7.07417721518987,7.27962025316456,7.48506329113924,7.69050632911392,7.89594936708861,8.10139240506329,8.30683544303798,8.51227848101266,8.71772151898734,8.92316455696202,9.12860759493671,9.33405063291139,9.53949367088608,9.74493670886076,9.95037974683544,10.1558227848101,10.3612658227848,10.5667088607595,10.7721518987342,10.9775949367089,11.1830379746835,11.3884810126582,11.5939240506329,11.7993670886076,12.0048101265823,12.210253164557,12.4156962025316,12.6211392405063,12.826582278481,13.0320253164557,13.2374683544304,13.4429113924051,13.6483544303797,13.8537974683544,14.0592405063291,14.2646835443038,14.4701265822785,14.6755696202532,14.8810126582278,15.0864556962025,15.2918987341772,15.4973417721519,15.7027848101266,15.9082278481013,16.113670886076,16.3191139240506,16.5245569620253,16.73],"y":[9.84580901374289,10.3507562918376,10.8557035699324,11.3606508480272,11.8655981261219,12.3705454042167,12.8754926823114,13.3804399604062,13.885387238501,14.3903345165957,14.8952817946905,15.4002290727852,15.90517635088,16.4101236289747,16.9150709070695,17.4200181851643,17.924965463259,18.4299127413538,18.9348600194485,19.4398072975433,19.944754575638,20.4497018537328,20.9546491318276,21.4595964099223,21.9645436880171,22.4694909661118,22.9744382442066,23.4793855223013,23.9843328003961,24.4892800784909,24.9942273565856,25.4991746346804,26.0041219127751,26.5090691908699,27.0140164689646,27.5189637470594,28.0239110251542,28.5288583032489,29.0338055813437,29.5387528594384,30.0437001375332,30.5486474156279,31.0535946937227,31.5585419718175,32.0634892499122,32.568436528007,33.0733838061017,33.5783310841965,34.0832783622912,34.588225640386,35.0931729184808,35.5981201965755,36.1030674746703,36.608014752765,37.1129620308598,37.6179093089545,38.1228565870493,38.6278038651441,39.1327511432388,39.6376984213336,40.1426456994283,40.6475929775231,41.1525402556178,41.6574875337126,42.1624348118074,42.6673820899021,43.1723293679969,43.6772766460916,44.1822239241864,44.6871712022811,45.1921184803759,45.6970657584707,46.2020130365654,46.7069603146602,47.2119075927549,47.7168548708497,48.2218021489444,48.7267494270392,49.231696705134,49.7366439832287],"text":["chlorophyll_rfu:  0.5000000<br />chla_ugl:  9.845809","chlorophyll_rfu:  0.7054430<br />chla_ugl: 10.350756","chlorophyll_rfu:  0.9108861<br />chla_ugl: 10.855704","chlorophyll_rfu:  1.1163291<br />chla_ugl: 11.360651","chlorophyll_rfu:  1.3217722<br />chla_ugl: 11.865598","chlorophyll_rfu:  1.5272152<br />chla_ugl: 12.370545","chlorophyll_rfu:  1.7326582<br />chla_ugl: 12.875493","chlorophyll_rfu:  1.9381013<br />chla_ugl: 13.380440","chlorophyll_rfu:  2.1435443<br />chla_ugl: 13.885387","chlorophyll_rfu:  2.3489873<br />chla_ugl: 14.390335","chlorophyll_rfu:  2.5544304<br />chla_ugl: 14.895282","chlorophyll_rfu:  2.7598734<br />chla_ugl: 15.400229","chlorophyll_rfu:  2.9653165<br />chla_ugl: 15.905176","chlorophyll_rfu:  3.1707595<br />chla_ugl: 16.410124","chlorophyll_rfu:  3.3762025<br />chla_ugl: 16.915071","chlorophyll_rfu:  3.5816456<br />chla_ugl: 17.420018","chlorophyll_rfu:  3.7870886<br />chla_ugl: 17.924965","chlorophyll_rfu:  3.9925316<br />chla_ugl: 18.429913","chlorophyll_rfu:  4.1979747<br />chla_ugl: 18.934860","chlorophyll_rfu:  4.4034177<br />chla_ugl: 19.439807","chlorophyll_rfu:  4.6088608<br />chla_ugl: 19.944755","chlorophyll_rfu:  4.8143038<br />chla_ugl: 20.449702","chlorophyll_rfu:  5.0197468<br />chla_ugl: 20.954649","chlorophyll_rfu:  5.2251899<br />chla_ugl: 21.459596","chlorophyll_rfu:  5.4306329<br />chla_ugl: 21.964544","chlorophyll_rfu:  5.6360759<br />chla_ugl: 22.469491","chlorophyll_rfu:  5.8415190<br />chla_ugl: 22.974438","chlorophyll_rfu:  6.0469620<br />chla_ugl: 23.479386","chlorophyll_rfu:  6.2524051<br />chla_ugl: 23.984333","chlorophyll_rfu:  6.4578481<br />chla_ugl: 24.489280","chlorophyll_rfu:  6.6632911<br />chla_ugl: 24.994227","chlorophyll_rfu:  6.8687342<br />chla_ugl: 25.499175","chlorophyll_rfu:  7.0741772<br />chla_ugl: 26.004122","chlorophyll_rfu:  7.2796203<br />chla_ugl: 26.509069","chlorophyll_rfu:  7.4850633<br />chla_ugl: 27.014016","chlorophyll_rfu:  7.6905063<br />chla_ugl: 27.518964","chlorophyll_rfu:  7.8959494<br />chla_ugl: 28.023911","chlorophyll_rfu:  8.1013924<br />chla_ugl: 28.528858","chlorophyll_rfu:  8.3068354<br />chla_ugl: 29.033806","chlorophyll_rfu:  8.5122785<br />chla_ugl: 29.538753","chlorophyll_rfu:  8.7177215<br />chla_ugl: 30.043700","chlorophyll_rfu:  8.9231646<br />chla_ugl: 30.548647","chlorophyll_rfu:  9.1286076<br />chla_ugl: 31.053595","chlorophyll_rfu:  9.3340506<br />chla_ugl: 31.558542","chlorophyll_rfu:  9.5394937<br />chla_ugl: 32.063489","chlorophyll_rfu:  9.7449367<br />chla_ugl: 32.568437","chlorophyll_rfu:  9.9503797<br />chla_ugl: 33.073384","chlorophyll_rfu: 10.1558228<br />chla_ugl: 33.578331","chlorophyll_rfu: 10.3612658<br />chla_ugl: 34.083278","chlorophyll_rfu: 10.5667089<br />chla_ugl: 34.588226","chlorophyll_rfu: 10.7721519<br />chla_ugl: 35.093173","chlorophyll_rfu: 10.9775949<br />chla_ugl: 35.598120","chlorophyll_rfu: 11.1830380<br />chla_ugl: 36.103067","chlorophyll_rfu: 11.3884810<br />chla_ugl: 36.608015","chlorophyll_rfu: 11.5939241<br />chla_ugl: 37.112962","chlorophyll_rfu: 11.7993671<br />chla_ugl: 37.617909","chlorophyll_rfu: 12.0048101<br />chla_ugl: 38.122857","chlorophyll_rfu: 12.2102532<br />chla_ugl: 38.627804","chlorophyll_rfu: 12.4156962<br />chla_ugl: 39.132751","chlorophyll_rfu: 12.6211392<br />chla_ugl: 39.637698","chlorophyll_rfu: 12.8265823<br />chla_ugl: 40.142646","chlorophyll_rfu: 13.0320253<br />chla_ugl: 40.647593","chlorophyll_rfu: 13.2374684<br />chla_ugl: 41.152540","chlorophyll_rfu: 13.4429114<br />chla_ugl: 41.657488","chlorophyll_rfu: 13.6483544<br />chla_ugl: 42.162435","chlorophyll_rfu: 13.8537975<br />chla_ugl: 42.667382","chlorophyll_rfu: 14.0592405<br />chla_ugl: 43.172329","chlorophyll_rfu: 14.2646835<br />chla_ugl: 43.677277","chlorophyll_rfu: 14.4701266<br />chla_ugl: 44.182224","chlorophyll_rfu: 14.6755696<br />chla_ugl: 44.687171","chlorophyll_rfu: 14.8810127<br />chla_ugl: 45.192118","chlorophyll_rfu: 15.0864557<br />chla_ugl: 45.697066","chlorophyll_rfu: 15.2918987<br />chla_ugl: 46.202013","chlorophyll_rfu: 15.4973418<br />chla_ugl: 46.706960","chlorophyll_rfu: 15.7027848<br />chla_ugl: 47.211908","chlorophyll_rfu: 15.9082278<br />chla_ugl: 47.716855","chlorophyll_rfu: 16.1136709<br />chla_ugl: 48.221802","chlorophyll_rfu: 16.3191139<br />chla_ugl: 48.726749","chlorophyll_rfu: 16.5245570<br />chla_ugl: 49.231697","chlorophyll_rfu: 16.7300000<br />chla_ugl: 49.736644"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_7778c62a686d772d26d2e1a56dadd054","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#132B43"],[0.00334448160535117,"#132B44"],[0.00668896321070234,"#132C44"],[0.0100334448160535,"#142C45"],[0.0133779264214047,"#142D45"],[0.0167224080267559,"#142D46"],[0.020066889632107,"#142D46"],[0.0234113712374582,"#142E47"],[0.0267558528428094,"#152E47"],[0.0301003344481605,"#152F48"],[0.0334448160535117,"#152F48"],[0.0367892976588629,"#152F49"],[0.040133779264214,"#153049"],[0.0434782608695652,"#16304A"],[0.0468227424749164,"#16304A"],[0.0501672240802676,"#16314B"],[0.0535117056856187,"#16314B"],[0.0568561872909699,"#16324C"],[0.0602006688963211,"#17324D"],[0.0635451505016722,"#17324D"],[0.0668896321070234,"#17334E"],[0.0702341137123746,"#17334E"],[0.0735785953177257,"#17344F"],[0.0769230769230769,"#18344F"],[0.0802675585284281,"#183450"],[0.0836120401337793,"#183550"],[0.0869565217391304,"#183551"],[0.0903010033444816,"#183651"],[0.0936454849498328,"#193652"],[0.0969899665551839,"#193652"],[0.100334448160535,"#193753"],[0.103678929765886,"#193754"],[0.107023411371237,"#193854"],[0.110367892976589,"#1A3855"],[0.11371237458194,"#1A3955"],[0.117056856187291,"#1A3956"],[0.120401337792642,"#1A3956"],[0.123745819397993,"#1A3A57"],[0.127090301003344,"#1B3A57"],[0.130434782608696,"#1B3B58"],[0.133779264214047,"#1B3B59"],[0.137123745819398,"#1B3B59"],[0.140468227424749,"#1C3C5A"],[0.1438127090301,"#1C3C5A"],[0.147157190635451,"#1C3D5B"],[0.150501672240803,"#1C3D5B"],[0.153846153846154,"#1C3D5C"],[0.157190635451505,"#1D3E5C"],[0.160535117056856,"#1D3E5D"],[0.163879598662207,"#1D3F5D"],[0.167224080267559,"#1D3F5E"],[0.17056856187291,"#1D3F5F"],[0.173913043478261,"#1E405F"],[0.177257525083612,"#1E4060"],[0.180602006688963,"#1E4160"],[0.183946488294314,"#1E4161"],[0.187290969899666,"#1E4261"],[0.190635451505017,"#1F4262"],[0.193979933110368,"#1F4263"],[0.197324414715719,"#1F4363"],[0.20066889632107,"#1F4364"],[0.204013377926421,"#1F4464"],[0.207357859531773,"#204465"],[0.210702341137124,"#204465"],[0.214046822742475,"#204566"],[0.217391304347826,"#204566"],[0.220735785953177,"#214667"],[0.224080267558528,"#214668"],[0.22742474916388,"#214768"],[0.230769230769231,"#214769"],[0.234113712374582,"#214769"],[0.237458193979933,"#22486A"],[0.240802675585284,"#22486A"],[0.244147157190635,"#22496B"],[0.247491638795987,"#22496C"],[0.250836120401338,"#224A6C"],[0.254180602006689,"#234A6D"],[0.25752508361204,"#234A6D"],[0.260869565217391,"#234B6E"],[0.264214046822742,"#234B6E"],[0.267558528428094,"#244C6F"],[0.270903010033445,"#244C70"],[0.274247491638796,"#244C70"],[0.277591973244147,"#244D71"],[0.280936454849498,"#244D71"],[0.284280936454849,"#254E72"],[0.287625418060201,"#254E72"],[0.290969899665552,"#254F73"],[0.294314381270903,"#254F74"],[0.297658862876254,"#254F74"],[0.301003344481605,"#265075"],[0.304347826086956,"#265075"],[0.307692307692308,"#265176"],[0.311036789297659,"#265176"],[0.31438127090301,"#275277"],[0.317725752508361,"#275278"],[0.321070234113712,"#275278"],[0.324414715719063,"#275379"],[0.327759197324415,"#275379"],[0.331103678929766,"#28547A"],[0.334448160535117,"#28547B"],[0.337792642140468,"#28557B"],[0.341137123745819,"#28557C"],[0.344481605351171,"#28567C"],[0.347826086956522,"#29567D"],[0.351170568561873,"#29567D"],[0.354515050167224,"#29577E"],[0.357859531772575,"#29577F"],[0.361204013377926,"#2A587F"],[0.364548494983278,"#2A5880"],[0.367892976588629,"#2A5980"],[0.37123745819398,"#2A5981"],[0.374581939799331,"#2A5982"],[0.377926421404682,"#2B5A82"],[0.381270903010033,"#2B5A83"],[0.384615384615385,"#2B5B83"],[0.387959866220736,"#2B5B84"],[0.391304347826087,"#2C5C85"],[0.394648829431438,"#2C5C85"],[0.397993311036789,"#2C5D86"],[0.40133779264214,"#2C5D86"],[0.404682274247492,"#2C5D87"],[0.408026755852843,"#2D5E87"],[0.411371237458194,"#2D5E88"],[0.414715719063545,"#2D5F89"],[0.418060200668896,"#2D5F89"],[0.421404682274247,"#2E608A"],[0.424749163879598,"#2E608A"],[0.42809364548495,"#2E618B"],[0.431438127090301,"#2E618C"],[0.434782608695652,"#2E618C"],[0.438127090301003,"#2F628D"],[0.441471571906354,"#2F628D"],[0.444816053511706,"#2F638E"],[0.448160535117057,"#2F638F"],[0.451505016722408,"#30648F"],[0.454849498327759,"#306490"],[0.45819397993311,"#306590"],[0.461538461538461,"#306591"],[0.464882943143813,"#306592"],[0.468227424749164,"#316692"],[0.471571906354515,"#316693"],[0.474916387959866,"#316793"],[0.478260869565217,"#316794"],[0.481605351170569,"#326895"],[0.48494983277592,"#326895"],[0.488294314381271,"#326996"],[0.491638795986622,"#326996"],[0.494983277591973,"#326997"],[0.498327759197324,"#336A98"],[0.501672240802676,"#336A98"],[0.505016722408027,"#336B99"],[0.508361204013378,"#336B99"],[0.511705685618729,"#346C9A"],[0.51505016722408,"#346C9B"],[0.518394648829431,"#346D9B"],[0.521739130434783,"#346D9C"],[0.525083612040134,"#346E9D"],[0.528428093645485,"#356E9D"],[0.531772575250836,"#356E9E"],[0.535117056856187,"#356F9E"],[0.538461538461538,"#356F9F"],[0.541806020066889,"#3670A0"],[0.545150501672241,"#3670A0"],[0.548494983277592,"#3671A1"],[0.551839464882943,"#3671A1"],[0.555183946488294,"#3772A2"],[0.558528428093645,"#3772A3"],[0.561872909698997,"#3773A3"],[0.565217391304348,"#3773A4"],[0.568561872909699,"#3773A4"],[0.57190635451505,"#3874A5"],[0.575250836120401,"#3874A6"],[0.578595317725752,"#3875A6"],[0.581939799331104,"#3875A7"],[0.585284280936455,"#3976A8"],[0.588628762541806,"#3976A8"],[0.591973244147157,"#3977A9"],[0.595317725752508,"#3977A9"],[0.598662207357859,"#3978AA"],[0.602006688963211,"#3A78AB"],[0.605351170568562,"#3A79AB"],[0.608695652173913,"#3A79AC"],[0.612040133779264,"#3A79AC"],[0.615384615384615,"#3B7AAD"],[0.618729096989966,"#3B7AAE"],[0.622073578595318,"#3B7BAE"],[0.625418060200669,"#3B7BAF"],[0.62876254180602,"#3C7CB0"],[0.632107023411371,"#3C7CB0"],[0.635451505016722,"#3C7DB1"],[0.638795986622073,"#3C7DB1"],[0.642140468227425,"#3C7EB2"],[0.645484949832776,"#3D7EB3"],[0.648829431438127,"#3D7FB3"],[0.652173913043478,"#3D7FB4"],[0.655518394648829,"#3D7FB5"],[0.65886287625418,"#3E80B5"],[0.662207357859532,"#3E80B6"],[0.665551839464883,"#3E81B6"],[0.668896321070234,"#3E81B7"],[0.672240802675585,"#3F82B8"],[0.675585284280936,"#3F82B8"],[0.678929765886288,"#3F83B9"],[0.682274247491639,"#3F83BA"],[0.68561872909699,"#4084BA"],[0.688963210702341,"#4084BB"],[0.692307692307692,"#4085BB"],[0.695652173913043,"#4085BC"],[0.698996655518395,"#4086BD"],[0.702341137123746,"#4186BD"],[0.705685618729097,"#4186BE"],[0.709030100334448,"#4187BF"],[0.712374581939799,"#4187BF"],[0.71571906354515,"#4288C0"],[0.719063545150502,"#4288C1"],[0.722408026755853,"#4289C1"],[0.725752508361204,"#4289C2"],[0.729096989966555,"#438AC2"],[0.732441471571906,"#438AC3"],[0.735785953177257,"#438BC4"],[0.739130434782609,"#438BC4"],[0.74247491638796,"#438CC5"],[0.745819397993311,"#448CC6"],[0.749163879598662,"#448DC6"],[0.752508361204013,"#448DC7"],[0.755852842809364,"#448EC8"],[0.759197324414716,"#458EC8"],[0.762541806020067,"#458FC9"],[0.765886287625418,"#458FC9"],[0.769230769230769,"#458FCA"],[0.77257525083612,"#4690CB"],[0.775919732441471,"#4690CB"],[0.779264214046823,"#4691CC"],[0.782608695652174,"#4691CD"],[0.785953177257525,"#4792CD"],[0.789297658862876,"#4792CE"],[0.792642140468227,"#4793CF"],[0.795986622073578,"#4793CF"],[0.79933110367893,"#4894D0"],[0.802675585284281,"#4894D0"],[0.806020066889632,"#4895D1"],[0.809364548494983,"#4895D2"],[0.812709030100334,"#4896D2"],[0.816053511705686,"#4996D3"],[0.819397993311037,"#4997D4"],[0.822742474916388,"#4997D4"],[0.826086956521739,"#4998D5"],[0.82943143812709,"#4A98D6"],[0.832775919732441,"#4A99D6"],[0.836120401337793,"#4A99D7"],[0.839464882943144,"#4A9AD8"],[0.842809364548495,"#4B9AD8"],[0.846153846153846,"#4B9BD9"],[0.849498327759197,"#4B9BDA"],[0.852842809364548,"#4B9BDA"],[0.8561872909699,"#4C9CDB"],[0.859531772575251,"#4C9CDB"],[0.862876254180602,"#4C9DDC"],[0.866220735785953,"#4C9DDD"],[0.869565217391304,"#4D9EDD"],[0.872909698996655,"#4D9EDE"],[0.876254180602007,"#4D9FDF"],[0.879598662207358,"#4D9FDF"],[0.882943143812709,"#4DA0E0"],[0.88628762541806,"#4EA0E1"],[0.889632107023411,"#4EA1E1"],[0.892976588628762,"#4EA1E2"],[0.896321070234114,"#4EA2E3"],[0.899665551839465,"#4FA2E3"],[0.903010033444816,"#4FA3E4"],[0.906354515050167,"#4FA3E5"],[0.909698996655518,"#4FA4E5"],[0.913043478260869,"#50A4E6"],[0.916387959866221,"#50A5E7"],[0.919732441471572,"#50A5E7"],[0.923076923076923,"#50A6E8"],[0.926421404682274,"#51A6E8"],[0.929765886287625,"#51A7E9"],[0.933110367892976,"#51A7EA"],[0.936454849498328,"#51A8EA"],[0.939799331103679,"#52A8EB"],[0.94314381270903,"#52A9EC"],[0.946488294314381,"#52A9EC"],[0.949832775919732,"#52AAED"],[0.953177257525084,"#53AAEE"],[0.956521739130435,"#53ABEE"],[0.959866220735786,"#53ABEF"],[0.963210702341137,"#53ACF0"],[0.966555183946488,"#54ACF0"],[0.969899665551839,"#54ADF1"],[0.973244147157191,"#54ADF2"],[0.976588628762542,"#54AEF2"],[0.979933110367893,"#55AEF3"],[0.983277591973244,"#55AFF4"],[0.986622073578595,"#55AFF4"],[0.989966555183946,"#55B0F5"],[0.993311036789298,"#56B0F6"],[0.996655518394649,"#56B1F6"],[1,"#56B1F7"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"Turbidity FNU","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["40","80","120","160"],"tickvals":[0.195442427320046,0.449346197791037,0.703249968262029,0.95715373873302],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Turbidity","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.3115,17.5415],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.45562987572458,65.4164392583048],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b282b871999":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b287ba03c79":{"x":{},"y":{}}},"cur_data":"5b282b871999","visdat":{"5b282b871999":["function (y) ","x"],"5b287ba03c79":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="temperature" class="section level2">
+<h2>Temperature</h2>
+<div id="htmlwidget-734981831c213972c78b" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-734981831c213972c78b">{"x":{"data":[{"x":[0.790008860336617,1.15719172649831,1.14169510452077,1.03273981080949,1.04097992081381,1.11804785132967,1.07319611833431,1.099863258183,1.16226639874652,1.22196825373173,1.12735581177659,1.01613421264477,1.81036334719136,1.00039107822254,1.08238501549326,0.713520263148472,0.730726389719173,0.738934118503705,0.7021688068863,0.657265166895464,0.498488668220118,0.59037924766168,0.741668064465746,0.766761339444667,0.747209674328566,0.827778351467103,0.841526522656903,0.869494005668908,0.859810520168394,1.33166394274868,1.20277261236869,1.19685992983542,1.03840088283829,0.94757624283433,0.787639410717413,0.827526155631989,1.31311965257488,1.13756422999874,1.68972680360824,1.49615905351192,1.60229528218508,1.43126543979533,1.61193622754514,1.29640042493679,1.59253575288691,1.05940626276843,1.20338819104433,0.819248794950545,0.798622400507331,1.28213419347815,1.03640343431942,0.737692103257403,0.679052712526172,0.671926669048145,0.722178010873496,0.861590717133135,0.932610824065283,1.04255532518215,1.25337484122254,9.13904688193649,8.32675370431505,11.1901148484554,15.8585256835297,16.7286581921596,4.03125625614263,2.65799764942937,3.06950521232188,8.80996936567687,11.249550977774,14.8610096373688,13.009797362294,3.59155198328197,3.24959180729464,2.02293577430211,3.53270969524607,3.8188688541241,9.29861244804598,14.7388966229614,12.4289213259611,7.87930735789984,4.09216459904611,3.23889524608478,2.11218269808963,5.39947603781894,7.02898317859694,7.52807861029543,7.74016083357297,5.16996354073845,5.54064989758097,6.84049048225209,8.51748063108698,9.34335207748786,9.79748195973225,7.79025866934471,9.8820109331198,11.887828646047,8.90860581686534,6.07386614797078,6.66227548406087,7.09793898373283,7.17661845800839,6.94156494679675,6.93809127268568,7.87050932949036,9.80733538371883,12.3320108832829,9.48388764958829,11.5400223163608,14.0896238730494,12.5276839076579,12.0224455932807,8.97064256910049,10.298215967631,8.72859224200807,7.70693819596246,8.7700174848754,4.83948477614112,5.20039906149358,5.86198089144379,6.64075602901354,6.04118664156459,5.67856898525543,7.34745605582558,5.19854603379965,7.02082645336352,4.85777814802527,4.28209074650705,4.34189416394196,4.31033678564429,4.41834317209944],"y":[9.95240185304359,9.48813158661872,6.2830459826719,6.85358050261252,4.6494287858326,3.66624803485163,6.05780546539277,7.04740918835811,7.42163545032591,5.44099228626117,4.44628180938028,3.12613145494647,4.44664054181799,5.13273344871774,7.45630169402063,1.72243395595625,1.66256323194876,2.03745620985143,2.15201664005779,2.00973991428316,1.87148299083114,2.20666870204359,2.208892221177,1.96864964383841,1.97075457782671,1.788312676223,1.90784509586915,2.17681966839731,2.25780786144547,4.47113651814498,1.85854520163871,2.77107556554303,3.28184173829667,2.56130558733456,3.23882018303499,4.16769284354523,4.74869156341255,4.02834734303504,6.07311785889044,5.23129362003878,6.0772866330184,6.59368725141324,7.12846853881888,4.19761246895604,33.8476335584056,25.366367416231,29.327100243682,21.4600684884358,21.1532510409914,40.7731142897382,35.0800318407118,23.8921437550411,20.8686195451301,17.0712835002225,23.7782876015119,24.8029276464246,25.7219478008617,28.6422374937683,32.266314695714,28.340897553714,28.1235078515522,38.9615063759238,47.7718962004259,49.1417167560216,22.7099178913608,15.7869728405792,18.9133834316637,42.9293101581261,46.5532341339812,35.99867382982,38.7733467514869,15.6430154332947,13.6695323231369,9.90785546311177,14.3590071878023,13.5365669466686,38.3889706107937,52.021186967805,53.4126157802865,31.4396608816572,18.8812375585455,15.3528910870701,8.46632677618228,21.6964013786055,20.8583653587829,27.1468742254414,28.2201890245695,23.0200945349876,33.2108088420928,28.4225931765996,24.6112870300896,22.4869715509713,0.633578352304175,27.2771937284358,27.9625316264257,30.2081723302267,32.7064791552741,60.4966473925337,62.3270359603502,23.9915522040501,23.3063708582278,26.3122815979831,23.8567601894643,23.9698926950712,28.9792906800453,35.56251940508,15.2789325121846,37.5465823012237,33.6696777265109,31.4210979054682,34.6006744225416,29.720610288633,25.431624162266,24.7685027216021,21.6015333061181,24.1336878836248,28.2530470802449,26.0371599549577,31.9329867517874,39.2925662416462,38.6760933554154,33.9503094403856,30.7501393977143,26.4522503115106,30.5215021847785,20.7125268392246,22.4267487210892,22.9689862012733,23.1861094716918,25.2014694199171],"text":["chlorophyll_rfu:  0.79<br />chla_ugl:  9.95<br />temp:  1.945","chlorophyll_rfu:  1.16<br />chla_ugl:  9.49<br />temp:  2.317","chlorophyll_rfu:  1.14<br />chla_ugl:  6.28<br />temp:  2.187","chlorophyll_rfu:  1.03<br />chla_ugl:  6.85<br />temp:  2.545","chlorophyll_rfu:  1.04<br />chla_ugl:  4.65<br />temp:  1.933","chlorophyll_rfu:  1.12<br />chla_ugl:  3.67<br />temp:  2.893","chlorophyll_rfu:  1.07<br />chla_ugl:  6.06<br />temp:  3.151","chlorophyll_rfu:  1.10<br />chla_ugl:  7.05<br />temp:  2.969","chlorophyll_rfu:  1.16<br />chla_ugl:  7.42<br />temp:  2.902","chlorophyll_rfu:  1.22<br />chla_ugl:  5.44<br />temp:  2.826","chlorophyll_rfu:  1.13<br />chla_ugl:  4.45<br />temp:  2.650","chlorophyll_rfu:  1.02<br />chla_ugl:  3.13<br />temp:  2.249","chlorophyll_rfu:  1.81<br />chla_ugl:  4.45<br />temp:  1.920","chlorophyll_rfu:  1.00<br />chla_ugl:  5.13<br />temp:  2.625","chlorophyll_rfu:  1.08<br />chla_ugl:  7.46<br />temp:  2.304","chlorophyll_rfu:  0.71<br />chla_ugl:  1.72<br />temp:  0.153","chlorophyll_rfu:  0.73<br />chla_ugl:  1.66<br />temp:  0.152","chlorophyll_rfu:  0.74<br />chla_ugl:  2.04<br />temp:  0.162","chlorophyll_rfu:  0.70<br />chla_ugl:  2.15<br />temp:  0.061","chlorophyll_rfu:  0.66<br />chla_ugl:  2.01<br />temp:  0.126","chlorophyll_rfu:  0.50<br />chla_ugl:  1.87<br />temp:  0.375","chlorophyll_rfu:  0.59<br />chla_ugl:  2.21<br />temp:  0.537","chlorophyll_rfu:  0.74<br />chla_ugl:  2.21<br />temp:  0.589","chlorophyll_rfu:  0.77<br />chla_ugl:  1.97<br />temp:  0.540","chlorophyll_rfu:  0.75<br />chla_ugl:  1.97<br />temp:  0.571","chlorophyll_rfu:  0.83<br />chla_ugl:  1.79<br />temp:  0.038","chlorophyll_rfu:  0.84<br />chla_ugl:  1.91<br />temp:  0.019","chlorophyll_rfu:  0.87<br />chla_ugl:  2.18<br />temp:  0.039","chlorophyll_rfu:  0.86<br />chla_ugl:  2.26<br />temp:  0.082","chlorophyll_rfu:  1.33<br />chla_ugl:  4.47<br />temp:  1.461","chlorophyll_rfu:  1.20<br />chla_ugl:  1.86<br />temp:  0.413","chlorophyll_rfu:  1.20<br />chla_ugl:  2.77<br />temp:  0.746","chlorophyll_rfu:  1.04<br />chla_ugl:  3.28<br />temp:  1.761","chlorophyll_rfu:  0.95<br />chla_ugl:  2.56<br />temp:  1.836","chlorophyll_rfu:  0.79<br />chla_ugl:  3.24<br />temp:  2.670","chlorophyll_rfu:  0.83<br />chla_ugl:  4.17<br />temp:  4.128","chlorophyll_rfu:  1.31<br />chla_ugl:  4.75<br />temp:  4.486","chlorophyll_rfu:  1.14<br />chla_ugl:  4.03<br />temp:  3.288","chlorophyll_rfu:  1.69<br />chla_ugl:  6.07<br />temp:  3.155","chlorophyll_rfu:  1.50<br />chla_ugl:  5.23<br />temp:  2.400","chlorophyll_rfu:  1.60<br />chla_ugl:  6.08<br />temp:  2.180","chlorophyll_rfu:  1.43<br />chla_ugl:  6.59<br />temp:  1.612","chlorophyll_rfu:  1.61<br />chla_ugl:  7.13<br />temp:  0.799","chlorophyll_rfu:  1.30<br />chla_ugl:  4.20<br />temp:  0.878","chlorophyll_rfu:  1.59<br />chla_ugl: 33.85<br />temp: 15.146","chlorophyll_rfu:  1.06<br />chla_ugl: 25.37<br />temp: 12.382","chlorophyll_rfu:  1.20<br />chla_ugl: 29.33<br />temp: 13.922","chlorophyll_rfu:  0.82<br />chla_ugl: 21.46<br />temp: 11.968","chlorophyll_rfu:  0.80<br />chla_ugl: 21.15<br />temp: 13.778","chlorophyll_rfu:  1.28<br />chla_ugl: 40.77<br />temp: 17.058","chlorophyll_rfu:  1.04<br />chla_ugl: 35.08<br />temp: 16.494","chlorophyll_rfu:  0.74<br />chla_ugl: 23.89<br />temp: 15.860","chlorophyll_rfu:  0.68<br />chla_ugl: 20.87<br />temp: 16.613","chlorophyll_rfu:  0.67<br />chla_ugl: 17.07<br />temp: 15.002","chlorophyll_rfu:  0.72<br />chla_ugl: 23.78<br />temp: 15.470","chlorophyll_rfu:  0.86<br />chla_ugl: 24.80<br />temp: 14.360","chlorophyll_rfu:  0.93<br />chla_ugl: 25.72<br />temp: 15.156","chlorophyll_rfu:  1.04<br />chla_ugl: 28.64<br />temp: 14.971","chlorophyll_rfu:  1.25<br />chla_ugl: 32.27<br />temp: 14.753","chlorophyll_rfu:  9.14<br />chla_ugl: 28.34<br />temp: 14.047","chlorophyll_rfu:  8.33<br />chla_ugl: 28.12<br />temp: 13.834","chlorophyll_rfu: 11.19<br />chla_ugl: 38.96<br />temp: 13.320","chlorophyll_rfu: 15.86<br />chla_ugl: 47.77<br />temp: 12.871","chlorophyll_rfu: 16.73<br />chla_ugl: 49.14<br />temp: 12.205","chlorophyll_rfu:  4.03<br />chla_ugl: 22.71<br />temp: 12.026","chlorophyll_rfu:  2.66<br />chla_ugl: 15.79<br />temp: 11.909","chlorophyll_rfu:  3.07<br />chla_ugl: 18.91<br />temp: 11.687","chlorophyll_rfu:  8.81<br />chla_ugl: 42.93<br />temp: 10.975","chlorophyll_rfu: 11.25<br />chla_ugl: 46.55<br />temp: 10.545","chlorophyll_rfu: 14.86<br />chla_ugl: 36.00<br />temp:  9.774","chlorophyll_rfu: 13.01<br />chla_ugl: 38.77<br />temp:  9.407","chlorophyll_rfu:  3.59<br />chla_ugl: 15.64<br />temp:  8.418","chlorophyll_rfu:  3.25<br />chla_ugl: 13.67<br />temp:  7.443","chlorophyll_rfu:  2.02<br />chla_ugl:  9.91<br />temp:  9.462","chlorophyll_rfu:  3.53<br />chla_ugl: 14.36<br />temp: 19.328","chlorophyll_rfu:  3.82<br />chla_ugl: 13.54<br />temp: 19.632","chlorophyll_rfu:  9.30<br />chla_ugl: 38.39<br />temp: 21.088","chlorophyll_rfu: 14.74<br />chla_ugl: 52.02<br />temp: 22.839","chlorophyll_rfu: 12.43<br />chla_ugl: 53.41<br />temp: 25.153","chlorophyll_rfu:  7.88<br />chla_ugl: 31.44<br />temp: 22.706","chlorophyll_rfu:  4.09<br />chla_ugl: 18.88<br />temp: 20.994","chlorophyll_rfu:  3.24<br />chla_ugl: 15.35<br />temp: 21.137","chlorophyll_rfu:  2.11<br />chla_ugl:  8.47<br />temp: 20.206","chlorophyll_rfu:  5.40<br />chla_ugl: 21.70<br />temp: 23.895","chlorophyll_rfu:  7.03<br />chla_ugl: 20.86<br />temp: 24.791","chlorophyll_rfu:  7.53<br />chla_ugl: 27.15<br />temp: 24.198","chlorophyll_rfu:  7.74<br />chla_ugl: 28.22<br />temp: 23.755","chlorophyll_rfu:  5.17<br />chla_ugl: 23.02<br />temp: 21.964","chlorophyll_rfu:  5.54<br />chla_ugl: 33.21<br />temp: 24.338","chlorophyll_rfu:  6.84<br />chla_ugl: 28.42<br />temp: 24.254","chlorophyll_rfu:  8.52<br />chla_ugl: 24.61<br />temp: 24.227","chlorophyll_rfu:  9.34<br />chla_ugl: 22.49<br />temp: 24.270","chlorophyll_rfu:  9.80<br />chla_ugl:  0.63<br />temp: 24.496","chlorophyll_rfu:  7.79<br />chla_ugl: 27.28<br />temp: 24.692","chlorophyll_rfu:  9.88<br />chla_ugl: 27.96<br />temp: 25.342","chlorophyll_rfu: 11.89<br />chla_ugl: 30.21<br />temp: 25.293","chlorophyll_rfu:  8.91<br />chla_ugl: 32.71<br />temp: 25.381","chlorophyll_rfu:  6.07<br />chla_ugl: 60.50<br />temp: 25.207","chlorophyll_rfu:  6.66<br />chla_ugl: 62.33<br />temp: 25.009","chlorophyll_rfu:  7.10<br />chla_ugl: 23.99<br />temp: 24.823","chlorophyll_rfu:  7.18<br />chla_ugl: 23.31<br />temp: 24.647","chlorophyll_rfu:  6.94<br />chla_ugl: 26.31<br />temp: 24.482","chlorophyll_rfu:  6.94<br />chla_ugl: 23.86<br />temp: 24.883","chlorophyll_rfu:  7.87<br />chla_ugl: 23.97<br />temp: 24.602","chlorophyll_rfu:  9.81<br />chla_ugl: 28.98<br />temp: 24.502","chlorophyll_rfu: 12.33<br />chla_ugl: 35.56<br />temp: 24.656","chlorophyll_rfu:  9.48<br />chla_ugl: 15.28<br />temp: 24.768","chlorophyll_rfu: 11.54<br />chla_ugl: 37.55<br />temp: 24.773","chlorophyll_rfu: 14.09<br />chla_ugl: 33.67<br />temp: 25.841","chlorophyll_rfu: 12.53<br />chla_ugl: 31.42<br />temp: 25.836","chlorophyll_rfu: 12.02<br />chla_ugl: 34.60<br />temp: 25.182","chlorophyll_rfu:  8.97<br />chla_ugl: 29.72<br />temp: 25.543","chlorophyll_rfu: 10.30<br />chla_ugl: 25.43<br />temp: 26.110","chlorophyll_rfu:  8.73<br />chla_ugl: 24.77<br />temp: 26.295","chlorophyll_rfu:  7.71<br />chla_ugl: 21.60<br />temp: 26.019","chlorophyll_rfu:  8.77<br />chla_ugl: 24.13<br />temp: 25.777","chlorophyll_rfu:  4.84<br />chla_ugl: 28.25<br />temp: 21.367","chlorophyll_rfu:  5.20<br />chla_ugl: 26.04<br />temp: 21.212","chlorophyll_rfu:  5.86<br />chla_ugl: 31.93<br />temp: 21.170","chlorophyll_rfu:  6.64<br />chla_ugl: 39.29<br />temp: 21.292","chlorophyll_rfu:  6.04<br />chla_ugl: 38.68<br />temp: 21.649","chlorophyll_rfu:  5.68<br />chla_ugl: 33.95<br />temp: 22.497","chlorophyll_rfu:  7.35<br />chla_ugl: 30.75<br />temp: 22.644","chlorophyll_rfu:  5.20<br />chla_ugl: 26.45<br />temp: 21.938","chlorophyll_rfu:  7.02<br />chla_ugl: 30.52<br />temp: 21.955","chlorophyll_rfu:  4.86<br />chla_ugl: 20.71<br />temp: 23.096","chlorophyll_rfu:  4.28<br />chla_ugl: 22.43<br />temp: 22.843","chlorophyll_rfu:  4.34<br />chla_ugl: 22.97<br />temp: 22.643","chlorophyll_rfu:  4.31<br />chla_ugl: 23.19<br />temp: 22.478","chlorophyll_rfu:  4.42<br />chla_ugl: 25.20<br />temp: 22.392"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(90,0,237,1)","rgba(98,0,234,1)","rgba(95,0,235,1)","rgba(102,0,231,1)","rgba(90,0,237,1)","rgba(108,0,228,1)","rgba(112,0,226,1)","rgba(110,0,228,1)","rgba(108,0,228,1)","rgba(107,0,229,1)","rgba(104,0,230,1)","rgba(96,0,234,1)","rgba(90,0,237,1)","rgba(104,0,231,1)","rgba(98,0,234,1)","rgba(21,0,254,1)","rgba(21,0,254,1)","rgba(22,0,254,1)","rgba(8,0,255,1)","rgba(18,0,254,1)","rgba(38,0,252,1)","rgba(47,0,250,1)","rgba(49,0,250,1)","rgba(47,0,250,1)","rgba(48,0,250,1)","rgba(3,0,255,1)","rgba(0,0,255,1)","rgba(4,0,255,1)","rgba(11,0,254,1)","rgba(79,0,242,1)","rgba(40,0,251,1)","rgba(56,0,248,1)","rgba(86,0,239,1)","rgba(88,0,238,1)","rgba(104,0,230,1)","rgba(127,0,217,1)","rgba(131,0,214,1)","rgba(115,0,225,1)","rgba(113,0,226,1)","rgba(99,0,233,1)","rgba(95,0,235,1)","rgba(82,0,240,1)","rgba(58,0,248,1)","rgba(61,0,247,1)","rgba(212,0,119,1)","rgba(197,0,143,1)","rgba(206,0,130,1)","rgba(195,0,147,1)","rgba(205,0,131,1)","rgba(221,0,103,1)","rgba(218,0,108,1)","rgba(215,0,113,1)","rgba(219,0,107,1)","rgba(211,0,121,1)","rgba(213,0,116,1)","rgba(208,0,126,1)","rgba(212,0,119,1)","rgba(211,0,121,1)","rgba(210,0,123,1)","rgba(206,0,129,1)","rgba(205,0,131,1)","rgba(202,0,135,1)","rgba(200,0,139,1)","rgba(196,0,145,1)","rgba(195,0,146,1)","rgba(194,0,147,1)","rgba(193,0,149,1)","rgba(188,0,156,1)","rgba(186,0,159,1)","rgba(180,0,166,1)","rgba(178,0,169,1)","rgba(170,0,178,1)","rgba(162,0,187,1)","rgba(178,0,169,1)","rgba(230,0,83,1)","rgba(232,0,80,1)","rgba(237,0,67,1)","rgba(243,0,51,1)","rgba(251,0,24,1)","rgba(243,0,52,1)","rgba(237,0,68,1)","rgba(237,0,67,1)","rgba(234,0,75,1)","rgba(247,0,40,1)","rgba(250,0,29,1)","rgba(248,0,36,1)","rgba(247,0,41,1)","rgba(240,0,59,1)","rgba(249,0,34,1)","rgba(248,0,35,1)","rgba(248,0,36,1)","rgba(248,0,35,1)","rgba(249,0,33,1)","rgba(250,0,30,1)","rgba(252,0,21,1)","rgba(252,0,21,1)","rgba(252,0,20,1)","rgba(251,0,23,1)","rgba(251,0,26,1)","rgba(250,0,28,1)","rgba(250,0,31,1)","rgba(249,0,33,1)","rgba(250,0,28,1)","rgba(249,0,31,1)","rgba(249,0,32,1)","rgba(250,0,31,1)","rgba(250,0,29,1)","rgba(250,0,29,1)","rgba(254,0,11,1)","rgba(254,0,11,1)","rgba(251,0,23,1)","rgba(253,0,17,1)","rgba(254,0,4,1)","rgba(255,0,0,1)","rgba(254,0,7,1)","rgba(253,0,12,1)","rgba(238,0,65,1)","rgba(238,0,66,1)","rgba(237,0,67,1)","rgba(238,0,65,1)","rgba(239,0,62,1)","rgba(242,0,54,1)","rgba(243,0,53,1)","rgba(240,0,59,1)","rgba(240,0,59,1)","rgba(244,0,48,1)","rgba(244,0,51,1)","rgba(243,0,53,1)","rgba(242,0,54,1)","rgba(242,0,55,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(90,0,237,1)","rgba(98,0,234,1)","rgba(95,0,235,1)","rgba(102,0,231,1)","rgba(90,0,237,1)","rgba(108,0,228,1)","rgba(112,0,226,1)","rgba(110,0,228,1)","rgba(108,0,228,1)","rgba(107,0,229,1)","rgba(104,0,230,1)","rgba(96,0,234,1)","rgba(90,0,237,1)","rgba(104,0,231,1)","rgba(98,0,234,1)","rgba(21,0,254,1)","rgba(21,0,254,1)","rgba(22,0,254,1)","rgba(8,0,255,1)","rgba(18,0,254,1)","rgba(38,0,252,1)","rgba(47,0,250,1)","rgba(49,0,250,1)","rgba(47,0,250,1)","rgba(48,0,250,1)","rgba(3,0,255,1)","rgba(0,0,255,1)","rgba(4,0,255,1)","rgba(11,0,254,1)","rgba(79,0,242,1)","rgba(40,0,251,1)","rgba(56,0,248,1)","rgba(86,0,239,1)","rgba(88,0,238,1)","rgba(104,0,230,1)","rgba(127,0,217,1)","rgba(131,0,214,1)","rgba(115,0,225,1)","rgba(113,0,226,1)","rgba(99,0,233,1)","rgba(95,0,235,1)","rgba(82,0,240,1)","rgba(58,0,248,1)","rgba(61,0,247,1)","rgba(212,0,119,1)","rgba(197,0,143,1)","rgba(206,0,130,1)","rgba(195,0,147,1)","rgba(205,0,131,1)","rgba(221,0,103,1)","rgba(218,0,108,1)","rgba(215,0,113,1)","rgba(219,0,107,1)","rgba(211,0,121,1)","rgba(213,0,116,1)","rgba(208,0,126,1)","rgba(212,0,119,1)","rgba(211,0,121,1)","rgba(210,0,123,1)","rgba(206,0,129,1)","rgba(205,0,131,1)","rgba(202,0,135,1)","rgba(200,0,139,1)","rgba(196,0,145,1)","rgba(195,0,146,1)","rgba(194,0,147,1)","rgba(193,0,149,1)","rgba(188,0,156,1)","rgba(186,0,159,1)","rgba(180,0,166,1)","rgba(178,0,169,1)","rgba(170,0,178,1)","rgba(162,0,187,1)","rgba(178,0,169,1)","rgba(230,0,83,1)","rgba(232,0,80,1)","rgba(237,0,67,1)","rgba(243,0,51,1)","rgba(251,0,24,1)","rgba(243,0,52,1)","rgba(237,0,68,1)","rgba(237,0,67,1)","rgba(234,0,75,1)","rgba(247,0,40,1)","rgba(250,0,29,1)","rgba(248,0,36,1)","rgba(247,0,41,1)","rgba(240,0,59,1)","rgba(249,0,34,1)","rgba(248,0,35,1)","rgba(248,0,36,1)","rgba(248,0,35,1)","rgba(249,0,33,1)","rgba(250,0,30,1)","rgba(252,0,21,1)","rgba(252,0,21,1)","rgba(252,0,20,1)","rgba(251,0,23,1)","rgba(251,0,26,1)","rgba(250,0,28,1)","rgba(250,0,31,1)","rgba(249,0,33,1)","rgba(250,0,28,1)","rgba(249,0,31,1)","rgba(249,0,32,1)","rgba(250,0,31,1)","rgba(250,0,29,1)","rgba(250,0,29,1)","rgba(254,0,11,1)","rgba(254,0,11,1)","rgba(251,0,23,1)","rgba(253,0,17,1)","rgba(254,0,4,1)","rgba(255,0,0,1)","rgba(254,0,7,1)","rgba(253,0,12,1)","rgba(238,0,65,1)","rgba(238,0,66,1)","rgba(237,0,67,1)","rgba(238,0,65,1)","rgba(239,0,62,1)","rgba(242,0,54,1)","rgba(243,0,53,1)","rgba(240,0,59,1)","rgba(240,0,59,1)","rgba(244,0,48,1)","rgba(244,0,51,1)","rgba(243,0,53,1)","rgba(242,0,54,1)","rgba(242,0,55,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.5,0.705443037974684,0.910886075949367,1.11632911392405,1.32177215189873,1.52721518987342,1.7326582278481,1.93810126582278,2.14354430379747,2.34898734177215,2.55443037974684,2.75987341772152,2.9653164556962,3.17075949367089,3.37620253164557,3.58164556962025,3.78708860759494,3.99253164556962,4.1979746835443,4.40341772151899,4.60886075949367,4.81430379746835,5.01974683544304,5.22518987341772,5.43063291139241,5.63607594936709,5.84151898734177,6.04696202531646,6.25240506329114,6.45784810126582,6.66329113924051,6.86873417721519,7.07417721518987,7.27962025316456,7.48506329113924,7.69050632911392,7.89594936708861,8.10139240506329,8.30683544303798,8.51227848101266,8.71772151898734,8.92316455696202,9.12860759493671,9.33405063291139,9.53949367088608,9.74493670886076,9.95037974683544,10.1558227848101,10.3612658227848,10.5667088607595,10.7721518987342,10.9775949367089,11.1830379746835,11.3884810126582,11.5939240506329,11.7993670886076,12.0048101265823,12.210253164557,12.4156962025316,12.6211392405063,12.826582278481,13.0320253164557,13.2374683544304,13.4429113924051,13.6483544303797,13.8537974683544,14.0592405063291,14.2646835443038,14.4701265822785,14.6755696202532,14.8810126582278,15.0864556962025,15.2918987341772,15.4973417721519,15.7027848101266,15.9082278481013,16.113670886076,16.3191139240506,16.5245569620253,16.73],"y":[9.84580901374289,10.3507562918376,10.8557035699324,11.3606508480272,11.8655981261219,12.3705454042167,12.8754926823114,13.3804399604062,13.885387238501,14.3903345165957,14.8952817946905,15.4002290727852,15.90517635088,16.4101236289747,16.9150709070695,17.4200181851643,17.924965463259,18.4299127413538,18.9348600194485,19.4398072975433,19.944754575638,20.4497018537328,20.9546491318276,21.4595964099223,21.9645436880171,22.4694909661118,22.9744382442066,23.4793855223013,23.9843328003961,24.4892800784909,24.9942273565856,25.4991746346804,26.0041219127751,26.5090691908699,27.0140164689646,27.5189637470594,28.0239110251542,28.5288583032489,29.0338055813437,29.5387528594384,30.0437001375332,30.5486474156279,31.0535946937227,31.5585419718175,32.0634892499122,32.568436528007,33.0733838061017,33.5783310841965,34.0832783622912,34.588225640386,35.0931729184808,35.5981201965755,36.1030674746703,36.608014752765,37.1129620308598,37.6179093089545,38.1228565870493,38.6278038651441,39.1327511432388,39.6376984213336,40.1426456994283,40.6475929775231,41.1525402556178,41.6574875337126,42.1624348118074,42.6673820899021,43.1723293679969,43.6772766460916,44.1822239241864,44.6871712022811,45.1921184803759,45.6970657584707,46.2020130365654,46.7069603146602,47.2119075927549,47.7168548708497,48.2218021489444,48.7267494270392,49.231696705134,49.7366439832287],"text":["chlorophyll_rfu:  0.5000000<br />chla_ugl:  9.845809","chlorophyll_rfu:  0.7054430<br />chla_ugl: 10.350756","chlorophyll_rfu:  0.9108861<br />chla_ugl: 10.855704","chlorophyll_rfu:  1.1163291<br />chla_ugl: 11.360651","chlorophyll_rfu:  1.3217722<br />chla_ugl: 11.865598","chlorophyll_rfu:  1.5272152<br />chla_ugl: 12.370545","chlorophyll_rfu:  1.7326582<br />chla_ugl: 12.875493","chlorophyll_rfu:  1.9381013<br />chla_ugl: 13.380440","chlorophyll_rfu:  2.1435443<br />chla_ugl: 13.885387","chlorophyll_rfu:  2.3489873<br />chla_ugl: 14.390335","chlorophyll_rfu:  2.5544304<br />chla_ugl: 14.895282","chlorophyll_rfu:  2.7598734<br />chla_ugl: 15.400229","chlorophyll_rfu:  2.9653165<br />chla_ugl: 15.905176","chlorophyll_rfu:  3.1707595<br />chla_ugl: 16.410124","chlorophyll_rfu:  3.3762025<br />chla_ugl: 16.915071","chlorophyll_rfu:  3.5816456<br />chla_ugl: 17.420018","chlorophyll_rfu:  3.7870886<br />chla_ugl: 17.924965","chlorophyll_rfu:  3.9925316<br />chla_ugl: 18.429913","chlorophyll_rfu:  4.1979747<br />chla_ugl: 18.934860","chlorophyll_rfu:  4.4034177<br />chla_ugl: 19.439807","chlorophyll_rfu:  4.6088608<br />chla_ugl: 19.944755","chlorophyll_rfu:  4.8143038<br />chla_ugl: 20.449702","chlorophyll_rfu:  5.0197468<br />chla_ugl: 20.954649","chlorophyll_rfu:  5.2251899<br />chla_ugl: 21.459596","chlorophyll_rfu:  5.4306329<br />chla_ugl: 21.964544","chlorophyll_rfu:  5.6360759<br />chla_ugl: 22.469491","chlorophyll_rfu:  5.8415190<br />chla_ugl: 22.974438","chlorophyll_rfu:  6.0469620<br />chla_ugl: 23.479386","chlorophyll_rfu:  6.2524051<br />chla_ugl: 23.984333","chlorophyll_rfu:  6.4578481<br />chla_ugl: 24.489280","chlorophyll_rfu:  6.6632911<br />chla_ugl: 24.994227","chlorophyll_rfu:  6.8687342<br />chla_ugl: 25.499175","chlorophyll_rfu:  7.0741772<br />chla_ugl: 26.004122","chlorophyll_rfu:  7.2796203<br />chla_ugl: 26.509069","chlorophyll_rfu:  7.4850633<br />chla_ugl: 27.014016","chlorophyll_rfu:  7.6905063<br />chla_ugl: 27.518964","chlorophyll_rfu:  7.8959494<br />chla_ugl: 28.023911","chlorophyll_rfu:  8.1013924<br />chla_ugl: 28.528858","chlorophyll_rfu:  8.3068354<br />chla_ugl: 29.033806","chlorophyll_rfu:  8.5122785<br />chla_ugl: 29.538753","chlorophyll_rfu:  8.7177215<br />chla_ugl: 30.043700","chlorophyll_rfu:  8.9231646<br />chla_ugl: 30.548647","chlorophyll_rfu:  9.1286076<br />chla_ugl: 31.053595","chlorophyll_rfu:  9.3340506<br />chla_ugl: 31.558542","chlorophyll_rfu:  9.5394937<br />chla_ugl: 32.063489","chlorophyll_rfu:  9.7449367<br />chla_ugl: 32.568437","chlorophyll_rfu:  9.9503797<br />chla_ugl: 33.073384","chlorophyll_rfu: 10.1558228<br />chla_ugl: 33.578331","chlorophyll_rfu: 10.3612658<br />chla_ugl: 34.083278","chlorophyll_rfu: 10.5667089<br />chla_ugl: 34.588226","chlorophyll_rfu: 10.7721519<br />chla_ugl: 35.093173","chlorophyll_rfu: 10.9775949<br />chla_ugl: 35.598120","chlorophyll_rfu: 11.1830380<br />chla_ugl: 36.103067","chlorophyll_rfu: 11.3884810<br />chla_ugl: 36.608015","chlorophyll_rfu: 11.5939241<br />chla_ugl: 37.112962","chlorophyll_rfu: 11.7993671<br />chla_ugl: 37.617909","chlorophyll_rfu: 12.0048101<br />chla_ugl: 38.122857","chlorophyll_rfu: 12.2102532<br />chla_ugl: 38.627804","chlorophyll_rfu: 12.4156962<br />chla_ugl: 39.132751","chlorophyll_rfu: 12.6211392<br />chla_ugl: 39.637698","chlorophyll_rfu: 12.8265823<br />chla_ugl: 40.142646","chlorophyll_rfu: 13.0320253<br />chla_ugl: 40.647593","chlorophyll_rfu: 13.2374684<br />chla_ugl: 41.152540","chlorophyll_rfu: 13.4429114<br />chla_ugl: 41.657488","chlorophyll_rfu: 13.6483544<br />chla_ugl: 42.162435","chlorophyll_rfu: 13.8537975<br />chla_ugl: 42.667382","chlorophyll_rfu: 14.0592405<br />chla_ugl: 43.172329","chlorophyll_rfu: 14.2646835<br />chla_ugl: 43.677277","chlorophyll_rfu: 14.4701266<br />chla_ugl: 44.182224","chlorophyll_rfu: 14.6755696<br />chla_ugl: 44.687171","chlorophyll_rfu: 14.8810127<br />chla_ugl: 45.192118","chlorophyll_rfu: 15.0864557<br />chla_ugl: 45.697066","chlorophyll_rfu: 15.2918987<br />chla_ugl: 46.202013","chlorophyll_rfu: 15.4973418<br />chla_ugl: 46.706960","chlorophyll_rfu: 15.7027848<br />chla_ugl: 47.211908","chlorophyll_rfu: 15.9082278<br />chla_ugl: 47.716855","chlorophyll_rfu: 16.1136709<br />chla_ugl: 48.221802","chlorophyll_rfu: 16.3191139<br />chla_ugl: 48.726749","chlorophyll_rfu: 16.5245570<br />chla_ugl: 49.231697","chlorophyll_rfu: 16.7300000<br />chla_ugl: 49.736644"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_205e0ed74e3b13e5f8de28357d31dacb","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#0000FF"],[0.00334448160535117,"#0F00FE"],[0.00668896321070234,"#1900FD"],[0.0100334448160535,"#2000FD"],[0.0133779264214047,"#2600FC"],[0.0167224080267559,"#2B00FB"],[0.020066889632107,"#2F00FA"],[0.0234113712374582,"#3300F9"],[0.0267558528428094,"#3700F8"],[0.0301003344481605,"#3A00F8"],[0.0334448160535117,"#3E00F7"],[0.0367892976588629,"#4100F6"],[0.040133779264214,"#4400F5"],[0.0434782608695652,"#4600F4"],[0.0468227424749164,"#4900F3"],[0.0501672240802676,"#4B00F3"],[0.0535117056856187,"#4E00F2"],[0.0568561872909699,"#5000F1"],[0.0602006688963211,"#5200F0"],[0.0635451505016723,"#5400EF"],[0.0668896321070234,"#5600EF"],[0.0702341137123746,"#5800EE"],[0.0735785953177258,"#5A00ED"],[0.0769230769230769,"#5C00EC"],[0.0802675585284281,"#5E00EB"],[0.0836120401337793,"#6000EB"],[0.0869565217391304,"#6200EA"],[0.0903010033444816,"#6300E9"],[0.0936454849498328,"#6500E8"],[0.096989966555184,"#6700E7"],[0.100334448160535,"#6800E6"],[0.103678929765886,"#6A00E6"],[0.107023411371237,"#6B00E5"],[0.110367892976589,"#6D00E4"],[0.11371237458194,"#6E00E3"],[0.117056856187291,"#7000E2"],[0.120401337792642,"#7100E2"],[0.123745819397993,"#7200E1"],[0.127090301003345,"#7400E0"],[0.130434782608696,"#7500DF"],[0.133779264214047,"#7600DE"],[0.137123745819398,"#7800DE"],[0.140468227424749,"#7900DD"],[0.1438127090301,"#7A00DC"],[0.147157190635452,"#7B00DB"],[0.150501672240803,"#7D00DA"],[0.153846153846154,"#7E00DA"],[0.157190635451505,"#7F00D9"],[0.160535117056856,"#8000D8"],[0.163879598662207,"#8100D7"],[0.167224080267559,"#8200D6"],[0.17056856187291,"#8400D5"],[0.173913043478261,"#8500D5"],[0.177257525083612,"#8600D4"],[0.180602006688963,"#8700D3"],[0.183946488294314,"#8800D2"],[0.187290969899666,"#8900D1"],[0.190635451505017,"#8A00D1"],[0.193979933110368,"#8B00D0"],[0.197324414715719,"#8C00CF"],[0.20066889632107,"#8D00CE"],[0.204013377926421,"#8E00CD"],[0.207357859531773,"#8F00CD"],[0.210702341137124,"#9000CC"],[0.214046822742475,"#9100CB"],[0.217391304347826,"#9200CA"],[0.220735785953177,"#9300CA"],[0.224080267558528,"#9400C9"],[0.22742474916388,"#9400C8"],[0.230769230769231,"#9500C7"],[0.234113712374582,"#9600C6"],[0.237458193979933,"#9700C6"],[0.240802675585284,"#9800C5"],[0.244147157190635,"#9900C4"],[0.247491638795987,"#9A00C3"],[0.250836120401338,"#9B00C2"],[0.254180602006689,"#9B00C2"],[0.25752508361204,"#9C00C1"],[0.260869565217391,"#9D00C0"],[0.264214046822742,"#9E00BF"],[0.267558528428094,"#9F00BE"],[0.270903010033445,"#9F00BE"],[0.274247491638796,"#A000BD"],[0.277591973244147,"#A100BC"],[0.280936454849498,"#A200BB"],[0.28428093645485,"#A300BA"],[0.287625418060201,"#A300BA"],[0.290969899665552,"#A400B9"],[0.294314381270903,"#A500B8"],[0.297658862876254,"#A600B7"],[0.301003344481605,"#A600B7"],[0.304347826086957,"#A700B6"],[0.307692307692308,"#A800B5"],[0.311036789297659,"#A800B4"],[0.31438127090301,"#A900B3"],[0.317725752508361,"#AA00B3"],[0.321070234113712,"#AB00B2"],[0.324414715719064,"#AB00B1"],[0.327759197324415,"#AC00B0"],[0.331103678929766,"#AD00AF"],[0.334448160535117,"#AD00AF"],[0.337792642140468,"#AE00AE"],[0.341137123745819,"#AF00AD"],[0.344481605351171,"#AF00AC"],[0.347826086956522,"#B000AC"],[0.351170568561873,"#B100AB"],[0.354515050167224,"#B100AA"],[0.357859531772575,"#B200A9"],[0.361204013377926,"#B300A8"],[0.364548494983278,"#B300A8"],[0.367892976588629,"#B400A7"],[0.37123745819398,"#B400A6"],[0.374581939799331,"#B500A5"],[0.377926421404682,"#B600A5"],[0.381270903010033,"#B600A4"],[0.384615384615385,"#B700A3"],[0.387959866220736,"#B700A2"],[0.391304347826087,"#B800A1"],[0.394648829431438,"#B900A1"],[0.397993311036789,"#B900A0"],[0.40133779264214,"#BA009F"],[0.404682274247492,"#BA009E"],[0.408026755852843,"#BB009E"],[0.411371237458194,"#BC009D"],[0.414715719063545,"#BC009C"],[0.418060200668896,"#BD009B"],[0.421404682274248,"#BD009B"],[0.424749163879599,"#BE009A"],[0.42809364548495,"#BE0099"],[0.431438127090301,"#BF0098"],[0.434782608695652,"#BF0097"],[0.438127090301003,"#C00097"],[0.441471571906355,"#C10096"],[0.444816053511706,"#C10095"],[0.448160535117057,"#C20094"],[0.451505016722408,"#C20094"],[0.454849498327759,"#C30093"],[0.45819397993311,"#C30092"],[0.461538461538462,"#C40091"],[0.464882943143813,"#C40091"],[0.468227424749164,"#C50090"],[0.471571906354515,"#C5008F"],[0.474916387959866,"#C6008E"],[0.478260869565217,"#C6008D"],[0.481605351170569,"#C7008D"],[0.48494983277592,"#C7008C"],[0.488294314381271,"#C8008B"],[0.491638795986622,"#C8008A"],[0.494983277591973,"#C9008A"],[0.498327759197324,"#C90089"],[0.501672240802676,"#CA0088"],[0.505016722408027,"#CA0087"],[0.508361204013378,"#CB0087"],[0.511705685618729,"#CB0086"],[0.51505016722408,"#CC0085"],[0.518394648829431,"#CC0084"],[0.521739130434783,"#CD0084"],[0.525083612040134,"#CD0083"],[0.528428093645485,"#CE0082"],[0.531772575250836,"#CE0081"],[0.535117056856187,"#CE0080"],[0.538461538461539,"#CF0080"],[0.54180602006689,"#CF007F"],[0.545150501672241,"#D0007E"],[0.548494983277592,"#D0007D"],[0.551839464882943,"#D1007D"],[0.555183946488294,"#D1007C"],[0.558528428093646,"#D2007B"],[0.561872909698997,"#D2007A"],[0.565217391304348,"#D3007A"],[0.568561872909699,"#D30079"],[0.57190635451505,"#D30078"],[0.575250836120401,"#D40077"],[0.578595317725753,"#D40077"],[0.581939799331104,"#D50076"],[0.585284280936455,"#D50075"],[0.588628762541806,"#D60074"],[0.591973244147157,"#D60074"],[0.595317725752508,"#D60073"],[0.59866220735786,"#D70072"],[0.602006688963211,"#D70071"],[0.605351170568562,"#D80071"],[0.608695652173913,"#D80070"],[0.612040133779264,"#D8006F"],[0.615384615384616,"#D9006E"],[0.618729096989967,"#D9006E"],[0.622073578595318,"#DA006D"],[0.625418060200669,"#DA006C"],[0.62876254180602,"#DA006B"],[0.632107023411371,"#DB006A"],[0.635451505016722,"#DB006A"],[0.638795986622074,"#DC0069"],[0.642140468227425,"#DC0068"],[0.645484949832776,"#DC0067"],[0.648829431438127,"#DD0067"],[0.652173913043478,"#DD0066"],[0.655518394648829,"#DE0065"],[0.658862876254181,"#DE0064"],[0.662207357859532,"#DE0064"],[0.665551839464883,"#DF0063"],[0.668896321070234,"#DF0062"],[0.672240802675585,"#E00061"],[0.675585284280937,"#E00061"],[0.678929765886288,"#E00060"],[0.682274247491639,"#E1005F"],[0.68561872909699,"#E1005E"],[0.688963210702341,"#E1005E"],[0.692307692307692,"#E2005D"],[0.695652173913043,"#E2005C"],[0.698996655518395,"#E3005B"],[0.702341137123746,"#E3005B"],[0.705685618729097,"#E3005A"],[0.709030100334448,"#E40059"],[0.712374581939799,"#E40058"],[0.715719063545151,"#E40057"],[0.719063545150502,"#E50057"],[0.722408026755853,"#E50056"],[0.725752508361204,"#E50055"],[0.729096989966555,"#E60054"],[0.732441471571906,"#E60054"],[0.735785953177258,"#E60053"],[0.739130434782609,"#E70052"],[0.74247491638796,"#E70051"],[0.745819397993311,"#E80050"],[0.749163879598662,"#E80050"],[0.752508361204013,"#E8004F"],[0.755852842809364,"#E9004E"],[0.759197324414716,"#E9004D"],[0.762541806020067,"#E9004D"],[0.765886287625418,"#EA004C"],[0.769230769230769,"#EA004B"],[0.772575250836121,"#EA004A"],[0.775919732441472,"#EB0049"],[0.779264214046823,"#EB0049"],[0.782608695652174,"#EB0048"],[0.785953177257525,"#EC0047"],[0.789297658862876,"#EC0046"],[0.792642140468227,"#EC0046"],[0.795986622073579,"#ED0045"],[0.79933110367893,"#ED0044"],[0.802675585284281,"#ED0043"],[0.806020066889632,"#EE0042"],[0.809364548494983,"#EE0042"],[0.812709030100334,"#EE0041"],[0.816053511705686,"#EF0040"],[0.819397993311037,"#EF003F"],[0.822742474916388,"#EF003E"],[0.826086956521739,"#F0003D"],[0.82943143812709,"#F0003D"],[0.832775919732442,"#F0003C"],[0.836120401337793,"#F0003B"],[0.839464882943144,"#F1003A"],[0.842809364548495,"#F10039"],[0.846153846153846,"#F10038"],[0.849498327759197,"#F20038"],[0.852842809364548,"#F20037"],[0.8561872909699,"#F20036"],[0.859531772575251,"#F30035"],[0.862876254180602,"#F30034"],[0.866220735785953,"#F30033"],[0.869565217391304,"#F40032"],[0.872909698996656,"#F40032"],[0.876254180602007,"#F40031"],[0.879598662207358,"#F50030"],[0.882943143812709,"#F5002F"],[0.88628762541806,"#F5002E"],[0.889632107023411,"#F5002D"],[0.892976588628763,"#F6002C"],[0.896321070234114,"#F6002B"],[0.899665551839465,"#F6002A"],[0.903010033444816,"#F70029"],[0.906354515050167,"#F70028"],[0.909698996655518,"#F70027"],[0.91304347826087,"#F80026"],[0.916387959866221,"#F80025"],[0.919732441471572,"#F80024"],[0.923076923076923,"#F80023"],[0.926421404682274,"#F90022"],[0.929765886287626,"#F90021"],[0.933110367892977,"#F90020"],[0.936454849498328,"#FA001F"],[0.939799331103679,"#FA001E"],[0.94314381270903,"#FA001D"],[0.946488294314381,"#FA001B"],[0.949832775919732,"#FB001A"],[0.953177257525084,"#FB0019"],[0.956521739130435,"#FB0018"],[0.959866220735786,"#FC0016"],[0.963210702341137,"#FC0015"],[0.966555183946488,"#FC0013"],[0.969899665551839,"#FC0012"],[0.973244147157191,"#FD0010"],[0.976588628762542,"#FD000F"],[0.979933110367893,"#FD000D"],[0.983277591973244,"#FE000B"],[0.986622073578595,"#FE0008"],[0.989966555183947,"#FE0006"],[0.993311036789298,"#FE0004"],[0.996655518394649,"#FF0002"],[1,"#FF0000"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"Temperature (C)","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["5","10","15","20","25"],"tickvals":[0.189564621708022,0.37985233673314,0.570140051758258,0.760427766783376,0.950715481808494],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Temperature","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.313086898368876,17.541575566589],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.45109452809813,65.4117088407525],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b2864d9312":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b2837ed7811":{"x":{},"y":{}}},"cur_data":"5b2864d9312","visdat":{"5b2864d9312":["function (y) ","x"],"5b2837ed7811":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+<hr>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. And was created by Shannon Dunnigan | <i class="fa fa-envelope"></i> Shannon.Dunnigan@FloridaDEP.gov | <i class="fa fa-github"></i>  skdunnigan <a href: "https://www.github.com/skdunnigan"></a>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Great Bay</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">CHLA NERRS Catalyst Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="all-data.html">All Data</a>
+    </li>
+    <li>
+      <a href="isco-data.html">ISCO Data</a>
+    </li>
+    <li>
+      <a href="tank-data.html">Tank Data</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Reserves
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="elk.html">Elkhorn Slough</a>
+    </li>
+    <li>
+      <a href="gnd.html">Grand Bay</a>
+    </li>
+    <li>
+      <a href="grb.html">Great Bay</a>
+    </li>
+    <li>
+      <a href="gtm.html">Guana Tolomato Matanzas</a>
+    </li>
+    <li>
+      <a href="hee.html">He'eia</a>
+    </li>
+    <li>
+      <a href="lks.html">Lake Superior</a>
+    </li>
+    <li>
+      <a href="mar.html">Mission-Aransas</a>
+    </li>
+    <li>
+      <a href="niw.html">North Inlet-Winyah Bay</a>
+    </li>
+    <li>
+      <a href="owc.html">Old Woman Creek</a>
+    </li>
+    <li>
+      <a href="pdb.html">Padilla Bay</a>
+    </li>
+    <li>
+      <a href="sap.html">Sapelo Island</a>
+    </li>
+    <li>
+      <a href="wel.html">Wells</a>
+    </li>
+    <li class="dropdown-header">Weeks Bay</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Interference Testing
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="fdom-interference.html">fDOM</a>
+    </li>
+    <li>
+      <a href="turb-interference.html">Turbidity</a>
+    </li>
+    <li>
+      <a href="temp-interference.html">Temperature</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="algae.html">Algae</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="http://nerrssciencecollaborative.org/project/Dix20">
+    <span class="fa fa-info-circle"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="https://www.github.com/skdunnigan/chla-nerrs-catalyst">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+<li>
+  <a href="https://drive.google.com/drive/u/2/folders/1BkZF0EPy3qaqfGqPPL2iPC_up-0RsDOw">
+    <span class="fab fa-google-drive"></span>
+     
+    Google Drive
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Great Bay</h1>
+
+</div>
+
+
+<div id="all-data" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">All Data</h1>
+<div id="all" class="section level2">
+<h2>All</h2>
+<p><img src="grb_files/figure-html/all-data-1.png" width="2100" /></p>
+</div>
+<div id="facet-by-methods" class="section level2">
+<h2>Facet by Methods</h2>
+<p><img src="grb_files/figure-html/all-facet-1.png" width="2100" /></p>
+<p>{-}</p>
+</div>
+</div>
+<div id="interactive-plots-for-qaqc" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Interactive Plots for QAQC</h1>
+<p><strong>How to use the interactive plot:</strong> Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!</p>
+<div id="isco-deployments" class="section level2">
+<h2>ISCO Deployments</h2>
+<div id="htmlwidget-b35926cf1e4bbd24d5b7" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b35926cf1e4bbd24d5b7">{"x":{"data":[{"visible":false,"showlegend":false,"xaxis":null,"yaxis":null,"hoverinfo":"text","mode":"","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b282719ac":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b2863e56c82":{"x":{},"y":{}}},"cur_data":"5b282719ac","visdat":{"5b282719ac":["function (y) ","x"],"5b2863e56c82":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="tank-samples" class="section level2">
+<h2>Tank Samples</h2>
+<div id="htmlwidget-2cedbf14ddde9b89a9c7" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2cedbf14ddde9b89a9c7">{"x":{"data":[{"x":[0.71074454717244,0.812962377778897],"y":[2.07085756621008,2.01556932593476],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  2.067681<br />date_collected: 2021-06-07","chlorophyll_rfu:  0.8141667<br />chla_ugl:  2.023530<br />date_collected: 2021-06-07"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"2021-06-07","legendgroup":"2021-06-07","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.30436692357679],"y":[4.63115699587601],"text":"chlorophyll_rfu:  1.3058333<br />chla_ugl:  4.634978<br />date_collected: 2021-06-24","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(233,132,44,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(233,132,44,1)"}},"hoveron":"points","name":"2021-06-24","legendgroup":"2021-06-24","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.01007684912382],"y":[4.38359965869436],"text":"chlorophyll_rfu:  1.0105000<br />chla_ugl:  4.380327<br />date_collected: 2021-06-28","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(214,145,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(214,145,0,1)"}},"hoveron":"points","name":"2021-06-28","legendgroup":"2021-06-28","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.06772617049412],"y":[10.2700282764767],"text":"chlorophyll_rfu:  2.0691667<br />chla_ugl: 10.272320<br />date_collected: 2021-07-07","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(188,157,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(188,157,0,1)"}},"hoveron":"points","name":"2021-07-07","legendgroup":"2021-07-07","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.4275231695979],"y":[6.0414778958511],"text":"chlorophyll_rfu:  1.4283330<br />chla_ugl:  6.054924<br />date_collected: 2021-07-08","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(156,167,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(156,167,0,1)"}},"hoveron":"points","name":"2021-07-08","legendgroup":"2021-07-08","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.62864240934955],"y":[6.60342139136173],"text":"chlorophyll_rfu:  1.6276670<br />chla_ugl:  6.601824<br />date_collected: 2021-08-13","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(111,176,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(111,176,0,1)"}},"hoveron":"points","name":"2021-08-13","legendgroup":"2021-08-13","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.7053402948317],"y":[7.12138654037495],"text":"chlorophyll_rfu:  1.7058330<br />chla_ugl:  7.120809<br />date_collected: 2021-08-20","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,184,19,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,184,19,1)"}},"hoveron":"points","name":"2021-08-20","legendgroup":"2021-08-20","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.89613657817824],"y":[20.4271864282946],"text":"chlorophyll_rfu:  3.8963000<br />chla_ugl: 20.411618<br />date_collected: 2021-08-31","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,189,97,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,189,97,1)"}},"hoveron":"points","name":"2021-08-31","legendgroup":"2021-08-31","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[10.5000184350264],"y":[59.7373245915073],"text":"chlorophyll_rfu: 10.5000000<br />chla_ugl: 59.753383<br />date_collected: 2021-09-07","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,142,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,192,142,1)"}},"hoveron":"points","name":"2021-09-07","legendgroup":"2021-09-07","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.06005187078873],"y":[27.8051312992875],"text":"chlorophyll_rfu:  5.0593330<br />chla_ugl: 27.802174<br />date_collected: 2021-09-08","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,180,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,192,180,1)"}},"hoveron":"points","name":"2021-09-08","legendgroup":"2021-09-08","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.05614893373188],"y":[3.17963977880406],"text":"chlorophyll_rfu:  1.0556670<br />chla_ugl:  3.163760<br />date_collected: 2021-09-15","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,189,212,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,189,212,1)"}},"hoveron":"points","name":"2021-09-15","legendgroup":"2021-09-15","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.50228619371097],"y":[9.08861617717288],"text":"chlorophyll_rfu:  2.5008330<br />chla_ugl:  9.077116<br />date_collected: 2021-09-17","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,181,238,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,181,238,1)"}},"hoveron":"points","name":"2021-09-17","legendgroup":"2021-09-17","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.71473704278975],"y":[6.39502150507921],"text":"chlorophyll_rfu:  1.7146670<br />chla_ugl:  6.385058<br />date_collected: 2021-09-22","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,167,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,167,255,1)"}},"hoveron":"points","name":"2021-09-22","legendgroup":"2021-09-22","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.49943249525687],"y":[22.0253774960927],"text":"chlorophyll_rfu:  5.4989830<br />chla_ugl: 22.042064<br />date_collected: 2021-09-23","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,150,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(127,150,255,1)"}},"hoveron":"points","name":"2021-09-23","legendgroup":"2021-09-23","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.70932611683801],"y":[8.41516686117147],"text":"chlorophyll_rfu:  1.7108330<br />chla_ugl:  8.406878<br />date_collected: 2021-09-27","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(188,129,255,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(188,129,255,1)"}},"hoveron":"points","name":"2021-09-27","legendgroup":"2021-09-27","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.43222911330254],"y":[5.85183531895205],"text":"chlorophyll_rfu:  1.4325000<br />chla_ugl:  5.846988<br />date_collected: 2021-09-28","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(226,110,247,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(226,110,247,1)"}},"hoveron":"points","name":"2021-09-28","legendgroup":"2021-09-28","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.47526325254827],"y":[5.99530031625812],"text":"chlorophyll_rfu:  1.4743330<br />chla_ugl:  5.997955<br />date_collected: 2021-09-29","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,99,223,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,99,223,1)"}},"hoveron":"points","name":"2021-09-29","legendgroup":"2021-09-29","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[21.360439951221],"y":[84.4526196468005],"text":"chlorophyll_rfu: 21.3593300<br />chla_ugl: 84.448766<br />date_collected: 2021-09-30","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,98,191,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,98,191,1)"}},"hoveron":"points","name":"2021-09-30","legendgroup":"2021-09-30","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.20831864490267],"y":[4.67757710677818],"text":"chlorophyll_rfu:  1.2098330<br />chla_ugl:  4.683401<br />date_collected: 2021-10-01","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,106,154,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,106,154,1)"}},"hoveron":"points","name":"2021-10-01","legendgroup":"2021-10-01","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.71,0.971383924050633,1.23276784810127,1.4941517721519,1.75553569620253,2.01691962025316,2.2783035443038,2.53968746835443,2.80107139240506,3.0624553164557,3.32383924050633,3.58522316455696,3.84660708860759,4.10799101265823,4.36937493670886,4.63075886075949,4.89214278481013,5.15352670886076,5.41491063291139,5.67629455696202,5.93767848101266,6.19906240506329,6.46044632911392,6.72183025316456,6.98321417721519,7.24459810126582,7.50598202531646,7.76736594936709,8.02874987341772,8.29013379746835,8.55151772151899,8.81290164556962,9.07428556962025,9.33566949367088,9.59705341772152,9.85843734177215,10.1198212658228,10.3812051898734,10.642589113924,10.9039730379747,11.1653569620253,11.4267408860759,11.6881248101266,11.9495087341772,12.2108926582278,12.4722765822785,12.7336605063291,12.9950444303797,13.2564283544304,13.517812278481,13.7791962025316,14.0405801265823,14.3019640506329,14.5633479746835,14.8247318987342,15.0861158227848,15.3474997468354,15.6088836708861,15.8702675949367,16.1316515189873,16.393035443038,16.6544193670886,16.9158032911392,17.1771872151899,17.4385711392405,17.6999550632911,17.9613389873418,18.2227229113924,18.484106835443,18.7454907594937,19.0068746835443,19.2682586075949,19.5296425316456,19.7910264556962,20.0524103797468,20.3137943037975,20.5751782278481,20.8365621518987,21.0979460759494,21.35933],"y":[3.50930135175219,4.62979766107975,5.7502939704073,6.87079027973486,7.99128658906242,9.11178289838997,10.2322792077175,11.3527755170451,12.4732718263726,13.5937681357002,14.7142644450278,15.8347607543553,16.9552570636829,18.0757533730104,19.196249682338,20.3167459916655,21.4372423009931,22.5577386103206,23.6782349196482,24.7987312289758,25.9192275383033,27.0397238476309,28.1602201569584,29.280716466286,30.4012127756135,31.5217090849411,32.6422053942687,33.7627017035962,34.8831980129238,36.0036943222513,37.1241906315789,38.2446869409064,39.365183250234,40.4856795595615,41.6061758688891,42.7266721782167,43.8471684875442,44.9676647968718,46.0881611061993,47.2086574155269,48.3291537248544,49.449650034182,50.5701463435095,51.6906426528371,52.8111389621647,53.9316352714922,55.0521315808198,56.1726278901473,57.2931241994749,58.4136205088024,59.53411681813,60.6546131274576,61.7751094367851,62.8956057461127,64.0161020554402,65.1365983647678,66.2570946740953,67.3775909834229,68.4980872927505,69.618583602078,70.7390799114056,71.8595762207331,72.9800725300607,74.1005688393882,75.2210651487158,76.3415614580434,77.4620577673709,78.5825540766985,79.703050386026,80.8235466953536,81.9440430046811,83.0645393140087,84.1850356233362,85.3055319326638,86.4260282419914,87.5465245513189,88.6670208606465,89.787517169974,90.9080134793016,92.0285097886291],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  3.509301","chlorophyll_rfu:  0.9713839<br />chla_ugl:  4.629798","chlorophyll_rfu:  1.2327678<br />chla_ugl:  5.750294","chlorophyll_rfu:  1.4941518<br />chla_ugl:  6.870790","chlorophyll_rfu:  1.7555357<br />chla_ugl:  7.991287","chlorophyll_rfu:  2.0169196<br />chla_ugl:  9.111783","chlorophyll_rfu:  2.2783035<br />chla_ugl: 10.232279","chlorophyll_rfu:  2.5396875<br />chla_ugl: 11.352776","chlorophyll_rfu:  2.8010714<br />chla_ugl: 12.473272","chlorophyll_rfu:  3.0624553<br />chla_ugl: 13.593768","chlorophyll_rfu:  3.3238392<br />chla_ugl: 14.714264","chlorophyll_rfu:  3.5852232<br />chla_ugl: 15.834761","chlorophyll_rfu:  3.8466071<br />chla_ugl: 16.955257","chlorophyll_rfu:  4.1079910<br />chla_ugl: 18.075753","chlorophyll_rfu:  4.3693749<br />chla_ugl: 19.196250","chlorophyll_rfu:  4.6307589<br />chla_ugl: 20.316746","chlorophyll_rfu:  4.8921428<br />chla_ugl: 21.437242","chlorophyll_rfu:  5.1535267<br />chla_ugl: 22.557739","chlorophyll_rfu:  5.4149106<br />chla_ugl: 23.678235","chlorophyll_rfu:  5.6762946<br />chla_ugl: 24.798731","chlorophyll_rfu:  5.9376785<br />chla_ugl: 25.919228","chlorophyll_rfu:  6.1990624<br />chla_ugl: 27.039724","chlorophyll_rfu:  6.4604463<br />chla_ugl: 28.160220","chlorophyll_rfu:  6.7218303<br />chla_ugl: 29.280716","chlorophyll_rfu:  6.9832142<br />chla_ugl: 30.401213","chlorophyll_rfu:  7.2445981<br />chla_ugl: 31.521709","chlorophyll_rfu:  7.5059820<br />chla_ugl: 32.642205","chlorophyll_rfu:  7.7673659<br />chla_ugl: 33.762702","chlorophyll_rfu:  8.0287499<br />chla_ugl: 34.883198","chlorophyll_rfu:  8.2901338<br />chla_ugl: 36.003694","chlorophyll_rfu:  8.5515177<br />chla_ugl: 37.124191","chlorophyll_rfu:  8.8129016<br />chla_ugl: 38.244687","chlorophyll_rfu:  9.0742856<br />chla_ugl: 39.365183","chlorophyll_rfu:  9.3356695<br />chla_ugl: 40.485680","chlorophyll_rfu:  9.5970534<br />chla_ugl: 41.606176","chlorophyll_rfu:  9.8584373<br />chla_ugl: 42.726672","chlorophyll_rfu: 10.1198213<br />chla_ugl: 43.847168","chlorophyll_rfu: 10.3812052<br />chla_ugl: 44.967665","chlorophyll_rfu: 10.6425891<br />chla_ugl: 46.088161","chlorophyll_rfu: 10.9039730<br />chla_ugl: 47.208657","chlorophyll_rfu: 11.1653570<br />chla_ugl: 48.329154","chlorophyll_rfu: 11.4267409<br />chla_ugl: 49.449650","chlorophyll_rfu: 11.6881248<br />chla_ugl: 50.570146","chlorophyll_rfu: 11.9495087<br />chla_ugl: 51.690643","chlorophyll_rfu: 12.2108927<br />chla_ugl: 52.811139","chlorophyll_rfu: 12.4722766<br />chla_ugl: 53.931635","chlorophyll_rfu: 12.7336605<br />chla_ugl: 55.052132","chlorophyll_rfu: 12.9950444<br />chla_ugl: 56.172628","chlorophyll_rfu: 13.2564284<br />chla_ugl: 57.293124","chlorophyll_rfu: 13.5178123<br />chla_ugl: 58.413621","chlorophyll_rfu: 13.7791962<br />chla_ugl: 59.534117","chlorophyll_rfu: 14.0405801<br />chla_ugl: 60.654613","chlorophyll_rfu: 14.3019641<br />chla_ugl: 61.775109","chlorophyll_rfu: 14.5633480<br />chla_ugl: 62.895606","chlorophyll_rfu: 14.8247319<br />chla_ugl: 64.016102","chlorophyll_rfu: 15.0861158<br />chla_ugl: 65.136598","chlorophyll_rfu: 15.3474997<br />chla_ugl: 66.257095","chlorophyll_rfu: 15.6088837<br />chla_ugl: 67.377591","chlorophyll_rfu: 15.8702676<br />chla_ugl: 68.498087","chlorophyll_rfu: 16.1316515<br />chla_ugl: 69.618584","chlorophyll_rfu: 16.3930354<br />chla_ugl: 70.739080","chlorophyll_rfu: 16.6544194<br />chla_ugl: 71.859576","chlorophyll_rfu: 16.9158033<br />chla_ugl: 72.980073","chlorophyll_rfu: 17.1771872<br />chla_ugl: 74.100569","chlorophyll_rfu: 17.4385711<br />chla_ugl: 75.221065","chlorophyll_rfu: 17.6999551<br />chla_ugl: 76.341561","chlorophyll_rfu: 17.9613390<br />chla_ugl: 77.462058","chlorophyll_rfu: 18.2227229<br />chla_ugl: 78.582554","chlorophyll_rfu: 18.4841068<br />chla_ugl: 79.703050","chlorophyll_rfu: 18.7454908<br />chla_ugl: 80.823547","chlorophyll_rfu: 19.0068747<br />chla_ugl: 81.944043","chlorophyll_rfu: 19.2682586<br />chla_ugl: 83.064539","chlorophyll_rfu: 19.5296425<br />chla_ugl: 84.185036","chlorophyll_rfu: 19.7910265<br />chla_ugl: 85.305532","chlorophyll_rfu: 20.0524104<br />chla_ugl: 86.426028","chlorophyll_rfu: 20.3137943<br />chla_ugl: 87.546525","chlorophyll_rfu: 20.5751782<br />chla_ugl: 88.667021","chlorophyll_rfu: 20.8365622<br />chla_ugl: 89.787517","chlorophyll_rfu: 21.0979461<br />chla_ugl: 90.908013","chlorophyll_rfu: 21.3593300<br />chla_ugl: 92.028510"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.322521997561049,22.392961948782],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.48507769719996,96.5291568117639],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"Date Collected","font":{"color":"rgba(0,0,0,1)","family":"","size":15.9402241594022}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b28474febf":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b2814d32354":{"x":{},"y":{}}},"cur_data":"5b28474febf","visdat":{"5b28474febf":["function (y) ","x"],"5b2814d32354":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="summary-tables" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Summary Tables</h1>
+<div id="all-data-1" class="section level2">
+<h2>All Data</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+All Data from ISCO and Tank Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+15.058778
+</td>
+<td style="text-align:center;">
+21.0558538
+</td>
+<td style="text-align:center;">
+6.493441
+</td>
+<td style="text-align:center;">
+9.555137
+</td>
+<td style="text-align:center;">
+3.4817294
+</td>
+<td style="text-align:center;">
+2.023530
+</td>
+<td style="text-align:center;">
+84.448766
+</td>
+<td style="text-align:center;">
+82.425236
+</td>
+<td style="text-align:center;">
+2.2054830
+</td>
+<td style="text-align:center;">
+3.9589376
+</td>
+<td style="text-align:center;">
+4.7082321
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+528.866500
+</td>
+<td style="text-align:center;">
+739.1743161
+</td>
+<td style="text-align:center;">
+228.470000
+</td>
+<td style="text-align:center;">
+335.670625
+</td>
+<td style="text-align:center;">
+122.2329570
+</td>
+<td style="text-align:center;">
+71.160000
+</td>
+<td style="text-align:center;">
+2964.830000
+</td>
+<td style="text-align:center;">
+2893.670000
+</td>
+<td style="text-align:center;">
+2.2054757
+</td>
+<td style="text-align:center;">
+3.9589755
+</td>
+<td style="text-align:center;">
+165.2844018
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+38.170498
+</td>
+<td style="text-align:center;">
+21.9125729
+</td>
+<td style="text-align:center;">
+39.379890
+</td>
+<td style="text-align:center;">
+37.473861
+</td>
+<td style="text-align:center;">
+17.2535944
+</td>
+<td style="text-align:center;">
+6.481333
+</td>
+<td style="text-align:center;">
+75.245500
+</td>
+<td style="text-align:center;">
+68.764167
+</td>
+<td style="text-align:center;">
+0.2452467
+</td>
+<td style="text-align:center;">
+-1.0431329
+</td>
+<td style="text-align:center;">
+4.8998003
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+23.167045
+</td>
+<td style="text-align:center;">
+3.7543507
+</td>
+<td style="text-align:center;">
+22.960000
+</td>
+<td style="text-align:center;">
+23.242556
+</td>
+<td style="text-align:center;">
+2.8391790
+</td>
+<td style="text-align:center;">
+15.960000
+</td>
+<td style="text-align:center;">
+29.640000
+</td>
+<td style="text-align:center;">
+13.680000
+</td>
+<td style="text-align:center;">
+-0.1650184
+</td>
+<td style="text-align:center;">
+-0.7084543
+</td>
+<td style="text-align:center;">
+0.8394983
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+3.553337
+</td>
+<td style="text-align:center;">
+1.6214137
+</td>
+<td style="text-align:center;">
+3.108305
+</td>
+<td style="text-align:center;">
+3.443588
+</td>
+<td style="text-align:center;">
+1.7946058
+</td>
+<td style="text-align:center;">
+1.418000
+</td>
+<td style="text-align:center;">
+7.107167
+</td>
+<td style="text-align:center;">
+5.689167
+</td>
+<td style="text-align:center;">
+0.5063341
+</td>
+<td style="text-align:center;">
+-0.9358833
+</td>
+<td style="text-align:center;">
+0.3625591
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+8.319372
+</td>
+<td style="text-align:center;">
+0.3466952
+</td>
+<td style="text-align:center;">
+8.337167
+</td>
+<td style="text-align:center;">
+8.314214
+</td>
+<td style="text-align:center;">
+0.2700801
+</td>
+<td style="text-align:center;">
+7.570000
+</td>
+<td style="text-align:center;">
+9.130000
+</td>
+<td style="text-align:center;">
+1.560000
+</td>
+<td style="text-align:center;">
+0.2083780
+</td>
+<td style="text-align:center;">
+0.2469540
+</td>
+<td style="text-align:center;">
+0.0775234
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+3.404206
+</td>
+<td style="text-align:center;">
+4.8145315
+</td>
+<td style="text-align:center;">
+1.666750
+</td>
+<td style="text-align:center;">
+2.168788
+</td>
+<td style="text-align:center;">
+0.7917084
+</td>
+<td style="text-align:center;">
+0.710000
+</td>
+<td style="text-align:center;">
+21.359330
+</td>
+<td style="text-align:center;">
+20.649330
+</td>
+<td style="text-align:center;">
+2.7017765
+</td>
+<td style="text-align:center;">
+6.9368545
+</td>
+<td style="text-align:center;">
+1.0765620
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="isco-data-only" class="section level2">
+<h2>ISCO Data Only</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Only data from ISCO Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+do_mgl*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+temp*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu*
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NaN
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+-Inf
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tank-data-only" class="section level2">
+<h2>Tank Data Only</h2>
+<table class="table lightable-classic lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: Open Sans; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Only data from Tank Experiments. <code>chla_ugl</code> and <code>chla_rfu</code> are from extracted chlorophyll a samples
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+parameter
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+trimmed
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+mad
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+max
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+range
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+skew
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+kurtosis
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;">
+se
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_ugl
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+15.058778
+</td>
+<td style="text-align:center;">
+21.0558538
+</td>
+<td style="text-align:center;">
+6.493441
+</td>
+<td style="text-align:center;">
+9.555137
+</td>
+<td style="text-align:center;">
+3.4817294
+</td>
+<td style="text-align:center;">
+2.023530
+</td>
+<td style="text-align:center;">
+84.448766
+</td>
+<td style="text-align:center;">
+82.425236
+</td>
+<td style="text-align:center;">
+2.2054830
+</td>
+<td style="text-align:center;">
+3.9589376
+</td>
+<td style="text-align:center;">
+4.7082321
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chla_rfu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+528.866500
+</td>
+<td style="text-align:center;">
+739.1743161
+</td>
+<td style="text-align:center;">
+228.470000
+</td>
+<td style="text-align:center;">
+335.670625
+</td>
+<td style="text-align:center;">
+122.2329570
+</td>
+<td style="text-align:center;">
+71.160000
+</td>
+<td style="text-align:center;">
+2964.830000
+</td>
+<td style="text-align:center;">
+2893.670000
+</td>
+<td style="text-align:center;">
+2.2054757
+</td>
+<td style="text-align:center;">
+3.9589755
+</td>
+<td style="text-align:center;">
+165.2844018
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+fdom_qsu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+38.170498
+</td>
+<td style="text-align:center;">
+21.9125729
+</td>
+<td style="text-align:center;">
+39.379890
+</td>
+<td style="text-align:center;">
+37.473861
+</td>
+<td style="text-align:center;">
+17.2535944
+</td>
+<td style="text-align:center;">
+6.481333
+</td>
+<td style="text-align:center;">
+75.245500
+</td>
+<td style="text-align:center;">
+68.764167
+</td>
+<td style="text-align:center;">
+0.2452467
+</td>
+<td style="text-align:center;">
+-1.0431329
+</td>
+<td style="text-align:center;">
+4.8998003
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+sal
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+23.167045
+</td>
+<td style="text-align:center;">
+3.7543507
+</td>
+<td style="text-align:center;">
+22.960000
+</td>
+<td style="text-align:center;">
+23.242556
+</td>
+<td style="text-align:center;">
+2.8391790
+</td>
+<td style="text-align:center;">
+15.960000
+</td>
+<td style="text-align:center;">
+29.640000
+</td>
+<td style="text-align:center;">
+13.680000
+</td>
+<td style="text-align:center;">
+-0.1650184
+</td>
+<td style="text-align:center;">
+-0.7084543
+</td>
+<td style="text-align:center;">
+0.8394983
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+turb
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+3.553337
+</td>
+<td style="text-align:center;">
+1.6214137
+</td>
+<td style="text-align:center;">
+3.108305
+</td>
+<td style="text-align:center;">
+3.443588
+</td>
+<td style="text-align:center;">
+1.7946058
+</td>
+<td style="text-align:center;">
+1.418000
+</td>
+<td style="text-align:center;">
+7.107167
+</td>
+<td style="text-align:center;">
+5.689167
+</td>
+<td style="text-align:center;">
+0.5063341
+</td>
+<td style="text-align:center;">
+-0.9358833
+</td>
+<td style="text-align:center;">
+0.3625591
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+p_h
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+8.319372
+</td>
+<td style="text-align:center;">
+0.3466952
+</td>
+<td style="text-align:center;">
+8.337167
+</td>
+<td style="text-align:center;">
+8.314214
+</td>
+<td style="text-align:center;">
+0.2700801
+</td>
+<td style="text-align:center;">
+7.570000
+</td>
+<td style="text-align:center;">
+9.130000
+</td>
+<td style="text-align:center;">
+1.560000
+</td>
+<td style="text-align:center;">
+0.2083780
+</td>
+<td style="text-align:center;">
+0.2469540
+</td>
+<td style="text-align:center;">
+0.0775234
+</td>
+</tr>
+<tr>
+<td style="text-align:center;border-right:1px solid;">
+chlorophyll_rfu
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+3.404206
+</td>
+<td style="text-align:center;">
+4.8145315
+</td>
+<td style="text-align:center;">
+1.666750
+</td>
+<td style="text-align:center;">
+2.168788
+</td>
+<td style="text-align:center;">
+0.7917084
+</td>
+<td style="text-align:center;">
+0.710000
+</td>
+<td style="text-align:center;">
+21.359330
+</td>
+<td style="text-align:center;">
+20.649330
+</td>
+<td style="text-align:center;">
+2.7017765
+</td>
+<td style="text-align:center;">
+6.9368545
+</td>
+<td style="text-align:center;">
+1.0765620
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="interactive-interference-parameters" class="section level1 tabset tabset-pills">
+<h1 class="tabset tabset-pills">Interactive Interference Parameters</h1>
+<p>These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted <span class="math inline">\(\mu\)</span>g/L with the three parameters of interest overlayed as color for the specific reserve of interest.</p>
+<p><strong>How to use the interactive plot:</strong> Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information. You can also double click on an item in the legend to isolate that data series in the plot!</p>
+<div id="fdom" class="section level2">
+<h2>fDOM</h2>
+<div id="htmlwidget-7f724083a54ab3271f95" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7f724083a54ab3271f95">{"x":{"data":[{"x":[0.711409571001265,0.815238676353318,1.30495968252503,1.01158249260697,2.06925101590167,1.42821774637013,1.62724376996875,1.70434765059129,3.89748350165594,10.500486500059,5.05801984446403,1.05570153789621,2.50065485470487,1.71601540101168,5.49953638507629,1.71204396889246,1.43356534443462,1.4735337192023,21.3602639221857,1.21045820846882],"y":[2.07952331929093,2.03906973189122,4.62738207339445,4.39567687345866,10.2854899931316,6.06699376652311,6.61897832623884,7.13807502120832,20.4112932835567,59.7453378320841,27.7926357639787,3.17722105168405,9.07880855303666,6.38641177235887,22.0577443976355,8.39436171165323,5.83002221385127,5.98677860761341,84.4501514079451,4.69395803538887],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  2.067681<br />fdom_qsu: 13.031667","chlorophyll_rfu:  0.8141667<br />chla_ugl:  2.023530<br />fdom_qsu: 12.357500","chlorophyll_rfu:  1.3058333<br />chla_ugl:  4.634978<br />fdom_qsu:  7.685167","chlorophyll_rfu:  1.0105000<br />chla_ugl:  4.380327<br />fdom_qsu:  6.481333","chlorophyll_rfu:  2.0691667<br />chla_ugl: 10.272320<br />fdom_qsu: 36.305667","chlorophyll_rfu:  1.4283330<br />chla_ugl:  6.054924<br />fdom_qsu: 11.778170","chlorophyll_rfu:  1.6276670<br />chla_ugl:  6.601824<br />fdom_qsu: 44.526830","chlorophyll_rfu:  1.7058330<br />chla_ugl:  7.120809<br />fdom_qsu: 44.149830","chlorophyll_rfu:  3.8963000<br />chla_ugl: 20.411618<br />fdom_qsu: 65.340000","chlorophyll_rfu: 10.5000000<br />chla_ugl: 59.753383<br />fdom_qsu: 73.856500","chlorophyll_rfu:  5.0593330<br />chla_ugl: 27.802174<br />fdom_qsu: 74.416170","chlorophyll_rfu:  1.0556670<br />chla_ugl:  3.163760<br />fdom_qsu: 48.479170","chlorophyll_rfu:  2.5008330<br />chla_ugl:  9.077116<br />fdom_qsu: 75.245500","chlorophyll_rfu:  1.7146670<br />chla_ugl:  6.385058<br />fdom_qsu: 42.155170","chlorophyll_rfu:  5.4989830<br />chla_ugl: 22.042064<br />fdom_qsu: 41.906610","chlorophyll_rfu:  1.7108330<br />chla_ugl:  8.406878<br />fdom_qsu: 27.670670","chlorophyll_rfu:  1.4325000<br />chla_ugl:  5.846988<br />fdom_qsu: 31.421330","chlorophyll_rfu:  1.4743330<br />chla_ugl:  5.997955<br />fdom_qsu: 27.814330","chlorophyll_rfu: 21.3593300<br />chla_ugl: 84.448766<br />fdom_qsu: 41.935170","chlorophyll_rfu:  1.2098330<br />chla_ugl:  4.683401<br />fdom_qsu: 36.853170"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(25,54,82,1)","rgba(24,53,81,1)","rgba(20,45,70,1)","rgba(19,43,67,1)","rgba(46,97,140,1)","rgba(24,52,79,1)","rgba(54,113,162,1)","rgba(54,113,161,1)","rgba(76,156,219,1)","rgba(85,174,243,1)","rgba(85,175,245,1)","rgba(58,121,172,1)","rgba(86,177,247,1)","rgba(52,109,155,1)","rgba(52,108,155,1)","rgba(38,81,118,1)","rgba(42,88,127,1)","rgba(38,81,118,1)","rgba(52,108,155,1)","rgba(47,98,141,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(25,54,82,1)","rgba(24,53,81,1)","rgba(20,45,70,1)","rgba(19,43,67,1)","rgba(46,97,140,1)","rgba(24,52,79,1)","rgba(54,113,162,1)","rgba(54,113,161,1)","rgba(76,156,219,1)","rgba(85,174,243,1)","rgba(85,175,245,1)","rgba(58,121,172,1)","rgba(86,177,247,1)","rgba(52,109,155,1)","rgba(52,108,155,1)","rgba(38,81,118,1)","rgba(42,88,127,1)","rgba(38,81,118,1)","rgba(52,108,155,1)","rgba(47,98,141,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.71,0.971383924050633,1.23276784810127,1.4941517721519,1.75553569620253,2.01691962025316,2.2783035443038,2.53968746835443,2.80107139240506,3.0624553164557,3.32383924050633,3.58522316455696,3.84660708860759,4.10799101265823,4.36937493670886,4.63075886075949,4.89214278481013,5.15352670886076,5.41491063291139,5.67629455696202,5.93767848101266,6.19906240506329,6.46044632911392,6.72183025316456,6.98321417721519,7.24459810126582,7.50598202531646,7.76736594936709,8.02874987341772,8.29013379746835,8.55151772151899,8.81290164556962,9.07428556962025,9.33566949367088,9.59705341772152,9.85843734177215,10.1198212658228,10.3812051898734,10.642589113924,10.9039730379747,11.1653569620253,11.4267408860759,11.6881248101266,11.9495087341772,12.2108926582278,12.4722765822785,12.7336605063291,12.9950444303797,13.2564283544304,13.517812278481,13.7791962025316,14.0405801265823,14.3019640506329,14.5633479746835,14.8247318987342,15.0861158227848,15.3474997468354,15.6088836708861,15.8702675949367,16.1316515189873,16.393035443038,16.6544193670886,16.9158032911392,17.1771872151899,17.4385711392405,17.6999550632911,17.9613389873418,18.2227229113924,18.484106835443,18.7454907594937,19.0068746835443,19.2682586075949,19.5296425316456,19.7910264556962,20.0524103797468,20.3137943037975,20.5751782278481,20.8365621518987,21.0979460759494,21.35933],"y":[3.50930135175219,4.62979766107975,5.7502939704073,6.87079027973486,7.99128658906242,9.11178289838997,10.2322792077175,11.3527755170451,12.4732718263726,13.5937681357002,14.7142644450278,15.8347607543553,16.9552570636829,18.0757533730104,19.196249682338,20.3167459916655,21.4372423009931,22.5577386103206,23.6782349196482,24.7987312289758,25.9192275383033,27.0397238476309,28.1602201569584,29.280716466286,30.4012127756135,31.5217090849411,32.6422053942687,33.7627017035962,34.8831980129238,36.0036943222513,37.1241906315789,38.2446869409064,39.365183250234,40.4856795595615,41.6061758688891,42.7266721782167,43.8471684875442,44.9676647968718,46.0881611061993,47.2086574155269,48.3291537248544,49.449650034182,50.5701463435095,51.6906426528371,52.8111389621647,53.9316352714922,55.0521315808198,56.1726278901473,57.2931241994749,58.4136205088024,59.53411681813,60.6546131274576,61.7751094367851,62.8956057461127,64.0161020554402,65.1365983647678,66.2570946740953,67.3775909834229,68.4980872927505,69.618583602078,70.7390799114056,71.8595762207331,72.9800725300607,74.1005688393882,75.2210651487158,76.3415614580434,77.4620577673709,78.5825540766985,79.703050386026,80.8235466953536,81.9440430046811,83.0645393140087,84.1850356233362,85.3055319326638,86.4260282419914,87.5465245513189,88.6670208606465,89.787517169974,90.9080134793016,92.0285097886291],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  3.509301","chlorophyll_rfu:  0.9713839<br />chla_ugl:  4.629798","chlorophyll_rfu:  1.2327678<br />chla_ugl:  5.750294","chlorophyll_rfu:  1.4941518<br />chla_ugl:  6.870790","chlorophyll_rfu:  1.7555357<br />chla_ugl:  7.991287","chlorophyll_rfu:  2.0169196<br />chla_ugl:  9.111783","chlorophyll_rfu:  2.2783035<br />chla_ugl: 10.232279","chlorophyll_rfu:  2.5396875<br />chla_ugl: 11.352776","chlorophyll_rfu:  2.8010714<br />chla_ugl: 12.473272","chlorophyll_rfu:  3.0624553<br />chla_ugl: 13.593768","chlorophyll_rfu:  3.3238392<br />chla_ugl: 14.714264","chlorophyll_rfu:  3.5852232<br />chla_ugl: 15.834761","chlorophyll_rfu:  3.8466071<br />chla_ugl: 16.955257","chlorophyll_rfu:  4.1079910<br />chla_ugl: 18.075753","chlorophyll_rfu:  4.3693749<br />chla_ugl: 19.196250","chlorophyll_rfu:  4.6307589<br />chla_ugl: 20.316746","chlorophyll_rfu:  4.8921428<br />chla_ugl: 21.437242","chlorophyll_rfu:  5.1535267<br />chla_ugl: 22.557739","chlorophyll_rfu:  5.4149106<br />chla_ugl: 23.678235","chlorophyll_rfu:  5.6762946<br />chla_ugl: 24.798731","chlorophyll_rfu:  5.9376785<br />chla_ugl: 25.919228","chlorophyll_rfu:  6.1990624<br />chla_ugl: 27.039724","chlorophyll_rfu:  6.4604463<br />chla_ugl: 28.160220","chlorophyll_rfu:  6.7218303<br />chla_ugl: 29.280716","chlorophyll_rfu:  6.9832142<br />chla_ugl: 30.401213","chlorophyll_rfu:  7.2445981<br />chla_ugl: 31.521709","chlorophyll_rfu:  7.5059820<br />chla_ugl: 32.642205","chlorophyll_rfu:  7.7673659<br />chla_ugl: 33.762702","chlorophyll_rfu:  8.0287499<br />chla_ugl: 34.883198","chlorophyll_rfu:  8.2901338<br />chla_ugl: 36.003694","chlorophyll_rfu:  8.5515177<br />chla_ugl: 37.124191","chlorophyll_rfu:  8.8129016<br />chla_ugl: 38.244687","chlorophyll_rfu:  9.0742856<br />chla_ugl: 39.365183","chlorophyll_rfu:  9.3356695<br />chla_ugl: 40.485680","chlorophyll_rfu:  9.5970534<br />chla_ugl: 41.606176","chlorophyll_rfu:  9.8584373<br />chla_ugl: 42.726672","chlorophyll_rfu: 10.1198213<br />chla_ugl: 43.847168","chlorophyll_rfu: 10.3812052<br />chla_ugl: 44.967665","chlorophyll_rfu: 10.6425891<br />chla_ugl: 46.088161","chlorophyll_rfu: 10.9039730<br />chla_ugl: 47.208657","chlorophyll_rfu: 11.1653570<br />chla_ugl: 48.329154","chlorophyll_rfu: 11.4267409<br />chla_ugl: 49.449650","chlorophyll_rfu: 11.6881248<br />chla_ugl: 50.570146","chlorophyll_rfu: 11.9495087<br />chla_ugl: 51.690643","chlorophyll_rfu: 12.2108927<br />chla_ugl: 52.811139","chlorophyll_rfu: 12.4722766<br />chla_ugl: 53.931635","chlorophyll_rfu: 12.7336605<br />chla_ugl: 55.052132","chlorophyll_rfu: 12.9950444<br />chla_ugl: 56.172628","chlorophyll_rfu: 13.2564284<br />chla_ugl: 57.293124","chlorophyll_rfu: 13.5178123<br />chla_ugl: 58.413621","chlorophyll_rfu: 13.7791962<br />chla_ugl: 59.534117","chlorophyll_rfu: 14.0405801<br />chla_ugl: 60.654613","chlorophyll_rfu: 14.3019641<br />chla_ugl: 61.775109","chlorophyll_rfu: 14.5633480<br />chla_ugl: 62.895606","chlorophyll_rfu: 14.8247319<br />chla_ugl: 64.016102","chlorophyll_rfu: 15.0861158<br />chla_ugl: 65.136598","chlorophyll_rfu: 15.3474997<br />chla_ugl: 66.257095","chlorophyll_rfu: 15.6088837<br />chla_ugl: 67.377591","chlorophyll_rfu: 15.8702676<br />chla_ugl: 68.498087","chlorophyll_rfu: 16.1316515<br />chla_ugl: 69.618584","chlorophyll_rfu: 16.3930354<br />chla_ugl: 70.739080","chlorophyll_rfu: 16.6544194<br />chla_ugl: 71.859576","chlorophyll_rfu: 16.9158033<br />chla_ugl: 72.980073","chlorophyll_rfu: 17.1771872<br />chla_ugl: 74.100569","chlorophyll_rfu: 17.4385711<br />chla_ugl: 75.221065","chlorophyll_rfu: 17.6999551<br />chla_ugl: 76.341561","chlorophyll_rfu: 17.9613390<br />chla_ugl: 77.462058","chlorophyll_rfu: 18.2227229<br />chla_ugl: 78.582554","chlorophyll_rfu: 18.4841068<br />chla_ugl: 79.703050","chlorophyll_rfu: 18.7454908<br />chla_ugl: 80.823547","chlorophyll_rfu: 19.0068747<br />chla_ugl: 81.944043","chlorophyll_rfu: 19.2682586<br />chla_ugl: 83.064539","chlorophyll_rfu: 19.5296425<br />chla_ugl: 84.185036","chlorophyll_rfu: 19.7910265<br />chla_ugl: 85.305532","chlorophyll_rfu: 20.0524104<br />chla_ugl: 86.426028","chlorophyll_rfu: 20.3137943<br />chla_ugl: 87.546525","chlorophyll_rfu: 20.5751782<br />chla_ugl: 88.667021","chlorophyll_rfu: 20.8365622<br />chla_ugl: 89.787517","chlorophyll_rfu: 21.0979461<br />chla_ugl: 90.908013","chlorophyll_rfu: 21.3593300<br />chla_ugl: 92.028510"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_1cb44dc19cabf6ac5324c55db9f92258","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#132B43"],[0.00334448160535116,"#132B44"],[0.00668896321070234,"#132C44"],[0.0100334448160535,"#142C45"],[0.0133779264214047,"#142D45"],[0.0167224080267559,"#142D46"],[0.020066889632107,"#142D46"],[0.0234113712374582,"#142E47"],[0.0267558528428094,"#152E47"],[0.0301003344481605,"#152F48"],[0.0334448160535117,"#152F48"],[0.0367892976588629,"#152F49"],[0.040133779264214,"#153049"],[0.0434782608695652,"#16304A"],[0.0468227424749164,"#16304A"],[0.0501672240802676,"#16314B"],[0.0535117056856187,"#16314B"],[0.0568561872909699,"#16324C"],[0.0602006688963211,"#17324D"],[0.0635451505016722,"#17324D"],[0.0668896321070234,"#17334E"],[0.0702341137123746,"#17334E"],[0.0735785953177258,"#17344F"],[0.0769230769230769,"#18344F"],[0.0802675585284281,"#183450"],[0.0836120401337793,"#183550"],[0.0869565217391304,"#183551"],[0.0903010033444816,"#183651"],[0.0936454849498328,"#193652"],[0.0969899665551839,"#193652"],[0.100334448160535,"#193753"],[0.103678929765886,"#193754"],[0.107023411371237,"#193854"],[0.110367892976589,"#1A3855"],[0.11371237458194,"#1A3955"],[0.117056856187291,"#1A3956"],[0.120401337792642,"#1A3956"],[0.123745819397993,"#1A3A57"],[0.127090301003344,"#1B3A57"],[0.130434782608696,"#1B3B58"],[0.133779264214047,"#1B3B59"],[0.137123745819398,"#1B3B59"],[0.140468227424749,"#1C3C5A"],[0.1438127090301,"#1C3C5A"],[0.147157190635452,"#1C3D5B"],[0.150501672240803,"#1C3D5B"],[0.153846153846154,"#1C3D5C"],[0.157190635451505,"#1D3E5C"],[0.160535117056856,"#1D3E5D"],[0.163879598662207,"#1D3F5D"],[0.167224080267559,"#1D3F5E"],[0.17056856187291,"#1D3F5F"],[0.173913043478261,"#1E405F"],[0.177257525083612,"#1E4060"],[0.180602006688963,"#1E4160"],[0.183946488294314,"#1E4161"],[0.187290969899666,"#1E4261"],[0.190635451505017,"#1F4262"],[0.193979933110368,"#1F4263"],[0.197324414715719,"#1F4363"],[0.20066889632107,"#1F4364"],[0.204013377926421,"#1F4464"],[0.207357859531773,"#204465"],[0.210702341137124,"#204465"],[0.214046822742475,"#204566"],[0.217391304347826,"#204566"],[0.220735785953177,"#214667"],[0.224080267558528,"#214668"],[0.22742474916388,"#214768"],[0.230769230769231,"#214769"],[0.234113712374582,"#214769"],[0.237458193979933,"#22486A"],[0.240802675585284,"#22486A"],[0.244147157190635,"#22496B"],[0.247491638795987,"#22496C"],[0.250836120401338,"#224A6C"],[0.254180602006689,"#234A6D"],[0.25752508361204,"#234A6D"],[0.260869565217391,"#234B6E"],[0.264214046822742,"#234B6E"],[0.267558528428094,"#244C6F"],[0.270903010033445,"#244C70"],[0.274247491638796,"#244C70"],[0.277591973244147,"#244D71"],[0.280936454849498,"#244D71"],[0.28428093645485,"#254E72"],[0.287625418060201,"#254E72"],[0.290969899665552,"#254F73"],[0.294314381270903,"#254F74"],[0.297658862876254,"#254F74"],[0.301003344481605,"#265075"],[0.304347826086957,"#265075"],[0.307692307692308,"#265176"],[0.311036789297659,"#265176"],[0.31438127090301,"#275277"],[0.317725752508361,"#275278"],[0.321070234113712,"#275278"],[0.324414715719064,"#275379"],[0.327759197324415,"#275379"],[0.331103678929766,"#28547A"],[0.334448160535117,"#28547B"],[0.337792642140468,"#28557B"],[0.341137123745819,"#28557C"],[0.344481605351171,"#28567C"],[0.347826086956522,"#29567D"],[0.351170568561873,"#29567D"],[0.354515050167224,"#29577E"],[0.357859531772575,"#29577F"],[0.361204013377926,"#2A587F"],[0.364548494983278,"#2A5880"],[0.367892976588629,"#2A5980"],[0.37123745819398,"#2A5981"],[0.374581939799331,"#2A5982"],[0.377926421404682,"#2B5A82"],[0.381270903010033,"#2B5A83"],[0.384615384615385,"#2B5B83"],[0.387959866220736,"#2B5B84"],[0.391304347826087,"#2C5C85"],[0.394648829431438,"#2C5C85"],[0.397993311036789,"#2C5D86"],[0.40133779264214,"#2C5D86"],[0.404682274247492,"#2C5D87"],[0.408026755852843,"#2D5E87"],[0.411371237458194,"#2D5E88"],[0.414715719063545,"#2D5F89"],[0.418060200668896,"#2D5F89"],[0.421404682274247,"#2E608A"],[0.424749163879599,"#2E608A"],[0.42809364548495,"#2E618B"],[0.431438127090301,"#2E618C"],[0.434782608695652,"#2E618C"],[0.438127090301003,"#2F628D"],[0.441471571906354,"#2F628D"],[0.444816053511706,"#2F638E"],[0.448160535117057,"#2F638F"],[0.451505016722408,"#30648F"],[0.454849498327759,"#306490"],[0.45819397993311,"#306590"],[0.461538461538462,"#306591"],[0.464882943143813,"#306592"],[0.468227424749164,"#316692"],[0.471571906354515,"#316693"],[0.474916387959866,"#316793"],[0.478260869565217,"#316794"],[0.481605351170569,"#326895"],[0.48494983277592,"#326895"],[0.488294314381271,"#326996"],[0.491638795986622,"#326996"],[0.494983277591973,"#326997"],[0.498327759197324,"#336A98"],[0.501672240802676,"#336A98"],[0.505016722408027,"#336B99"],[0.508361204013378,"#336B99"],[0.511705685618729,"#346C9A"],[0.51505016722408,"#346C9B"],[0.518394648829431,"#346D9B"],[0.521739130434783,"#346D9C"],[0.525083612040134,"#346E9D"],[0.528428093645485,"#356E9D"],[0.531772575250836,"#356E9E"],[0.535117056856187,"#356F9E"],[0.538461538461538,"#356F9F"],[0.54180602006689,"#3670A0"],[0.545150501672241,"#3670A0"],[0.548494983277592,"#3671A1"],[0.551839464882943,"#3671A1"],[0.555183946488294,"#3772A2"],[0.558528428093646,"#3772A3"],[0.561872909698997,"#3773A3"],[0.565217391304348,"#3773A4"],[0.568561872909699,"#3773A4"],[0.57190635451505,"#3874A5"],[0.575250836120401,"#3874A6"],[0.578595317725753,"#3875A6"],[0.581939799331104,"#3875A7"],[0.585284280936455,"#3976A8"],[0.588628762541806,"#3976A8"],[0.591973244147157,"#3977A9"],[0.595317725752508,"#3977A9"],[0.59866220735786,"#3978AA"],[0.602006688963211,"#3A78AB"],[0.605351170568562,"#3A79AB"],[0.608695652173913,"#3A79AC"],[0.612040133779264,"#3A79AC"],[0.615384615384615,"#3B7AAD"],[0.618729096989967,"#3B7AAE"],[0.622073578595318,"#3B7BAE"],[0.625418060200669,"#3B7BAF"],[0.62876254180602,"#3C7CB0"],[0.632107023411371,"#3C7CB0"],[0.635451505016722,"#3C7DB1"],[0.638795986622074,"#3C7DB1"],[0.642140468227425,"#3C7EB2"],[0.645484949832776,"#3D7EB3"],[0.648829431438127,"#3D7FB3"],[0.652173913043478,"#3D7FB4"],[0.655518394648829,"#3D7FB5"],[0.658862876254181,"#3E80B5"],[0.662207357859532,"#3E80B6"],[0.665551839464883,"#3E81B6"],[0.668896321070234,"#3E81B7"],[0.672240802675585,"#3F82B8"],[0.675585284280936,"#3F82B8"],[0.678929765886288,"#3F83B9"],[0.682274247491639,"#3F83BA"],[0.68561872909699,"#4084BA"],[0.688963210702341,"#4084BB"],[0.692307692307692,"#4085BB"],[0.695652173913043,"#4085BC"],[0.698996655518395,"#4086BD"],[0.702341137123746,"#4186BD"],[0.705685618729097,"#4186BE"],[0.709030100334448,"#4187BF"],[0.712374581939799,"#4187BF"],[0.71571906354515,"#4288C0"],[0.719063545150502,"#4288C1"],[0.722408026755853,"#4289C1"],[0.725752508361204,"#4289C2"],[0.729096989966555,"#438AC2"],[0.732441471571906,"#438AC3"],[0.735785953177258,"#438BC4"],[0.739130434782609,"#438BC4"],[0.74247491638796,"#438CC5"],[0.745819397993311,"#448CC6"],[0.749163879598662,"#448DC6"],[0.752508361204013,"#448DC7"],[0.755852842809365,"#448EC8"],[0.759197324414716,"#458EC8"],[0.762541806020067,"#458FC9"],[0.765886287625418,"#458FC9"],[0.769230769230769,"#458FCA"],[0.77257525083612,"#4690CB"],[0.775919732441472,"#4690CB"],[0.779264214046823,"#4691CC"],[0.782608695652174,"#4691CD"],[0.785953177257525,"#4792CD"],[0.789297658862876,"#4792CE"],[0.792642140468227,"#4793CF"],[0.795986622073579,"#4793CF"],[0.79933110367893,"#4894D0"],[0.802675585284281,"#4894D0"],[0.806020066889632,"#4895D1"],[0.809364548494983,"#4895D2"],[0.812709030100334,"#4896D2"],[0.816053511705686,"#4996D3"],[0.819397993311037,"#4997D4"],[0.822742474916388,"#4997D4"],[0.826086956521739,"#4998D5"],[0.82943143812709,"#4A98D6"],[0.832775919732441,"#4A99D6"],[0.836120401337793,"#4A99D7"],[0.839464882943144,"#4A9AD8"],[0.842809364548495,"#4B9AD8"],[0.846153846153846,"#4B9BD9"],[0.849498327759197,"#4B9BDA"],[0.852842809364549,"#4B9BDA"],[0.8561872909699,"#4C9CDB"],[0.859531772575251,"#4C9CDB"],[0.862876254180602,"#4C9DDC"],[0.866220735785953,"#4C9DDD"],[0.869565217391304,"#4D9EDD"],[0.872909698996656,"#4D9EDE"],[0.876254180602007,"#4D9FDF"],[0.879598662207358,"#4D9FDF"],[0.882943143812709,"#4DA0E0"],[0.88628762541806,"#4EA0E1"],[0.889632107023411,"#4EA1E1"],[0.892976588628763,"#4EA1E2"],[0.896321070234114,"#4EA2E3"],[0.899665551839465,"#4FA2E3"],[0.903010033444816,"#4FA3E4"],[0.906354515050167,"#4FA3E5"],[0.909698996655518,"#4FA4E5"],[0.91304347826087,"#50A4E6"],[0.916387959866221,"#50A5E7"],[0.919732441471572,"#50A5E7"],[0.923076923076923,"#50A6E8"],[0.926421404682274,"#51A6E8"],[0.929765886287625,"#51A7E9"],[0.933110367892977,"#51A7EA"],[0.936454849498328,"#51A8EA"],[0.939799331103679,"#52A8EB"],[0.94314381270903,"#52A9EC"],[0.946488294314381,"#52A9EC"],[0.949832775919733,"#52AAED"],[0.953177257525084,"#53AAEE"],[0.956521739130435,"#53ABEE"],[0.959866220735786,"#53ABEF"],[0.963210702341137,"#53ACF0"],[0.966555183946488,"#54ACF0"],[0.96989966555184,"#54ADF1"],[0.973244147157191,"#54ADF2"],[0.976588628762542,"#54AEF2"],[0.979933110367893,"#55AEF3"],[0.983277591973244,"#55AFF4"],[0.986622073578595,"#55AFF4"],[0.989966555183947,"#55B0F5"],[0.993311036789298,"#56B0F6"],[0.996655518394649,"#56B1F6"],[1,"#56B1F7"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"fDOM QSU","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["20","40","60"],"tickvals":[0.196594641104257,0.487443799459505,0.778292957814753],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"fDOM","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.322513196109286,22.392777118295],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.46040227094567,96.527981791466],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b2824c6645b":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b282933ba":{"x":{},"y":{}}},"cur_data":"5b2824c6645b","visdat":{"5b2824c6645b":["function (y) ","x"],"5b282933ba":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="turbidity" class="section level2">
+<h2>Turbidity</h2>
+<div id="htmlwidget-30e1b3b5cf2ea7439898" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-30e1b3b5cf2ea7439898">{"x":{"data":[{"x":[0.708744887823967,0.814906642515119,1.30629974791197,1.00986927699137,2.07008311536868,1.42694145662721,1.62624582941487,1.70664249349386,3.89675389030942,10.4990084375989,5.0583653278774,1.05594037727426,2.5016954331091,1.71442380825558,5.49765782950814,1.70970244271189,1.43106561494684,1.47528266661455,21.3606269709567,1.21064570584008],"y":[2.05537299259462,2.0385322185929,4.64169010033508,4.38542159336516,10.2596467900922,6.04262643936463,6.59412527129482,7.10746161084025,20.411702636706,59.7610826824724,27.8147390512432,3.18064945560378,9.07070209544794,6.3775678978355,22.0382096292247,8.40089001357522,5.8382788637676,5.99445116440162,84.4550970044005,4.66746478917482],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  2.067681<br />turb: 3.470333","chlorophyll_rfu:  0.8141667<br />chla_ugl:  2.023530<br />turb: 3.170000","chlorophyll_rfu:  1.3058333<br />chla_ugl:  4.634978<br />turb: 4.457167","chlorophyll_rfu:  1.0105000<br />chla_ugl:  4.380327<br />turb: 4.180333","chlorophyll_rfu:  2.0691667<br />chla_ugl: 10.272320<br />turb: 5.854667","chlorophyll_rfu:  1.4283330<br />chla_ugl:  6.054924<br />turb: 2.221500","chlorophyll_rfu:  1.6276670<br />chla_ugl:  6.601824<br />turb: 2.457000","chlorophyll_rfu:  1.7058330<br />chla_ugl:  7.120809<br />turb: 4.712667","chlorophyll_rfu:  3.8963000<br />chla_ugl: 20.411618<br />turb: 2.984300","chlorophyll_rfu: 10.5000000<br />chla_ugl: 59.753383<br />turb: 7.107167","chlorophyll_rfu:  5.0593330<br />chla_ugl: 27.802174<br />turb: 5.736333","chlorophyll_rfu:  1.0556670<br />chla_ugl:  3.163760<br />turb: 2.287833","chlorophyll_rfu:  2.5008330<br />chla_ugl:  9.077116<br />turb: 4.667833","chlorophyll_rfu:  1.7146670<br />chla_ugl:  6.385058<br />turb: 2.557000","chlorophyll_rfu:  5.4989830<br />chla_ugl: 22.042064<br />turb: 3.046610","chlorophyll_rfu:  1.7108330<br />chla_ugl:  8.406878<br />turb: 1.589500","chlorophyll_rfu:  1.4325000<br />chla_ugl:  5.846988<br />turb: 1.418000","chlorophyll_rfu:  1.4743330<br />chla_ugl:  5.997955<br />turb: 1.660500","chlorophyll_rfu: 21.3593300<br />chla_ugl: 84.448766<br />turb: 5.338833","chlorophyll_rfu:  1.2098330<br />chla_ugl:  4.683401<br />turb: 2.149167"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(42,88,127,1)","rgba(38,81,118,1)","rgba(53,111,158,1)","rgba(50,104,149,1)","rgba(70,145,204,1)","rgba(28,60,90,1)","rgba(30,65,97,1)","rgba(56,117,166,1)","rgba(36,77,112,1)","rgba(86,177,247,1)","rgba(69,142,200,1)","rgba(28,61,92,1)","rgba(56,116,165,1)","rgba(31,67,100,1)","rgba(37,78,114,1)","rgba(21,47,72,1)","rgba(19,43,67,1)","rgba(22,48,74,1)","rgba(64,132,187,1)","rgba(27,58,88,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(42,88,127,1)","rgba(38,81,118,1)","rgba(53,111,158,1)","rgba(50,104,149,1)","rgba(70,145,204,1)","rgba(28,60,90,1)","rgba(30,65,97,1)","rgba(56,117,166,1)","rgba(36,77,112,1)","rgba(86,177,247,1)","rgba(69,142,200,1)","rgba(28,61,92,1)","rgba(56,116,165,1)","rgba(31,67,100,1)","rgba(37,78,114,1)","rgba(21,47,72,1)","rgba(19,43,67,1)","rgba(22,48,74,1)","rgba(64,132,187,1)","rgba(27,58,88,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.71,0.971383924050633,1.23276784810127,1.4941517721519,1.75553569620253,2.01691962025316,2.2783035443038,2.53968746835443,2.80107139240506,3.0624553164557,3.32383924050633,3.58522316455696,3.84660708860759,4.10799101265823,4.36937493670886,4.63075886075949,4.89214278481013,5.15352670886076,5.41491063291139,5.67629455696202,5.93767848101266,6.19906240506329,6.46044632911392,6.72183025316456,6.98321417721519,7.24459810126582,7.50598202531646,7.76736594936709,8.02874987341772,8.29013379746835,8.55151772151899,8.81290164556962,9.07428556962025,9.33566949367088,9.59705341772152,9.85843734177215,10.1198212658228,10.3812051898734,10.642589113924,10.9039730379747,11.1653569620253,11.4267408860759,11.6881248101266,11.9495087341772,12.2108926582278,12.4722765822785,12.7336605063291,12.9950444303797,13.2564283544304,13.517812278481,13.7791962025316,14.0405801265823,14.3019640506329,14.5633479746835,14.8247318987342,15.0861158227848,15.3474997468354,15.6088836708861,15.8702675949367,16.1316515189873,16.393035443038,16.6544193670886,16.9158032911392,17.1771872151899,17.4385711392405,17.6999550632911,17.9613389873418,18.2227229113924,18.484106835443,18.7454907594937,19.0068746835443,19.2682586075949,19.5296425316456,19.7910264556962,20.0524103797468,20.3137943037975,20.5751782278481,20.8365621518987,21.0979460759494,21.35933],"y":[3.50930135175219,4.62979766107975,5.7502939704073,6.87079027973486,7.99128658906242,9.11178289838997,10.2322792077175,11.3527755170451,12.4732718263726,13.5937681357002,14.7142644450278,15.8347607543553,16.9552570636829,18.0757533730104,19.196249682338,20.3167459916655,21.4372423009931,22.5577386103206,23.6782349196482,24.7987312289758,25.9192275383033,27.0397238476309,28.1602201569584,29.280716466286,30.4012127756135,31.5217090849411,32.6422053942687,33.7627017035962,34.8831980129238,36.0036943222513,37.1241906315789,38.2446869409064,39.365183250234,40.4856795595615,41.6061758688891,42.7266721782167,43.8471684875442,44.9676647968718,46.0881611061993,47.2086574155269,48.3291537248544,49.449650034182,50.5701463435095,51.6906426528371,52.8111389621647,53.9316352714922,55.0521315808198,56.1726278901473,57.2931241994749,58.4136205088024,59.53411681813,60.6546131274576,61.7751094367851,62.8956057461127,64.0161020554402,65.1365983647678,66.2570946740953,67.3775909834229,68.4980872927505,69.618583602078,70.7390799114056,71.8595762207331,72.9800725300607,74.1005688393882,75.2210651487158,76.3415614580434,77.4620577673709,78.5825540766985,79.703050386026,80.8235466953536,81.9440430046811,83.0645393140087,84.1850356233362,85.3055319326638,86.4260282419914,87.5465245513189,88.6670208606465,89.787517169974,90.9080134793016,92.0285097886291],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  3.509301","chlorophyll_rfu:  0.9713839<br />chla_ugl:  4.629798","chlorophyll_rfu:  1.2327678<br />chla_ugl:  5.750294","chlorophyll_rfu:  1.4941518<br />chla_ugl:  6.870790","chlorophyll_rfu:  1.7555357<br />chla_ugl:  7.991287","chlorophyll_rfu:  2.0169196<br />chla_ugl:  9.111783","chlorophyll_rfu:  2.2783035<br />chla_ugl: 10.232279","chlorophyll_rfu:  2.5396875<br />chla_ugl: 11.352776","chlorophyll_rfu:  2.8010714<br />chla_ugl: 12.473272","chlorophyll_rfu:  3.0624553<br />chla_ugl: 13.593768","chlorophyll_rfu:  3.3238392<br />chla_ugl: 14.714264","chlorophyll_rfu:  3.5852232<br />chla_ugl: 15.834761","chlorophyll_rfu:  3.8466071<br />chla_ugl: 16.955257","chlorophyll_rfu:  4.1079910<br />chla_ugl: 18.075753","chlorophyll_rfu:  4.3693749<br />chla_ugl: 19.196250","chlorophyll_rfu:  4.6307589<br />chla_ugl: 20.316746","chlorophyll_rfu:  4.8921428<br />chla_ugl: 21.437242","chlorophyll_rfu:  5.1535267<br />chla_ugl: 22.557739","chlorophyll_rfu:  5.4149106<br />chla_ugl: 23.678235","chlorophyll_rfu:  5.6762946<br />chla_ugl: 24.798731","chlorophyll_rfu:  5.9376785<br />chla_ugl: 25.919228","chlorophyll_rfu:  6.1990624<br />chla_ugl: 27.039724","chlorophyll_rfu:  6.4604463<br />chla_ugl: 28.160220","chlorophyll_rfu:  6.7218303<br />chla_ugl: 29.280716","chlorophyll_rfu:  6.9832142<br />chla_ugl: 30.401213","chlorophyll_rfu:  7.2445981<br />chla_ugl: 31.521709","chlorophyll_rfu:  7.5059820<br />chla_ugl: 32.642205","chlorophyll_rfu:  7.7673659<br />chla_ugl: 33.762702","chlorophyll_rfu:  8.0287499<br />chla_ugl: 34.883198","chlorophyll_rfu:  8.2901338<br />chla_ugl: 36.003694","chlorophyll_rfu:  8.5515177<br />chla_ugl: 37.124191","chlorophyll_rfu:  8.8129016<br />chla_ugl: 38.244687","chlorophyll_rfu:  9.0742856<br />chla_ugl: 39.365183","chlorophyll_rfu:  9.3356695<br />chla_ugl: 40.485680","chlorophyll_rfu:  9.5970534<br />chla_ugl: 41.606176","chlorophyll_rfu:  9.8584373<br />chla_ugl: 42.726672","chlorophyll_rfu: 10.1198213<br />chla_ugl: 43.847168","chlorophyll_rfu: 10.3812052<br />chla_ugl: 44.967665","chlorophyll_rfu: 10.6425891<br />chla_ugl: 46.088161","chlorophyll_rfu: 10.9039730<br />chla_ugl: 47.208657","chlorophyll_rfu: 11.1653570<br />chla_ugl: 48.329154","chlorophyll_rfu: 11.4267409<br />chla_ugl: 49.449650","chlorophyll_rfu: 11.6881248<br />chla_ugl: 50.570146","chlorophyll_rfu: 11.9495087<br />chla_ugl: 51.690643","chlorophyll_rfu: 12.2108927<br />chla_ugl: 52.811139","chlorophyll_rfu: 12.4722766<br />chla_ugl: 53.931635","chlorophyll_rfu: 12.7336605<br />chla_ugl: 55.052132","chlorophyll_rfu: 12.9950444<br />chla_ugl: 56.172628","chlorophyll_rfu: 13.2564284<br />chla_ugl: 57.293124","chlorophyll_rfu: 13.5178123<br />chla_ugl: 58.413621","chlorophyll_rfu: 13.7791962<br />chla_ugl: 59.534117","chlorophyll_rfu: 14.0405801<br />chla_ugl: 60.654613","chlorophyll_rfu: 14.3019641<br />chla_ugl: 61.775109","chlorophyll_rfu: 14.5633480<br />chla_ugl: 62.895606","chlorophyll_rfu: 14.8247319<br />chla_ugl: 64.016102","chlorophyll_rfu: 15.0861158<br />chla_ugl: 65.136598","chlorophyll_rfu: 15.3474997<br />chla_ugl: 66.257095","chlorophyll_rfu: 15.6088837<br />chla_ugl: 67.377591","chlorophyll_rfu: 15.8702676<br />chla_ugl: 68.498087","chlorophyll_rfu: 16.1316515<br />chla_ugl: 69.618584","chlorophyll_rfu: 16.3930354<br />chla_ugl: 70.739080","chlorophyll_rfu: 16.6544194<br />chla_ugl: 71.859576","chlorophyll_rfu: 16.9158033<br />chla_ugl: 72.980073","chlorophyll_rfu: 17.1771872<br />chla_ugl: 74.100569","chlorophyll_rfu: 17.4385711<br />chla_ugl: 75.221065","chlorophyll_rfu: 17.6999551<br />chla_ugl: 76.341561","chlorophyll_rfu: 17.9613390<br />chla_ugl: 77.462058","chlorophyll_rfu: 18.2227229<br />chla_ugl: 78.582554","chlorophyll_rfu: 18.4841068<br />chla_ugl: 79.703050","chlorophyll_rfu: 18.7454908<br />chla_ugl: 80.823547","chlorophyll_rfu: 19.0068747<br />chla_ugl: 81.944043","chlorophyll_rfu: 19.2682586<br />chla_ugl: 83.064539","chlorophyll_rfu: 19.5296425<br />chla_ugl: 84.185036","chlorophyll_rfu: 19.7910265<br />chla_ugl: 85.305532","chlorophyll_rfu: 20.0524104<br />chla_ugl: 86.426028","chlorophyll_rfu: 20.3137943<br />chla_ugl: 87.546525","chlorophyll_rfu: 20.5751782<br />chla_ugl: 88.667021","chlorophyll_rfu: 20.8365622<br />chla_ugl: 89.787517","chlorophyll_rfu: 21.0979461<br />chla_ugl: 90.908013","chlorophyll_rfu: 21.3593300<br />chla_ugl: 92.028510"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_31451547be7a8daa0094b4a9c585ac4a","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#132B43"],[0.00334448160535117,"#132B44"],[0.00668896321070235,"#132C44"],[0.0100334448160535,"#142C45"],[0.0133779264214047,"#142D45"],[0.0167224080267559,"#142D46"],[0.020066889632107,"#142D46"],[0.0234113712374582,"#142E47"],[0.0267558528428094,"#152E47"],[0.0301003344481605,"#152F48"],[0.0334448160535117,"#152F48"],[0.0367892976588629,"#152F49"],[0.040133779264214,"#153049"],[0.0434782608695652,"#16304A"],[0.0468227424749164,"#16304A"],[0.0501672240802675,"#16314B"],[0.0535117056856187,"#16314B"],[0.0568561872909699,"#16324C"],[0.0602006688963211,"#17324D"],[0.0635451505016722,"#17324D"],[0.0668896321070234,"#17334E"],[0.0702341137123746,"#17334E"],[0.0735785953177257,"#17344F"],[0.0769230769230769,"#18344F"],[0.0802675585284281,"#183450"],[0.0836120401337793,"#183550"],[0.0869565217391304,"#183551"],[0.0903010033444816,"#183651"],[0.0936454849498328,"#193652"],[0.096989966555184,"#193652"],[0.100334448160535,"#193753"],[0.103678929765886,"#193754"],[0.107023411371237,"#193854"],[0.110367892976589,"#1A3855"],[0.11371237458194,"#1A3955"],[0.117056856187291,"#1A3956"],[0.120401337792642,"#1A3956"],[0.123745819397993,"#1A3A57"],[0.127090301003345,"#1B3A57"],[0.130434782608696,"#1B3B58"],[0.133779264214047,"#1B3B59"],[0.137123745819398,"#1B3B59"],[0.140468227424749,"#1C3C5A"],[0.1438127090301,"#1C3C5A"],[0.147157190635452,"#1C3D5B"],[0.150501672240803,"#1C3D5B"],[0.153846153846154,"#1C3D5C"],[0.157190635451505,"#1D3E5C"],[0.160535117056856,"#1D3E5D"],[0.163879598662207,"#1D3F5D"],[0.167224080267559,"#1D3F5E"],[0.17056856187291,"#1D3F5F"],[0.173913043478261,"#1E405F"],[0.177257525083612,"#1E4060"],[0.180602006688963,"#1E4160"],[0.183946488294314,"#1E4161"],[0.187290969899666,"#1E4261"],[0.190635451505017,"#1F4262"],[0.193979933110368,"#1F4263"],[0.197324414715719,"#1F4363"],[0.20066889632107,"#1F4364"],[0.204013377926421,"#1F4464"],[0.207357859531773,"#204465"],[0.210702341137124,"#204465"],[0.214046822742475,"#204566"],[0.217391304347826,"#204566"],[0.220735785953177,"#214667"],[0.224080267558528,"#214668"],[0.22742474916388,"#214768"],[0.230769230769231,"#214769"],[0.234113712374582,"#214769"],[0.237458193979933,"#22486A"],[0.240802675585284,"#22486A"],[0.244147157190635,"#22496B"],[0.247491638795987,"#22496C"],[0.250836120401338,"#224A6C"],[0.254180602006689,"#234A6D"],[0.25752508361204,"#234A6D"],[0.260869565217391,"#234B6E"],[0.264214046822743,"#234B6E"],[0.267558528428094,"#244C6F"],[0.270903010033445,"#244C70"],[0.274247491638796,"#244C70"],[0.277591973244147,"#244D71"],[0.280936454849498,"#244D71"],[0.284280936454849,"#254E72"],[0.287625418060201,"#254E72"],[0.290969899665552,"#254F73"],[0.294314381270903,"#254F74"],[0.297658862876254,"#254F74"],[0.301003344481605,"#265075"],[0.304347826086956,"#265075"],[0.307692307692308,"#265176"],[0.311036789297659,"#265176"],[0.31438127090301,"#275277"],[0.317725752508361,"#275278"],[0.321070234113712,"#275278"],[0.324414715719064,"#275379"],[0.327759197324415,"#275379"],[0.331103678929766,"#28547A"],[0.334448160535117,"#28547B"],[0.337792642140468,"#28557B"],[0.341137123745819,"#28557C"],[0.344481605351171,"#28567C"],[0.347826086956522,"#29567D"],[0.351170568561873,"#29567D"],[0.354515050167224,"#29577E"],[0.357859531772575,"#29577F"],[0.361204013377926,"#2A587F"],[0.364548494983277,"#2A5880"],[0.367892976588629,"#2A5980"],[0.37123745819398,"#2A5981"],[0.374581939799331,"#2A5982"],[0.377926421404682,"#2B5A82"],[0.381270903010033,"#2B5A83"],[0.384615384615385,"#2B5B83"],[0.387959866220736,"#2B5B84"],[0.391304347826087,"#2C5C85"],[0.394648829431438,"#2C5C85"],[0.397993311036789,"#2C5D86"],[0.40133779264214,"#2C5D86"],[0.404682274247492,"#2C5D87"],[0.408026755852843,"#2D5E87"],[0.411371237458194,"#2D5E88"],[0.414715719063545,"#2D5F89"],[0.418060200668896,"#2D5F89"],[0.421404682274247,"#2E608A"],[0.424749163879599,"#2E608A"],[0.42809364548495,"#2E618B"],[0.431438127090301,"#2E618C"],[0.434782608695652,"#2E618C"],[0.438127090301003,"#2F628D"],[0.441471571906354,"#2F628D"],[0.444816053511706,"#2F638E"],[0.448160535117057,"#2F638F"],[0.451505016722408,"#30648F"],[0.454849498327759,"#306490"],[0.45819397993311,"#306590"],[0.461538461538461,"#306591"],[0.464882943143813,"#306592"],[0.468227424749164,"#316692"],[0.471571906354515,"#316693"],[0.474916387959866,"#316793"],[0.478260869565217,"#316794"],[0.481605351170568,"#326895"],[0.48494983277592,"#326895"],[0.488294314381271,"#326996"],[0.491638795986622,"#326996"],[0.494983277591973,"#326997"],[0.498327759197324,"#336A98"],[0.501672240802676,"#336A98"],[0.505016722408027,"#336B99"],[0.508361204013378,"#336B99"],[0.511705685618729,"#346C9A"],[0.51505016722408,"#346C9B"],[0.518394648829431,"#346D9B"],[0.521739130434782,"#346D9C"],[0.525083612040134,"#346E9D"],[0.528428093645485,"#356E9D"],[0.531772575250836,"#356E9E"],[0.535117056856187,"#356F9E"],[0.538461538461538,"#356F9F"],[0.541806020066889,"#3670A0"],[0.545150501672241,"#3670A0"],[0.548494983277592,"#3671A1"],[0.551839464882943,"#3671A1"],[0.555183946488294,"#3772A2"],[0.558528428093645,"#3772A3"],[0.561872909698997,"#3773A3"],[0.565217391304348,"#3773A4"],[0.568561872909699,"#3773A4"],[0.57190635451505,"#3874A5"],[0.575250836120401,"#3874A6"],[0.578595317725752,"#3875A6"],[0.581939799331104,"#3875A7"],[0.585284280936455,"#3976A8"],[0.588628762541806,"#3976A8"],[0.591973244147157,"#3977A9"],[0.595317725752508,"#3977A9"],[0.598662207357859,"#3978AA"],[0.602006688963211,"#3A78AB"],[0.605351170568562,"#3A79AB"],[0.608695652173913,"#3A79AC"],[0.612040133779264,"#3A79AC"],[0.615384615384615,"#3B7AAD"],[0.618729096989967,"#3B7AAE"],[0.622073578595318,"#3B7BAE"],[0.625418060200669,"#3B7BAF"],[0.62876254180602,"#3C7CB0"],[0.632107023411371,"#3C7CB0"],[0.635451505016722,"#3C7DB1"],[0.638795986622073,"#3C7DB1"],[0.642140468227425,"#3C7EB2"],[0.645484949832776,"#3D7EB3"],[0.648829431438127,"#3D7FB3"],[0.652173913043478,"#3D7FB4"],[0.655518394648829,"#3D7FB5"],[0.65886287625418,"#3E80B5"],[0.662207357859532,"#3E80B6"],[0.665551839464883,"#3E81B6"],[0.668896321070234,"#3E81B7"],[0.672240802675585,"#3F82B8"],[0.675585284280936,"#3F82B8"],[0.678929765886288,"#3F83B9"],[0.682274247491639,"#3F83BA"],[0.68561872909699,"#4084BA"],[0.688963210702341,"#4084BB"],[0.692307692307692,"#4085BB"],[0.695652173913043,"#4085BC"],[0.698996655518395,"#4086BD"],[0.702341137123746,"#4186BD"],[0.705685618729097,"#4186BE"],[0.709030100334448,"#4187BF"],[0.712374581939799,"#4187BF"],[0.71571906354515,"#4288C0"],[0.719063545150502,"#4288C1"],[0.722408026755853,"#4289C1"],[0.725752508361204,"#4289C2"],[0.729096989966555,"#438AC2"],[0.732441471571906,"#438AC3"],[0.735785953177257,"#438BC4"],[0.739130434782609,"#438BC4"],[0.74247491638796,"#438CC5"],[0.745819397993311,"#448CC6"],[0.749163879598662,"#448DC6"],[0.752508361204013,"#448DC7"],[0.755852842809364,"#448EC8"],[0.759197324414716,"#458EC8"],[0.762541806020067,"#458FC9"],[0.765886287625418,"#458FC9"],[0.769230769230769,"#458FCA"],[0.77257525083612,"#4690CB"],[0.775919732441472,"#4690CB"],[0.779264214046823,"#4691CC"],[0.782608695652174,"#4691CD"],[0.785953177257525,"#4792CD"],[0.789297658862876,"#4792CE"],[0.792642140468227,"#4793CF"],[0.795986622073579,"#4793CF"],[0.79933110367893,"#4894D0"],[0.802675585284281,"#4894D0"],[0.806020066889632,"#4895D1"],[0.809364548494983,"#4895D2"],[0.812709030100334,"#4896D2"],[0.816053511705686,"#4996D3"],[0.819397993311037,"#4997D4"],[0.822742474916388,"#4997D4"],[0.826086956521739,"#4998D5"],[0.82943143812709,"#4A98D6"],[0.832775919732441,"#4A99D6"],[0.836120401337793,"#4A99D7"],[0.839464882943144,"#4A9AD8"],[0.842809364548495,"#4B9AD8"],[0.846153846153846,"#4B9BD9"],[0.849498327759197,"#4B9BDA"],[0.852842809364548,"#4B9BDA"],[0.8561872909699,"#4C9CDB"],[0.859531772575251,"#4C9CDB"],[0.862876254180602,"#4C9DDC"],[0.866220735785953,"#4C9DDD"],[0.869565217391304,"#4D9EDD"],[0.872909698996655,"#4D9EDE"],[0.876254180602007,"#4D9FDF"],[0.879598662207358,"#4D9FDF"],[0.882943143812709,"#4DA0E0"],[0.88628762541806,"#4EA0E1"],[0.889632107023411,"#4EA1E1"],[0.892976588628762,"#4EA1E2"],[0.896321070234114,"#4EA2E3"],[0.899665551839465,"#4FA2E3"],[0.903010033444816,"#4FA3E4"],[0.906354515050167,"#4FA3E5"],[0.909698996655518,"#4FA4E5"],[0.91304347826087,"#50A4E6"],[0.916387959866221,"#50A5E7"],[0.919732441471572,"#50A5E7"],[0.923076923076923,"#50A6E8"],[0.926421404682274,"#51A6E8"],[0.929765886287625,"#51A7E9"],[0.933110367892977,"#51A7EA"],[0.936454849498328,"#51A8EA"],[0.939799331103679,"#52A8EB"],[0.94314381270903,"#52A9EC"],[0.946488294314381,"#52A9EC"],[0.949832775919732,"#52AAED"],[0.953177257525084,"#53AAEE"],[0.956521739130435,"#53ABEE"],[0.959866220735786,"#53ABEF"],[0.963210702341137,"#53ACF0"],[0.966555183946488,"#54ACF0"],[0.969899665551839,"#54ADF1"],[0.973244147157191,"#54ADF2"],[0.976588628762542,"#54AEF2"],[0.979933110367893,"#55AEF3"],[0.983277591973244,"#55AFF4"],[0.986622073578595,"#55AFF4"],[0.989966555183946,"#55B0F5"],[0.993311036789298,"#56B0F6"],[0.996655518394649,"#56B1F6"],[1,"#56B1F7"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"Turbidity FNU","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["2","3","4","5","6","7"],"tickvals":[0.102299686404003,0.278072343455553,0.453845000507104,0.629617657558655,0.805390314610206,0.981162971661756],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Turbidity","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.323849216332667,22.3932210751133],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.46096665990891,96.5280086671309],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b285aad43be":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b28397322a0":{"x":{},"y":{}}},"cur_data":"5b285aad43be","visdat":{"5b285aad43be":["function (y) ","x"],"5b28397322a0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="temperature" class="section level2">
+<h2>Temperature</h2>
+<div id="htmlwidget-9cc4ec2cb9ee6f266527" style="width:840px;height:600px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9cc4ec2cb9ee6f266527">{"x":{"data":[{"x":[0.708637468492423,0.814674856593883,1.30716821148784,1.0109071270865,2.06833368396002,1.42862052043682,1.62717335389256,1.70643481396789,3.89615818907559,10.4990931830549,5.05980842956871,1.05481795610282,2.50129136146125,1.71575113196394,5.50043503935807,1.70977835263502,1.43167760505057,1.4737725925012,21.3595578160344,1.20959583336845],"y":[2.05610634688633,2.03596544353061,4.63936434284909,4.37071831769358,10.2800648058611,6.05085081347571,6.60070936189858,7.11319405918077,20.4095019735237,59.7390471396957,27.794747625631,3.15163703597138,9.05948490097247,6.39855637344306,22.0326384530596,8.40257578946467,5.83830173071171,5.99592460614251,84.4431710853573,4.67738860137114],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  2.067681<br />temp: 20.82043","chlorophyll_rfu:  0.8141667<br />chla_ugl:  2.023530<br />temp: 20.70803","chlorophyll_rfu:  1.3058333<br />chla_ugl:  4.634978<br />temp: 20.83545","chlorophyll_rfu:  1.0105000<br />chla_ugl:  4.380327<br />temp: 22.52307","chlorophyll_rfu:  2.0691667<br />chla_ugl: 10.272320<br />temp: 27.59835","chlorophyll_rfu:  1.4283330<br />chla_ugl:  6.054924<br />temp: 20.33260","chlorophyll_rfu:  1.6276670<br />chla_ugl:  6.601824<br />temp: 23.66923","chlorophyll_rfu:  1.7058330<br />chla_ugl:  7.120809<br />temp: 25.68698","chlorophyll_rfu:  3.8963000<br />chla_ugl: 20.411618<br />temp: 20.22873","chlorophyll_rfu: 10.5000000<br />chla_ugl: 59.753383<br />temp: 22.03123","chlorophyll_rfu:  5.0593330<br />chla_ugl: 27.802174<br />temp: 22.75038","chlorophyll_rfu:  1.0556670<br />chla_ugl:  3.163760<br />temp: 17.30490","chlorophyll_rfu:  2.5008330<br />chla_ugl:  9.077116<br />temp: 18.50888","chlorophyll_rfu:  1.7146670<br />chla_ugl:  6.385058<br />temp: 17.31157","chlorophyll_rfu:  5.4989830<br />chla_ugl: 22.042064<br />temp: 20.97505","chlorophyll_rfu:  1.7108330<br />chla_ugl:  8.406878<br />temp: 20.65110","chlorophyll_rfu:  1.4325000<br />chla_ugl:  5.846988<br />temp: 19.51325","chlorophyll_rfu:  1.4743330<br />chla_ugl:  5.997955<br />temp: 19.68875","chlorophyll_rfu: 21.3593300<br />chla_ugl: 84.448766<br />temp: 18.99203","chlorophyll_rfu:  1.2098330<br />chla_ugl:  4.683401<br />temp: 18.55083"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":["rgba(175,0,173,1)","rgba(172,0,176,1)","rgba(175,0,173,1)","rgba(203,0,135,1)","rgba(255,0,0,1)","rgba(165,0,184,1)","rgba(217,0,110,1)","rgba(238,0,64,1)","rgba(162,0,187,1)","rgba(195,0,146,1)","rgba(206,0,130,1)","rgba(0,0,255,1)","rgba(112,0,226,1)","rgba(3,0,255,1)","rgba(178,0,170,1)","rgba(171,0,177,1)","rgba(145,0,203,1)","rgba(150,0,199,1)","rgba(129,0,215,1)","rgba(113,0,225,1)"],"opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":["rgba(175,0,173,1)","rgba(172,0,176,1)","rgba(175,0,173,1)","rgba(203,0,135,1)","rgba(255,0,0,1)","rgba(165,0,184,1)","rgba(217,0,110,1)","rgba(238,0,64,1)","rgba(162,0,187,1)","rgba(195,0,146,1)","rgba(206,0,130,1)","rgba(0,0,255,1)","rgba(112,0,226,1)","rgba(3,0,255,1)","rgba(178,0,170,1)","rgba(171,0,177,1)","rgba(145,0,203,1)","rgba(150,0,199,1)","rgba(129,0,215,1)","rgba(113,0,225,1)"]}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.71,0.971383924050633,1.23276784810127,1.4941517721519,1.75553569620253,2.01691962025316,2.2783035443038,2.53968746835443,2.80107139240506,3.0624553164557,3.32383924050633,3.58522316455696,3.84660708860759,4.10799101265823,4.36937493670886,4.63075886075949,4.89214278481013,5.15352670886076,5.41491063291139,5.67629455696202,5.93767848101266,6.19906240506329,6.46044632911392,6.72183025316456,6.98321417721519,7.24459810126582,7.50598202531646,7.76736594936709,8.02874987341772,8.29013379746835,8.55151772151899,8.81290164556962,9.07428556962025,9.33566949367088,9.59705341772152,9.85843734177215,10.1198212658228,10.3812051898734,10.642589113924,10.9039730379747,11.1653569620253,11.4267408860759,11.6881248101266,11.9495087341772,12.2108926582278,12.4722765822785,12.7336605063291,12.9950444303797,13.2564283544304,13.517812278481,13.7791962025316,14.0405801265823,14.3019640506329,14.5633479746835,14.8247318987342,15.0861158227848,15.3474997468354,15.6088836708861,15.8702675949367,16.1316515189873,16.393035443038,16.6544193670886,16.9158032911392,17.1771872151899,17.4385711392405,17.6999550632911,17.9613389873418,18.2227229113924,18.484106835443,18.7454907594937,19.0068746835443,19.2682586075949,19.5296425316456,19.7910264556962,20.0524103797468,20.3137943037975,20.5751782278481,20.8365621518987,21.0979460759494,21.35933],"y":[3.50930135175219,4.62979766107975,5.7502939704073,6.87079027973486,7.99128658906242,9.11178289838997,10.2322792077175,11.3527755170451,12.4732718263726,13.5937681357002,14.7142644450278,15.8347607543553,16.9552570636829,18.0757533730104,19.196249682338,20.3167459916655,21.4372423009931,22.5577386103206,23.6782349196482,24.7987312289758,25.9192275383033,27.0397238476309,28.1602201569584,29.280716466286,30.4012127756135,31.5217090849411,32.6422053942687,33.7627017035962,34.8831980129238,36.0036943222513,37.1241906315789,38.2446869409064,39.365183250234,40.4856795595615,41.6061758688891,42.7266721782167,43.8471684875442,44.9676647968718,46.0881611061993,47.2086574155269,48.3291537248544,49.449650034182,50.5701463435095,51.6906426528371,52.8111389621647,53.9316352714922,55.0521315808198,56.1726278901473,57.2931241994749,58.4136205088024,59.53411681813,60.6546131274576,61.7751094367851,62.8956057461127,64.0161020554402,65.1365983647678,66.2570946740953,67.3775909834229,68.4980872927505,69.618583602078,70.7390799114056,71.8595762207331,72.9800725300607,74.1005688393882,75.2210651487158,76.3415614580434,77.4620577673709,78.5825540766985,79.703050386026,80.8235466953536,81.9440430046811,83.0645393140087,84.1850356233362,85.3055319326638,86.4260282419914,87.5465245513189,88.6670208606465,89.787517169974,90.9080134793016,92.0285097886291],"text":["chlorophyll_rfu:  0.7100000<br />chla_ugl:  3.509301","chlorophyll_rfu:  0.9713839<br />chla_ugl:  4.629798","chlorophyll_rfu:  1.2327678<br />chla_ugl:  5.750294","chlorophyll_rfu:  1.4941518<br />chla_ugl:  6.870790","chlorophyll_rfu:  1.7555357<br />chla_ugl:  7.991287","chlorophyll_rfu:  2.0169196<br />chla_ugl:  9.111783","chlorophyll_rfu:  2.2783035<br />chla_ugl: 10.232279","chlorophyll_rfu:  2.5396875<br />chla_ugl: 11.352776","chlorophyll_rfu:  2.8010714<br />chla_ugl: 12.473272","chlorophyll_rfu:  3.0624553<br />chla_ugl: 13.593768","chlorophyll_rfu:  3.3238392<br />chla_ugl: 14.714264","chlorophyll_rfu:  3.5852232<br />chla_ugl: 15.834761","chlorophyll_rfu:  3.8466071<br />chla_ugl: 16.955257","chlorophyll_rfu:  4.1079910<br />chla_ugl: 18.075753","chlorophyll_rfu:  4.3693749<br />chla_ugl: 19.196250","chlorophyll_rfu:  4.6307589<br />chla_ugl: 20.316746","chlorophyll_rfu:  4.8921428<br />chla_ugl: 21.437242","chlorophyll_rfu:  5.1535267<br />chla_ugl: 22.557739","chlorophyll_rfu:  5.4149106<br />chla_ugl: 23.678235","chlorophyll_rfu:  5.6762946<br />chla_ugl: 24.798731","chlorophyll_rfu:  5.9376785<br />chla_ugl: 25.919228","chlorophyll_rfu:  6.1990624<br />chla_ugl: 27.039724","chlorophyll_rfu:  6.4604463<br />chla_ugl: 28.160220","chlorophyll_rfu:  6.7218303<br />chla_ugl: 29.280716","chlorophyll_rfu:  6.9832142<br />chla_ugl: 30.401213","chlorophyll_rfu:  7.2445981<br />chla_ugl: 31.521709","chlorophyll_rfu:  7.5059820<br />chla_ugl: 32.642205","chlorophyll_rfu:  7.7673659<br />chla_ugl: 33.762702","chlorophyll_rfu:  8.0287499<br />chla_ugl: 34.883198","chlorophyll_rfu:  8.2901338<br />chla_ugl: 36.003694","chlorophyll_rfu:  8.5515177<br />chla_ugl: 37.124191","chlorophyll_rfu:  8.8129016<br />chla_ugl: 38.244687","chlorophyll_rfu:  9.0742856<br />chla_ugl: 39.365183","chlorophyll_rfu:  9.3356695<br />chla_ugl: 40.485680","chlorophyll_rfu:  9.5970534<br />chla_ugl: 41.606176","chlorophyll_rfu:  9.8584373<br />chla_ugl: 42.726672","chlorophyll_rfu: 10.1198213<br />chla_ugl: 43.847168","chlorophyll_rfu: 10.3812052<br />chla_ugl: 44.967665","chlorophyll_rfu: 10.6425891<br />chla_ugl: 46.088161","chlorophyll_rfu: 10.9039730<br />chla_ugl: 47.208657","chlorophyll_rfu: 11.1653570<br />chla_ugl: 48.329154","chlorophyll_rfu: 11.4267409<br />chla_ugl: 49.449650","chlorophyll_rfu: 11.6881248<br />chla_ugl: 50.570146","chlorophyll_rfu: 11.9495087<br />chla_ugl: 51.690643","chlorophyll_rfu: 12.2108927<br />chla_ugl: 52.811139","chlorophyll_rfu: 12.4722766<br />chla_ugl: 53.931635","chlorophyll_rfu: 12.7336605<br />chla_ugl: 55.052132","chlorophyll_rfu: 12.9950444<br />chla_ugl: 56.172628","chlorophyll_rfu: 13.2564284<br />chla_ugl: 57.293124","chlorophyll_rfu: 13.5178123<br />chla_ugl: 58.413621","chlorophyll_rfu: 13.7791962<br />chla_ugl: 59.534117","chlorophyll_rfu: 14.0405801<br />chla_ugl: 60.654613","chlorophyll_rfu: 14.3019641<br />chla_ugl: 61.775109","chlorophyll_rfu: 14.5633480<br />chla_ugl: 62.895606","chlorophyll_rfu: 14.8247319<br />chla_ugl: 64.016102","chlorophyll_rfu: 15.0861158<br />chla_ugl: 65.136598","chlorophyll_rfu: 15.3474997<br />chla_ugl: 66.257095","chlorophyll_rfu: 15.6088837<br />chla_ugl: 67.377591","chlorophyll_rfu: 15.8702676<br />chla_ugl: 68.498087","chlorophyll_rfu: 16.1316515<br />chla_ugl: 69.618584","chlorophyll_rfu: 16.3930354<br />chla_ugl: 70.739080","chlorophyll_rfu: 16.6544194<br />chla_ugl: 71.859576","chlorophyll_rfu: 16.9158033<br />chla_ugl: 72.980073","chlorophyll_rfu: 17.1771872<br />chla_ugl: 74.100569","chlorophyll_rfu: 17.4385711<br />chla_ugl: 75.221065","chlorophyll_rfu: 17.6999551<br />chla_ugl: 76.341561","chlorophyll_rfu: 17.9613390<br />chla_ugl: 77.462058","chlorophyll_rfu: 18.2227229<br />chla_ugl: 78.582554","chlorophyll_rfu: 18.4841068<br />chla_ugl: 79.703050","chlorophyll_rfu: 18.7454908<br />chla_ugl: 80.823547","chlorophyll_rfu: 19.0068747<br />chla_ugl: 81.944043","chlorophyll_rfu: 19.2682586<br />chla_ugl: 83.064539","chlorophyll_rfu: 19.5296425<br />chla_ugl: 84.185036","chlorophyll_rfu: 19.7910265<br />chla_ugl: 85.305532","chlorophyll_rfu: 20.0524104<br />chla_ugl: 86.426028","chlorophyll_rfu: 20.3137943<br />chla_ugl: 87.546525","chlorophyll_rfu: 20.5751782<br />chla_ugl: 88.667021","chlorophyll_rfu: 20.8365622<br />chla_ugl: 89.787517","chlorophyll_rfu: 21.0979461<br />chla_ugl: 90.908013","chlorophyll_rfu: 21.3593300<br />chla_ugl: 92.028510"],"type":"scatter","mode":"lines","name":"fitted values","line":{"width":3.77952755905512,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0],"y":[0],"name":"99_8227e79cbd261239ed73bc0206754cb8","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#0000FF"],[0.00334448160535115,"#0F00FE"],[0.0066889632107023,"#1900FD"],[0.0100334448160534,"#2000FD"],[0.0133779264214046,"#2600FC"],[0.0167224080267557,"#2B00FB"],[0.0200668896321069,"#2F00FA"],[0.023411371237458,"#3300F9"],[0.0267558528428095,"#3700F8"],[0.0301003344481607,"#3A00F8"],[0.0334448160535118,"#3E00F7"],[0.036789297658863,"#4100F6"],[0.0401337792642141,"#4400F5"],[0.0434782608695653,"#4600F4"],[0.0468227424749164,"#4900F3"],[0.0501672240802676,"#4B00F3"],[0.0535117056856187,"#4E00F2"],[0.0568561872909699,"#5000F1"],[0.060200668896321,"#5200F0"],[0.0635451505016721,"#5400EF"],[0.0668896321070233,"#5600EF"],[0.0702341137123744,"#5800EE"],[0.0735785953177256,"#5A00ED"],[0.0769230769230771,"#5C00EC"],[0.0802675585284282,"#5E00EB"],[0.0836120401337794,"#6000EB"],[0.0869565217391305,"#6200EA"],[0.0903010033444817,"#6300E9"],[0.0936454849498328,"#6500E8"],[0.096989966555184,"#6700E7"],[0.100334448160535,"#6800E6"],[0.103678929765886,"#6A00E6"],[0.107023411371237,"#6B00E5"],[0.110367892976589,"#6D00E4"],[0.11371237458194,"#6E00E3"],[0.117056856187291,"#7000E2"],[0.120401337792642,"#7100E2"],[0.123745819397993,"#7200E1"],[0.127090301003345,"#7400E0"],[0.130434782608696,"#7500DF"],[0.133779264214047,"#7600DE"],[0.137123745819398,"#7800DE"],[0.140468227424749,"#7900DD"],[0.1438127090301,"#7A00DC"],[0.147157190635452,"#7B00DB"],[0.150501672240803,"#7D00DA"],[0.153846153846154,"#7E00DA"],[0.157190635451505,"#7F00D9"],[0.160535117056856,"#8000D8"],[0.163879598662207,"#8100D7"],[0.167224080267558,"#8200D6"],[0.17056856187291,"#8400D5"],[0.173913043478261,"#8500D5"],[0.177257525083612,"#8600D4"],[0.180602006688963,"#8700D3"],[0.183946488294314,"#8800D2"],[0.187290969899666,"#8900D1"],[0.190635451505017,"#8A00D1"],[0.193979933110368,"#8B00D0"],[0.197324414715719,"#8C00CF"],[0.20066889632107,"#8D00CE"],[0.204013377926421,"#8E00CD"],[0.207357859531773,"#8F00CD"],[0.210702341137124,"#9000CC"],[0.214046822742475,"#9100CB"],[0.217391304347826,"#9200CA"],[0.220735785953177,"#9300CA"],[0.224080267558529,"#9400C9"],[0.22742474916388,"#9400C8"],[0.230769230769231,"#9500C7"],[0.234113712374582,"#9600C6"],[0.237458193979933,"#9700C6"],[0.240802675585284,"#9800C5"],[0.244147157190635,"#9900C4"],[0.247491638795987,"#9A00C3"],[0.250836120401338,"#9B00C2"],[0.254180602006689,"#9B00C2"],[0.25752508361204,"#9C00C1"],[0.260869565217391,"#9D00C0"],[0.264214046822742,"#9E00BF"],[0.267558528428094,"#9F00BE"],[0.270903010033445,"#9F00BE"],[0.274247491638796,"#A000BD"],[0.277591973244147,"#A100BC"],[0.280936454849498,"#A200BB"],[0.28428093645485,"#A300BA"],[0.287625418060201,"#A300BA"],[0.290969899665552,"#A400B9"],[0.294314381270903,"#A500B8"],[0.297658862876254,"#A600B7"],[0.301003344481605,"#A600B7"],[0.304347826086956,"#A700B6"],[0.307692307692308,"#A800B5"],[0.311036789297659,"#A800B4"],[0.31438127090301,"#A900B3"],[0.317725752508361,"#AA00B3"],[0.321070234113712,"#AB00B2"],[0.324414715719064,"#AB00B1"],[0.327759197324415,"#AC00B0"],[0.331103678929766,"#AD00AF"],[0.334448160535117,"#AD00AF"],[0.337792642140468,"#AE00AE"],[0.341137123745819,"#AF00AD"],[0.344481605351171,"#AF00AC"],[0.347826086956522,"#B000AC"],[0.351170568561873,"#B100AB"],[0.354515050167224,"#B100AA"],[0.357859531772575,"#B200A9"],[0.361204013377926,"#B300A8"],[0.364548494983278,"#B300A8"],[0.367892976588629,"#B400A7"],[0.37123745819398,"#B400A6"],[0.374581939799331,"#B500A5"],[0.377926421404682,"#B600A5"],[0.381270903010034,"#B600A4"],[0.384615384615385,"#B700A3"],[0.387959866220736,"#B700A2"],[0.391304347826087,"#B800A1"],[0.394648829431438,"#B900A1"],[0.397993311036789,"#B900A0"],[0.40133779264214,"#BA009F"],[0.404682274247492,"#BA009E"],[0.408026755852843,"#BB009E"],[0.411371237458194,"#BC009D"],[0.414715719063545,"#BC009C"],[0.418060200668896,"#BD009B"],[0.421404682274247,"#BD009B"],[0.424749163879599,"#BE009A"],[0.42809364548495,"#BE0099"],[0.431438127090301,"#BF0098"],[0.434782608695652,"#BF0097"],[0.438127090301003,"#C00097"],[0.441471571906355,"#C10096"],[0.444816053511706,"#C10095"],[0.448160535117057,"#C20094"],[0.451505016722408,"#C20094"],[0.454849498327759,"#C30093"],[0.45819397993311,"#C30092"],[0.461538461538461,"#C40091"],[0.464882943143813,"#C40091"],[0.468227424749164,"#C50090"],[0.471571906354515,"#C5008F"],[0.474916387959866,"#C6008E"],[0.478260869565217,"#C6008D"],[0.481605351170568,"#C7008D"],[0.48494983277592,"#C7008C"],[0.488294314381271,"#C8008B"],[0.491638795986622,"#C8008A"],[0.494983277591973,"#C9008A"],[0.498327759197324,"#C90089"],[0.501672240802676,"#CA0088"],[0.505016722408027,"#CA0087"],[0.508361204013378,"#CB0087"],[0.511705685618729,"#CB0086"],[0.51505016722408,"#CC0085"],[0.518394648829431,"#CC0084"],[0.521739130434782,"#CD0084"],[0.525083612040134,"#CD0083"],[0.528428093645485,"#CE0082"],[0.531772575250836,"#CE0081"],[0.535117056856187,"#CE0080"],[0.538461538461539,"#CF0080"],[0.54180602006689,"#CF007F"],[0.545150501672241,"#D0007E"],[0.548494983277592,"#D0007D"],[0.551839464882943,"#D1007D"],[0.555183946488294,"#D1007C"],[0.558528428093645,"#D2007B"],[0.561872909698997,"#D2007A"],[0.565217391304348,"#D3007A"],[0.568561872909699,"#D30079"],[0.57190635451505,"#D30078"],[0.575250836120401,"#D40077"],[0.578595317725752,"#D40077"],[0.581939799331104,"#D50076"],[0.585284280936455,"#D50075"],[0.588628762541806,"#D60074"],[0.591973244147157,"#D60074"],[0.595317725752508,"#D60073"],[0.59866220735786,"#D70072"],[0.602006688963211,"#D70071"],[0.605351170568562,"#D80071"],[0.608695652173913,"#D80070"],[0.612040133779264,"#D8006F"],[0.615384615384615,"#D9006E"],[0.618729096989966,"#D9006E"],[0.622073578595318,"#DA006D"],[0.625418060200669,"#DA006C"],[0.62876254180602,"#DA006B"],[0.632107023411371,"#DB006A"],[0.635451505016723,"#DB006A"],[0.638795986622074,"#DC0069"],[0.642140468227425,"#DC0068"],[0.645484949832776,"#DC0067"],[0.648829431438127,"#DD0067"],[0.652173913043478,"#DD0066"],[0.655518394648829,"#DE0065"],[0.65886287625418,"#DE0064"],[0.662207357859532,"#DE0064"],[0.665551839464883,"#DF0063"],[0.668896321070234,"#DF0062"],[0.672240802675585,"#E00061"],[0.675585284280936,"#E00061"],[0.678929765886287,"#E00060"],[0.682274247491639,"#E1005F"],[0.68561872909699,"#E1005E"],[0.688963210702341,"#E1005E"],[0.692307692307692,"#E2005D"],[0.695652173913043,"#E2005C"],[0.698996655518395,"#E3005B"],[0.702341137123746,"#E3005B"],[0.705685618729097,"#E3005A"],[0.709030100334448,"#E40059"],[0.712374581939799,"#E40058"],[0.71571906354515,"#E40057"],[0.719063545150502,"#E50057"],[0.722408026755853,"#E50056"],[0.725752508361204,"#E50055"],[0.729096989966555,"#E60054"],[0.732441471571906,"#E60054"],[0.735785953177258,"#E60053"],[0.739130434782609,"#E70052"],[0.74247491638796,"#E70051"],[0.745819397993311,"#E80050"],[0.749163879598662,"#E80050"],[0.752508361204013,"#E8004F"],[0.755852842809364,"#E9004E"],[0.759197324414716,"#E9004D"],[0.762541806020067,"#E9004D"],[0.765886287625418,"#EA004C"],[0.769230769230769,"#EA004B"],[0.77257525083612,"#EA004A"],[0.775919732441471,"#EB0049"],[0.779264214046823,"#EB0049"],[0.782608695652174,"#EB0048"],[0.785953177257525,"#EC0047"],[0.789297658862876,"#EC0046"],[0.792642140468227,"#EC0046"],[0.795986622073579,"#ED0045"],[0.79933110367893,"#ED0044"],[0.802675585284281,"#ED0043"],[0.806020066889632,"#EE0042"],[0.809364548494983,"#EE0042"],[0.812709030100334,"#EE0041"],[0.816053511705686,"#EF0040"],[0.819397993311037,"#EF003F"],[0.822742474916388,"#EF003E"],[0.826086956521739,"#F0003D"],[0.82943143812709,"#F0003D"],[0.832775919732442,"#F0003C"],[0.836120401337793,"#F0003B"],[0.839464882943144,"#F1003A"],[0.842809364548495,"#F10039"],[0.846153846153846,"#F10038"],[0.849498327759197,"#F20038"],[0.852842809364548,"#F20037"],[0.8561872909699,"#F20036"],[0.859531772575251,"#F30035"],[0.862876254180602,"#F30034"],[0.866220735785953,"#F30033"],[0.869565217391304,"#F40032"],[0.872909698996655,"#F40032"],[0.876254180602007,"#F40031"],[0.879598662207358,"#F50030"],[0.882943143812709,"#F5002F"],[0.88628762541806,"#F5002E"],[0.889632107023411,"#F5002D"],[0.892976588628762,"#F6002C"],[0.896321070234114,"#F6002B"],[0.899665551839465,"#F6002A"],[0.903010033444816,"#F70029"],[0.906354515050167,"#F70028"],[0.909698996655518,"#F70027"],[0.91304347826087,"#F80026"],[0.916387959866221,"#F80025"],[0.919732441471572,"#F80024"],[0.923076923076923,"#F80023"],[0.926421404682274,"#F90022"],[0.929765886287626,"#F90021"],[0.933110367892977,"#F90020"],[0.936454849498328,"#FA001F"],[0.939799331103679,"#FA001E"],[0.94314381270903,"#FA001D"],[0.946488294314381,"#FA001B"],[0.949832775919732,"#FB001A"],[0.953177257525084,"#FB0019"],[0.956521739130435,"#FB0018"],[0.959866220735786,"#FC0016"],[0.963210702341137,"#FC0015"],[0.966555183946488,"#FC0013"],[0.969899665551839,"#FC0012"],[0.97324414715719,"#FD0010"],[0.976588628762542,"#FD000F"],[0.979933110367893,"#FD000D"],[0.983277591973244,"#FE000B"],[0.986622073578595,"#FE0008"],[0.989966555183946,"#FE0006"],[0.993311036789297,"#FE0004"],[0.996655518394649,"#FF0002"],[1,"#FF0000"]],"colorbar":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"thickness":23.04,"title":"Temperature (C)","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickmode":"array","ticktext":["17.5","20.0","22.5","25.0","27.5"],"tickvals":[0.0189538007179323,0.261826695617116,0.5046995905163,0.747572485415483,0.990445380314667],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":50,"r":150,"b":80,"l":80,"pad":0},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Temperature","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.323908548884676,22.3921038334115],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Chlorophyll (RFU) EXO","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.46366177372431,96.5281370058841],"tickmode":"array","ticktext":["0","25","50","75"],"tickvals":[0,25,50,75],"categoryorder":"array","categoryarray":["0","25","50","75"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Chlorophyll (ug/L) Extracted","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5b284b653a":{"x":{},"y":{},"colour":{},"type":"scatter"},"5b2816e41cca":{"x":{},"y":{}}},"cur_data":"5b284b653a","visdat":{"5b284b653a":["function (y) ","x"],"5b2816e41cca":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+<hr>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. And was created by Shannon Dunnigan | <i class="fa fa-envelope"></i> Shannon.Dunnigan@FloridaDEP.gov | <i class="fa fa-github"></i>  skdunnigan <a href: "https://www.github.com/skdunnigan"></a>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
