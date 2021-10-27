@@ -21,8 +21,7 @@ reservecolours <- c(`ELK` = "#F8766D",
                     `OWC` = "#00ACFC",
                     `PDB` = "#8B93FF",
                     `SAP` = "#D575FE",
-                    `WEL` = "#F962DD",
-                    `WKB` = "#FF65AC")
+                    `WEL` = "#F962DD") # removed WKB
 
 # for interactive plot functions
 fdom <- 2

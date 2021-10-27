@@ -35,18 +35,18 @@ R <- 'GTM'
 
 ```{r all-data}
 reserve_all_fxn(R) + 
-  ggpubr::stat_regline_equation(label.y = 40) +
+  ggpubr::stat_regline_equation(label.y = 22) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
-                   label.y = 38)
+                   label.y = 21)
 ```
 
 ## Facet by Methods
 
 ```{r all-facet}
 reserve_all_facet_fxn(R) + 
-  ggpubr::stat_regline_equation(label.y = 40) +
+  ggpubr::stat_regline_equation(label.y = 22) +
   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")),
-                   label.y = 38)
+                   label.y = 21)
 ```
 
 

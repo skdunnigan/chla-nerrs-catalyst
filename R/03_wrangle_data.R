@@ -35,32 +35,37 @@ LKS_tank <- LKS_tank %>%
                               sep = "[.]") %>%
               dplyr::filter(rep_tank == 0 | is.na(rep_tank)) %>% # keep only the NA and 0 values because there is 28.0 in addition to 28.1
               dplyr::select(-rep_tank)
+
 # 03 combine files --------------------------------------------------------
 
 # first, compare the files, make adjustments, then combine
 
 ## 03.1 isco files ----
 
+ELK_isco <- ELK_isco %>% 
+   dplyr::mutate(depth = as.numeric(depth),
+                 f_depth = as.character(f_depth),
+                 remarks = as.character(remarks)
+   )
+
 # compare all isco dfs
 # # only can compare two at a time, so just interchange which two dfs to use
 # janitor::compare_df_cols_same(ELK_isco, WEL_isco,
 #                               bind_method = "bind_rows")
                               
-ELK_isco <- ELK_isco %>% 
-            dplyr::mutate(depth = as.numeric(depth),
-                          f_depth = as.character(f_depth),
-                          remarks = as.character(remarks)
-                          )
+
 GND_isco <- GND_isco %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
-                          depth = as.numeric(depth),
-                          f_depth = as.character(f_depth),
                           level = as.numeric(level),
                           remarks = as.character(remarks)
                           )
+
+GRB_isco <- GRB_isco %>% 
+            dplyr::mutate(fdom_rfu = as.numeric(fdom_rfu)
+                          )
+
 HEE_isco <- HEE_isco %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
-                          chlorophyll_rfu = as.numeric(chlorophyll_rfu),
                           fdom_qsu = as.numeric(fdom_qsu),
                           fdom_rfu = as.numeric(fdom_rfu),
                           level = as.numeric(level),
@@ -68,9 +73,7 @@ HEE_isco <- HEE_isco %>%
                           )
 LKS_isco <- LKS_isco %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
-                          f_depth = as.character(f_depth),
-                          level = as.numeric(level),
-                          f_level = as.character(f_level)
+                          level = as.numeric(level)
                           )
 NIW_isco <- NIW_isco %>% 
             dplyr::mutate(level = as.numeric(level),
@@ -81,8 +84,7 @@ OWC_isco <- OWC_isco %>%
                           sample_no = as.numeric(sample_no)
                           )
 PDB_isco <- PDB_isco %>% 
-            dplyr::mutate(f_level = as.character(f_level),
-                          level = as.numeric(level),
+            dplyr::mutate(level = as.numeric(level),
             )
 WEL_isco <- WEL_isco %>% 
             dplyr::mutate(remarks = as.character(remarks)
@@ -104,6 +106,7 @@ isco <- dplyr::bind_rows(ELK_isco,
 
 rm(ELK_isco,
    GND_isco,
+   GRB_isco,
    GTM_isco,
    HEE_isco,
    LKS_isco,
@@ -114,17 +117,20 @@ rm(ELK_isco,
 
 ## 03.2 tank files ----
 
+GTM_tank <- GTM_tank %>% 
+   dplyr::mutate(remarks = as.character(remarks)
+   )
+
 # compare all tank dfs
 # only can compare two at a time, so just interchange which two dfs to use
-# janitor::compare_df_cols_same(GTM_tank, PDB_tank, 
-#                               bind_method = "bind_rows") 
+janitor::compare_df_cols_same(GTM_tank, SAP_tank,
+                              bind_method = "bind_rows")
 
 GND_tank <- GND_tank %>% 
-            dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
-                          field_notes = as.character(field_notes)
+            dplyr::mutate(chla_rfu = as.numeric(chla_rfu)
                           )
-GTM_tank <- GTM_tank %>% 
-            dplyr::mutate(remarks = as.character(remarks)
+GRB_tank <- GRB_tank %>% 
+            dplyr::mutate(f_domrfu = as.numeric(f_domrfu)
                           )
 HEE_tank <- HEE_tank %>% 
             dplyr::mutate(remarks = as.character(remarks),
@@ -148,12 +154,12 @@ SAP_tank <- SAP_tank %>%
             dplyr::mutate(chl_fluor = as.numeric(chl_fluor),
                           depth = as.numeric(depth),
                           field_notes = as.character(field_notes),
-                          remarks = as.character(remarks),
                           station_code = as.character(station_code)
                           )
 
 # bind all into one
 tank <- dplyr::bind_rows(GND_tank,
+                         GRB_tank,
                          GTM_tank, 
                          HEE_tank,
                          LKS_tank,
@@ -188,7 +194,7 @@ all <- dplyr::bind_rows(isco, tank) %>%
        dplyr::mutate(sample_no = as.character(sample_no),
                      isco_deployment_no = as.character(isco_deployment_no),
                      date_collected = as.Date(datetime_collected)) %>% 
-       dplyr::filter(qaqc == 0)
+       dplyr::filter(qaqc == 0 & f_chlorophyll_rfu == "<0>")
 
 ## 04 remove flags ----
 

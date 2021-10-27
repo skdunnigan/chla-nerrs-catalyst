@@ -31,9 +31,9 @@ source(here::here('R', '03_wrangle_data.R'))
 ***
 
 <div class="jumbotron">
-  <center><h2><b> Updates (2021-08-16)</h2></b> <br>
-  <p>This is the new and improved Data Viewer for the Chlorophyll NERRS Catalyst Project designed to be used by the project team. This site contains updated content from data updates versions 1.1 and 2.0 plus additional functionality for reserve-specific data visualizations and summary tables. </p> <br>
-  <p> This site was last updated on `r Sys.Date()` with data downloaded on 2021-08-11 from the  <a href = "https://drive.google.com/drive/u/2/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH"> <i class="fab fa-google-drive" aria-hidden="true"></i> Google Drive </a> data folders.</p></center>
+  <center><h2><b> Updates (2021-10-27)</h2></b> <br>
+  <p>This is the Data Viewer for the Chlorophyll NERRS Catalyst Project designed to be used by the project team. This site contains updated content from data updates versions 1.1 and 2.0 plus additional functionality for reserve-specific data visualizations and summary tables. </p> <br>
+  <p> This site was last updated on `r Sys.Date()` with data downloaded on 2021-10-11 from the  <a href = "https://drive.google.com/drive/u/2/folders/1_DjiVtWL3VLHoOms8rEUhiUfbVdz83MH"> <i class="fab fa-google-drive" aria-hidden="true"></i> Google Drive </a> data folders.</p></center>
 </div>
 
 ***
@@ -54,17 +54,14 @@ reserves <- tribble(
   9, "OWC", 
   10, "PDB", 
   11, "SAP", 
-  12, "WEL", 
-  13, "WKB" 
+  12, "WEL"
 )
 
-a <- as_tibble(unique(all$reserve_code)) %>% rename(reserve = value) %>% mutate(Submission = "X")
-b <- as_tibble(unique(isco$reserve_code)) %>% rename(reserve = value) %>% mutate(ISCO = 'X')
-c <- as_tibble(unique(tank$reserve_code)) %>% rename(reserve = value) %>% mutate(Tank = 'X')
+a <- as_tibble(unique(isco$reserve_code)) %>% rename(reserve = value) %>% mutate(ISCO = 'X')
+b <- as_tibble(unique(tank$reserve_code)) %>% rename(reserve = value) %>% mutate(Tank = 'X')
 
 d <- left_join(reserves, a, by = "reserve") %>% 
         left_join(b, by = "reserve") %>% 
-        left_join(c, by = "reserve") %>% 
         select(-no) %>% 
         rename(Reserve = reserve)
 
@@ -79,6 +76,6 @@ d %>%
   column_spec(1, border_right = T) %>% 
   kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
 
-rm(reserves, a, b, c, d)
+rm(reserves, a, b, d)
 ```
 

@@ -19,6 +19,7 @@ library(psych) # has expanded statistical functions
 # markdown
 library(knitr)
 library(rmarkdown)
+library(kableExtra)
 
 # expanded data visualization
 library(cowplot) # additional themes for ggplot2
