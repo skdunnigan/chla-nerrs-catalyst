@@ -21,8 +21,7 @@ source(here::here('R', '00_load-packages.R'))
 
 ```{r load-data, include = FALSE, results = FALSE}
 
-source(here::here('R', '02_load_data.R'))
-source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '02.2_load_all_data.R')) # updated 2021-12-03
 source(here::here('R', '04.1_all-figures.R'))
 
 ```
@@ -60,7 +59,6 @@ m = list(
 
 all_interactive <- ggplotly(
                       all %>% 
-                        dplyr::filter(qaqc == 0) %>% 
                         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                         geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
                         stat_smooth(method = "lm", color = "black", se = FALSE) +
