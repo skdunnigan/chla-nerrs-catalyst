@@ -95,12 +95,12 @@ source(here::here('R', '06.1_tables-all.R'))
 ```{r summary-table, caption = ""}
 
 sum_table_final  %>% 
-  dplyr::select(-`temp*`, -`do_mgl*`) %>% # don't know where these columns come from (2021-08-13)
-  kbl(align = "c", caption = 'Summary information for all parameters (Min-Max (Mean \U00B1 Standard Dev)) from each participating reserve for both tank and ISCO experiments. This table contains data that has not had QAQC flagged data removed. The temperature and dissolved oxygen data only contains data collected from the <i>in vivo</i> experiments with the ISCO.') %>% 
+  # dplyr::select(-`temp*`, -`do_mgl*`) %>% # don't know where these columns come from (2021-08-13)
+  kbl(align = "c", caption = 'Summary information for all parameters (Min-Max (Mean \U00B1 Standard Dev)) from each participating reserve for the <i>in vivo</i> ISCO experiments.') %>% 
   kable_styling(fixed_thead = T) %>% 
   row_spec(0, bold = T) %>% 
   column_spec(1, border_right = T) %>% 
-  column_spec(3, border_right = T) %>% 
+  column_spec(2, border_right = T) %>% 
   kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
 ```
 
@@ -108,7 +108,7 @@ sum_table_final  %>%
 
 # Interference Parameters {.tabset .tabset-pills}
 
-These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted $\mu$g/L with the three parameters of interest overlayed as color.
+These are the three parameters of interest in the interference testing studies. The following is the chlorophyll a fluorescence (RFU) from the EXO total algae sensor by the extracted $\mu$g/L with the three parameters of interest overlaid as color. Note: Data where the interference parameter (fDOM, turbidity, or temperature) is not available have been removed from the figures.
 
 **How to use the interactive plot:** Hover over interactive plot for the tools panel to appear in top-right corner. Tools include: save plot, zoom, select (lasso or box), and data compare. Hover your cursor over a point for more information.
 
