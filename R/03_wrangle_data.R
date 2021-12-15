@@ -116,6 +116,7 @@ WEL_isco <- WEL_isco %>%
 # bind all into one
 isco <- dplyr::bind_rows(ELK_isco,
                          GND_isco,
+                         GRB_isco,
                          GTM_isco,
                          HEE_isco,
                          LKS_isco,
@@ -218,6 +219,6 @@ all <- dplyr::bind_rows(isco, tank) %>%
 
 ## 04 export ----
 
-# write.xlsx(all, file = here::here('output', '2021_chla-catalyst_data_all.xlsx'),
+# write.xlsx(all, file = here::here('output', '2021_chla-catalyst_data_all_2.0.xlsx'),
 #            sheetName = "raw",
 #            showNA = FALSE)
