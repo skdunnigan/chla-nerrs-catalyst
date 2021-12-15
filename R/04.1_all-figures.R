@@ -120,6 +120,7 @@ interference_interact_all_fxn <- function(param, interact){
       if (param > 1){
         # fDOM
         fDOM <- ggplotly(all %>%
+                           filter(!is.na(fdom_qsu)) %>% 
                            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                            geom_point(aes(color = fdom_qsu, group = reserve_code), position = "jitter") +
                            stat_smooth(method = "lm", color = "black", se = FALSE) +
