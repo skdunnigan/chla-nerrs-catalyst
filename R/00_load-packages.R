@@ -7,6 +7,7 @@ library(janitor) # simple tools to clean dirty data
 library(here) # a simpler way to find your files
 # library(SWMPr) # working with SWMP data from the NERRS
 # library(SWMPrExtension) # expanded functions for SWMPr package
+library(xlsx)
 
 # tidy and wrangle ----
 library(tidyverse) # because...tidyverse (ggplot2, tidyr, dplyr)
