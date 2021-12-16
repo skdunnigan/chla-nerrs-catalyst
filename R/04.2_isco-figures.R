@@ -88,8 +88,7 @@ facet_isco <- function(stat) {
     facet_all_isco_figure_stat
   } 
   else {
-    facet_all_isco_figure <- isco %>% 
-                              dplyr::filter(qaqc == 0) %>%  
+    facet_all_isco_figure <- isco %>%   
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -122,7 +121,7 @@ isco_interf <- function(param, interact) {
     
     if (param > 1) {
       interact_isco_fDOM <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0 & !is.na(fdom_qsu)) %>%
+                                      dplyr::filter(!is.na(fdom_qsu)) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = fdom_qsu), position = "jitter") +
                                       scale_colour_continuous(name = "fDOM QSU") +
@@ -138,7 +137,6 @@ isco_interf <- function(param, interact) {
     }
     else if (param == 1) {
       interact_isco_temp <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = temp), position = "jitter") +
                                        scale_color_gradient(name = 'Temperature C',
@@ -155,7 +153,6 @@ isco_interf <- function(param, interact) {
     }
     else {
       interact_isco_turb <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = turb), position = "jitter") +
                                       scale_colour_continuous(name = "Turbidity (NTU)") +
@@ -174,7 +171,7 @@ isco_interf <- function(param, interact) {
   else {
     if (param > 1) {
       isco_fDOM <- isco %>% 
-                    dplyr::filter(qaqc == 0 & !is.na(fdom_qsu)) %>%
+                    dplyr::filter(!is.na(fdom_qsu)) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = fdom_qsu), position = "jitter") +
                     scale_colour_continuous(name = "fDOM QSU") +
@@ -189,7 +186,6 @@ isco_interf <- function(param, interact) {
     }
     else if (param == 1) {
       isco_temp <- isco %>% 
-                    dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = temp), position = "jitter") +
                     scale_color_gradient(name = 'Temperature C',
@@ -205,7 +201,6 @@ isco_interf <- function(param, interact) {
     }
     else {
       isco_turb <- isco %>% 
-                    dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = turb), position = "jitter") +
                     scale_colour_continuous(name = "Turbidity (NTU)") +

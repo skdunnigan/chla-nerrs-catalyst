@@ -1,7 +1,7 @@
 # all tank ----------------------------------------------------
 
 all_tank_figure <- tank %>% 
-                    dplyr::filter(qaqc == 0 & rep == 1) %>%
+                    dplyr::filter(rep == 1) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                       geom_point(position = "jitter") +
                       stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -19,7 +19,7 @@ all_tank_figure <- tank %>%
 # all tank by reserve ---------------------------------------------------
 
 all_tank_reserve_figure <- tank %>% 
-                            dplyr::filter(qaqc == 0 & rep == 1) %>% 
+                            dplyr::filter(rep == 1) %>% 
                             ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -39,7 +39,7 @@ all_tank_reserve_figure <- tank %>%
 
 tank_reserve_figure <- function(x, r2_label, regline_label) {
   tank %>% 
-    dplyr::filter(qaqc == 0 & reserve_code == x & rep == 1) %>% 
+    dplyr::filter(reserve_code == x & rep == 1) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
     geom_point(aes(color = reserve_code), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -69,7 +69,7 @@ tank_reserve_figure <- function(x, r2_label, regline_label) {
 facet_tank <- function(stat) {
   if (stat == TRUE) {
     facet_all_tank_figure_stat <- tank %>% 
-                                    dplyr::filter(qaqc == 0 & rep == 1) %>%  
+                                    dplyr::filter(rep == 1) %>%  
                                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = reserve_code), position = "jitter") +
                                       stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -90,7 +90,7 @@ facet_tank <- function(stat) {
     facet_all_tank_figure_stat
   } else {
     facet_all_tank_figure <- tank %>% 
-                              dplyr::filter(qaqc == 0 & rep == 1) %>%  
+                              dplyr::filter(rep == 1) %>%  
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -124,7 +124,7 @@ tank_interf <- function(param, interact){
     
     if (param > 1) {
       interact_tank_fDOM <- ggplotly(tank %>% 
-                              dplyr::filter(qaqc == 0 & rep == 1) %>%
+                              dplyr::filter(rep == 1) %>%
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = fdom_qsu), position = "jitter") +
                               scale_colour_continuous(name = "fDOM QSU") +
@@ -140,7 +140,7 @@ tank_interf <- function(param, interact){
     }
     else {
       interact_tank_turb <- ggplotly(tank %>% 
-                              dplyr::filter(qaqc == 0 & rep == 1) %>%
+                              dplyr::filter(rep == 1) %>%
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = turb), position = "jitter") +
                               scale_colour_continuous(name = "Turbidity (NTU)") +
@@ -159,7 +159,7 @@ tank_interf <- function(param, interact){
   else {
     if (param > 1) {
       tank_fDOM <- tank %>% 
-                    dplyr::filter(qaqc == 0 & rep == 1) %>%
+                    dplyr::filter(rep == 1) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = fdom_qsu), position = "jitter") +
                     scale_colour_continuous(name = "fDOM QSU") +
@@ -174,7 +174,7 @@ tank_interf <- function(param, interact){
     }
       else {
         tank_turb <- tank %>% 
-                      dplyr::filter(qaqc == 0 & rep == 1) %>%
+                      dplyr::filter(rep == 1) %>%
                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                       geom_point(aes(color = turb), position = "jitter") +
                       scale_colour_continuous(name = "Turbidity (NTU)") +

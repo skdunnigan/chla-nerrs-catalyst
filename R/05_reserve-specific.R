@@ -3,7 +3,7 @@
 # black and white all points with stat line
 reserve_all_fxn <- function(site) {
   all %>% 
-    dplyr::filter(qaqc == 0 & reserve_code == site) %>% 
+    dplyr::filter(reserve_code == site) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
     geom_point(aes(shape = method), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -16,7 +16,7 @@ reserve_all_fxn <- function(site) {
 
 reserve_all_facet_fxn <- function(site) {
   all %>% 
-    dplyr::filter(qaqc == 0 & reserve_code == site) %>% 
+    dplyr::filter(reserve_code == site) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
     geom_point(aes(shape = method), position = "jitter") +
     facet_grid(~method) +
@@ -47,7 +47,7 @@ interact_reserve_fxn <- function(site, isco) {
     )
     
     a <- ggplotly(all %>% 
-                    dplyr::filter(qaqc == 0 & reserve_code == site & method == "isco") %>% 
+                    dplyr::filter(reserve_code == site & method == "isco") %>% 
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = isco_deployment_no), position = "jitter") +
                     stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -73,7 +73,7 @@ interact_reserve_fxn <- function(site, isco) {
     
     a <-  ggplotly(all %>%
                      dplyr::mutate(date_collected = factor(date_collected)) %>% 
-                     dplyr::filter(qaqc == 0 & reserve_code == site & method == "tank") %>% 
+                     dplyr::filter(reserve_code == site & method == "tank") %>% 
                      ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                      geom_point(aes(color = date_collected), position = "jitter") +
                      stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -101,7 +101,7 @@ interact_reserve_fxn(site = "GTM", isco = FALSE)
 #   )
 #   
 # a <- ggplotly(all %>% 
-#   dplyr::filter(qaqc == 0 & reserve_code == site & method == "isco") %>% 
+#   dplyr::filter(reserve_code == site & method == "isco") %>% 
 #   ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
 #   geom_point(aes(color = isco_deployment_no), position = "jitter") +
 #   stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -131,7 +131,7 @@ interact_reserve_fxn(site = "GTM", isco = FALSE)
 #   
 #  a <-  ggplotly(all %>%
 #               dplyr::mutate(date_collected = factor(date_collected)) %>% 
-#               dplyr::filter(qaqc == 0 & reserve_code == site & method == "tank") %>% 
+#               dplyr::filter(reserve_code == site & method == "tank") %>% 
 #               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
 #               geom_point(aes(color = date_collected), position = "jitter") +
 #               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -164,7 +164,7 @@ interact_reserve_interf_fxn <- function(site, param) {
   if (param > 1) {
   
   fDOM <-  ggplotly(all %>%
-                   dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                   dplyr::filter(reserve_code == site & chlorophyll_rfu > 0) %>%
                    ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                    geom_point(aes(color = fdom_qsu), position = "jitter") +
                    stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -179,7 +179,7 @@ interact_reserve_interf_fxn <- function(site, param) {
   }
   else if (param == 1) {
     temp <-  ggplotly(all %>%
-                        dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                        dplyr::filter(reserve_code == site & chlorophyll_rfu > 0) %>%
                         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                         geom_point(aes(color = temp), position = "jitter") +
                         stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -194,7 +194,7 @@ interact_reserve_interf_fxn <- function(site, param) {
     temp %>% layout(margin = m)
   } else {
     turb <-  ggplotly(all %>%
-                        dplyr::filter(qaqc == 0 & reserve_code == site & chlorophyll_rfu > 0) %>%
+                        dplyr::filter(reserve_code == site & chlorophyll_rfu > 0) %>%
                         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                         geom_point(aes(color = turb), position = "jitter") +
                         stat_smooth(method = "lm", color = "black", se = FALSE) +
