@@ -1,13 +1,12 @@
 # all ----------------------------------------------------
 
 all_figure <-  all %>% 
-                dplyr::filter(qaqc == 0) %>%
                 ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                   geom_point(position = "jitter") +
                   stat_smooth(method = "lm", color = "black", se = FALSE) +
-                  ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
+                  ggpubr::stat_regline_equation(label.y = 11, label.x = 15) +
                   ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                   label.y = 60, label.x = 1) + # add R2 and p value
+                                   label.y = 15, label.x = 15) + # add R2 and p value
                   scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
                   scale_x_continuous(expand = c(0,0)) +
                   theme_classic() +
@@ -20,13 +19,12 @@ all_figure <-  all %>%
 # all tank by reserve ---------------------------------------------------
 
 all_reserve_figure <- all %>% 
-                        dplyr::filter(qaqc == 0) %>% 
                         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                           geom_point(aes(color = reserve_code), position = "jitter") +
                           stat_smooth(method = "lm", color = "black", se = FALSE) +
-                          ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
+                          ggpubr::stat_regline_equation(label.y = 11, label.x = 15) +
                           ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                           label.y = 60, label.x = 1) + # add R2 and p value
+                                           label.y = 15, label.x = 15) + # add R2 and p value
                           scale_colour_manual(name = "Reserve", values = reservecolours) +
                           scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
                           scale_x_continuous(expand = c(0,0)) +
@@ -39,13 +37,12 @@ all_reserve_figure <- all %>%
                                caption = "ISCO and tank experiments")
 
 all_reserve_method_figure <- all %>% 
-                              dplyr::filter(qaqc == 0) %>% 
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                 geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
                                 stat_smooth(method = "lm", color = "black", se = FALSE) +
-                                ggpubr::stat_regline_equation(label.y = 56, label.x = 1) +
+                                ggpubr::stat_regline_equation(label.y = 11, label.x = 15) +
                                 ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                                 label.y = 60, label.x = 1) + # add R2 and p value
+                                                 label.y = 15, label.x = 15) + # add R2 and p value
                                 scale_colour_manual(name = "Reserve", values = reservecolours) +
                                 scale_shape_discrete(name = "Method") +
                                 scale_y_continuous(expand = c(0,0), limits = c(0,65)) +
@@ -60,7 +57,6 @@ all_reserve_method_figure <- all %>%
 
 # tank and isco facet ----------------------------------------------
 tank_isco <- all %>% 
-              dplyr::filter(qaqc == 0) %>%
               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
               geom_point(position = "jitter", alpha = 0.8) +
               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -79,7 +75,7 @@ tank_isco <- all %>%
 
 all_reserve_figure_fxn <- function(x, r2_label.y, regline_label.y, label.x) {
   all %>% 
-    dplyr::filter(qaqc == 0 & reserve_code == x) %>% 
+    dplyr::filter(reserve_code == x) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
     geom_point(aes(color = reserve_code, shape = method), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -124,7 +120,7 @@ interference_interact_all_fxn <- function(param, interact){
       if (param > 1){
         # fDOM
         fDOM <- ggplotly(all %>%
-                           filter(chlorophyll_rfu > 0) %>%
+                           filter(!is.na(fdom_qsu)) %>% 
                            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                            geom_point(aes(color = fdom_qsu, group = reserve_code), position = "jitter") +
                            stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -140,7 +136,7 @@ interference_interact_all_fxn <- function(param, interact){
       else if (param == 1) {
         # temperature
         temp <- ggplotly(all %>%
-                           filter(chlorophyll_rfu > 0 & method == "isco") %>%
+                           filter(method == "isco") %>%
                            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                            geom_point(aes(color = temp, group = reserve_code), position = "jitter") +
                            scale_color_gradient(name = 'Temperature C',
@@ -154,7 +150,7 @@ interference_interact_all_fxn <- function(param, interact){
         temp %>% layout(margin = m)
       } else {
         turb <- ggplotly(all %>%
-                           filter(chlorophyll_rfu > 0 & turb < 240) %>%
+                           filter(!is.na(turb)) %>%
                            ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                            geom_point(aes(color = turb, group = reserve_code), position = "jitter") +
                            scale_color_continuous(name = "Turbidity NTU")  +
@@ -172,7 +168,7 @@ interference_interact_all_fxn <- function(param, interact){
     if (param > 1){
       # fDOM
       fDOM <- all %>% 
-        filter(chlorophyll_rfu > 0 & !is.na(fdom_qsu)) %>% 
+        filter(!is.na(fdom_qsu)) %>% 
         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
         geom_point(aes(color = fdom_qsu), position = "jitter") +
         stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -187,7 +183,6 @@ interference_interact_all_fxn <- function(param, interact){
     else if (param == 1) {
       # temperature
       temp <- all %>% 
-        filter(chlorophyll_rfu > 0) %>% 
         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
         geom_point(aes(color = temp), position = "jitter") +
         stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -201,7 +196,7 @@ interference_interact_all_fxn <- function(param, interact){
       temp
     } else {
       turb <- all %>% 
-        filter(chlorophyll_rfu > 0 & turb < 240) %>% 
+        filter(!is.na(turb)) %>% 
         ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
         geom_point(aes(color = turb), position = "jitter") +
         stat_smooth(method = "lm", color = "black", se = FALSE) +
