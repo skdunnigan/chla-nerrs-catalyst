@@ -23,8 +23,7 @@ Currently, only data from North Inlet-Winyah Bay:
 
 ```{r load-data, include = FALSE, results = FALSE}
 
-source(here::here('R', '02_load_data.R'))
-source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '02.2_load_all_data.R'))
 source(here::here('R', 'interference', '03_fdom-load-wrangle-run.R'))
 ```
 

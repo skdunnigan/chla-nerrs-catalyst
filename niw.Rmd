@@ -21,8 +21,7 @@ source(here::here('R', '00_load-packages.R'))
 
 ```{r load-data, include = FALSE, results = FALSE}
 
-source(here::here('R', '02_load_data.R'))
-source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '02.2_load_all_data.R'))
 source(here::here('R', '05_reserve-specific.R'))
 source(here::here('R', '06_tables.R'))
 

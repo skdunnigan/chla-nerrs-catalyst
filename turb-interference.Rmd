@@ -23,8 +23,7 @@ Using data from GTM, NIW, and HEE reserves.
 
 ```{r load-data, include = FALSE, results = FALSE}
 
-source(here::here('R', '02_load_data.R'))
-source(here::here('R', '03_wrangle_data.R'))
+source(here::here('R', '02.2_load_all_data.R'))
 source(here::here('R', 'interference', '02.1_turb-load-wrangle-run-gtm.R'))
 source(here::here('R', 'interference', '02.2_turb-load-wrangle-run-niw.R'))
 source(here::here('R', 'interference', '02.3_turb-load-wrangle-run-hee.R'))
