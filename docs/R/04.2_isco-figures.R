@@ -1,13 +1,12 @@
 
 # all isco ----------------------------------------------------------------
 all_isco_figure <- isco %>% 
-                    dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(position = "jitter") +
                     stat_smooth(method = "lm", color = "black", se = FALSE) +
-                    ggpubr::stat_regline_equation(label.y = 37) +
-                    ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                     label.y = 40) + # add R2 and p value
+  ggpubr::stat_regline_equation(label.y = 75, label.x = 11) +
+  ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
+                   label.y = 71, label.x = 11) + # add R2 and p value
                     scale_y_continuous(expand = c(0,0)) +
                     theme_classic() +
                     theme(legend.title = element_text(size = 14, face = "bold"),
@@ -18,13 +17,12 @@ all_isco_figure <- isco %>%
 
 # all isco by reserve -----------------------------------------------------
 all_isco_reserve_figure <- isco %>% 
-                            dplyr::filter(qaqc == 0) %>% 
                             ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                             geom_point(aes(color = reserve_code), position = "jitter") +
                             stat_smooth(method = "lm", color = "black", se = FALSE) +
-                            ggpubr::stat_regline_equation(label.y = 40) +
-                            ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
-                                             label.y = 43) + # add R2 and p value
+  ggpubr::stat_regline_equation(label.y = 75, label.x = 11) +
+  ggpubr::stat_cor(aes(label = paste(..rr.label.., ..p.label.., sep = "~`, `~")), 
+                   label.y = 71, label.x = 11) + # add R2 and p value
                             scale_colour_manual(name = "Reserve", values = reservecolours) +
                             scale_y_continuous(expand = c(0,0)) +
                             theme_classic() +
@@ -38,7 +36,7 @@ all_isco_reserve_figure <- isco %>%
 
 isco_reserve_figure <- function(x, r2_label, regline_label) {
   isco %>% 
-    dplyr::filter(qaqc == 0 & reserve_code == x) %>% 
+    dplyr::filter(reserve_code == x) %>% 
     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
     geom_point(aes(color = reserve_code), position = "jitter") +
     stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -69,8 +67,7 @@ isco_reserve_figure <- function(x, r2_label, regline_label) {
 
 facet_isco <- function(stat) {
   if (stat == TRUE) {
-    facet_all_isco_figure_stat <- isco %>% 
-      dplyr::filter(qaqc == 0) %>%  
+    facet_all_isco_figure_stat <- isco %>%
       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
       geom_point(aes(color = reserve_code), position = "jitter") +
       stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -91,8 +88,7 @@ facet_isco <- function(stat) {
     facet_all_isco_figure_stat
   } 
   else {
-    facet_all_isco_figure <- isco %>% 
-                              dplyr::filter(qaqc == 0) %>%  
+    facet_all_isco_figure <- isco %>%   
                               ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                               geom_point(aes(color = reserve_code), position = "jitter") +
                               stat_smooth(method = "lm", color = "black", se = FALSE) +
@@ -125,7 +121,7 @@ isco_interf <- function(param, interact) {
     
     if (param > 1) {
       interact_isco_fDOM <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0 & !is.na(fdom_qsu)) %>%
+                                      dplyr::filter(!is.na(fdom_qsu)) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = fdom_qsu), position = "jitter") +
                                       scale_colour_continuous(name = "fDOM QSU") +
@@ -141,7 +137,6 @@ isco_interf <- function(param, interact) {
     }
     else if (param == 1) {
       interact_isco_temp <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = temp), position = "jitter") +
                                        scale_color_gradient(name = 'Temperature C',
@@ -158,7 +153,6 @@ isco_interf <- function(param, interact) {
     }
     else {
       interact_isco_turb <- ggplotly(isco %>% 
-                                      dplyr::filter(qaqc == 0) %>%
                                       ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                                       geom_point(aes(color = turb), position = "jitter") +
                                       scale_colour_continuous(name = "Turbidity (NTU)") +
@@ -177,7 +171,7 @@ isco_interf <- function(param, interact) {
   else {
     if (param > 1) {
       isco_fDOM <- isco %>% 
-                    dplyr::filter(qaqc == 0 & !is.na(fdom_qsu)) %>%
+                    dplyr::filter(!is.na(fdom_qsu)) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = fdom_qsu), position = "jitter") +
                     scale_colour_continuous(name = "fDOM QSU") +
@@ -192,7 +186,6 @@ isco_interf <- function(param, interact) {
     }
     else if (param == 1) {
       isco_temp <- isco %>% 
-                    dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = temp), position = "jitter") +
                     scale_color_gradient(name = 'Temperature C',
@@ -208,7 +201,6 @@ isco_interf <- function(param, interact) {
     }
     else {
       isco_turb <- isco %>% 
-                    dplyr::filter(qaqc == 0) %>%
                     ggplot(aes(x = chlorophyll_rfu, y = chla_ugl)) +
                     geom_point(aes(color = turb), position = "jitter") +
                     scale_colour_continuous(name = "Turbidity (NTU)") +

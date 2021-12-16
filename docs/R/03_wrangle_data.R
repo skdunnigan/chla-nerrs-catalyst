@@ -8,13 +8,15 @@
 
 ## 02.1 Mission Aransas (MAR)----
 # takes subsamples of replicates for 'method' replicates. Need to create two columns for replicates to separate out the subsamples
+# removing method replicates, but keeping first method rep of each sample replicate.
 
-MAR_tank <- MAR_tank %>% 
-              dplyr::filter(rep == 1.1) %>% 
+MAR_tank <- MAR_tank %>%
               tidyr::separate(rep,
                             into = c("rep", "subsample"),
                             sep = "[.]") %>% 
-              dplyr::select(-subsample, -additional_notes)
+              dplyr::filter(subsample == 1 | is.na(subsample)) %>% 
+              dplyr::select(-subsample) %>% 
+              dplyr::mutate(rep = as.numeric(rep))
 
 ## 02.2 Old Woman Creek (OWC)----
 # takes replicate of last isco sample. 
@@ -24,7 +26,8 @@ OWC_isco <- OWC_isco %>%
                               into = c("sample_no", "rep_isco"),
                               sep = "[.]") %>% 
               dplyr::filter(rep_isco == 1 | is.na(rep_isco)) %>% # keep only the NA and 1 values
-              dplyr::select(-rep_isco)
+              dplyr::select(-rep_isco) %>% 
+              dplyr::mutate(sample_no = as.numeric(sample_no))
 
 ## 02.3 Lake Superior (LKS) ----
 # takes replicate samples for tank
@@ -35,6 +38,27 @@ LKS_tank <- LKS_tank %>%
                               sep = "[.]") %>%
               dplyr::filter(rep_tank == 0 | is.na(rep_tank)) %>% # keep only the NA and 0 values because there is 28.0 in addition to 28.1
               dplyr::select(-rep_tank)
+
+## 02.4 Great Bay (GRB)----
+# takes subsamples of replicates for 'method' replicates. Need to create two columns for replicates to separate out the subsamples
+
+GRB_tank <- GRB_tank %>%
+               tidyr::separate(rep,
+                               into = c("rep", "subsample"),
+                               sep = "[.]") %>% 
+               dplyr::filter(subsample == 1 | is.na(subsample)) %>% # only keep the first subsample
+               dplyr::select(-subsample) %>% 
+               dplyr::mutate(rep = as.numeric(rep))
+
+# takes replicate of last isco sample. 
+GRB_isco <- GRB_isco %>% 
+               tidyr::separate(sample_no,
+                               into = c("sample_no", "rep_isco"),
+                               sep = "[.]") %>% 
+               dplyr::filter(rep_isco == 1 | is.na(rep_isco)) %>% # keep only the NA and 1 values
+               dplyr::select(-rep_isco) %>% 
+               dplyr::mutate(sample_no = as.numeric(sample_no))
+
 
 # 03 combine files --------------------------------------------------------
 
@@ -49,8 +73,8 @@ ELK_isco <- ELK_isco %>%
    )
 
 # compare all isco dfs
-# # only can compare two at a time, so just interchange which two dfs to use
-# janitor::compare_df_cols_same(ELK_isco, WEL_isco,
+# # # only can compare two at a time, so just interchange which two dfs to use
+# janitor::compare_df_cols_same(ELK_isco, OWC_isco,
 #                               bind_method = "bind_rows")
                               
 
@@ -80,8 +104,7 @@ NIW_isco <- NIW_isco %>%
                           remarks = as.character(remarks)
             )
 OWC_isco <- OWC_isco %>% 
-            dplyr::mutate(level = as.numeric(level),
-                          sample_no = as.numeric(sample_no)
+            dplyr::mutate(level = as.numeric(level)
                           )
 PDB_isco <- PDB_isco %>% 
             dplyr::mutate(level = as.numeric(level),
@@ -93,6 +116,7 @@ WEL_isco <- WEL_isco %>%
 # bind all into one
 isco <- dplyr::bind_rows(ELK_isco,
                          GND_isco,
+                         GRB_isco,
                          GTM_isco,
                          HEE_isco,
                          LKS_isco,
@@ -123,8 +147,8 @@ GTM_tank <- GTM_tank %>%
 
 # compare all tank dfs
 # only can compare two at a time, so just interchange which two dfs to use
-janitor::compare_df_cols_same(GTM_tank, SAP_tank,
-                              bind_method = "bind_rows")
+# janitor::compare_df_cols_same(GTM_tank, GRB_tank,
+#                               bind_method = "bind_rows")
 
 GND_tank <- GND_tank %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu)
@@ -139,9 +163,6 @@ HEE_tank <- HEE_tank %>%
 LKS_tank <- LKS_tank %>% 
             dplyr::mutate(chla_rfu = as.numeric(chla_rfu),
                           sample_no = as.numeric(sample_no)
-                          )
-MAR_tank <- MAR_tank %>% 
-            dplyr::mutate(rep = as.numeric(rep)
                           )
 NIW_tank <- NIW_tank %>% 
             dplyr::mutate(do_mgl = as.numeric(do_mgl), 
@@ -176,7 +197,8 @@ tank <- dplyr::bind_rows(GND_tank,
         
 
 rm(GND_tank,
-   GTM_tank, 
+   GTM_tank,
+   GRB_tank,
    HEE_tank,
    LKS_tank,
    MAR_tank,
@@ -186,16 +208,17 @@ rm(GND_tank,
 
 ## 03.3 all files ----
 
-janitor::compare_df_cols_same(isco, tank, 
-                              bind_method = "bind_rows")
+# janitor::compare_df_cols_same(isco, tank, 
+#                               bind_method = "bind_rows")
 
 all <- dplyr::bind_rows(isco, tank) %>% 
        dplyr::filter(rep == 1 | is.na(rep)) %>%  # only keep rep 1 from tank, and NAs, which would be the isco data
        dplyr::mutate(sample_no = as.character(sample_no),
                      isco_deployment_no = as.character(isco_deployment_no),
-                     date_collected = as.Date(datetime_collected)) %>% 
-       dplyr::filter(qaqc == 0 & f_chlorophyll_rfu == "<0>")
+                     date_collected = as.Date(datetime_collected)) 
 
-## 04 remove flags ----
+## 04 export ----
 
-
+# write.xlsx(all, file = here::here('output', '2021_chla-catalyst_data_all_2.0.xlsx'),
+#            sheetName = "raw",
+#            showNA = FALSE)
