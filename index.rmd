@@ -37,7 +37,7 @@ source(here::here('R', '02.2_load_all_data.R')) # updated 2021-12-03
 
 ***
 
-# Participating Reserves and provided data:
+# Participating Reserves and Provided Data:
 
 ```{r reserves-1}
 reserves <- tribble(
@@ -56,12 +56,29 @@ reserves <- tribble(
   12, "WEL"
 )
 
+interf <- tribble(
+  ~no, ~reserve, ~fDOM, ~Turbidity, ~Temperature,
+  1, "ELK", "", "", "",
+  2, "GND", "", "", "",
+  3, "GRB", "", "", "",
+  4, "GTM", "X", "X", "X",
+  5, "HEE", "", "X", "X",
+  6, "LKS", "X", "", "",
+  7, "MAR", "", "X", "",
+  8, "NIW", "X", "X", "X",
+  9, "OWC", "X", "", "",
+  10, "PDB", "", "", "X",
+  11, "SAP", "", "", "",
+  12, "WEL", "", "", ""
+)
+
 a <- as_tibble(unique(isco$reserve_code)) %>% rename(reserve = value) %>% mutate(ISCO = 'X')
 b <- as_tibble(unique(tank$reserve_code)) %>% rename(reserve = value) %>% mutate(Tank = 'X')
 
 d <- left_join(reserves, a, by = "reserve") %>% 
-        left_join(b, by = "reserve") %>% 
-        select(-no) %>% 
+        left_join(b, by = "reserve") %>%
+        left_join(interf, by = "reserve") %>% 
+        select(-contains("no")) %>% 
         rename(Reserve = reserve)
 
 d <- sapply(d, as.character)
@@ -69,12 +86,13 @@ d[is.na(d)] <- " "
 d <- as.data.frame(d)
 
 d %>% 
-  kbl(align = "c") %>% 
+  kbl(align = "c", caption = "Reserves and types of data that were collected for the project including interference testing for fDOM, turbidity, and temperature parameters.") %>% 
   kable_styling(fixed_thead = T) %>% 
   row_spec(0, bold = T) %>% 
-  column_spec(1, border_right = T) %>% 
+  column_spec(1, border_right = T) %>%
+  column_spec(3, border_right = T) %>% 
   kable_classic(c('striped', 'hover'), html_font = "Open Sans", full_width = F)
 
-rm(reserves, a, b, d)
+rm(reserves, interf, a, b, d)
 ```
 
