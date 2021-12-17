@@ -25,6 +25,7 @@ library(kableExtra)
 # expanded data visualization ----
 library(cowplot) # additional themes for ggplot2
 # library(gridExtra) # grid graphics
+library(khroma) # color-blind friendly color palettes for ggplot2
 library(patchwork) # grid graphics (better)
 library(scales) # scale functions for visualization
 # library(gganimate) # make animated plots

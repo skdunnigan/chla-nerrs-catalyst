@@ -27,3 +27,10 @@ reservecolours <- c(`ELK` = "#F8766D",
 fdom <- 2
 temperature <- 1
 turbidity <- 0
+
+# for fdom interference standards
+standard_colors <- c(`GTM` = "#000000",
+                     `LKS` = "#56B4E9",
+                     `NIW` = "#E69F00",
+                     `OWC` = "#009E73",
+                     `Suwannee` = "#CC79A7")
