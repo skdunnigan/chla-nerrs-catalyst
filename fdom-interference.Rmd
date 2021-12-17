@@ -19,19 +19,12 @@ source(here::here('R', '00_vis_custom.R'))
 source(here::here('R', '00_load-packages.R'))
 ```
 
-Currently, only data from North Inlet-Winyah Bay:
-
 ```{r load-data, include = FALSE, results = FALSE}
 
 source(here::here('R', '02.2_load_all_data.R'))
 source(here::here('R', 'interference', '03_fdom-load-wrangle-run.R'))
 ```
 
-```{r, fig.cap ="Average fluorescent dissolved organic matter (QSU) and chlorophyll fluorescence (RFU) from one trial"}
-fdom_interf
+```{r fdom-multiplot, fig.width=6, fig.height=8, fig.cap = "Fluorescent dissolved organic carbon (fDOM) interference testing on the EXO Total Algae Sensor for chlorophyll-a RFU was conducted by Guana Tolomato Matanzas, Lake Superior, North Inlet-Winyah Bay, and Old Woman Creek NERRs. Standards were made using ambient water near each NERR and added to deonized water (A), and local ambient water (C). Differences in response of the combusted standards to the same ambient water source, from Guana Tolomato Matanzas NERR, was also tested (B)."}
+fdom_multiplot
 ```
-
-General comments:
-
-+   Didn’t get up to max QSU seen in system (~120)
-+   Compared to natural data, when QSU is high, RFU are not as high as they got in experiment
