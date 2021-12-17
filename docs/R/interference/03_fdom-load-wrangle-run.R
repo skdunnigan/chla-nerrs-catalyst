@@ -153,7 +153,7 @@ stds_gtm <- dplyr::bind_rows(
 # 02 plotting ----  
 
 a <- DI_fdom %>% 
-      ggplot(aes(x = avg_fdom_qsu, y = avg_chl_rfu,
+      ggplot(aes(x = avg_fdom_qsu, y = corrected_avg_chl_rfu,
                  color = standard,
                  group = standard_run)) +
       geom_point() +
@@ -169,7 +169,7 @@ a <- DI_fdom %>%
            x = 'fDOM (QSU)')
   
 b <- stds_gtm %>% 
-      ggplot(aes(x = avg_fdom_qsu, y = avg_chl_rfu,
+      ggplot(aes(x = avg_fdom_qsu, y = corrected_avg_chl_rfu,
                  color = standard,
                  group = standard_run)) +
       geom_point() +
@@ -184,7 +184,7 @@ b <- stds_gtm %>%
            x = 'fDOM (QSU)')
 
 c <- ambient_fdom %>% 
-      ggplot(aes(x = avg_fdom_qsu, y = avg_chl_rfu,
+      ggplot(aes(x = avg_fdom_qsu, y = corrected_avg_chl_rfu,
                  color = standard,
                  group = standard_run)) +
       geom_point() +
