@@ -2,7 +2,7 @@
 # source('R/00_load-packages.R')
 
 # 01 all data files ready for analysis ----
-files <- list.files(path = here::here('analysis'), 
+files <- list.files(path = here::here('final-project-files', 'reserve-chla-data'), 
                     pattern = ".xlsx")
 
 # 02 read in isco files ----
