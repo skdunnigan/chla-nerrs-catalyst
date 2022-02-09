@@ -5,6 +5,7 @@
 team-notes/
 data/
 team-notes/
-resources/
+analysis/
+output/
 *.indd
 _site/
