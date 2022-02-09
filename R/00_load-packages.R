@@ -5,8 +5,6 @@
 library(readxl) # read excel files
 library(janitor) # simple tools to clean dirty data
 library(here) # a simpler way to find your files
-# library(SWMPr) # working with SWMP data from the NERRS
-# library(SWMPrExtension) # expanded functions for SWMPr package
 library(xlsx)
 
 # tidy and wrangle ----
@@ -23,15 +21,7 @@ library(rmarkdown)
 library(kableExtra)
 
 # expanded data visualization ----
-library(cowplot) # additional themes for ggplot2
-# library(gridExtra) # grid graphics
 library(khroma) # color-blind friendly color palettes for ggplot2
 library(patchwork) # grid graphics (better)
 library(scales) # scale functions for visualization
-# library(gganimate) # make animated plots
 library(plotly) # create interactive web graphics - use for html output files
-# library(ggcorrplot) # visualization of correlation matrix using ggplot2
-# or install the latest ggcorrplot from GitHub
-# Install
-# if(!require(devtools)) install.packages("devtools")
-# devtools::install_github("kassambara/ggcorrplot")
