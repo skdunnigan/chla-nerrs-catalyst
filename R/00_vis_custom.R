@@ -33,4 +33,4 @@ standard_colors <- c(`GTM` = "#000000",
                      `LKS` = "#56B4E9",
                      `NIW` = "#E69F00",
                      `OWC` = "#009E73",
-                     `Suwannee` = "#CC79A7")
+                     `Humic` = "#CC79A7")

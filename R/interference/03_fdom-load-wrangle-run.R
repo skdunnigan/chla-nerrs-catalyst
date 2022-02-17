@@ -21,10 +21,10 @@ ambient_fdom <- dplyr::bind_rows(
                                    run = 2)
                   ),
                   (readxl::read_xlsx(here::here('analysis', 'interference-data', 
-                                                'fdom_std-suwannee_ambient-gtm_1.xlsx'), 
+                                                'fdom_std-humic_ambient-gtm_1.xlsx'), 
                                      sheet = 'Analysis') %>%
                      janitor::clean_names() %>% 
-                     dplyr::mutate(standard = "Suwannee",
+                     dplyr::mutate(standard = "Humic",
                                    run = 1)
                   ),
                   (readxl::read_xlsx(here::here('analysis', 'interference-data', 
