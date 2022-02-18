@@ -101,7 +101,7 @@ owc_plot <- owc %>%
 
 (elk_plot + theme(legend.position = "none",
                   axis.text.x = element_blank()) + 
-    labs(title = "Elkhorn Slough, WA",
+    labs(title = "Elkhorn Slough, CA",
          x = "")) / 
   (gtm_plot + theme(legend.position = "none",
                     axis.text.x = element_blank()) +
