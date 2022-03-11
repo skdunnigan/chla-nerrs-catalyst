@@ -84,12 +84,12 @@ turb_interf_niw <- turb %>%
                                  x = 200,
                                  y = 3.5,
                                  size = 3.5,
-                                 label = run_1_eq) +
+                                 label = run_3_eq) +
                         annotate("text",
                                  x = 200,
                                  y = 3.4,
                                  size = 3.5,
-                                 label = run_1_stat) +
+                                 label = run_3_stat) +
                         annotate("text",
                                  x = 200,
                                  y = 2.4,
@@ -104,12 +104,12 @@ turb_interf_niw <- turb %>%
                                  x = 200,
                                  y = 1.6,
                                  size = 3.5,
-                                 label = run_3_eq) +
+                                 label = run_1_eq) +
                         annotate("text",
                                  x = 200,
                                  y = 1.5,
                                  size = 3.5,
-                                 label = run_3_stat)
+                                 label = run_1_stat)
   
 rm(equations, turb, m, b, lm_out, diag, 
    run_1_eq, run_1_stat,

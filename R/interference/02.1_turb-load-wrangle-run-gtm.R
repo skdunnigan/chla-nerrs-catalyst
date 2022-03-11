@@ -27,6 +27,7 @@ lm_out <- turb %>%
           dplyr::group_by(run) %>%
           do(broom::tidy(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
 
+
 diag <- turb %>%
           group_by(run) %>%
           do(broom::glance(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
@@ -75,22 +76,22 @@ turb_interf_gtm <- turb %>%
                                  x = 200,
                                  y = 6,
                                  size = 3.5,
-                                 label = run_1_eq) +
+                                 label = run_2_eq) +
                         annotate("text",
                                  x = 200,
                                  y = 5.7,
                                  size = 3.5,
-                                 label = run_1_stat) +
+                                 label = run_2_stat) +
                         annotate("text",
                                  x = 200,
                                  y = 3.3,
                                  size = 3.5,
-                                 label = run_2_eq) +
+                                 label = run_1_eq) +
                         annotate("text",
                                  x = 200,
                                  y = 3,
                                  size = 3.5,
-                                 label = run_2_stat) 
+                                 label = run_1_stat) 
 
   
 rm(equations, turb, m, b, lm_out, diag, 
