@@ -76,6 +76,36 @@ gtm_plot <- gtm %>%
               labs(x = "Date",
                    y = "Chlorophyll a (\U00B5g/L)")
 
+gtm_plot_may2020 <- gtm %>% 
+  ggplot(aes(x = datetime_collected, y = chla_ugl)) +
+  geom_point(data = filter(gtm, type == "Sonde" & datetime_collected > "2020-05-01" & datetime_collected <"2020-06-01"), 
+             aes(shape = "Sonde", color = "Sonde")) +
+  geom_point(data = filter(gtm, type == "ISCO" & datetime_collected > "2020-05-01" & datetime_collected <"2020-06-01"),
+             aes(shape = "Diel", color = "Diel"),
+             size = 3) +
+  geom_point(data = filter(gtm, type == "SWMP Grab" & datetime_collected > "2020-05-01" & datetime_collected <"2020-06-01"),
+             aes(shape = "Grab", color = "Grab"),
+             size = 4) +
+  scale_shape_manual(name = '', 
+                     values = c('Grab'= 19, 
+                                'Diel'= 19, 
+                                'Sonde'= 1)) +
+  scale_color_manual(name = '', 
+                     values = c('Grab'='deepskyblue3', 
+                                'Diel'='orange', 
+                                'Sonde'='grey70')) +
+  scale_x_datetime(date_breaks = "day", date_labels = "%d") +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_classic() +
+  theme(axis.text = element_text(color = "black", size = 12),
+        axis.title = element_text(color = "black", size = 12),
+        legend.text = element_text(color = "black", size = 12)) +
+  labs(x = "",
+       y = chla_extr_title2,
+       title = "May 2020")
+
+
+
 owc_plot <- owc %>% 
               ggplot(aes(x = datetime_collected, y = chla_ugl)) +
               geom_point(data = filter(owc, type == "Sonde"), 
@@ -110,5 +140,6 @@ owc_plot <- owc %>%
   (owc_plot + theme(legend.position = "bottom") +
      labs(title = "Old Woman Creek, OH")) 
 
-
- 
+# ggsave(gtm_plot_may2020, filename = here('output', 'case-studies-gtm-may2020_color.png'),
+#        dpi = 300, height = 3.62, width = 12.63, units = "in")
+#  
