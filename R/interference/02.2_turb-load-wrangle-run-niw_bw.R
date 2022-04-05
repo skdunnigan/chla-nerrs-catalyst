@@ -73,9 +73,8 @@ turb_interf_niw <- niw_turb %>%
                         theme_classic() +
                         theme(axis.text = element_text(size = 12, color = 'black'),
                               axis.title = element_text(size = 12),
-                              text = element_text(family = "serif"),
                               plot.title = element_text(face = "bold")) +
-                        labs(y = "Chlorophyll a RFU",
+                        labs(y = chla_RFU_title,
                              x = 'Turbidity (FNU)',
                              title = "NIW",
                              shape = "Run",
@@ -84,37 +83,31 @@ turb_interf_niw <- niw_turb %>%
                                  x = 320,
                                  y = 3.5,
                                  size = 3,
-                                 family = "serif",
                                  label = run_3_eq) +
                         annotate("text",
                                  x = 320,
                                  y = 3.4,
                                  size = 3,
-                                 family = "serif",
                                  label = run_3_stat) +
                         annotate("text",
                                  x = 320,
                                  y = 2.4,
                                  size = 3,
-                                 family = "serif",
                                  label = run_2_eq) +
                         annotate("text",
                                  x = 320,
                                  y = 2.3,
                                  size = 3,
-                                 family = "serif",
                                  label = run_2_stat) +
                         annotate("text",
                                  x = 320,
                                  y = 1.5,
                                  size = 3,
-                                 family = "serif",
                                  label = run_1_eq) +
                         annotate("text",
                                  x = 320,
                                  y = 1.4,
                                  size = 3,
-                                 family = "serif",
                                  label = run_1_stat)
 
 ggsave(turb_interf_niw, filename = here('output', 'bw', 'turb_interf_niw.png'),

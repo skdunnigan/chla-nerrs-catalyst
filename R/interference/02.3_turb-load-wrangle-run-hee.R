@@ -5,31 +5,23 @@
 
 # 01 load-data ---------------------------------------------------------------
 
-dat_1 <- readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_hee_1.xlsx'), 
-                           sheet = 'Sheet1') %>%
-          janitor::clean_names() %>% 
-          dplyr::mutate(run = 1) 
-
-dat_2 <- readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_hee_2.xlsx'), 
-                           sheet = 'Sheet1') %>%
-          janitor::clean_names() %>% 
-          dplyr::mutate(run = 2) 
-
-
-turb <- bind_rows(dat_1, dat_2) %>% 
-        dplyr::mutate(run = forcats::as_factor(run))
-  
-rm(dat_1,
-   dat_2)
+hee_turb <- bind_rows((readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_hee_1.xlsx'), 
+                                         sheet = 'Sheet1') %>%
+                         janitor::clean_names() %>% 
+                         dplyr::mutate(run = 1)),
+                      (readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_hee_2.xlsx'), 
+                                         sheet = 'Sheet1') %>%
+                         janitor::clean_names() %>% 
+                         dplyr::mutate(run = 2))) %>% dplyr::mutate(run = forcats::as_factor(run))
 
 ## get models
-lm_out <- turb %>%
-          dplyr::group_by(run) %>%
-          do(broom::tidy(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
+lm_out <- hee_turb %>%
+  dplyr::group_by(run) %>%
+  do(broom::tidy(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
 
-diag <- turb %>%
-          group_by(run) %>%
-          do(broom::glance(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
+diag <- hee_turb %>%
+  group_by(run) %>%
+  do(broom::glance(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
 
 ##check out model outputs
 lm_out
@@ -60,39 +52,57 @@ run_1_stat <- equations[[1,20]]
 run_2_stat <- equations[[2,20]]
 
 
-turb_interf_hee <- turb %>% 
-                      ggplot(aes(x = average_turb_fnu, y = average_chl_rfu)) +
-                        geom_point(position = "jitter") +
-                        stat_smooth(method = "lm", aes(color = run),
-                                    se = FALSE,
-                                    fullrange = T) +
-                        theme_bw() +
-                        theme(axis.text = element_text(size = 12, color = 'black'),
-                              axis.title = element_text(size = 12)) +
-                        labs(y = chla_RFU_title,
-                             x = 'Turbidity (FNU)') +
-                        annotate("text",
-                                 x = 200,
-                                 y = 0.32,
-                                 size = 3.5,
-                                 label = run_1_eq) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 0.3,
-                                 size = 3.5,
-                                 label = run_1_stat) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 0.62,
-                                 size = 3.5,
-                                 label = run_2_eq) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 0.6,
-                                 size = 3.5,
-                                 label = run_2_stat) 
+turb_interf_hee <- hee_turb %>% 
+  ggplot(aes(x = average_turb_fnu, y = average_chl_rfu,
+             shape = run, linetype = run)) +
+  geom_point(position = "jitter") +
+  stat_smooth(method = "lm", color = "black",
+              se = FALSE,
+              fullrange = T) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 12, color = 'black'),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(face = "bold")) +
+  labs(y = chla_RFU_title,
+       x = 'Turbidity (FNU)',
+       title = "HEE",
+       shape = "Run",
+       linetype = "Run") +
+  annotate("text",
+           x = 320,
+           y = 0.33,
+           size = 3,
+           label = run_1_eq) +
+  annotate("text",
+           x = 320,
+           y = 0.3,
+           size = 3,
+           label = run_1_stat) +
+  annotate("text",
+           x = 200,
+           y = 0.73,
+           size = 3,
+           label = run_2_eq) +
+  annotate("text",
+           x = 200,
+           y = 0.7,
+           size = 3,
+           label = run_2_stat)  
 
   
 rm(equations, turb, m, b, lm_out, diag, 
    run_1_eq, run_1_stat,
    run_2_eq, run_2_stat)
+
+multiplot_turb <- (turb_interf_gtm + 
+                    theme(legend.position = "none") +
+                      labs(x = "")) + 
+                    (turb_interf_hee + 
+                    theme(legend.position = "none") +
+                      labs(y = "")) +
+                    (turb_interf_niw +
+                    labs(y = "", x = "") +
+                      theme(legend.position = "bottom"))
+
+# ggsave(multiplot_turb, filename = here('output', 'turb-multiplot.png'),
+#               dpi = 300, height = 4.7, width = 12.63, units = "in")

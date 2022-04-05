@@ -5,30 +5,26 @@
 
 # 01 load-data ---------------------------------------------------------------
 
-dat_1 <- readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_gtm_1.xlsx'), 
-                           sheet = 'Sheet1') %>%
-          janitor::clean_names() %>% 
-          dplyr::mutate(run = 1) 
-
-dat_2 <- readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_gtm_2.xlsx'), 
-                           sheet = 'Sheet1') %>%
-          janitor::clean_names() %>% 
-          dplyr::mutate(run = 2) 
-
-
-turb <- bind_rows(dat_1, dat_2) %>% 
-        dplyr::mutate(run = forcats::as_factor(run))
+gtm_turb <- bind_rows(
+  (readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_gtm_1.xlsx'), 
+                     sheet = 'Sheet1') %>%
+     janitor::clean_names() %>% 
+     dplyr::mutate(run = 1)), 
+  readxl::read_xlsx(here::here('analysis', 'interference-data', 'turb_gtm_2.xlsx'), 
+                    sheet = 'Sheet1') %>%
+    janitor::clean_names() %>% 
+    dplyr::mutate(run = 2)
+) %>% 
+  dplyr::mutate(run = forcats::as_factor(run))
   
-rm(dat_1,
-   dat_2)
 
 ## get models
-lm_out <- turb %>%
+lm_out <- gtm_turb %>%
           dplyr::group_by(run) %>%
           do(broom::tidy(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
 
 
-diag <- turb %>%
+diag <- gtm_turb %>%
           group_by(run) %>%
           do(broom::glance(lm(average_chl_rfu ~ average_turb_fnu, data = .)))
 
@@ -61,37 +57,42 @@ run_1_stat <- equations[[1,20]]
 run_2_stat <- equations[[2,20]]
 
 
-turb_interf_gtm <- turb %>% 
-                      ggplot(aes(x = average_turb_fnu, y = average_chl_rfu)) +
-                        geom_point(position = "jitter") +
-                        stat_smooth(method = "lm", aes(color = run),
-                                    se = FALSE,
-                                    fullrange = T) +
-                        theme_bw() +
-                        theme(axis.text = element_text(size = 12, color = 'black'),
-                              axis.title = element_text(size = 12)) +
-                        labs(y = chla_RFU_title,
-                             x = 'Turbidity (FNU)') +
-                        annotate("text",
-                                 x = 200,
-                                 y = 6,
-                                 size = 3.5,
-                                 label = run_2_eq) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 5.7,
-                                 size = 3.5,
-                                 label = run_2_stat) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 3.3,
-                                 size = 3.5,
-                                 label = run_1_eq) +
-                        annotate("text",
-                                 x = 200,
-                                 y = 3,
-                                 size = 3.5,
-                                 label = run_1_stat) 
+turb_interf_gtm <- gtm_turb %>% 
+                    ggplot(aes(x = average_turb_fnu, y = average_chl_rfu,
+                                                shape = run, linetype = run)) +
+                    geom_point(position = "jitter") +
+                    stat_smooth(method = "lm", color = "black",
+                                se = FALSE,
+                                fullrange = T) +
+                    theme_classic() +
+                    theme(axis.text = element_text(size = 12, color = 'black'),
+                          axis.title = element_text(size = 12),
+                          plot.title = element_text(face = "bold")) +
+                    labs(y = chla_RFU_title,
+                         x = 'Turbidity (FNU)',
+                         title = "GTM",
+                         shape = "Run",
+                         linetype = "Run") +
+                    annotate("text",
+                             x = 320,
+                             y = 8,
+                             size = 3,
+                             label = run_2_eq) +
+                    annotate("text",
+                             x = 320,
+                             y = 7.7,
+                             size = 3,
+                             label = run_2_stat) +
+                    annotate("text",
+                             x = 200,
+                             y = 3.3,
+                             size = 3,
+                             label = run_1_eq) +
+                    annotate("text",
+                             x = 200,
+                             y = 3,
+                             size = 3,
+                             label = run_1_stat) 
 
   
 rm(equations, turb, m, b, lm_out, diag, 

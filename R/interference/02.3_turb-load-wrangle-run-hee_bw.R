@@ -62,9 +62,8 @@ turb_interf_hee <- hee_turb %>%
                         theme_classic() +
                         theme(axis.text = element_text(size = 12, color = 'black'),
                               axis.title = element_text(size = 12),
-                              text = element_text(family = "serif"),
                               plot.title = element_text(face = "bold")) +
-                        labs(y = "Chlorophyll a RFU",
+                        labs(y = chla_RFU_title,
                              x = 'Turbidity (FNU)',
                              title = "HEE",
                              shape = "Run",
@@ -73,25 +72,21 @@ turb_interf_hee <- hee_turb %>%
                                  x = 320,
                                  y = 0.33,
                                  size = 3,
-                                 family = "serif",
                                  label = run_1_eq) +
                         annotate("text",
                                  x = 320,
                                  y = 0.3,
                                  size = 3,
-                                 family = "serif",
                                  label = run_1_stat) +
                         annotate("text",
                                  x = 200,
                                  y = 0.73,
                                  size = 3,
-                                 family = "serif",
                                  label = run_2_eq) +
                         annotate("text",
                                  x = 200,
                                  y = 0.7,
                                  size = 3,
-                                 family = "serif",
                                  label = run_2_stat) 
 
 ggsave(turb_interf_hee, filename = here('output', 'bw', 'turb_interf_hee.png'),
