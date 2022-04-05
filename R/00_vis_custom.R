@@ -2,7 +2,8 @@
 
 # create label for chlorophyll plots
 chla_extr_title <- expression(paste("Chlorophyll ", italic("a "), mu*"g/L", " Extracted"))
-chla_RFU_title <- expression(paste("Chlorophyll ", italic("a "), "RFU EXO"))
+chla_RFU_title <- expression(paste("Chlorophyll ", italic(" a "), "RFU"))
+chla_extr_title2 <- expression(paste("Chlorophyll ", italic(" a "), mu*"g/L"))
 
 # # view vis options for plot
 # scales::show_col(hue_pal()(13))
@@ -32,5 +33,14 @@ turbidity <- 0
 standard_colors <- c(`GTM` = "#000000",
                      `LKS` = "#56B4E9",
                      `NIW` = "#E69F00",
-                     `OWC` = "#009E73",
-                     `Humic` = "#CC79A7")
+                     `OWC` = "#009E73")
+                     # `Humic` = "#CC79A7")
+standard_shapes <- c(`GTM` = 17,
+                     `LKS` = 8,
+                     `NIW` = 1,
+                     `OWC` = 19)
+                     # `Humic` = 7)
+standard_linetypes <- c(`GTM` = "solid",
+                        `LKS` = "dashed",
+                        `NIW` = "dotdash",
+                        `OWC` = "dotted")
