@@ -79,12 +79,12 @@ turb_interf_hee <- hee_turb %>%
                                  size = 3,
                                  label = run_1_stat) +
                         annotate("text",
-                                 x = 200,
+                                 x = 300,
                                  y = 0.73,
                                  size = 3,
                                  label = run_2_eq) +
                         annotate("text",
-                                 x = 200,
+                                 x = 300,
                                  y = 0.7,
                                  size = 3,
                                  label = run_2_stat) 
